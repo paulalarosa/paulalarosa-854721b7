@@ -15,11 +15,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'About', href: '#about' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Início', href: '#home' },
+    { label: 'Portfólio', href: '#portfolio' },
+    { label: 'Sobre', href: '#about' },
+    { label: 'Contato', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -42,7 +41,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="font-serif text-2xl font-bold text-primary">
-            Sarah Chen
+            Paula La Rosa
           </div>
 
           {/* Desktop Navigation */}
@@ -65,7 +64,7 @@ const Header = () => {
               onClick={() => scrollToSection('#contact')}
               className="gradient-hero text-primary-foreground hover:shadow-accent transition-smooth"
             >
-              Let's Work Together
+              Vamos Trabalhar Juntas
             </Button>
           </div>
 
@@ -96,7 +95,7 @@ const Header = () => {
                 onClick={() => scrollToSection('#contact')}
                 className="gradient-hero text-primary-foreground mt-4 w-full"
               >
-                Let's Work Together
+                Vamos Trabalhar Juntas
               </Button>
             </nav>
           </div>

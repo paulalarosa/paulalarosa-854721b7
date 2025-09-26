@@ -4,17 +4,17 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com/in/sarahchen-design', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/sarahchen_design', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com/sarahchen.design', label: 'Instagram' },
-    { icon: Mail, href: 'mailto:sarah@sarahchen.design', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/paula-la-rosa-228889119/', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://www.behance.net/paulalarosa', label: 'Behance' },
+    { icon: Instagram, href: 'https://wa.me/5521983604870', label: 'WhatsApp' },
+    { icon: Mail, href: 'mailto:prenata@gmail.com', label: 'Email' },
   ];
 
   const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Início', href: '#home' },
+    { label: 'Portfólio', href: '#portfolio' },
+    { label: 'Sobre', href: '#about' },
+    { label: 'Contato', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -30,10 +30,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="font-serif text-2xl font-bold">Sarah Chen</div>
+            <div className="font-serif text-2xl font-bold">Paula La Rosa</div>
             <p className="text-primary-foreground/80 max-w-sm">
-              Strategic graphic designer with an MBA, helping businesses create 
-              visual identities that drive growth and build lasting connections.
+              Designer gráfica estratégica com MBA, ajudando empresas a criar 
+              identidades visuais que impulsionam crescimento e constroem conexões duradouras.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
@@ -51,7 +51,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Quick Links</h3>
+            <h3 className="font-semibold text-lg">Links Rápidos</h3>
             <nav className="space-y-2">
               {quickLinks.map((link) => (
                 <button
@@ -67,18 +67,18 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Stay Updated</h3>
+            <h3 className="font-semibold text-lg">Mantenha-se Atualizada</h3>
             <p className="text-primary-foreground/80 text-sm">
-              Get insights on design trends, marketing strategies, and growth tips.
+              Receba insights sobre tendências de design, estratégias de marketing e dicas de crescimento.
             </p>
             <div className="flex gap-2">
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder="seu@email.com"
                 className="flex-1 px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg text-primary-foreground placeholder:text-primary-foreground/60 focus:outline-none focus:border-accent"
               />
               <button className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent-light transition-smooth">
-                Subscribe
+                Inscrever
               </button>
             </div>
           </div>
@@ -87,14 +87,14 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {currentYear} Sarah Chen. All rights reserved.
+            © {currentYear} Paula La Rosa. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-primary-foreground/60 hover:text-accent text-sm transition-smooth">
-              Privacy Policy
+              Política de Privacidade
             </a>
             <a href="#" className="text-primary-foreground/60 hover:text-accent text-sm transition-smooth">
-              Terms of Service
+              Termos de Serviço
             </a>
           </div>
         </div>

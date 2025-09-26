@@ -12,36 +12,36 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Brand Identity & Logo Design',
+      title: 'Identidade Visual Klini Saúde',
       category: 'branding',
-      description: 'Complete brand identity system for a tech startup, including logo, color palette, and brand guidelines.',
+      description: 'Sistema completo de identidade visual para startup de saúde, incluindo materiais promocionais e campanhas digitais.',
       image: portfolio1,
-      tags: ['Branding', 'Logo Design', 'Brand Strategy'],
-      results: '40% increase in brand recognition'
+      tags: ['Branding', 'Design Gráfico', 'Marketing Digital'],
+      results: '40% aumento no reconhecimento da marca'
     },
     {
       id: 2,
-      title: 'Digital Marketing Campaign',
+      title: 'Campanha Digital Growth',
       category: 'marketing',
-      description: 'Multi-channel digital campaign that increased conversions through strategic visual design.',
+      description: 'Campanha multicanal que aumentou conversões através de design visual estratégico e tráfego pago.',
       image: portfolio2,
-      tags: ['Digital Marketing', 'Social Media', 'Conversion Design'],
-      results: '65% increase in conversions'
+      tags: ['Marketing Digital', 'Redes Sociais', 'Growth Hacking'],
+      results: '65% aumento nas conversões'
     },
     {
       id: 3,
-      title: 'Premium Packaging Design',
+      title: 'Design de Packaging Premium',
       category: 'packaging',
-      description: 'Luxury packaging design that enhanced product perception and shelf appeal.',
+      description: 'Design de embalagem luxuosa que melhorou a percepção do produto e apelo visual.',
       image: portfolio3,
-      tags: ['Packaging', 'Luxury Design', 'Product Marketing'],
-      results: '30% increase in sales'
+      tags: ['Packaging', 'Design Luxury', 'Product Marketing'],
+      results: '30% aumento nas vendas'
     },
   ];
 
   const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'branding', label: 'Branding' },
+    { id: 'all', label: 'Todos os Projetos' },
+    { id: 'branding', label: 'Identidade Visual' },
     { id: 'marketing', label: 'Marketing' },
     { id: 'packaging', label: 'Packaging' },
   ];
@@ -56,10 +56,10 @@ const Portfolio = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6">
-            Featured Work
+            Trabalhos em Destaque
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of strategic design solutions that blend creativity with business impact
+            Uma vitrine de soluções de design estratégico que combinam criatividade com impacto nos negócios
           </p>
         </div>
 
@@ -103,7 +103,7 @@ const Portfolio = () => {
                       className="bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30"
                     >
                       <Eye className="h-4 w-4 mr-2" />
-                      View
+                      Ver
                     </Button>
                     <Button
                       size="sm"
@@ -111,7 +111,7 @@ const Portfolio = () => {
                       className="bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Live
+                      Projeto
                     </Button>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const Portfolio = () => {
             variant="outline"
             className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
           >
-            View All Projects
+            Ver Todos os Projetos
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>

@@ -21,7 +21,7 @@ const Contact = () => {
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Please fill in all required fields",
+        title: "Por favor, preencha todos os campos obrigatórios",
         variant: "destructive",
       });
       return;
@@ -31,8 +31,8 @@ const Contact = () => {
     console.log('Form submitted:', formData);
     
     toast({
-      title: "Message sent successfully!",
-      description: "I'll get back to you within 24 hours.",
+      title: "Mensagem enviada com sucesso!",
+      description: "Retornarei em até 24 horas.",
     });
 
     // Reset form
@@ -51,30 +51,40 @@ const Contact = () => {
     });
   };
 
+  const openEmail = () => {
+    window.open('mailto:prenata@gmail.com', '_blank');
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/5521983604870', '_blank');
+  };
+
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'sarah@sarahchen.design',
-      href: 'mailto:sarah@sarahchen.design'
+      value: 'Clique para enviar email',
+      href: '#',
+      onClick: openEmail
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      label: 'WhatsApp',
+      value: 'Clique para conversar',
+      href: '#',
+      onClick: openWhatsApp
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'San Francisco, CA',
+      label: 'Localização',
+      value: 'Rio de Janeiro, RJ',
       href: '#'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/sarahchen-design',
-      href: 'https://linkedin.com/in/sarahchen-design'
+      value: 'Paula La Rosa',
+      href: 'https://www.linkedin.com/in/paula-la-rosa-228889119/'
     },
   ];
 
@@ -84,11 +94,11 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6">
-            Let's Create Something Amazing
+            Vamos Criar Algo Incrível
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to elevate your brand with strategic design? Let's discuss your project 
-            and explore how we can drive growth together.
+            Pronta para elevar sua marca com design estratégico? Vamos conversar sobre seu projeto 
+            e explorar como podemos impulsionar crescimento juntas.
           </p>
         </div>
 
@@ -96,14 +106,14 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="p-8 shadow-medium border-0">
             <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
-              Start Your Project
+              Inicie Seu Projeto
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name *
+                    Nome *
                   </label>
                   <Input
                     id="name"
@@ -111,7 +121,7 @@ const Contact = () => {
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your full name"
+                    placeholder="Seu nome completo"
                     required
                     className="border-border focus:border-accent focus:ring-accent"
                   />
@@ -127,7 +137,7 @@ const Contact = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your@email.com"
+                    placeholder="seu@email.com"
                     required
                     className="border-border focus:border-accent focus:ring-accent"
                   />
@@ -136,7 +146,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                  Company
+                  Empresa
                 </label>
                 <Input
                   id="company"
@@ -144,21 +154,21 @@ const Contact = () => {
                   type="text"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your company name"
+                  placeholder="Nome da sua empresa"
                   className="border-border focus:border-accent focus:ring-accent"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Project Details *
+                  Detalhes do Projeto *
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your project, goals, and timeline..."
+                  placeholder="Conte-me sobre seu projeto, objetivos e prazo..."
                   rows={6}
                   required
                   className="border-border focus:border-accent focus:ring-accent resize-none"
@@ -170,7 +180,7 @@ const Contact = () => {
                 size="lg"
                 className="w-full gradient-hero text-primary-foreground hover:shadow-accent transition-smooth"
               >
-                Send Message
+                Enviar Mensagem
                 <Send className="ml-2 h-5 w-5" />
               </Button>
             </form>
@@ -180,21 +190,21 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
-                Get In Touch
+                Entre em Contato
               </h3>
               <p className="text-muted-foreground mb-8">
-                Prefer to reach out directly? Choose your preferred method below. 
-                I typically respond within 24 hours.
+                Prefere entrar em contato diretamente? Escolha seu método preferido abaixo. 
+                Geralmente respondo em até 24 horas.
               </p>
             </div>
 
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="flex items-center p-4 bg-card rounded-lg shadow-soft hover:shadow-medium transition-smooth group"
-                >
+                 <div
+                   key={index}
+                   onClick={item.onClick || (() => window.open(item.href, '_blank'))}
+                   className="flex items-center p-4 bg-card rounded-lg shadow-soft hover:shadow-medium transition-smooth group cursor-pointer"
+                 >
                   <div className="flex items-center justify-center w-12 h-12 bg-accent/10 rounded-lg mr-4 group-hover:bg-accent/20 transition-smooth">
                     <item.icon className="h-6 w-6 text-accent" />
                   </div>
@@ -206,24 +216,24 @@ const Contact = () => {
                       {item.value}
                     </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
 
             {/* Call to Action */}
             <Card className="p-6 gradient-subtle border-accent/20">
               <h4 className="font-serif text-xl font-semibold text-primary mb-3">
-                Ready to Start?
+                Pronta para Começar?
               </h4>
               <p className="text-muted-foreground mb-4">
-                Book a free 30-minute consultation to discuss your project and 
-                see how strategic design can accelerate your growth.
+                Agende uma consulta gratuita de 30 minutos para discutir seu projeto e 
+                ver como design estratégico pode acelerar seu crescimento.
               </p>
               <Button
                 variant="outline"
                 className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
               >
-                Schedule a Call
+                Agendar Conversa
               </Button>
             </Card>
           </div>

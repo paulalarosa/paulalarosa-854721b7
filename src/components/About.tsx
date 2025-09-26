@@ -3,34 +3,34 @@ import { Card } from '@/components/ui/card';
 
 const About = () => {
   const skills = [
-    'Brand Strategy & Identity',
-    'Digital Marketing Design',
+    'Estratégia de Marca & Identidade',
+    'Design para Marketing Digital',
     'Growth Marketing',
     'UI/UX Design',
-    'Marketing Analytics',
-    'Creative Direction'
+    'Análise de Marketing',
+    'Direção Criativa'
   ];
 
   const achievements = [
     {
       icon: GraduationCap,
-      title: 'Marketing MBA',
-      description: 'Stanford Graduate School of Business'
+      title: 'MBA em Marketing',
+      description: 'Inteligência Competitiva e Inovação'
     },
     {
       icon: Briefcase,
-      title: '5+ Years Experience',
-      description: 'Design & Marketing Strategy'
+      title: '5+ Anos de Experiência',
+      description: 'Design & Estratégia de Marketing'
     },
     {
       icon: TrendingUp,
-      title: '25% Avg Growth',
-      description: 'Client Performance Increase'
+      title: '30% Aumento Médio',
+      description: 'Performance dos Clientes'
     },
     {
       icon: Award,
-      title: 'Award Winner',
-      description: 'Design Excellence Recognition'
+      title: 'Reconhecimento',
+      description: 'Excelência em Design'
     }
   ];
 
@@ -41,32 +41,32 @@ const About = () => {
           {/* Content */}
           <div>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6">
-              Where Creativity Meets Strategy
+              Onde Criatividade Encontra Estratégia
             </h2>
             
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
               <p>
-                I'm Sarah Chen, a graphic designer with an MBA in Marketing who believes that 
-                beautiful design should do more than just look good—it should drive business results.
+                Sou Paula La Rosa, designer gráfica com MBA em Marketing que acredita que 
+                design bonito deve fazer mais do que apenas ser visualmente atrativo—deve gerar resultados de negócio.
               </p>
               
               <p>
-                With over 5 years of experience combining creative vision with strategic thinking, 
-                I help businesses create visual identities that not only capture attention but 
-                convert audiences into loyal customers.
+                Com mais de 5 anos de experiência combinando visão criativa com pensamento estratégico, 
+                ajudo empresas a criar identidades visuais que não apenas capturam atenção, mas 
+                convertem audiências em clientes fiéis.
               </p>
               
               <p>
-                My unique background allows me to understand both the creative and business sides 
-                of every project, ensuring that every design decision is backed by data and 
-                strategic insight.
+                Minha formação única me permite compreender tanto o lado criativo quanto o empresarial 
+                de cada projeto, garantindo que toda decisão de design seja respaldada por dados e 
+                insights estratégicos.
               </p>
             </div>
 
             {/* Skills */}
             <div className="mt-8">
               <h3 className="font-serif text-xl font-semibold text-primary mb-4">
-                Core Expertise
+                Expertise Principal
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {skills.map((skill) => (
@@ -107,10 +107,10 @@ const About = () => {
         <div className="mt-20 text-center">
           <div className="max-w-4xl mx-auto">
             <blockquote className="font-serif text-2xl md:text-3xl text-primary mb-6 leading-relaxed">
-              "Great design isn't just about making things beautiful—it's about making 
-              them work better, sell more, and create lasting connections with people."
+              "Design excepcional não é apenas sobre fazer as coisas bonitas—é sobre fazê-las 
+              funcionar melhor, vender mais e criar conexões duradouras com as pessoas."
             </blockquote>
-            <cite className="text-accent font-medium">— Sarah Chen</cite>
+            <cite className="text-accent font-medium">— Paula La Rosa</cite>
           </div>
         </div>
       </div>

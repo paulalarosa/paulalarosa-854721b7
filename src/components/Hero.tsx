@@ -30,35 +30,35 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-            <span className="text-sm font-medium">Graphic Designer • Marketing MBA • Growth Strategist</span>
+            <span className="text-sm font-medium">Designer Gráfica • MBA Marketing • Growth Strategist</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Creating Visual Stories That
+            Criando Histórias Visuais Que
             <span className="block gradient-accent bg-clip-text text-transparent">
-              Drive Growth
+              Impulsionam Crescimento
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            I combine creative design expertise with strategic marketing insights to build brands that connect, convert, and scale.
+            Combino expertise criativa em design com insights estratégicos de marketing para construir marcas que conectam, convertem e escalam.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-3xl font-bold mb-1">50+</div>
-              <div className="text-white/80 text-sm">Projects Delivered</div>
+              <div className="text-3xl font-bold mb-1">60+</div>
+              <div className="text-white/80 text-sm">Projetos Entregues</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-1">25%</div>
-              <div className="text-white/80 text-sm">Avg. Growth Increase</div>
+              <div className="text-3xl font-bold mb-1">30%</div>
+              <div className="text-white/80 text-sm">Aumento Médio de Conversão</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold mb-1">5+</div>
-              <div className="text-white/80 text-sm">Years Experience</div>
+              <div className="text-white/80 text-sm">Anos de Experiência</div>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const Hero = () => {
               onClick={scrollToPortfolio}
               className="gradient-accent text-accent-foreground hover:shadow-accent transition-smooth group"
             >
-              View My Work
+              Ver Meu Trabalho
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
             </Button>
             <Button
@@ -79,7 +79,7 @@ const Hero = () => {
               className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 transition-smooth"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              Baixar Currículo
             </Button>
           </div>
         </div>
