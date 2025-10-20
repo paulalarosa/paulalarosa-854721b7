@@ -55,7 +55,7 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={scrollToPortfolio}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-sm transition-base group px-8"
+              className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground shadow-silver transition-base group px-8 border border-accent/30"
             >
               Ver Projetos
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-base" />

@@ -97,18 +97,18 @@ const Portfolio = () => {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-slow"
                 />
-                {/* Glassmorphism Overlay on Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-slow flex items-center justify-center glass-effect">
+                {/* Glassmorphism Overlay on Hover - Silver Tones */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-slow flex items-center justify-center glass-silver">
                   <Button
                     size="sm"
-                    className="bg-white/90 text-primary hover:bg-white shadow-lg backdrop-blur-md"
+                    className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground shadow-silver backdrop-blur-md border border-accent/30"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Ver Projeto
                   </Button>
                 </div>
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-medium text-primary">
+                {/* Category Badge - Silver accent */}
+                <div className="absolute top-4 left-4 px-3 py-1 glass-silver rounded-full text-xs font-medium text-primary border border-accent/20">
                   {project.categoryLabel}
                 </div>
               </div>
@@ -154,7 +154,7 @@ const Portfolio = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-base"
+              className="border-accent/50 text-foreground hover:bg-accent hover:text-accent-foreground transition-base shadow-silver"
             >
               Ver Portfólio Completo no Behance
               <ExternalLink className="ml-2 h-5 w-5" />

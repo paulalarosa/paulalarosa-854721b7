@@ -69,7 +69,8 @@ const GenerativeArt = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            ctx.strokeStyle = `rgba(232, 119, 90, ${0.1 * (1 - distance / 150) * particle.life})`;
+            // Silver tones for connections
+            ctx.strokeStyle = `rgba(176, 176, 176, ${0.15 * (1 - distance / 150) * particle.life})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
@@ -78,8 +79,8 @@ const GenerativeArt = () => {
           }
         });
 
-        // Draw particle
-        ctx.fillStyle = `rgba(232, 119, 90, ${0.3 * particle.life})`;
+        // Draw particle - Silver/Gray tones
+        ctx.fillStyle = `rgba(192, 192, 192, ${0.4 * particle.life})`;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
         ctx.fill();

@@ -104,7 +104,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground transition-base"
+                className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base shadow-silver border border-accent/30"
               >
                 <Send className="mr-2 h-5 w-5" />
                 Enviar via WhatsApp

@@ -14,12 +14,12 @@ const Expertise = () => {
 
         {/* Bento Grid - Asymmetric Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {/* Main Card - 2x2 */}
-          <Card className="md:col-span-2 md:row-span-2 p-10 border border-border hover:border-accent/30 transition-base bg-card group relative overflow-hidden hover-lift">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-slow"></div>
+          {/* Main Card - 2x2 - Silver accent gradient on hover */}
+          <Card className="md:col-span-2 md:row-span-2 p-10 border border-border hover:border-accent/50 transition-base bg-card group relative overflow-hidden hover-lift">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-slow"></div>
             <div className="relative z-10">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 border-2 border-gray-light rounded-xl group-hover:border-accent/30 transition-base">
-                <Target className="h-10 w-10 text-primary stroke-[1.5]" />
+              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 border-2 border-gray-light rounded-xl group-hover:border-accent/50 transition-base">
+                <Target className="h-10 w-10 text-primary stroke-[1.5] group-hover:text-accent transition-base" />
               </div>
               <h3 className="font-serif text-3xl font-semibold text-primary mb-4">
                 Planejamento Estratégico & Inovação
@@ -29,9 +29,9 @@ const Expertise = () => {
                 e análise de mercado para impulsionar crescimento sustentável e inovação.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-xs bg-accent/10 text-accent rounded-full">MBA Marketing</span>
-                <span className="px-3 py-1 text-xs bg-accent/10 text-accent rounded-full">Inteligência Competitiva</span>
-                <span className="px-3 py-1 text-xs bg-accent/10 text-accent rounded-full">Análise de Dados</span>
+                <span className="px-3 py-1 text-xs bg-accent/20 text-foreground rounded-full border border-accent/30">MBA Marketing</span>
+                <span className="px-3 py-1 text-xs bg-accent/20 text-foreground rounded-full border border-accent/30">Inteligência Competitiva</span>
+                <span className="px-3 py-1 text-xs bg-accent/20 text-foreground rounded-full border border-accent/30">Análise de Dados</span>
               </div>
             </div>
           </Card>

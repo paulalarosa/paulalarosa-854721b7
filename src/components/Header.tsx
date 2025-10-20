@@ -62,7 +62,7 @@ const Header = () => {
             ))}
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground transition-base"
+              className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
             >
               Entrar em Contato
             </Button>
@@ -92,7 +92,7 @@ const Header = () => {
             ))}
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground"
+              className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30"
             >
               Entrar em Contato
             </Button>

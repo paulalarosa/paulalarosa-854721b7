@@ -7,48 +7,50 @@
 
 @layer base {
   :root {
-    /* Base - Clean White & Navy Blue */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    /* Monochromatic Base - Light Mode Dominant */
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 0 0% 7%; /* Graphite Black #111111 */
 
-    /* Primary - Deep Navy Blue */
-    --primary: 215 30% 20%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 215 25% 30%;
+    /* Primary - Graphite Black */
+    --primary: 0 0% 7%; /* #111111 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --primary-light: 0 0% 20%; /* Lighter Graphite */
     
-    /* Secondary - Light Gray */
-    --secondary: 220 10% 96%;
-    --secondary-foreground: 215 25% 15%;
+    /* Secondary - Very Light Gray */
+    --secondary: 0 0% 96%; /* #F5F5F5 */
+    --secondary-foreground: 0 0% 7%;
     
-    /* Accent - Coral (usado com moderação) */
-    --accent: 14 80% 60%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 14 80% 70%;
+    /* Accent - Silver (Replacing Coral) */
+    --accent: 0 0% 69%; /* Silver #B0B0B0 */
+    --accent-foreground: 0 0% 7%; /* Black text on Silver */
+    --accent-light: 0 0% 75%; /* Lighter Silver #C0C0C0 */
     
-    /* Gray Scale */
-    --gray: 220 10% 50%;
-    --gray-light: 220 10% 90%;
-    --gray-dark: 220 15% 25%;
+    /* Gray Scale Hierarchy */
+    --gray: 0 0% 53%; /* Medium Gray #888888 */
+    --gray-light: 0 0% 88%; /* Light Gray #E0E0E0 */
+    --gray-dark: 0 0% 20%; /* Dark Gray */
     
-    --muted: 220 10% 96%;
-    --muted-foreground: 220 10% 40%;
+    --muted: 0 0% 96%; /* #F5F5F5 */
+    --muted-foreground: 0 0% 53%; /* Medium Gray */
     
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 7%;
     
-    --border: 220 10% 88%;
-    --input: 220 10% 88%;
-    --ring: 215 30% 20%;
+    --border: 0 0% 88%; /* Light Gray #E0E0E0 */
+    --input: 0 0% 88%;
+    --ring: 0 0% 69%; /* Silver */
     
-    /* Minimal Gradients */
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
-    --gradient-overlay: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(var(--primary-light) / 0.9));
+    /* Minimal Gradients - Monochromatic */
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
+    --gradient-overlay: linear-gradient(135deg, hsl(0 0% 7% / 0.95), hsl(0 0% 20% / 0.9));
+    --gradient-silver: linear-gradient(135deg, hsl(0 0% 75%), hsl(0 0% 69%));
     
-    /* Soft Shadows */
-    --shadow-xs: 0 1px 2px 0 hsl(var(--gray-dark) / 0.05);
-    --shadow-sm: 0 2px 8px -2px hsl(var(--gray-dark) / 0.08);
-    --shadow-md: 0 4px 16px -4px hsl(var(--gray-dark) / 0.1);
-    --shadow-lg: 0 8px 24px -8px hsl(var(--gray-dark) / 0.12);
+    /* Sophisticated Shadows - Monochromatic */
+    --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 8px 24px -8px hsl(0 0% 0% / 0.15);
+    --shadow-silver: 0 4px 20px -4px hsl(0 0% 69% / 0.3);
     
     /* Smooth Transitions */
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,10 +60,44 @@
     
     /* Additional UI Colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 0 0% 7%;
     
-    --destructive: 0 84% 60%;
+    --destructive: 0 0% 30%;
     --destructive-foreground: 0 0% 100%;
+  }
+
+  /* Dark Mode Alternative */
+  .dark {
+    --background: 0 0% 7%; /* Graphite Black #121212 */
+    --foreground: 0 0% 100%; /* White */
+
+    --primary: 0 0% 100%; /* White */
+    --primary-foreground: 0 0% 7%; /* Black */
+    --primary-light: 0 0% 90%;
+    
+    --secondary: 0 0% 12%; /* Very Dark Gray */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 0 0% 69%; /* Silver */
+    --accent-foreground: 0 0% 100%; /* White text on Silver in dark mode */
+    --accent-light: 0 0% 75%;
+    
+    --gray: 0 0% 67%; /* Lighter gray for dark bg #AAAAAA */
+    --gray-light: 0 0% 25%;
+    --gray-dark: 0 0% 80%;
+    
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 67%;
+    
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 69%;
+    
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 7%), hsl(0 0% 12%));
+    --gradient-overlay: linear-gradient(135deg, hsl(0 0% 100% / 0.95), hsl(0 0% 90% / 0.9));
   }
 }
 
@@ -113,26 +149,33 @@
     transition: var(--transition-slow);
   }
   
-  /* Glassmorphism Effect */
+  /* Glassmorphism Effect - Monochromatic */
   .glass {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   
   .glass-dark {
-    background: rgba(33, 43, 54, 0.7);
+    background: rgba(18, 18, 18, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  .glass-silver {
+    background: rgba(176, 176, 176, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(176, 176, 176, 0.2);
+  }
   
-  /* Data Visualization Elements */
+  /* Data Visualization Elements - Silver Tones */
   .data-line {
     position: relative;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--accent)), transparent);
+    background: linear-gradient(90deg, transparent, hsl(0 0% 69%), transparent);
   }
   
   .data-grid {
@@ -140,6 +183,11 @@
       linear-gradient(hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+
+  /* Silver Gradient Utility */
+  .gradient-silver {
+    background: var(--gradient-silver);
   }
   
   /* Scroll Reveal Animations */
