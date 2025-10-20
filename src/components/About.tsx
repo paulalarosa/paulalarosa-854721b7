@@ -43,25 +43,27 @@ const About = () => {
           <div className="space-y-6">
             <div className="space-y-5 text-lg leading-relaxed text-foreground">
               <p>
-                Designer gráfica com mais de 5 anos de experiência e especialização em marketing digital, 
-                atualmente cursando MBA em Inteligência Competitiva e Marketing Orientado por Dados.
+                Designer gráfica com mais de 5 anos de experiência e coordenadora de marketing 
+                especializada em inovação digital, atualmente cursando MBA em Inteligência Competitiva 
+                e Marketing Orientado por Dados no Rio de Janeiro.
               </p>
               
               <p>
-                Minha trajetória profissional combina criatividade visual com pensamento estratégico, 
-                permitindo desenvolver soluções que não apenas encantam visualmente, mas também geram 
-                resultados mensuráveis para os negócios.
+                Minha trajetória profissional combina criatividade visual com pensamento estratégico 
+                e análise de mercado, permitindo desenvolver soluções que não apenas encantam visualmente, 
+                mas também geram resultados mensuráveis para os negócios.
               </p>
               
               <p>
-                Especializada em coordenação de marketing, gestão de tráfego pago (Google Ads e Meta Ads), 
-                branding estratégico e design thinking aplicado à inovação. Transformo dados e insights 
-                competitivos em estratégias visuais que impulsionam crescimento.
+                Especializada em gestão de tráfego pago (Google Ads e Meta Ads), branding estratégico, 
+                design thinking aplicado à inovação e inteligência competitiva. Transformo dados e 
+                insights de mercado em estratégias visuais e campanhas de marketing digital que 
+                impulsionam crescimento.
               </p>
 
               <p className="text-muted-foreground italic">
                 "Acredito que design excepcional vai além da estética—deve ser orientado por dados, 
-                centrado no usuário e alinhado aos objetivos de negócio."
+                centrado no usuário e alinhado aos objetivos de negócio para gerar impacto real."
               </p>
             </div>
           </div>

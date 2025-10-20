@@ -36,9 +36,10 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h3 className="font-serif text-xl font-semibold mb-2">Paula La Rosa</h3>
             <p className="text-primary-foreground/70 text-sm">
-              Marketing • Inovação • Estratégia Digital
+              Especialista em Marketing e Inovação no Rio de Janeiro
             </p>
           </div>
+
 
           {/* Navigation */}
           <nav className="flex gap-6">

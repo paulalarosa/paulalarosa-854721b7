@@ -88,7 +88,7 @@ const Portfolio = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-md transition-base"
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-slow"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden aspect-[4/3]">
@@ -97,18 +97,18 @@ const Portfolio = () => {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-slow"
                 />
-                <div className="absolute inset-0 bg-gradient-overlay opacity-0 group-hover:opacity-100 transition-base flex items-center justify-center">
+                {/* Glassmorphism Overlay on Hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-slow flex items-center justify-center glass">
                   <Button
                     size="sm"
-                    variant="outline"
-                    className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+                    className="bg-white/90 text-primary hover:bg-white shadow-lg backdrop-blur-md"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Ver Projeto
                   </Button>
                 </div>
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 px-3 py-1 bg-background/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                <div className="absolute top-4 left-4 px-3 py-1 glass rounded-full text-xs font-medium text-primary">
                   {project.categoryLabel}
                 </div>
               </div>
@@ -142,6 +142,7 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
+
 
         {/* CTA - View Behance */}
         <div className="text-center mt-16">

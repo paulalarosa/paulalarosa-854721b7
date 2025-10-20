@@ -146,6 +146,21 @@ const Contact = () => {
                 <div className="font-medium text-foreground text-sm">Paula La Rosa</div>
               </div>
             </a>
+
+            {/* Location Info */}
+            <div className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border">
+              <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center">
+                <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Localização</div>
+                <div className="font-medium text-foreground text-sm">Engenho de Dentro - Rio de Janeiro, RJ</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import GenerativeArt from './GenerativeArt';
 
 const Hero = () => {
   const scrollToPortfolio = () => {
@@ -18,35 +19,39 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
-      {/* Data-Driven Visual Element */}
-      <div className="absolute inset-0 opacity-[0.02] data-grid"></div>
+      {/* Generative Art Background */}
+      <GenerativeArt />
       
-      {/* Decorative Lines */}
-      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
-      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent"></div>
-      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.015] data-grid"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Main Heading */}
-          <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-semibold text-primary mb-6 leading-[1.1] tracking-tight">
+          <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-semibold text-primary mb-8 leading-[0.95] tracking-tight animate-fade-in-up">
             Paula La Rosa
           </h1>
 
-          {/* Subtitle */}
-          <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl text-gray mb-12 font-light tracking-wide">
+          {/* Subtitle with GEO */}
+          <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl text-gray mb-4 font-light tracking-wide animate-fade-in-up delay-100">
             Especialista em Marketing, Inovação e Estratégia Digital
           </h2>
+          
+          <p className="font-sans text-lg md:text-xl text-muted-foreground mb-12 animate-fade-in-up delay-200">
+            Baseada no Rio de Janeiro
+          </p>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-12 leading-relaxed">
-            Combinando design estratégico, inteligência competitiva e marketing orientado por dados 
-            para criar soluções que geram impacto mensurável nos negócios.
+          {/* Description with Keywords */}
+          <p className="text-lg md:text-xl text-foreground max-w-4xl mb-12 leading-relaxed animate-fade-in-up delay-300">
+            Coordenadora de Marketing com MBA em Inteligência Competitiva, especializada em 
+            gestão de tráfego (Google Ads e Meta Ads), análise de mercado e design estratégico 
+            orientado por dados. Transformo insights competitivos em soluções criativas que 
+            geram impacto mensurável nos negócios.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-400">
             <Button
               size="lg"
               onClick={scrollToPortfolio}
@@ -68,7 +73,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-fade-in delay-500">
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent"></div>
