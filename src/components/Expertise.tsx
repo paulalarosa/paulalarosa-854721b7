@@ -15,7 +15,7 @@ const Expertise = () => {
         {/* Bento Grid - Asymmetric Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {/* Main Card - 2x2 */}
-          <Card className="md:col-span-2 md:row-span-2 p-10 border border-border hover:border-accent/30 transition-base bg-card group relative overflow-hidden">
+          <Card className="md:col-span-2 md:row-span-2 p-10 border border-border hover:border-accent/30 transition-base bg-card group relative overflow-hidden hover-lift">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-slow"></div>
             <div className="relative z-10">
               <div className="inline-flex items-center justify-center w-20 h-20 mb-6 border-2 border-gray-light rounded-xl group-hover:border-accent/30 transition-base">
@@ -37,7 +37,7 @@ const Expertise = () => {
           </Card>
 
           {/* Medium Card - 2x1 */}
-          <Card className="md:col-span-2 p-8 border border-border hover:border-accent/30 transition-base bg-card group">
+          <Card className="md:col-span-2 p-8 border border-border hover:border-accent/30 transition-base bg-card group hover-lift">
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0 inline-flex items-center justify-center w-16 h-16 border-2 border-gray-light rounded-xl group-hover:border-accent/30 transition-base">
                 <TrendingUp className="h-7 w-7 text-primary stroke-[1.5]" />
@@ -58,7 +58,7 @@ const Expertise = () => {
           </Card>
 
           {/* Medium Card - 2x1 */}
-          <Card className="md:col-span-2 p-8 border border-border hover:border-accent/30 transition-base bg-card group">
+          <Card className="md:col-span-2 p-8 border border-border hover:border-accent/30 transition-base bg-card group hover-lift">
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0 inline-flex items-center justify-center w-16 h-16 border-2 border-gray-light rounded-xl group-hover:border-accent/30 transition-base">
                 <Palette className="h-7 w-7 text-primary stroke-[1.5]" />
@@ -79,7 +79,7 @@ const Expertise = () => {
           </Card>
 
           {/* Small Card - 1x1 */}
-          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center">
+          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center hover-lift">
             <div className="inline-flex items-center justify-center w-14 h-14 mb-4 border-2 border-gray-light rounded-lg group-hover:border-accent/30 transition-base">
               <BarChart3 className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>
@@ -92,7 +92,7 @@ const Expertise = () => {
           </Card>
 
           {/* Small Card - 1x1 */}
-          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center">
+          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center hover-lift">
             <div className="inline-flex items-center justify-center w-14 h-14 mb-4 border-2 border-gray-light rounded-lg group-hover:border-accent/30 transition-base">
               <Video className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>
@@ -105,7 +105,7 @@ const Expertise = () => {
           </Card>
 
           {/* Small Card - 1x1 */}
-          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center">
+          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center hover-lift">
             <div className="inline-flex items-center justify-center w-14 h-14 mb-4 border-2 border-gray-light rounded-lg group-hover:border-accent/30 transition-base">
               <Lightbulb className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>
@@ -118,7 +118,7 @@ const Expertise = () => {
           </Card>
 
           {/* Small Card - 1x1 */}
-          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center">
+          <Card className="p-6 border border-border hover:border-accent/30 transition-base bg-card group text-center hover-lift">
             <div className="inline-flex items-center justify-center w-14 h-14 mb-4 border-2 border-gray-light rounded-lg group-hover:border-accent/30 transition-base">
               <Target className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>

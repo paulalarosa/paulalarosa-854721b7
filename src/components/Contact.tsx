@@ -16,6 +16,16 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validação
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     const message = `Olá Paula! Meu nome é ${formData.name}.\n\nEmail: ${formData.email}\n\nMensagem: ${formData.message}`;
     const whatsappUrl = `https://wa.me/5521983604870?text=${encodeURIComponent(message)}`;
     
@@ -97,7 +107,7 @@ const Contact = () => {
                 className="bg-accent hover:bg-accent/90 text-accent-foreground transition-base"
               >
                 <Send className="mr-2 h-5 w-5" />
-                Enviar Mensagem
+                Enviar via WhatsApp
               </Button>
             </form>
           </div>
@@ -106,14 +116,14 @@ const Contact = () => {
           <div className="lg:col-span-2 space-y-6">
             <a
               href="mailto:prenata@gmail.com"
-              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
                 <Mail className="h-5 w-5 text-primary stroke-[1.5]" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Email</div>
-                <div className="font-medium text-foreground text-sm truncate">prenata@gmail.com</div>
+                <div className="font-medium text-foreground text-sm">Enviar Email</div>
               </div>
             </a>
 
@@ -121,14 +131,14 @@ const Contact = () => {
               href="https://wa.me/5521983604870"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
                 <Phone className="h-5 w-5 text-primary stroke-[1.5]" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">WhatsApp</div>
-                <div className="font-medium text-foreground text-sm">+55 21 98360-4870</div>
+                <div className="font-medium text-foreground text-sm">Iniciar Conversa</div>
               </div>
             </a>
 
@@ -136,31 +146,16 @@ const Contact = () => {
               href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
                 <Linkedin className="h-5 w-5 text-primary stroke-[1.5]" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">LinkedIn</div>
-                <div className="font-medium text-foreground text-sm">Paula La Rosa</div>
+                <div className="font-medium text-foreground text-sm">Conectar no LinkedIn</div>
               </div>
             </a>
-
-            {/* Location Info */}
-            <div className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border">
-              <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center">
-                <svg className="h-5 w-5 text-primary" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Localização</div>
-                <div className="font-medium text-foreground text-sm">Engenho de Dentro - Rio de Janeiro, RJ</div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

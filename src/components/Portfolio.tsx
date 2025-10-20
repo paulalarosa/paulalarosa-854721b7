@@ -88,7 +88,7 @@ const Portfolio = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-slow"
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-slow hover-scale"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden aspect-[4/3]">
@@ -98,7 +98,7 @@ const Portfolio = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-slow"
                 />
                 {/* Glassmorphism Overlay on Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-slow flex items-center justify-center glass">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-slow flex items-center justify-center glass-effect">
                   <Button
                     size="sm"
                     className="bg-white/90 text-primary hover:bg-white shadow-lg backdrop-blur-md"
