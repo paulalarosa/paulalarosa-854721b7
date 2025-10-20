@@ -1,116 +1,89 @@
-import { GraduationCap, Briefcase, TrendingUp, Award } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import { GraduationCap, Award, Globe, Palette, Code, TrendingUp } from 'lucide-react';
 
 const About = () => {
-  const skills = [
-    'Estratégia de Marca & Identidade',
-    'Design para Marketing Digital',
-    'Growth Marketing',
-    'UI/UX Design',
-    'Análise de Marketing',
-    'Direção Criativa'
-  ];
-
-  const achievements = [
+  const highlights = [
     {
       icon: GraduationCap,
-      title: 'MBA em Marketing',
-      description: 'Inteligência Competitiva e Inovação'
-    },
-    {
-      icon: Briefcase,
-      title: '5+ Anos de Experiência',
-      description: 'Design & Estratégia de Marketing'
-    },
-    {
-      icon: TrendingUp,
-      title: '30% Aumento Médio',
-      description: 'Performance dos Clientes'
+      text: 'MBA em Inteligência Competitiva'
     },
     {
       icon: Award,
-      title: 'Reconhecimento',
-      description: 'Excelência em Design'
+      text: 'Graduação em Design Gráfico'
+    },
+    {
+      icon: Palette,
+      text: 'Adobe Suite, Figma'
+    },
+    {
+      icon: TrendingUp,
+      text: 'Google Ads, Meta Ads'
+    },
+    {
+      icon: Code,
+      text: 'HTML, CSS, WordPress'
+    },
+    {
+      icon: Globe,
+      text: 'Inglês Avançado'
     }
   ];
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <div>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6">
-              Onde Criatividade Encontra Estratégia
-            </h2>
-            
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Sou Paula La Rosa, designer gráfica com MBA em Marketing que acredita que 
-                design bonito deve fazer mais do que apenas ser visualmente atrativo—deve gerar resultados de negócio.
-              </p>
-              
-              <p>
-                Com mais de 5 anos de experiência combinando visão criativa com pensamento estratégico, 
-                ajudo empresas a criar identidades visuais que não apenas capturam atenção, mas 
-                convertem audiências em clientes fiéis.
-              </p>
-              
-              <p>
-                Minha formação única me permite compreender tanto o lado criativo quanto o empresarial 
-                de cada projeto, garantindo que toda decisão de design seja respaldada por dados e 
-                insights estratégicos.
-              </p>
-            </div>
-
-            {/* Skills */}
-            <div className="mt-8">
-              <h3 className="font-serif text-xl font-semibold text-primary mb-4">
-                Expertise Principal
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {skills.map((skill) => (
-                  <div
-                    key={skill}
-                    className="flex items-center p-3 bg-accent/5 rounded-lg border border-accent/10"
-                  >
-                    <div className="w-2 h-2 bg-accent rounded-full mr-3"></div>
-                    <span className="text-sm font-medium text-foreground">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Achievements Grid */}
-          <div className="grid grid-cols-2 gap-6">
-            {achievements.map((achievement, index) => (
-              <Card
-                key={index}
-                className="p-6 text-center hover:shadow-medium transition-smooth border-0 shadow-soft"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-accent/10 rounded-lg mb-4">
-                  <achievement.icon className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-semibold text-primary mb-2">
-                  {achievement.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {achievement.description}
-                </p>
-              </Card>
-            ))}
-          </div>
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
+            Sobre Mim
+          </h2>
+          <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
 
-        {/* Philosophy */}
-        <div className="mt-20 text-center">
-          <div className="max-w-4xl mx-auto">
-            <blockquote className="font-serif text-2xl md:text-3xl text-primary mb-6 leading-relaxed">
-              "Design excepcional não é apenas sobre fazer as coisas bonitas—é sobre fazê-las 
-              funcionar melhor, vender mais e criar conexões duradouras com as pessoas."
-            </blockquote>
-            <cite className="text-accent font-medium">— Paula La Rosa</cite>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
+          {/* Left Column - About Text */}
+          <div className="space-y-6">
+            <div className="space-y-5 text-lg leading-relaxed text-foreground">
+              <p>
+                Designer gráfica com mais de 5 anos de experiência e especialização em marketing digital, 
+                atualmente cursando MBA em Inteligência Competitiva e Marketing Orientado por Dados.
+              </p>
+              
+              <p>
+                Minha trajetória profissional combina criatividade visual com pensamento estratégico, 
+                permitindo desenvolver soluções que não apenas encantam visualmente, mas também geram 
+                resultados mensuráveis para os negócios.
+              </p>
+              
+              <p>
+                Especializada em coordenação de marketing, gestão de tráfego pago (Google Ads e Meta Ads), 
+                branding estratégico e design thinking aplicado à inovação. Transformo dados e insights 
+                competitivos em estratégias visuais que impulsionam crescimento.
+              </p>
+
+              <p className="text-muted-foreground italic">
+                "Acredito que design excepcional vai além da estética—deve ser orientado por dados, 
+                centrado no usuário e alinhado aos objetivos de negócio."
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column - Highlights */}
+          <div>
+            <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
+              Destaques de Qualificação
+            </h3>
+            <div className="grid grid-cols-1 gap-4">
+              {highlights.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center border-2 border-gray-light rounded-lg">
+                    <item.icon className="h-5 w-5 text-primary stroke-[1.5]" />
+                  </div>
+                  <span className="text-foreground font-medium">{item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

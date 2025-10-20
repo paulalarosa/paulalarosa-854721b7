@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Send, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
@@ -11,231 +10,142 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    message: '',
+    message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Por favor, preencha todos os campos obrigatórios",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    const message = `Olá Paula! Meu nome é ${formData.name}.\n\nEmail: ${formData.email}\n\nMensagem: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/5521983604870?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+    setFormData({ name: '', email: '', message: '' });
     
     toast({
-      title: "Mensagem enviada com sucesso!",
-      description: "Retornarei em até 24 horas.",
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      message: '',
+      title: "Redirecionando para WhatsApp",
+      description: "Você será redirecionado para continuar a conversa.",
     });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  const openEmail = () => {
-    window.open('mailto:prenata@gmail.com', '_blank');
-  };
-
-  const openWhatsApp = () => {
-    window.open('https://wa.me/5521983604870', '_blank');
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'Clique para enviar email',
-      href: '#',
-      onClick: openEmail
-    },
-    {
-      icon: Phone,
-      label: 'WhatsApp',
-      value: 'Clique para conversar',
-      href: '#',
-      onClick: openWhatsApp
-    },
-    {
-      icon: MapPin,
-      label: 'Localização',
-      value: 'Rio de Janeiro, RJ',
-      href: '#'
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'Paula La Rosa',
-      href: 'https://www.linkedin.com/in/paula-la-rosa-228889119/'
-    },
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
             Vamos Criar Algo Incrível
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pronta para elevar sua marca com design estratégico? Vamos conversar sobre seu projeto 
-            e explorar como podemos impulsionar crescimento juntas.
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-6"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Entre em contato para discutir como podemos trabalhar juntos
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="p-8 shadow-medium border-0">
-            <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
-              Inicie Seu Projeto
-            </h3>
-            
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
+          {/* Contact Form - 3 columns */}
+          <div className="lg:col-span-3 bg-background p-8 rounded-lg border border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Nome *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Seu nome completo"
-                    required
-                    className="border-border focus:border-accent focus:ring-accent"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="seu@email.com"
-                    required
-                    className="border-border focus:border-accent focus:ring-accent"
-                  />
-                </div>
-              </div>
-
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                  Empresa
-                </label>
                 <Input
-                  id="company"
-                  name="company"
+                  id="name"
+                  name="name"
                   type="text"
-                  value={formData.company}
+                  required
+                  value={formData.name}
                   onChange={handleChange}
-                  placeholder="Nome da sua empresa"
-                  className="border-border focus:border-accent focus:ring-accent"
+                  className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0"
+                  placeholder="Nome"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Detalhes do Projeto *
-                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div>
                 <Textarea
                   id="message"
                   name="message"
+                  required
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Conte-me sobre seu projeto, objetivos e prazo..."
-                  rows={6}
-                  required
-                  className="border-border focus:border-accent focus:ring-accent resize-none"
+                  rows={5}
+                  className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0 resize-none"
+                  placeholder="Mensagem"
                 />
               </div>
 
               <Button
                 type="submit"
                 size="lg"
-                className="w-full gradient-hero text-primary-foreground hover:shadow-accent transition-smooth"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground transition-base"
               >
+                <Send className="mr-2 h-5 w-5" />
                 Enviar Mensagem
-                <Send className="ml-2 h-5 w-5" />
               </Button>
             </form>
-          </Card>
+          </div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="font-serif text-2xl font-semibold text-primary mb-6">
-                Entre em Contato
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                Prefere entrar em contato diretamente? Escolha seu método preferido abaixo. 
-                Geralmente respondo em até 24 horas.
-              </p>
-            </div>
+          {/* Contact Info - 2 columns */}
+          <div className="lg:col-span-2 space-y-6">
+            <a
+              href="mailto:prenata@gmail.com"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+            >
+              <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
+                <Mail className="h-5 w-5 text-primary stroke-[1.5]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Email</div>
+                <div className="font-medium text-foreground text-sm truncate">prenata@gmail.com</div>
+              </div>
+            </a>
 
-            <div className="space-y-4">
-              {contactInfo.map((item, index) => (
-                 <div
-                   key={index}
-                   onClick={item.onClick || (() => window.open(item.href, '_blank'))}
-                   className="flex items-center p-4 bg-card rounded-lg shadow-soft hover:shadow-medium transition-smooth group cursor-pointer"
-                 >
-                  <div className="flex items-center justify-center w-12 h-12 bg-accent/10 rounded-lg mr-4 group-hover:bg-accent/20 transition-smooth">
-                    <item.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-muted-foreground">
-                      {item.label}
-                    </div>
-                    <div className="text-foreground font-medium">
-                      {item.value}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <a
+              href="https://wa.me/5521983604870"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+            >
+              <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
+                <Phone className="h-5 w-5 text-primary stroke-[1.5]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">WhatsApp</div>
+                <div className="font-medium text-foreground text-sm">+55 21 98360-4870</div>
+              </div>
+            </a>
 
-            {/* Call to Action */}
-            <Card className="p-6 gradient-subtle border-accent/20">
-              <h4 className="font-serif text-xl font-semibold text-primary mb-3">
-                Pronta para Começar?
-              </h4>
-              <p className="text-muted-foreground mb-4">
-                Agende uma consulta gratuita de 30 minutos para discutir seu projeto e 
-                ver como design estratégico pode acelerar seu crescimento.
-              </p>
-              <Button
-                variant="outline"
-                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-smooth"
-              >
-                Agendar Conversa
-              </Button>
-            </Card>
+            <a
+              href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group"
+            >
+              <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
+                <Linkedin className="h-5 w-5 text-primary stroke-[1.5]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">LinkedIn</div>
+                <div className="font-medium text-foreground text-sm">Paula La Rosa</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

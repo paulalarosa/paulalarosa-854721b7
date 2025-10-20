@@ -8,97 +8,95 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { label: 'Início', href: '#home' },
-    { label: 'Portfólio', href: '#portfolio' },
-    { label: 'Sobre', href: '#about' },
-    { label: 'Contato', href: '#contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'Competências', href: '#expertise' },
+    { name: 'Portfólio', href: '#portfolio' },
+    { name: 'Sobre', href: '#about' },
+    { name: 'Contato', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
+      className={`fixed top-0 w-full z-50 transition-base ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft'
+          ? 'bg-background/98 backdrop-blur-sm border-b border-border shadow-xs'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="font-serif text-2xl font-bold text-primary">
+          <a
+            href="#home"
+            className="font-serif text-xl font-semibold text-primary hover:text-accent transition-base"
+          >
             Paula La Rosa
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
-                key={item.label}
+                key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-accent transition-smooth font-medium"
+                className="text-sm font-medium text-foreground hover:text-accent transition-base"
               >
-                {item.label}
+                {item.name}
               </button>
             ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
             <Button
-              variant="default"
               onClick={() => scrollToSection('#contact')}
-              className="gradient-hero text-primary-foreground hover:shadow-accent transition-smooth"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground transition-base"
             >
-              Vamos Trabalhar Juntas
+              Entrar em Contato
             </Button>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
-            <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground hover:text-accent transition-smooth font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
-              <Button
-                variant="default"
-                onClick={() => scrollToSection('#contact')}
-                className="gradient-hero text-primary-foreground mt-4 w-full"
+          <nav className="md:hidden py-6 border-t border-border bg-background">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-left py-3 text-foreground hover:text-accent transition-base font-medium"
               >
-                Vamos Trabalhar Juntas
-              </Button>
-            </nav>
-          </div>
+                {item.name}
+              </button>
+            ))}
+            <Button
+              onClick={() => scrollToSection('#contact')}
+              className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              Entrar em Contato
+            </Button>
+          </nav>
         )}
       </div>
     </header>

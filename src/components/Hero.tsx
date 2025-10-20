@@ -1,6 +1,5 @@
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const scrollToPortfolio = () => {
@@ -10,85 +9,69 @@ const Hero = () => {
     }
   };
 
-  const downloadResume = () => {
-    // This would download the actual resume file
-    console.log('Download resume');
+  const scrollToAbout = () => {
+    const element = document.querySelector('#about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-primary/40"></div>
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
+      {/* Data-Driven Visual Element */}
+      <div className="absolute inset-0 opacity-[0.02] data-grid"></div>
+      
+      {/* Decorative Lines */}
+      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent"></div>
+      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center text-white">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-            <span className="text-sm font-medium">Designer Gráfica • MBA Marketing • Growth Strategist</span>
-          </div>
-
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
+        <div className="max-w-5xl mx-auto">
           {/* Main Heading */}
-          <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Criando Histórias Visuais Que
-            <span className="block gradient-accent bg-clip-text text-transparent">
-              Impulsionam Crescimento
-            </span>
+          <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-semibold text-primary mb-6 leading-[1.1] tracking-tight">
+            Paula La Rosa
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Combino expertise criativa em design com insights estratégicos de marketing para construir marcas que conectam, convertem e escalam.
+          <h2 className="font-sans text-2xl md:text-3xl lg:text-4xl text-gray mb-12 font-light tracking-wide">
+            Especialista em Marketing, Inovação e Estratégia Digital
+          </h2>
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-12 leading-relaxed">
+            Combinando design estratégico, inteligência competitiva e marketing orientado por dados 
+            para criar soluções que geram impacto mensurável nos negócios.
           </p>
 
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-1">60+</div>
-              <div className="text-white/80 text-sm">Projetos Entregues</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-1">30%</div>
-              <div className="text-white/80 text-sm">Aumento Médio de Conversão</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold mb-1">5+</div>
-              <div className="text-white/80 text-sm">Anos de Experiência</div>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
               onClick={scrollToPortfolio}
-              className="gradient-accent text-accent-foreground hover:shadow-accent transition-smooth group"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-sm transition-base group px-8"
             >
-              Ver Meu Trabalho
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
+              Ver Projetos
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-base" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={downloadResume}
-              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 transition-smooth"
+              onClick={scrollToAbout}
+              className="border-border hover:bg-secondary transition-base px-8"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Baixar Currículo
+              Sobre Mim
             </Button>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+          <span className="text-xs uppercase tracking-wider">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent"></div>
         </div>
       </div>
     </section>
