@@ -42,8 +42,8 @@ const Qualifications = () => {
     {
       number: "03",
       icon: Lightbulb,
-      title: "Inovação & Liderança",
-      description: "Conecto UX, branding e análise de dados para liderar equipes multidisciplinares. Meu objetivo é criar soluções inovadoras que fortalecem o posicionamento da marca."
+      title: "Desenvolvimento & Inovação Tecnológica",
+      description: "Conecto estratégia de marketing ao desenvolvimento prático. Construo soluções, automações e MicroSaaS com ferramentas No-Code e IA para criar vantagem competitiva e escalar resultados."
     }
   ];
 
