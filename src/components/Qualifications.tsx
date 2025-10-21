@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, Target, Lightbulb } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Qualifications = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -30,20 +32,20 @@ const Qualifications = () => {
     {
       number: "01",
       icon: Target,
-      title: "Estratégia Data-Driven",
-      description: "Transformo dados de mercado e inteligência competitiva em planos de marketing inovadores. Foco em crescimento mensurável e otimização de ROI."
+      title: t('qualifications.items.strategy.title'),
+      description: t('qualifications.items.strategy.desc')
     },
     {
       number: "02",
       icon: TrendingUp,
-      title: "Performance & Mídia Paga",
-      description: "Especialista em gestão de campanhas de alta performance (Google & Meta Ads). Domínio completo do funil para escalar a aquisição e a visibilidade da marca."
+      title: t('qualifications.items.performance.title'),
+      description: t('qualifications.items.performance.desc')
     },
     {
       number: "03",
       icon: Lightbulb,
-      title: "Desenvolvimento & Inovação Tecnológica",
-      description: "Conecto estratégia de marketing ao desenvolvimento prático. Construo soluções, automações e MicroSaaS com ferramentas No-Code e IA para criar vantagem competitiva e escalar resultados."
+      title: t('qualifications.items.innovation.title'),
+      description: t('qualifications.items.innovation.desc')
     }
   ];
 
@@ -52,7 +54,7 @@ const Qualifications = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="font-serif text-5xl md:text-6xl font-semibold mb-4">
-            Destaques de Qualificação
+            {t('qualifications.title')}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>

@@ -1,46 +1,49 @@
 import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { useTranslation } from 'react-i18next';
 
 const LabInnovation = () => {
+  const { t } = useTranslation();
+  
   const projects = [
     {
-      title: "Website & Automação (Consultor Familiar)",
-      description: "Desenvolvimento completo (No-Code) de plataforma de serviços, integrando blog, sistema de agendamento e automação de captação de leads. Foco em SEO técnico e performance.",
-      tags: ["No-Code", "Desenvolvimento Web", "SEO", "Automação"],
+      title: t('lab.projects.website.title'),
+      description: t('lab.projects.website.desc'),
+      tags: t('lab.projects.website.tags', { returnObjects: true }) as string[],
       link: "#",
       available: true
     },
     {
-      title: "Portfólio Interativo (Projeto Pessoal)",
-      description: "Design (UI/UX) e implementação deste portfólio, focado em microinterações, animações avançadas e arquitetura No-Code, servindo como prova de conceito.",
-      tags: ["UI/UX", "Animações Web", "No-Code", "Glassmorphism"],
+      title: t('lab.projects.portfolio.title'),
+      description: t('lab.projects.portfolio.desc'),
+      tags: t('lab.projects.portfolio.tags', { returnObjects: true }) as string[],
       link: "#",
       available: false,
-      label: "Ver Análise"
+      label: t('lab.seeAnalysis')
     },
     {
-      title: "MicroSaaS (Em Desenvolvimento)",
-      description: "Desenvolvimento de uma solução MicroSaaS focada em otimizar relatórios de performance para agências utilizando IA e ferramentas No-Code.",
-      tags: ["MicroSaaS", "IA", "Automação", "Em Breve"],
+      title: t('lab.projects.microsaas.title'),
+      description: t('lab.projects.microsaas.desc'),
+      tags: t('lab.projects.microsaas.tags', { returnObjects: true }) as string[],
       link: "#",
       available: false,
-      label: "Saber Mais"
+      label: t('lab.learnMore')
     },
     {
-      title: "Dashboard de Performance (Doctor Creator Board)",
-      description: "Desenvolvimento de um dashboard analítico (em construção) para criadores de conteúdo na área da saúde. Foco em visualização de dados e métricas de engajamento.",
-      tags: ["No-Code", "Dashboard", "DataViz", "Em Construção"],
+      title: t('lab.projects.dashboard.title'),
+      description: t('lab.projects.dashboard.desc'),
+      tags: t('lab.projects.dashboard.tags', { returnObjects: true }) as string[],
       link: "#",
       available: false,
-      label: "Ver App"
+      label: t('lab.viewSoon')
     },
     {
-      title: "Plataforma de Gestão (BeautyPro Hub)",
-      description: "Idealização e desenvolvimento de uma plataforma MicroSaaS (em construção) para maquiadoras. Foco em agendamento, gestão de clientes e portfólio.",
-      tags: ["MicroSaaS", "No-Code", "Agendamento", "Em Construção"],
+      title: t('lab.projects.platform.title'),
+      description: t('lab.projects.platform.desc'),
+      tags: t('lab.projects.platform.tags', { returnObjects: true }) as string[],
       link: "#",
       available: false,
-      label: "Ver App"
+      label: t('lab.viewSoon')
     }
   ];
 
@@ -49,10 +52,10 @@ const LabInnovation = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl font-semibold text-primary mb-4">
-            Laboratório de Inovação
+            {t('lab.title')}
           </h2>
           <p className="text-lg text-muted-foreground mb-2">
-            No-Code, IA & MicroSaaS
+            {t('lab.subtitle')}
           </p>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
@@ -94,8 +97,8 @@ const LabInnovation = () => {
                   }`}
                   onClick={(e) => !project.available && e.preventDefault()}
                 >
-                  {project.label || "Visitar Site"}
-                  {!project.available && <span className="text-xs">(Em Breve)</span>}
+                  {project.label || t('lab.visitSite')}
+                  {!project.available && <span className="text-xs">({t('lab.viewSoon').split('(')[1]}</span>}
                   {project.available && <ExternalLink className="h-4 w-4" />}
                 </a>
               </div>

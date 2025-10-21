@@ -1,6 +1,9 @@
 import { Linkedin, Mail, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   const keywords = [
     "Estratégia",
     "Inovação",
@@ -15,11 +18,11 @@ const Footer = () => {
   ];
 
   const navigation = [
-    { name: 'Home', href: '#home' },
-    { name: 'Competências', href: '#expertise' },
-    { name: 'Portfólio', href: '#portfolio' },
-    { name: 'Qualificações', href: '#qualifications' },
-    { name: 'Contato', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.expertise'), href: '#expertise' },
+    { name: t('nav.portfolio'), href: '#portfolio' },
+    { name: t('nav.qualifications'), href: '#qualifications' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
   return (
@@ -46,13 +49,13 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-2xl font-semibold mb-2">Paula La Rosa</h3>
             <p className="text-primary-foreground/70 text-sm">
-              Especialista em Marketing e Inovação no Rio de Janeiro
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Navegação</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">{t('footer.navigation')}</h4>
             <nav className="space-y-2">
               {navigation.map((item) => (
                 <a
@@ -68,7 +71,7 @@ const Footer = () => {
 
           {/* Social */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">Conecte-se</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">{t('footer.social')}</h4>
             <div className="flex gap-4">
               <a
                 href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
@@ -97,7 +100,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-primary-foreground/10 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Paula La Rosa. Todos os direitos reservados.
+            © {new Date().getFullYear()} Paula La Rosa. {t('footer.rights')}
           </p>
         </div>
       </div>
