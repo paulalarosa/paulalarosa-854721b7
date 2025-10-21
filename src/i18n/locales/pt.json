@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "expertise": "Competências",
+    "portfolio": "Portfólio",
+    "qualifications": "Qualificações",
+    "contact": "Contato",
+    "contactBtn": "Entrar em Contato"
+  },
+  "hero": {
+    "subtitle": "Especialista em Marketing, Inovação e Estratégia Digital",
+    "location": "Baseada no Rio de Janeiro",
+    "description": "Coordenadora de Marketing com MBA em Inteligência Competitiva, especializada em gestão de tráfego (Google Ads e Meta Ads), análise de mercado e design estratégico orientado por dados. Transformo insights competitivos em soluções criativas que geram impacto mensurável nos negócios.",
+    "viewProjects": "Ver Projetos",
+    "aboutMe": "Sobre Mim",
+    "scroll": "Scroll"
+  },
+  "expertise": {
+    "title": "Áreas de Competência",
+    "strategy": {
+      "title": "Estratégia & Inteligência Competitiva",
+      "desc": "MBA em Inteligência Competitiva. Análise de mercado, benchmarking e posicionamento estratégico orientado por dados."
+    },
+    "automation": {
+      "title": "Automação & Desenvolvimento No-Code",
+      "desc": "Criação de soluções, automações e MicroSaaS com ferramentas No-Code e IA para escalar resultados."
+    },
+    "performance": {
+      "title": "Performance & Mídia Paga",
+      "desc": "Gestão especializada de Google Ads e Meta Ads. Otimização de ROI e análise de performance de campanhas."
+    },
+    "ux": {
+      "title": "UX/UI & Design Thinking",
+      "desc": "Design centrado no usuário. Prototipagem, testes de usabilidade e interfaces de alta conversão."
+    },
+    "analytics": {
+      "title": "Análise de Dados & ROI",
+      "desc": "Métricas acionáveis, dashboards e análise de KPIs para decisões baseadas em dados."
+    }
+  },
+  "portfolio": {
+    "title": "Trabalhos em Destaque",
+    "all": "Todos",
+    "branding": "Branding",
+    "digital": "Digital",
+    "ux": "UX/UI",
+    "viewBehance": "Ver Portfólio Completo no Behance",
+    "projects": {
+      "klini": {
+        "title": "Identidade Visual Klini Saúde",
+        "desc": "Desenvolvimento completo de identidade visual para startup de saúde digital, incluindo logo, paleta de cores e aplicações.",
+        "tags": ["Branding", "Identidade Visual", "Saúde Digital"]
+      },
+      "growth": {
+        "title": "Campanha Digital Growth",
+        "desc": "Estratégia e execução de campanha de performance com foco em crescimento acelerado e otimização de CAC.",
+        "tags": ["Performance", "Meta Ads", "Growth"]
+      },
+      "dashboard": {
+        "title": "UX/UI Dashboard Analytics",
+        "desc": "Design de interface e experiência para dashboard de analytics B2B, focado em visualização de dados complexos.",
+        "tags": ["UX/UI", "Dashboard", "Analytics"]
+      }
+    }
+  },
+  "lab": {
+    "title": "Laboratório de Inovação (No-Code, IA & MicroSaaS)",
+    "subtitle": "Projetos que conectam estratégia, design e desenvolvimento tecnológico",
+    "viewSoon": "Ver App (Em Breve)",
+    "visitSite": "Visitar Site",
+    "seeAnalysis": "Ver Análise (Em Breve)",
+    "learnMore": "Saber Mais (Em Breve)",
+    "projects": {
+      "website": {
+        "title": "Website & Automação (Consultor Familiar)",
+        "desc": "Desenvolvimento completo (No-Code) de plataforma de serviços, integrando blog, sistema de agendamento e automação de captação de leads. Foco em SEO técnico e performance.",
+        "tags": ["No-Code", "Desenvolvimento Web", "SEO", "Automação"]
+      },
+      "portfolio": {
+        "title": "Portfólio Interativo (Projeto Pessoal)",
+        "desc": "Design (UI/UX) e implementação deste portfólio, focado em microinterações, animações avançadas e arquitetura No-Code, servindo como prova de conceito.",
+        "tags": ["UI/UX", "Animações Web", "No-Code", "Glassmorphism"]
+      },
+      "microsaas": {
+        "title": "MicroSaaS (Em Desenvolvimento)",
+        "desc": "Desenvolvimento de uma solução MicroSaaS focada em otimizar relatórios de performance para agências, utilizando IA e ferramentas No-Code.",
+        "tags": ["MicroSaaS", "IA", "Automação", "Em Breve"]
+      },
+      "dashboard": {
+        "title": "Dashboard de Performance (Doctor Creator Board)",
+        "desc": "Desenvolvimento de um dashboard analítico (em construção) para criadores de conteúdo na área da saúde. Foco em visualização de dados e métricas de engajamento.",
+        "tags": ["No-Code", "Dashboard", "DataViz", "Em Construção"]
+      },
+      "platform": {
+        "title": "Plataforma de Gestão (BeautyPro Hub)",
+        "desc": "Idealização e desenvolvimento de uma plataforma MicroSaaS (em construção) para maquiadoras. Foco em agendamento, gestão de clientes e portfólio.",
+        "tags": ["MicroSaaS", "No-Code", "Agendamento", "Em Construção"]
+      }
+    }
+  },
+  "qualifications": {
+    "title": "Destaques de Qualificação",
+    "items": {
+      "strategy": {
+        "title": "Estratégia Data-Driven",
+        "desc": "MBA em Inteligência Competitiva com foco em análise de mercado e posicionamento estratégico. Transformo dados complexos em insights acionáveis para vantagem competitiva."
+      },
+      "performance": {
+        "title": "Performance & Mídia Paga",
+        "desc": "Especialização em gestão de tráfego pago (Google Ads e Meta Ads). Otimização contínua de campanhas com foco em ROI e métricas de performance."
+      },
+      "innovation": {
+        "title": "Desenvolvimento & Inovação Tecnológica",
+        "desc": "Conecto estratégia de marketing ao desenvolvimento prático. Construo soluções, automações e MicroSaaS com ferramentas No-Code e IA para criar vantagem competitiva e escalar resultados."
+      }
+    }
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "highlights": "Destaques de Qualificação",
+    "text1": "Designer gráfica com mais de 5 anos de experiência e coordenadora de marketing especializada em inovação digital, atualmente cursando MBA em Inteligência Competitiva e Marketing Orientado por Dados no Rio de Janeiro.",
+    "text2": "Minha trajetória profissional combina criatividade visual com pensamento estratégico e análise de mercado, permitindo desenvolver soluções que não apenas encantam visualmente, mas também geram resultados mensuráveis para os negócios.",
+    "text3": "Especializada em gestão de tráfego pago (Google Ads e Meta Ads), branding estratégico, design thinking aplicado à inovação e inteligência competitiva. Transformo dados e insights de mercado em estratégias visuais e campanhas de marketing digital que impulsionam crescimento.",
+    "quote": "Acredito que design excepcional vai além da estética—deve ser orientado por dados, centrado no usuário e alinhado aos objetivos de negócio para gerar impacto real.",
+    "items": {
+      "mba": "MBA em Inteligência Competitiva",
+      "degree": "Graduação em Design Gráfico",
+      "adobe": "Adobe Suite, Figma",
+      "ads": "Google Ads, Meta Ads",
+      "code": "HTML, CSS, WordPress",
+      "english": "Inglês Avançado"
+    }
+  },
+  "contact": {
+    "title": "Vamos Criar Algo Incrível",
+    "subtitle": "Entre em contato para discutir como podemos trabalhar juntos",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "send": "Enviar via WhatsApp",
+    "sendEmail": "Enviar Email",
+    "startChat": "Iniciar Conversa",
+    "connectLinkedIn": "Conectar no LinkedIn",
+    "requiredFields": "Campos obrigatórios",
+    "fillAllFields": "Por favor, preencha todos os campos.",
+    "redirecting": "Redirecionando para WhatsApp",
+    "redirectingDesc": "Você será redirecionado para continuar a conversa."
+  },
+  "footer": {
+    "description": "Especialista em Marketing Digital, Inteligência Competitiva e Inovação. Transformando dados em estratégias que geram resultados.",
+    "navigation": "Navegação",
+    "social": "Redes Sociais",
+    "rights": "Todos os direitos reservados."
+  }
+}

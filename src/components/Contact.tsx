@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -19,8 +21,8 @@ const Contact = () => {
     // Validação
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha todos os campos.",
+        title: t('contact.requiredFields'),
+        description: t('contact.fillAllFields'),
         variant: "destructive"
       });
       return;
@@ -33,8 +35,8 @@ const Contact = () => {
     setFormData({ name: '', email: '', message: '' });
     
     toast({
-      title: "Redirecionando para WhatsApp",
-      description: "Você será redirecionado para continuar a conversa.",
+      title: t('contact.redirecting'),
+      description: t('contact.redirectingDesc'),
     });
   };
 
@@ -50,11 +52,11 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
-            Vamos Criar Algo Incrível
+            {t('contact.title')}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Entre em contato para discutir como podemos trabalhar juntos
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -71,7 +73,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0"
-                  placeholder="Nome"
+                  placeholder={t('contact.name')}
                 />
               </div>
 
@@ -84,7 +86,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0"
-                  placeholder="Email"
+                  placeholder={t('contact.email')}
                 />
               </div>
 
@@ -97,7 +99,7 @@ const Contact = () => {
                   onChange={handleChange}
                   rows={5}
                   className="w-full border-0 border-b border-border rounded-none focus:border-accent px-0 resize-none"
-                  placeholder="Mensagem"
+                  placeholder={t('contact.message')}
                 />
               </div>
 
@@ -107,7 +109,7 @@ const Contact = () => {
                 className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base shadow-silver border border-accent/30"
               >
                 <Send className="mr-2 h-5 w-5" />
-                Enviar via WhatsApp
+                {t('contact.send')}
               </Button>
             </form>
           </div>
@@ -123,7 +125,7 @@ const Contact = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Email</div>
-                <div className="font-medium text-foreground text-sm">Enviar Email</div>
+                <div className="font-medium text-foreground text-sm">{t('contact.sendEmail')}</div>
               </div>
             </a>
 
@@ -138,7 +140,7 @@ const Contact = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">WhatsApp</div>
-                <div className="font-medium text-foreground text-sm">Iniciar Conversa</div>
+                <div className="font-medium text-foreground text-sm">{t('contact.startChat')}</div>
               </div>
             </a>
 
@@ -153,7 +155,7 @@ const Contact = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">LinkedIn</div>
-                <div className="font-medium text-foreground text-sm">Conectar no LinkedIn</div>
+                <div className="font-medium text-foreground text-sm">{t('contact.connectLinkedIn')}</div>
               </div>
             </a>
           </div>

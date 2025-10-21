@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "expertise": "Expertise",
+    "portfolio": "Portfolio",
+    "qualifications": "Qualifications",
+    "contact": "Contact",
+    "contactBtn": "Get in Touch"
+  },
+  "hero": {
+    "subtitle": "Marketing, Innovation & Digital Strategy Specialist",
+    "location": "Based in Rio de Janeiro",
+    "description": "Marketing Coordinator with an MBA in Competitive Intelligence, specialized in traffic management (Google Ads and Meta Ads), market analysis, and data-driven strategic design. I transform competitive insights into creative solutions that generate measurable business impact.",
+    "viewProjects": "View Projects",
+    "aboutMe": "About Me",
+    "scroll": "Scroll"
+  },
+  "expertise": {
+    "title": "Areas of Expertise",
+    "strategy": {
+      "title": "Strategy & Competitive Intelligence",
+      "desc": "MBA in Competitive Intelligence. Market analysis, benchmarking, and data-driven strategic positioning."
+    },
+    "automation": {
+      "title": "Automation & No-Code Development",
+      "desc": "Creating solutions, automations, and MicroSaaS with No-Code tools and AI to scale results."
+    },
+    "performance": {
+      "title": "Performance & Paid Media",
+      "desc": "Specialized management of Google Ads and Meta Ads. ROI optimization and campaign performance analysis."
+    },
+    "ux": {
+      "title": "UX/UI & Design Thinking",
+      "desc": "User-centered design. Prototyping, usability testing, and high-conversion interfaces."
+    },
+    "analytics": {
+      "title": "Data Analysis & ROI",
+      "desc": "Actionable metrics, dashboards, and KPI analysis for data-driven decisions."
+    }
+  },
+  "portfolio": {
+    "title": "Featured Work",
+    "all": "All",
+    "branding": "Branding",
+    "digital": "Digital",
+    "ux": "UX/UI",
+    "viewBehance": "View Full Portfolio on Behance",
+    "projects": {
+      "klini": {
+        "title": "Klini Health Visual Identity",
+        "desc": "Complete visual identity development for digital health startup, including logo, color palette, and applications.",
+        "tags": ["Branding", "Visual Identity", "Digital Health"]
+      },
+      "growth": {
+        "title": "Digital Growth Campaign",
+        "desc": "Strategy and execution of performance campaign focused on accelerated growth and CAC optimization.",
+        "tags": ["Performance", "Meta Ads", "Growth"]
+      },
+      "dashboard": {
+        "title": "Analytics Dashboard UX/UI",
+        "desc": "Interface and experience design for B2B analytics dashboard, focused on complex data visualization.",
+        "tags": ["UX/UI", "Dashboard", "Analytics"]
+      }
+    }
+  },
+  "lab": {
+    "title": "Innovation Lab (No-Code, AI & MicroSaaS)",
+    "subtitle": "Projects that connect strategy, design, and technological development",
+    "viewSoon": "View App (Coming Soon)",
+    "visitSite": "Visit Site",
+    "seeAnalysis": "See Analysis (Coming Soon)",
+    "learnMore": "Learn More (Coming Soon)",
+    "projects": {
+      "website": {
+        "title": "Website & Automation (Family Consultant)",
+        "desc": "Complete development (No-Code) of service platform, integrating blog, booking system, and lead capture automation. Focus on technical SEO and performance.",
+        "tags": ["No-Code", "Web Development", "SEO", "Automation"]
+      },
+      "portfolio": {
+        "title": "Interactive Portfolio (Personal Project)",
+        "desc": "Design (UI/UX) and implementation of this portfolio, focused on micro-interactions, advanced animations, and No-Code architecture, serving as a proof of concept.",
+        "tags": ["UI/UX", "Web Animations", "No-Code", "Glassmorphism"]
+      },
+      "microsaas": {
+        "title": "MicroSaaS (In Development)",
+        "desc": "Development of a MicroSaaS solution focused on optimizing performance reports for agencies, using AI and No-Code tools.",
+        "tags": ["MicroSaaS", "AI", "Automation", "Coming Soon"]
+      },
+      "dashboard": {
+        "title": "Performance Dashboard (Doctor Creator Board)",
+        "desc": "Development of an analytical dashboard (under construction) for content creators in healthcare. Focus on data visualization and engagement metrics.",
+        "tags": ["No-Code", "Dashboard", "DataViz", "Under Construction"]
+      },
+      "platform": {
+        "title": "Management Platform (BeautyPro Hub)",
+        "desc": "Ideation and development of a MicroSaaS platform (under construction) for makeup artists. Focus on scheduling, client management, and portfolio.",
+        "tags": ["MicroSaaS", "No-Code", "Scheduling", "Under Construction"]
+      }
+    }
+  },
+  "qualifications": {
+    "title": "Qualification Highlights",
+    "items": {
+      "strategy": {
+        "title": "Data-Driven Strategy",
+        "desc": "MBA in Competitive Intelligence focused on market analysis and strategic positioning. I transform complex data into actionable insights for competitive advantage."
+      },
+      "performance": {
+        "title": "Performance & Paid Media",
+        "desc": "Specialization in paid traffic management (Google Ads and Meta Ads). Continuous campaign optimization focused on ROI and performance metrics."
+      },
+      "innovation": {
+        "title": "Development & Technological Innovation",
+        "desc": "I connect marketing strategy to practical development. I build solutions, automations, and MicroSaaS with No-Code tools and AI to create competitive advantage and scale results."
+      }
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "highlights": "Qualification Highlights",
+    "text1": "Graphic designer with over 5 years of experience and marketing coordinator specialized in digital innovation, currently pursuing an MBA in Competitive Intelligence and Data-Driven Marketing in Rio de Janeiro.",
+    "text2": "My professional journey combines visual creativity with strategic thinking and market analysis, allowing me to develop solutions that not only visually delight but also generate measurable results for businesses.",
+    "text3": "Specialized in paid traffic management (Google Ads and Meta Ads), strategic branding, design thinking applied to innovation, and competitive intelligence. I transform data and market insights into visual strategies and digital marketing campaigns that drive growth.",
+    "quote": "I believe that exceptional design goes beyond aesthetics—it must be data-driven, user-centered, and aligned with business objectives to generate real impact.",
+    "items": {
+      "mba": "MBA in Competitive Intelligence",
+      "degree": "Bachelor's Degree in Graphic Design",
+      "adobe": "Adobe Suite, Figma",
+      "ads": "Google Ads, Meta Ads",
+      "code": "HTML, CSS, WordPress",
+      "english": "Advanced English"
+    }
+  },
+  "contact": {
+    "title": "Let's Create Something Amazing",
+    "subtitle": "Get in touch to discuss how we can work together",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send via WhatsApp",
+    "sendEmail": "Send Email",
+    "startChat": "Start Conversation",
+    "connectLinkedIn": "Connect on LinkedIn",
+    "requiredFields": "Required fields",
+    "fillAllFields": "Please fill in all fields.",
+    "redirecting": "Redirecting to WhatsApp",
+    "redirectingDesc": "You will be redirected to continue the conversation."
+  },
+  "footer": {
+    "description": "Digital Marketing, Competitive Intelligence and Innovation Specialist. Transforming data into strategies that generate results.",
+    "navigation": "Navigation",
+    "social": "Social Media",
+    "rights": "All rights reserved."
+  }
+}

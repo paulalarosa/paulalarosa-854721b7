@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,12 +18,17 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Competências', href: '#expertise' },
-    { name: 'Portfólio', href: '#portfolio' },
-    { name: 'Qualificações', href: '#qualifications' },
-    { name: 'Contato', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.expertise'), href: '#expertise' },
+    { name: t('nav.portfolio'), href: '#portfolio' },
+    { name: t('nav.qualifications'), href: '#qualifications' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -60,11 +67,48 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Language Selector */}
+            <div className="flex items-center gap-2 text-sm">
+              <button
+                onClick={() => changeLanguage('pt')}
+                className={`transition-base ${
+                  i18n.language === 'pt'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                PT
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`transition-base ${
+                  i18n.language === 'en'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => changeLanguage('es')}
+                className={`transition-base ${
+                  i18n.language === 'es'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                ES
+              </button>
+            </div>
+            
             <Button
               onClick={() => scrollToSection('#contact')}
               className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
             >
-              Entrar em Contato
+              {t('nav.contactBtn')}
             </Button>
           </nav>
 
@@ -90,11 +134,48 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Mobile Language Selector */}
+            <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
+              <button
+                onClick={() => changeLanguage('pt')}
+                className={`transition-base ${
+                  i18n.language === 'pt'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                PT
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`transition-base ${
+                  i18n.language === 'en'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => changeLanguage('es')}
+                className={`transition-base ${
+                  i18n.language === 'es'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                }`}
+              >
+                ES
+              </button>
+            </div>
+            
             <Button
               onClick={() => scrollToSection('#contact')}
               className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30"
             >
-              Entrar em Contato
+              {t('nav.contactBtn')}
             </Button>
           </nav>
         )}

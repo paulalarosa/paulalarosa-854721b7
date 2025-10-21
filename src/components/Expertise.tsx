@@ -1,13 +1,16 @@
 import { TrendingUp, Target, Palette, BarChart3, Zap, Lightbulb } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { useTranslation } from 'react-i18next';
 
 const Expertise = () => {
+  const { t } = useTranslation();
+  
   return (
     <section id="expertise" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl font-semibold text-primary mb-4">
-            Minhas Competências
+            {t('expertise.title')}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
@@ -22,11 +25,10 @@ const Expertise = () => {
                 <Target className="h-10 w-10 text-primary stroke-[1.5] group-hover:text-accent transition-base" />
               </div>
               <h3 className="font-serif text-3xl font-semibold text-primary mb-4">
-                Planejamento Estratégico & Inovação
+                {t('expertise.strategy.title')}
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                Desenvolvimento de estratégias de marketing orientadas por dados, inteligência competitiva 
-                e análise de mercado para impulsionar crescimento sustentável e inovação.
+                {t('expertise.strategy.desc')}
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 text-xs bg-accent/20 text-foreground rounded-full border border-accent/30">MBA Marketing</span>
@@ -44,10 +46,10 @@ const Expertise = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-serif text-2xl font-semibold text-primary mb-3">
-                  Gestão de Tráfego Pago
+                  {t('expertise.performance.title')}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Especialização em Google Ads e Meta Ads com foco em ROI e otimização contínua de campanhas multicanal.
+                  {t('expertise.performance.desc')}
                 </p>
                 <div className="flex gap-2">
                   <span className="px-2 py-1 text-xs bg-secondary text-foreground rounded">Google Ads</span>
@@ -65,10 +67,10 @@ const Expertise = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-serif text-2xl font-semibold text-primary mb-3">
-                  Automação & Desenvolvimento No-Code
+                  {t('expertise.automation.title')}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Construção de soluções tecnológicas, automações e MicroSaaS com ferramentas No-Code e IA para escalar resultados.
+                  {t('expertise.automation.desc')}
                 </p>
                 <div className="flex gap-2">
                   <span className="px-2 py-1 text-xs bg-secondary text-foreground rounded">No-Code</span>
@@ -85,10 +87,10 @@ const Expertise = () => {
               <Palette className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>
             <h3 className="font-semibold text-lg text-primary mb-2">
-              UX/UI & Design Thinking
+              {t('expertise.ux.title')}
             </h3>
             <p className="text-xs text-muted-foreground">
-              Figma & Adobe XD
+              {t('expertise.ux.desc')}
             </p>
           </Card>
 
@@ -98,10 +100,10 @@ const Expertise = () => {
               <BarChart3 className="h-6 w-6 text-primary stroke-[1.5]" />
             </div>
             <h3 className="font-semibold text-lg text-primary mb-2">
-              Análise de Dados & ROI
+              {t('expertise.analytics.title')}
             </h3>
             <p className="text-xs text-muted-foreground">
-              Métricas & KPIs
+              {t('expertise.analytics.desc')}
             </p>
           </Card>
         </div>
