@@ -115,6 +115,10 @@
       }
     }
   },
+  "aboutHero": {
+    "greeting": "Hola, soy Paula La Rosa.",
+    "intro": "Con una base sólida en Diseño y UX, mi carrera ha evolucionado hacia el centro de la estrategia digital. Hoy, mi enfoque es usar inteligencia competitiva, automatización y análisis de datos para coordinar proyectos de marketing que generan crecimiento real e innovación."
+  },
   "about": {
     "title": "Sobre Mí",
     "highlights": "Aspectos Destacados de Calificación",
