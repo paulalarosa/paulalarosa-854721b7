@@ -151,5 +151,40 @@
     "navigation": "Navigation",
     "social": "Social Media",
     "rights": "All rights reserved."
+  },
+  "testimonials": {
+    "title": "What they say about me",
+    "items": [
+      {
+        "quote": "Paula completely transformed our digital strategy. Her knowledge in automation and No-Code allowed us to scale much faster than we imagined.",
+        "author": "John Silva",
+        "role": "CEO, Tech Startup"
+      },
+      {
+        "quote": "Working with Paula was an exceptional experience. She not only delivered measurable results in media performance, but also brought a strategic vision that changed our business.",
+        "author": "Mary Santos",
+        "role": "Marketing Director, E-commerce"
+      },
+      {
+        "quote": "Paula's ability to connect strategy with technical execution is impressive. She developed solutions that saved significant time and resources.",
+        "author": "Carlos Oliveira",
+        "role": "Founder, Digital Agency"
+      }
+    ]
+  },
+  "caseStudy": {
+    "back": "Back to Lab",
+    "challengeTitle": "The Challenge",
+    "challenge": "The client needed a professional digital presence that reflected their expertise in family consulting, with an integrated scheduling system and automated lead capture. The challenge was to create a complete solution without compromising performance or user experience.",
+    "solutionTitle": "The Solution",
+    "solution": "I developed a complete platform using No-Code tools, integrating responsive design, SEO-optimized blog, scheduling system and lead automation. The focus was on creating a scalable architecture with excellent performance.",
+    "stackTitle": "Technology Stack",
+    "resultsTitle": "Results & Impact",
+    "results": [
+      "150% increase in qualified leads",
+      "Loading time < 2 seconds",
+      "8.5% conversion rate"
+    ],
+    "visitLive": "Visit Live Site"
   }
 }

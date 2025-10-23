@@ -151,5 +151,40 @@
     "navigation": "Navegación",
     "social": "Redes Sociales",
     "rights": "Todos los derechos reservados."
+  },
+  "testimonials": {
+    "title": "Lo que dicen de mí",
+    "items": [
+      {
+        "quote": "Paula transformó completamente nuestra estrategia digital. Su conocimiento en automatización y No-Code nos permitió escalar mucho más rápido de lo que imaginábamos.",
+        "author": "João Silva",
+        "role": "CEO, Startup Tecnológica"
+      },
+      {
+        "quote": "Trabajar con Paula fue una experiencia excepcional. No solo entregó resultados medibles en rendimiento de medios, sino que también aportó una visión estratégica que cambió nuestro negocio.",
+        "author": "María Santos",
+        "role": "Directora de Marketing, E-commerce"
+      },
+      {
+        "quote": "La capacidad de Paula para conectar estrategia con ejecución técnica es impresionante. Desarrolló soluciones que ahorraron tiempo y recursos significativos.",
+        "author": "Carlos Oliveira",
+        "role": "Fundador, Agencia Digital"
+      }
+    ]
+  },
+  "caseStudy": {
+    "back": "Volver al Laboratorio",
+    "challengeTitle": "El Desafío",
+    "challenge": "El cliente necesitaba una presencia digital profesional que reflejara su experiencia en consultoría familiar, con un sistema de programación integrado y captura automatizada de leads. El desafío era crear una solución completa sin comprometer el rendimiento o la experiencia del usuario.",
+    "solutionTitle": "La Solución",
+    "solution": "Desarrollé una plataforma completa usando herramientas No-Code, integrando diseño responsivo, blog optimizado para SEO, sistema de programación y automatización de leads. El enfoque fue crear una arquitectura escalable con excelente rendimiento.",
+    "stackTitle": "Stack Tecnológico",
+    "resultsTitle": "Resultados e Impacto",
+    "results": [
+      "Aumento del 150% en leads calificados",
+      "Tiempo de carga < 2 segundos",
+      "Tasa de conversión del 8.5%"
+    ],
+    "visitLive": "Visitar Sitio en Vivo"
   }
 }

@@ -151,5 +151,40 @@
     "navigation": "Navegação",
     "social": "Redes Sociais",
     "rights": "Todos os direitos reservados."
+  },
+  "testimonials": {
+    "title": "O que dizem sobre mim",
+    "items": [
+      {
+        "quote": "Paula transformou completamente nossa estratégia digital. Seu conhecimento em automação e No-Code nos permitiu escalar muito mais rápido do que imaginávamos.",
+        "author": "João Silva",
+        "role": "CEO, Tech Startup"
+      },
+      {
+        "quote": "Trabalhar com Paula foi uma experiência excepcional. Ela não apenas entregou resultados mensuráveis em performance de mídia, mas também trouxe uma visão estratégica que mudou nosso negócio.",
+        "author": "Maria Santos",
+        "role": "Diretora de Marketing, E-commerce"
+      },
+      {
+        "quote": "A capacidade de Paula de conectar estratégia com execução técnica é impressionante. Ela desenvolveu soluções que economizaram tempo e recursos significativos.",
+        "author": "Carlos Oliveira",
+        "role": "Fundador, Agência Digital"
+      }
+    ]
+  },
+  "caseStudy": {
+    "back": "Voltar para Laboratório",
+    "challengeTitle": "O Desafio",
+    "challenge": "O cliente precisava de uma presença digital profissional que refletisse sua expertise em consultoria familiar, com um sistema de agendamento integrado e captação automatizada de leads. O desafio era criar uma solução completa sem comprometer a performance ou a experiência do usuário.",
+    "solutionTitle": "A Solução",
+    "solution": "Desenvolvi uma plataforma completa usando ferramentas No-Code, integrando design responsivo, blog otimizado para SEO, sistema de agendamento e automação de leads. O foco foi em criar uma arquitetura escalável com excelente performance.",
+    "stackTitle": "Stack de Tecnologia",
+    "resultsTitle": "Resultados & Impacto",
+    "results": [
+      "Aumento de 150% em leads qualificados",
+      "Tempo de carregamento < 2 segundos",
+      "Taxa de conversão de 8.5%"
+    ],
+    "visitLive": "Visitar Site Ao Vivo"
   }
 }
