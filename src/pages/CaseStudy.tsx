@@ -10,17 +10,22 @@ const CaseStudy = () => {
   const { id } = useParams();
   const { t } = useTranslation();
 
-  // In a real app, this would fetch data based on the ID
-  const caseStudy = {
-    title: t('lab.projects.website.title'),
-    subtitle: t('lab.projects.website.desc'),
-    tags: t('lab.projects.website.tags', { returnObjects: true }) as string[],
-    challenge: t('caseStudy.challenge'),
-    solution: t('caseStudy.solution'),
-    stack: ['Lovable', 'Figma', 'Google Analytics', 'SEO Tools'],
-    results: t('caseStudy.results', { returnObjects: true }) as string[],
-    liveUrl: '#',
+  // Project data based on ID
+  const getProjectData = (projectId: string | undefined) => {
+    const projectKey = projectId || 'website';
+    return {
+      title: t(`lab.projects.${projectKey}.title`),
+      subtitle: t(`lab.projects.${projectKey}.desc`),
+      tags: t(`lab.projects.${projectKey}.tags`, { returnObjects: true }) as string[],
+      challenge: t('caseStudy.challenge'),
+      solution: t('caseStudy.solution'),
+      stack: ['Lovable', 'Figma', 'Google Analytics', 'SEO Tools', 'No-Code'],
+      results: t('caseStudy.results', { returnObjects: true }) as string[],
+      liveUrl: '#',
+    };
   };
+
+  const caseStudy = getProjectData(id);
 
   return (
     <div className="min-h-screen">

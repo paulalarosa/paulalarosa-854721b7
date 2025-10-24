@@ -62,12 +62,11 @@
     }
   },
   "lab": {
-    "title": "Innovation Lab (No-Code, AI & MicroSaaS)",
+    "title": "Featured Projects",
     "subtitle": "Projects that connect strategy, design, and technological development",
-    "viewSoon": "View App (Coming Soon)",
+    "viewCaseStudy": "View Case Study",
+    "comingSoon": "Coming Soon",
     "visitSite": "Visit Site",
-    "seeAnalysis": "See Analysis (Coming Soon)",
-    "learnMore": "Learn More (Coming Soon)",
     "projects": {
       "website": {
         "title": "Website & Automation (Family Consultant)",

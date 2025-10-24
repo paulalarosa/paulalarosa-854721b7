@@ -62,12 +62,11 @@
     }
   },
   "lab": {
-    "title": "Laboratório de Inovação (No-Code, IA & MicroSaaS)",
+    "title": "Projetos em Destaque",
     "subtitle": "Projetos que conectam estratégia, design e desenvolvimento tecnológico",
-    "viewSoon": "Ver App (Em Breve)",
+    "viewCaseStudy": "Ver Estudo de Caso",
+    "comingSoon": "Em Breve",
     "visitSite": "Visitar Site",
-    "seeAnalysis": "Ver Análise (Em Breve)",
-    "learnMore": "Saber Mais (Em Breve)",
     "projects": {
       "website": {
         "title": "Website & Automação (Consultor Familiar)",

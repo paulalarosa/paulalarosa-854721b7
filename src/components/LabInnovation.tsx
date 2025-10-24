@@ -1,49 +1,46 @@
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const LabInnovation = () => {
   const { t } = useTranslation();
   
   const projects = [
     {
+      id: 'website',
       title: t('lab.projects.website.title'),
       description: t('lab.projects.website.desc'),
       tags: t('lab.projects.website.tags', { returnObjects: true }) as string[],
-      link: "#",
       available: true
     },
     {
+      id: 'portfolio',
       title: t('lab.projects.portfolio.title'),
       description: t('lab.projects.portfolio.desc'),
       tags: t('lab.projects.portfolio.tags', { returnObjects: true }) as string[],
-      link: "#",
-      available: false,
-      label: t('lab.seeAnalysis')
+      available: true
     },
     {
+      id: 'microsaas',
       title: t('lab.projects.microsaas.title'),
       description: t('lab.projects.microsaas.desc'),
       tags: t('lab.projects.microsaas.tags', { returnObjects: true }) as string[],
-      link: "#",
-      available: false,
-      label: t('lab.learnMore')
+      available: false
     },
     {
+      id: 'dashboard',
       title: t('lab.projects.dashboard.title'),
       description: t('lab.projects.dashboard.desc'),
       tags: t('lab.projects.dashboard.tags', { returnObjects: true }) as string[],
-      link: "#",
-      available: false,
-      label: t('lab.viewSoon')
+      available: false
     },
     {
+      id: 'platform',
       title: t('lab.projects.platform.title'),
       description: t('lab.projects.platform.desc'),
       tags: t('lab.projects.platform.tags', { returnObjects: true }) as string[],
-      link: "#",
-      available: false,
-      label: t('lab.viewSoon')
+      available: false
     }
   ];
 
@@ -88,19 +85,19 @@ const LabInnovation = () => {
                   ))}
                 </div>
 
-                <a
-                  href={project.link}
-                  className={`inline-flex items-center gap-2 text-sm font-medium transition-base ${
-                    project.available 
-                      ? 'text-accent hover:text-accent/80' 
-                      : 'text-muted-foreground cursor-default'
-                  }`}
-                  onClick={(e) => !project.available && e.preventDefault()}
-                >
-                  {project.label || t('lab.visitSite')}
-                  {!project.available && <span className="text-xs">({t('lab.viewSoon').split('(')[1]}</span>}
-                  {project.available && <ExternalLink className="h-4 w-4" />}
-                </a>
+                {project.available ? (
+                  <Link
+                    to={`/case-study/${project.id}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-base group/link"
+                  >
+                    {t('lab.viewCaseStudy')}
+                    <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                ) : (
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground cursor-default">
+                    {t('lab.comingSoon')}
+                  </span>
+                )}
               </div>
             </Card>
           ))}
