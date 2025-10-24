@@ -137,7 +137,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div 
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 z-20"
         style={{
           animation: 'fadeIn 0.8s ease-out forwards',
           animationDelay: '400ms'

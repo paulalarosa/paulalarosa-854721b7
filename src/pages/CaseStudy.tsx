@@ -22,15 +22,24 @@ const CaseStudy = () => {
       dashboard: '#',
       platform: '#'
     };
+
+    // Define project-specific stacks
+    const projectStacks: Record<string, string[]> = {
+      website: ['Lovable', 'Figma', 'Google Analytics', 'SEO Tools', 'No-Code'],
+      portfolio: ['Lovable', 'Figma', 'Glassmorphism', 'Animações Web'],
+      microsaas: ['Lovable', 'IA (Modelos de Análise)', 'APIs (Google/Meta)', 'No-Code'],
+      dashboard: ['Lovable', 'No-Code', 'DataViz (Visualização de Dados)', 'APIs de Mídia Social'],
+      platform: ['Lovable', 'No-Code', 'Sistemas de Agendamento', 'CRM (Conceito)']
+    };
     
     return {
       title: t(`lab.projects.${projectKey}.title`),
       subtitle: t(`lab.projects.${projectKey}.desc`),
       tags: t(`lab.projects.${projectKey}.tags`, { returnObjects: true }) as string[],
-      challenge: t('caseStudy.challenge'),
-      solution: t('caseStudy.solution'),
-      stack: ['Lovable', 'Figma', 'Google Analytics', 'SEO Tools', 'No-Code'],
-      results: t('caseStudy.results', { returnObjects: true }) as string[],
+      challenge: t(`caseStudy.${projectKey}.challenge`),
+      solution: t(`caseStudy.${projectKey}.solution`),
+      stack: projectStacks[projectKey] || ['Lovable', 'No-Code'],
+      results: t(`caseStudy.${projectKey}.results`, { returnObjects: true }) as string[],
       liveUrl: projectUrls[projectKey] || '#',
     };
   };
@@ -47,7 +56,7 @@ const CaseStudy = () => {
             <Link to="/#lab-innovation">
               <Button variant="ghost" className="mb-8 group">
                 <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-                {t('caseStudy.back')}
+                Voltar para Projetos
               </Button>
             </Link>
             

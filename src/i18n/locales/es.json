@@ -174,18 +174,55 @@
     ]
   },
   "caseStudy": {
-    "back": "Volver al Laboratorio",
     "challengeTitle": "El Desafío",
-    "challenge": "El cliente necesitaba una presencia digital profesional que reflejara su experiencia en consultoría familiar, con un sistema de programación integrado y captura automatizada de leads. El desafío era crear una solución completa sin comprometer el rendimiento o la experiencia del usuario.",
     "solutionTitle": "La Solución",
-    "solution": "Desarrollé una plataforma completa usando herramientas No-Code, integrando diseño responsivo, blog optimizado para SEO, sistema de programación y automatización de leads. El enfoque fue crear una arquitectura escalable con excelente rendimiento.",
     "stackTitle": "Stack Tecnológico",
     "resultsTitle": "Resultados e Impacto",
-    "results": [
-      "Aumento del 150% en leads calificados",
-      "Tiempo de carga < 2 segundos",
-      "Tasa de conversión del 8.5%"
-    ],
-    "visitLive": "Visitar Sitio en Vivo"
+    "visitLive": "Visitar Sitio en Vivo",
+    "website": {
+      "challenge": "El cliente necesitaba una presencia digital profesional que reflejara su experiencia en consultoría familiar, con un sistema de programación integrado y captura automatizada de leads. El desafío era crear una solución completa sin comprometer el rendimiento o la experiencia del usuario.",
+      "solution": "Desarrollé una plataforma completa usando herramientas No-Code, integrando diseño responsivo, blog optimizado para SEO, sistema de programación y automatización de leads. El enfoque fue crear una arquitectura escalable con excelente rendimiento.",
+      "results": [
+        "Aumento del 150% en leads calificados",
+        "Tiempo de carga < 2 segundos",
+        "Tasa de conversión del 8.5%"
+      ]
+    },
+    "portfolio": {
+      "challenge": "Crear un portafolio que fuera más allá de una simple galería. El objetivo era construir una plataforma que no solo mostrara mis proyectos, sino que demostrara mis habilidades en diseño (UI/UX), animaciones web avanzadas, arquitectura No-Code y storytelling estratégico.",
+      "solution": "Desarrollé este sitio desde cero, tratándolo como un producto. El diseño (V3) se enfoca en sofisticación monocromática, el rendimiento (V11) está optimizado con animaciones ligeras (sin 'lag'), y la estructura (V12) es un embudo narrativo que prueba mis calificaciones de forma concisa y directa.",
+      "results": [
+        "Plataforma 100% eficiente y fluida",
+        "Diseño de UI/UX alineado con tendencias 2025/26",
+        "Prueba de Concepto (PoC) de habilidades en No-Code"
+      ]
+    },
+    "microsaas": {
+      "challenge": "Las agencias de marketing digital pasan innumerables horas compilando datos de múltiples fuentes (Google Ads, Meta Ads, Analytics) en informes manuales. Un proceso lento, costoso y propenso a errores humanos que retrasa la toma de decisiones.",
+      "solution": "Un MicroSaaS (en construcción) que automatiza el 100% de la recopilación y visualización de datos. La plataforma utilizará IA para analizar métricas y generar insights accionables (no solo datos en bruto), entregando informes de alto rendimiento en segundos, no en horas.",
+      "results": [
+        "Reducción del 90% en tiempo de generación de informes",
+        "Plataforma escalable para múltiples agencias",
+        "Enfoque en 'Insights' (IA) en lugar de 'Datos' (Manual)"
+      ]
+    },
+    "dashboard": {
+      "challenge": "Los creadores de contenido en el área de salud (médicos, nutricionistas) producen materiales de alto valor, pero tienen dificultades para medir el impacto real y el ROI de sus publicaciones en diferentes canales. Las métricas están dispersas y son difíciles de correlacionar.",
+      "solution": "Un dashboard analítico centralizado (en construcción). La herramienta unifica métricas de engagement, crecimiento de audiencia y conversión de leads (ej: citas), proporcionando una visión clara de qué contenidos están generando mayor impacto de negocio.",
+      "results": [
+        "Vista unificada del rendimiento del contenido",
+        "Optimización de estrategia basada en datos reales",
+        "Interfaz intuitiva (UX) para no especialistas"
+      ]
+    },
+    "platform": {
+      "challenge": "Las maquilladoras profesionales gestionan sus negocios de forma fragmentada: usan Instagram para portafolio, WhatsApp para programación y hojas de cálculo (o cuadernos) para control de clientes. Esto genera pérdida de tiempo, profesionalismo e ingresos.",
+      "solution": "Un MicroSaaS 'todo en uno' (en construcción) enfocado en la profesional de belleza. La plataforma integra un portafolio visual (UI/UX) con un sistema de programación inteligente, gestión de clientes (CRM) y control financiero básico, centralizando toda la operación del negocio.",
+      "results": [
+        "Centralización del 100% de la gestión del negocio",
+        "Reducción de errores de programación manual",
+        "Fortalecimiento de la marca profesional (UX/UI)"
+      ]
+    }
   }
 }

@@ -174,18 +174,55 @@
     ]
   },
   "caseStudy": {
-    "back": "Back to Lab",
     "challengeTitle": "The Challenge",
-    "challenge": "The client needed a professional digital presence that reflected their expertise in family consulting, with an integrated scheduling system and automated lead capture. The challenge was to create a complete solution without compromising performance or user experience.",
     "solutionTitle": "The Solution",
-    "solution": "I developed a complete platform using No-Code tools, integrating responsive design, SEO-optimized blog, scheduling system and lead automation. The focus was on creating a scalable architecture with excellent performance.",
     "stackTitle": "Technology Stack",
     "resultsTitle": "Results & Impact",
-    "results": [
-      "150% increase in qualified leads",
-      "Loading time < 2 seconds",
-      "8.5% conversion rate"
-    ],
-    "visitLive": "Visit Live Site"
+    "visitLive": "Visit Live Site",
+    "website": {
+      "challenge": "The client needed a professional digital presence that reflected their expertise in family consulting, with an integrated scheduling system and automated lead capture. The challenge was to create a complete solution without compromising performance or user experience.",
+      "solution": "I developed a complete platform using No-Code tools, integrating responsive design, SEO-optimized blog, scheduling system and lead automation. The focus was on creating a scalable architecture with excellent performance.",
+      "results": [
+        "150% increase in qualified leads",
+        "Loading time < 2 seconds",
+        "8.5% conversion rate"
+      ]
+    },
+    "portfolio": {
+      "challenge": "Create a portfolio that went beyond a simple gallery. The goal was to build a platform that not only showcased my projects but demonstrated my skills in design (UI/UX), advanced web animations, No-Code architecture, and strategic storytelling.",
+      "solution": "I developed this site from scratch, treating it as a product. The design (V3) focuses on monochromatic sophistication, the performance (V11) is optimized with lightweight animations (no 'lag'), and the structure (V12) is a narrative funnel that proves my qualifications in a lean and direct way.",
+      "results": [
+        "100% performant and fluid platform",
+        "UI/UX design aligned with 2025/26 trends",
+        "Proof of Concept (PoC) of No-Code skills"
+      ]
+    },
+    "microsaas": {
+      "challenge": "Digital marketing agencies spend countless hours compiling data from multiple sources (Google Ads, Meta Ads, Analytics) into manual reports. A slow, expensive process prone to human error that delays decision-making.",
+      "solution": "A MicroSaaS (under construction) that automates 100% of data collection and visualization. The platform will use AI to analyze metrics and generate actionable insights (not just raw data), delivering high-performance reports in seconds, not hours.",
+      "results": [
+        "90% reduction in report generation time",
+        "Scalable platform for multiple agencies",
+        "Focus on 'Insights' (AI) instead of 'Data' (Manual)"
+      ]
+    },
+    "dashboard": {
+      "challenge": "Healthcare content creators (doctors, nutritionists) produce high-value materials but struggle to measure the real impact and ROI of their publications across different channels. Metrics are scattered and difficult to correlate.",
+      "solution": "A centralized analytical dashboard (under construction). The tool unifies engagement metrics, audience growth, and lead conversion (e.g., appointments), providing a clear view of which content is generating the greatest business impact.",
+      "results": [
+        "Unified view of content performance",
+        "Strategy optimization based on real data",
+        "Intuitive interface (UX) for non-specialists"
+      ]
+    },
+    "platform": {
+      "challenge": "Professional makeup artists manage their businesses in a fragmented way: using Instagram for portfolio, WhatsApp for scheduling, and spreadsheets (or notebooks) for client management. This leads to time loss, lack of professionalism, and revenue loss.",
+      "solution": "An 'all-in-one' MicroSaaS (under construction) focused on beauty professionals. The platform integrates a visual portfolio (UI/UX) with a smart scheduling system, client management (CRM), and basic financial control, centralizing the entire business operation.",
+      "results": [
+        "100% centralization of business management",
+        "Reduction in manual scheduling errors",
+        "Strengthening of professional brand (UX/UI)"
+      ]
+    }
   }
 }
