@@ -13,6 +13,16 @@ const CaseStudy = () => {
   // Project data based on ID
   const getProjectData = (projectId: string | undefined) => {
     const projectKey = projectId || 'website';
+    
+    // Define project-specific URLs
+    const projectUrls: Record<string, string> = {
+      website: 'https://www.consultorfamiliar.com.br/',
+      portfolio: '#',
+      microsaas: '#',
+      dashboard: '#',
+      platform: '#'
+    };
+    
     return {
       title: t(`lab.projects.${projectKey}.title`),
       subtitle: t(`lab.projects.${projectKey}.desc`),
@@ -21,7 +31,7 @@ const CaseStudy = () => {
       solution: t('caseStudy.solution'),
       stack: ['Lovable', 'Figma', 'Google Analytics', 'SEO Tools', 'No-Code'],
       results: t('caseStudy.results', { returnObjects: true }) as string[],
-      liveUrl: '#',
+      liveUrl: projectUrls[projectKey] || '#',
     };
   };
 
