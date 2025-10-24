@@ -9,10 +9,8 @@
   },
   "hero": {
     "subtitle": "Especialista en Marketing, Innovación y Estrategia Digital",
-    "location": "Basada en Río de Janeiro",
-    "description": "Coordinadora de Marketing con MBA en Inteligencia Competitiva, especializada en gestión de tráfico (Google Ads y Meta Ads), análisis de mercado y diseño estratégico orientado por datos. Transformo insights competitivos en soluciones creativas que generan impacto mensurable en los negocios.",
+    "unifiedIntro": "Con una base sólida en Diseño y UX, mi carrera ha evolucionado hacia el centro de la estrategia digital. Hoy, mi enfoque es usar inteligencia competitiva, automatización y análisis de datos para coordinar proyectos de marketing que generan crecimiento real e innovación. Basada en Río de Janeiro.",
     "viewProjects": "Ver Proyectos",
-    "aboutMe": "Sobre Mí",
     "scroll": "Scroll"
   },
   "expertise": {
