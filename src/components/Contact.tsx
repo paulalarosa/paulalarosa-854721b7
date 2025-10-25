@@ -5,6 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, { message: "Name is required" }).max(100, { message: "Name must be less than 100 characters" }),
+  email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
+  message: z.string().trim().min(1, { message: "Message is required" }).max(1000, { message: "Message must be less than 1000 characters" })
+});
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -18,17 +25,21 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validação
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    // Validate with zod schema
+    const validation = contactSchema.safeParse(formData);
+    
+    if (!validation.success) {
+      const errors = validation.error.errors.map(err => err.message).join(', ');
       toast({
         title: t('contact.requiredFields'),
-        description: t('contact.fillAllFields'),
+        description: errors,
         variant: "destructive"
       });
       return;
     }
     
-    const message = `Olá Paula! Meu nome é ${formData.name}.\n\nEmail: ${formData.email}\n\nMensagem: ${formData.message}`;
+    const validatedData = validation.data;
+    const message = `Olá Paula! Meu nome é ${validatedData.name}.\n\nEmail: ${validatedData.email}\n\nMensagem: ${validatedData.message}`;
     const whatsappUrl = `https://wa.me/5521983604870?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
