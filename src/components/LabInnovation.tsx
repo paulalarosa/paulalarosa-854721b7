@@ -26,21 +26,21 @@ const LabInnovation = () => {
       title: t('lab.projects.microsaas.title'),
       description: t('lab.projects.microsaas.desc'),
       tags: t('lab.projects.microsaas.tags', { returnObjects: true }) as string[],
-      available: false
+      available: true
     },
     {
       id: 'dashboard',
       title: t('lab.projects.dashboard.title'),
       description: t('lab.projects.dashboard.desc'),
       tags: t('lab.projects.dashboard.tags', { returnObjects: true }) as string[],
-      available: false
+      available: true
     },
     {
       id: 'platform',
       title: t('lab.projects.platform.title'),
       description: t('lab.projects.platform.desc'),
       tags: t('lab.projects.platform.tags', { returnObjects: true }) as string[],
-      available: false
+      available: true
     }
   ];
 
