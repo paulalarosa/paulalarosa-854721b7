@@ -113,7 +113,7 @@ const Hero = () => {
             {/* Right Column - Photo with Parallax Effect */}
             <div 
               ref={photoRef}
-              className="opacity-0"
+              className="opacity-0 relative z-10"
               style={{
                 animation: 'staggerFadeIn 0.8s ease-out forwards',
                 animationDelay: '200ms',
@@ -137,7 +137,7 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <div 
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 z-20"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 z-[99]"
         style={{
           animation: 'fadeIn 0.8s ease-out forwards',
           animationDelay: '400ms'
