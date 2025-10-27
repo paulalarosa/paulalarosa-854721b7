@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,12 +6,29 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100, { message: "Name must be less than 100 characters" }),
   email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
   message: z.string().trim().min(1, { message: "Message is required" }).max(1000, { message: "Message must be less than 1000 characters" })
 });
+
+// Declare global grecaptcha type
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      render: (container: string | HTMLElement, parameters: {
+        sitekey: string;
+        theme?: string;
+        size?: string;
+        badge?: string;
+      }) => number;
+    };
+  }
+}
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -21,9 +38,50 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Initialize reCAPTCHA
+  useEffect(() => {
+    const initRecaptcha = () => {
+      if (window.grecaptcha) {
+        window.grecaptcha.ready(() => {
+          console.log('reCAPTCHA ready');
+          setRecaptchaReady(true);
+          
+          // Render invisible badge in bottom-right corner
+          const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+          if (siteKey) {
+            window.grecaptcha.render('recaptcha-badge', {
+              sitekey: siteKey,
+              size: 'invisible',
+              badge: 'bottomright'
+            });
+          }
+        });
+      }
+    };
+
+    // Check if script is already loaded
+    if (window.grecaptcha) {
+      initRecaptcha();
+    } else {
+      // Wait for script to load
+      const checkInterval = setInterval(() => {
+        if (window.grecaptcha) {
+          clearInterval(checkInterval);
+          initRecaptcha();
+        }
+      }, 100);
+
+      return () => clearInterval(checkInterval);
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (isSubmitting) return;
     
     // Validate with zod schema
     const validation = contactSchema.safeParse(formData);
@@ -37,18 +95,70 @@ const Contact = () => {
       });
       return;
     }
-    
-    const validatedData = validation.data;
-    const message = `Olá Paula! Meu nome é ${validatedData.name}.\n\nEmail: ${validatedData.email}\n\nMensagem: ${validatedData.message}`;
-    const whatsappUrl = `https://wa.me/5521983604870?text=${encodeURIComponent(message)}`;
-    
-    window.open(whatsappUrl, '_blank');
-    setFormData({ name: '', email: '', message: '' });
-    
-    toast({
-      title: t('contact.redirecting'),
-      description: t('contact.redirectingDesc'),
-    });
+
+    setIsSubmitting(true);
+
+    try {
+      // Get reCAPTCHA token
+      const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+      
+      if (!siteKey) {
+        throw new Error('reCAPTCHA not configured');
+      }
+
+      if (!recaptchaReady || !window.grecaptcha) {
+        throw new Error('reCAPTCHA not ready');
+      }
+
+      console.log('Executing reCAPTCHA...');
+      const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+      
+      // Verify reCAPTCHA token with backend
+      console.log('Verifying reCAPTCHA token...');
+      const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-recaptcha', {
+        body: { token }
+      });
+
+      if (verifyError) {
+        console.error('reCAPTCHA verification error:', verifyError);
+        throw new Error('Failed to verify reCAPTCHA');
+      }
+
+      if (!verifyData?.success) {
+        console.warn('reCAPTCHA verification failed:', verifyData);
+        toast({
+          title: 'Verificação de segurança falhou',
+          description: 'Por favor, tente novamente. Se o problema persistir, entre em contato diretamente.',
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log('reCAPTCHA verified successfully, score:', verifyData.score);
+      
+      // Proceed with form submission
+      const validatedData = validation.data;
+      const message = `Olá Paula! Meu nome é ${validatedData.name}.\n\nEmail: ${validatedData.email}\n\nMensagem: ${validatedData.message}`;
+      const whatsappUrl = `https://wa.me/5521983604870?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, '_blank');
+      setFormData({ name: '', email: '', message: '' });
+      
+      toast({
+        title: t('contact.redirecting'),
+        description: t('contact.redirectingDesc'),
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: 'Erro',
+        description: 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.',
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -114,14 +224,29 @@ const Contact = () => {
                 />
               </div>
 
+              <div id="recaptcha-badge"></div>
+              
               <Button
                 type="submit"
                 size="lg"
-                className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base shadow-silver border border-accent/30"
+                disabled={isSubmitting}
+                className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base shadow-silver border border-accent/30 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="mr-2 h-5 w-5" />
-                {t('contact.send')}
+                {isSubmitting ? 'Verificando...' : t('contact.send')}
               </Button>
+              
+              <p className="text-xs text-muted-foreground mt-4">
+                Este site é protegido pelo reCAPTCHA e as{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                  Políticas de Privacidade
+                </a>{' '}
+                e{' '}
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                  Termos de Serviço
+                </a>{' '}
+                do Google se aplicam.
+              </p>
             </form>
           </div>
 
