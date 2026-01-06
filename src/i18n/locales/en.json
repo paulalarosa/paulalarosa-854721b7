@@ -255,7 +255,9 @@
     "thankyou": "Thank you! You're subscribed.",
     "privacy": "We promise not to spam. You can unsubscribe at any time.",
     "errorEmpty": "Please enter your email.",
-    "errorInvalid": "Please enter a valid email."
+    "errorInvalid": "Please enter a valid email.",
+    "alreadySubscribed": "This email is already subscribed to the newsletter.",
+    "errorGeneric": "An error occurred. Please try again."
   },
   "partners": {
     "title": "Companies I've worked with",

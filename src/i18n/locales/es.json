@@ -255,7 +255,9 @@
     "thankyou": "¡Gracias! Estás suscrito.",
     "privacy": "Prometemos no enviar spam. Puedes cancelar en cualquier momento.",
     "errorEmpty": "Por favor, ingresa tu email.",
-    "errorInvalid": "Por favor, ingresa un email válido."
+    "errorInvalid": "Por favor, ingresa un email válido.",
+    "alreadySubscribed": "Este email ya está suscrito a la newsletter.",
+    "errorGeneric": "Ocurrió un error. Inténtalo de nuevo."
   },
   "partners": {
     "title": "Empresas con las que he trabajado",

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const Newsletter = () => {
   const { t } = useTranslation();
@@ -15,29 +16,50 @@ const Newsletter = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email) {
+    const trimmedEmail = email.trim().toLowerCase();
+    
+    if (!trimmedEmail) {
       toast.error(t('newsletter.errorEmpty'));
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(trimmedEmail)) {
       toast.error(t('newsletter.errorInvalid'));
       return;
     }
 
     setIsLoading(true);
     
-    // Simula envio (pode ser integrado com Supabase/API depois)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
-    toast.success(t('newsletter.success'));
-    setEmail('');
-    
-    // Reset após 5 segundos
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert({ email: trimmedEmail });
+
+      if (error) {
+        if (error.code === '23505') {
+          // Email já existe
+          toast.info(t('newsletter.alreadySubscribed'));
+        } else {
+          console.error('Newsletter subscription error:', error);
+          toast.error(t('newsletter.errorGeneric'));
+        }
+        setIsLoading(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+      toast.success(t('newsletter.success'));
+      setEmail('');
+      
+      // Reset após 5 segundos
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      toast.error(t('newsletter.errorGeneric'));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
