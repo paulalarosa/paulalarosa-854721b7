@@ -224,5 +224,26 @@
         "Strengthening of professional brand (UX/UI)"
       ]
     }
+  },
+  "stats": {
+    "experience": "Years of Experience",
+    "projects": "Projects Delivered",
+    "leadGrowth": "Lead Growth",
+    "satisfaction": "Satisfaction"
+  },
+  "skills": {
+    "title": "Tools & Technologies",
+    "marketing": {
+      "title": "Digital Marketing"
+    },
+    "design": {
+      "title": "Design & Creation"
+    },
+    "tech": {
+      "title": "Technology"
+    },
+    "strategy": {
+      "title": "Strategy"
+    }
   }
 }

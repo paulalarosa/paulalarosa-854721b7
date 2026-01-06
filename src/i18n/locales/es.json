@@ -224,5 +224,26 @@
         "Fortalecimiento de la marca profesional (UX/UI)"
       ]
     }
+  },
+  "stats": {
+    "experience": "Años de Experiencia",
+    "projects": "Proyectos Entregados",
+    "leadGrowth": "Crecimiento de Leads",
+    "satisfaction": "Satisfacción"
+  },
+  "skills": {
+    "title": "Herramientas y Tecnologías",
+    "marketing": {
+      "title": "Marketing Digital"
+    },
+    "design": {
+      "title": "Diseño y Creación"
+    },
+    "tech": {
+      "title": "Tecnología"
+    },
+    "strategy": {
+      "title": "Estrategia"
+    }
   }
 }
