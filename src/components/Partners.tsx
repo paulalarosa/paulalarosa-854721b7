@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+// Para adicionar logos reais, importe-os e adicione ao objeto 'logo' de cada parceiro
+// Exemplo: import bradesco from '@/assets/logos/bradesco.png';
+
 const partners = [
-  { name: 'Bradesco', category: 'finance' },
-  { name: 'Cosan', category: 'industry' },
-  { name: 'O Boticário', category: 'beauty' },
-  { name: 'Eudora', category: 'beauty' },
-  { name: 'Quem Disse, Berenice?', category: 'beauty' },
-  { name: 'Grupo Mola', category: 'hospitality' },
-  { name: 'Klini', category: 'health' },
-  { name: 'Cravo', category: 'food' },
-  { name: 'Truque Produções', category: 'events' },
-  { name: 'Infnet ECDD', category: 'education' },
-  { name: 'Teatro Estudio Argentina', category: 'entertainment' },
-  { name: 'Urca Hotel', category: 'hospitality' },
-  { name: 'Rede Casa Hospital', category: 'health' },
-  { name: 'Simplex', category: 'tech' },
+  { name: 'Bradesco', category: 'finance', logo: null },
+  { name: 'Cosan', category: 'industry', logo: null },
+  { name: 'O Boticário', category: 'beauty', logo: null },
+  { name: 'Eudora', category: 'beauty', logo: null },
+  { name: 'Quem Disse, Berenice?', category: 'beauty', logo: null },
+  { name: 'Grupo Mola', category: 'hospitality', logo: null },
+  { name: 'Klini', category: 'health', logo: null },
+  { name: 'Cravo', category: 'food', logo: null },
+  { name: 'Truque Produções', category: 'events', logo: null },
+  { name: 'Infnet ECDD', category: 'education', logo: null },
+  { name: 'Teatro Estudio Argentina', category: 'entertainment', logo: null },
+  { name: 'Urca Hotel', category: 'hospitality', logo: null },
+  { name: 'Rede Casa Hospital', category: 'health', logo: null },
+  { name: 'Simplex', category: 'tech', logo: null },
 ];
 
 const Partners = () => {
@@ -40,7 +43,7 @@ const Partners = () => {
         </motion.div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 items-center justify-items-center max-w-6xl mx-auto">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -48,38 +51,21 @@ const Partners = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group flex items-center justify-center p-4 rounded-lg hover:bg-accent/5 transition-all duration-300 w-full"
+              className="group flex items-center justify-center p-4 rounded-xl bg-background/50 border border-border/50 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 w-full h-20 md:h-24"
             >
-              <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 text-center leading-tight">
-                {partner.name}
-              </span>
+              {partner.logo ? (
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300"
+                />
+              ) : (
+                <span className="text-xs md:text-sm font-semibold text-muted-foreground/70 group-hover:text-primary transition-colors duration-300 text-center leading-tight px-1">
+                  {partner.name}
+                </span>
+              )}
             </motion.div>
           ))}
-        </div>
-
-        {/* Animated marquee for mobile */}
-        <div className="mt-8 overflow-hidden md:hidden">
-          <motion.div
-            className="flex gap-8 whitespace-nowrap"
-            animate={{ x: [0, -1000] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...partners, ...partners].map((partner, index) => (
-              <span
-                key={`${partner.name}-${index}`}
-                className="text-sm font-medium text-muted-foreground px-4"
-              >
-                {partner.name}
-              </span>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
