@@ -46,7 +46,7 @@ const Contact = () => {
     const initRecaptcha = () => {
       if (window.grecaptcha) {
         window.grecaptcha.ready(() => {
-          console.log('reCAPTCHA ready');
+          if (import.meta.env.DEV) console.log('reCAPTCHA ready');
           setRecaptchaReady(true);
           
           // Render invisible badge in bottom-right corner
@@ -110,11 +110,11 @@ const Contact = () => {
         throw new Error('reCAPTCHA not ready');
       }
 
-      console.log('Executing reCAPTCHA...');
+      if (import.meta.env.DEV) console.log('Executing reCAPTCHA...');
       const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
       
       // Verify reCAPTCHA token with backend
-      console.log('Verifying reCAPTCHA token...');
+      if (import.meta.env.DEV) console.log('Verifying reCAPTCHA token...');
       const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-recaptcha', {
         body: { token }
       });
@@ -127,7 +127,7 @@ const Contact = () => {
       }
 
       if (!verifyData?.success) {
-        console.warn('reCAPTCHA verification failed:', verifyData);
+        if (import.meta.env.DEV) console.warn('reCAPTCHA verification failed:', verifyData);
         toast({
           title: 'Verificação de segurança falhou',
           description: 'Por favor, tente novamente. Se o problema persistir, entre em contato diretamente.',
@@ -137,7 +137,7 @@ const Contact = () => {
         return;
       }
 
-      console.log('reCAPTCHA verified successfully, score:', verifyData.score);
+      if (import.meta.env.DEV) console.log('reCAPTCHA verified successfully, score:', verifyData.score);
       
       // Proceed with form submission
       const validatedData = validation.data;
