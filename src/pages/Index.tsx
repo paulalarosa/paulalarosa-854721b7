@@ -23,8 +23,8 @@ const Index = () => {
         <Partners />
         <LabInnovation />
         <Testimonials />
-        <Newsletter />
         <Contact />
+        <Newsletter />
       </main>
       <Footer />
       <WhatsAppButton />
