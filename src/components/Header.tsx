@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import ThemeToggle from './ThemeToggle';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -104,6 +106,8 @@ const Header = () => {
               </button>
             </div>
             
+            <ThemeToggle />
+            
             <Button
               onClick={() => scrollToSection('#contact')}
               className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
@@ -123,62 +127,75 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-border bg-background">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-3 text-foreground hover:text-accent transition-base font-medium"
-              >
-                {item.name}
-              </button>
-            ))}
-            
-            {/* Mobile Language Selector */}
-            <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
-              <button
-                onClick={() => changeLanguage('pt')}
-                className={`transition-base ${
-                  i18n.language === 'pt'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
-              >
-                PT
-              </button>
-              <span className="text-muted-foreground">|</span>
-              <button
-                onClick={() => changeLanguage('en')}
-                className={`transition-base ${
-                  i18n.language === 'en'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
-              >
-                EN
-              </button>
-              <span className="text-muted-foreground">|</span>
-              <button
-                onClick={() => changeLanguage('es')}
-                className={`transition-base ${
-                  i18n.language === 'es'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
-              >
-                ES
-              </button>
-            </div>
-            
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden py-6 border-t border-border bg-background overflow-hidden"
             >
-              {t('nav.contactBtn')}
-            </Button>
-          </nav>
-        )}
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full text-left py-3 text-foreground hover:text-accent transition-base font-medium"
+                >
+                  {item.name}
+                </motion.button>
+              ))}
+              
+              {/* Mobile Language Selector */}
+              <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
+                <button
+                  onClick={() => changeLanguage('pt')}
+                  className={`transition-base ${
+                    i18n.language === 'pt'
+                      ? 'font-bold text-primary'
+                      : 'text-muted-foreground hover:text-accent'
+                  }`}
+                >
+                  PT
+                </button>
+                <span className="text-muted-foreground">|</span>
+                <button
+                  onClick={() => changeLanguage('en')}
+                  className={`transition-base ${
+                    i18n.language === 'en'
+                      ? 'font-bold text-primary'
+                      : 'text-muted-foreground hover:text-accent'
+                  }`}
+                >
+                  EN
+                </button>
+                <span className="text-muted-foreground">|</span>
+                <button
+                  onClick={() => changeLanguage('es')}
+                  className={`transition-base ${
+                    i18n.language === 'es'
+                      ? 'font-bold text-primary'
+                      : 'text-muted-foreground hover:text-accent'
+                  }`}
+                >
+                  ES
+                </button>
+                <span className="text-muted-foreground">|</span>
+                <ThemeToggle />
+              </div>
+              
+              <Button
+                onClick={() => scrollToSection('#contact')}
+                className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30"
+              >
+                {t('nav.contactBtn')}
+              </Button>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
