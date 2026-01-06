@@ -245,5 +245,16 @@
     "strategy": {
       "title": "Estrategia"
     }
+  },
+  "newsletter": {
+    "title": "Mantente al día",
+    "subtitle": "Recibe insights sobre marketing, innovación y estrategia digital directamente en tu email.",
+    "placeholder": "Tu mejor email",
+    "button": "Suscribirse",
+    "success": "¡Suscripción realizada con éxito!",
+    "thankyou": "¡Gracias! Estás suscrito.",
+    "privacy": "Prometemos no enviar spam. Puedes cancelar en cualquier momento.",
+    "errorEmpty": "Por favor, ingresa tu email.",
+    "errorInvalid": "Por favor, ingresa un email válido."
   }
 }

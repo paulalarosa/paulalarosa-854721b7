@@ -245,5 +245,16 @@
     "strategy": {
       "title": "Strategy"
     }
+  },
+  "newsletter": {
+    "title": "Stay up to date",
+    "subtitle": "Get insights on marketing, innovation and digital strategy delivered directly to your inbox.",
+    "placeholder": "Your best email",
+    "button": "Subscribe",
+    "success": "Successfully subscribed!",
+    "thankyou": "Thank you! You're subscribed.",
+    "privacy": "We promise not to spam. You can unsubscribe at any time.",
+    "errorEmpty": "Please enter your email.",
+    "errorInvalid": "Please enter a valid email."
   }
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import ThemeToggle from './ThemeToggle';
@@ -116,13 +116,36 @@ const Header = () => {
             </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Animated Hamburger */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-foreground relative w-6 h-6 flex flex-col justify-center items-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.span
+              className="absolute w-6 h-0.5 bg-foreground rounded-full"
+              animate={{
+                rotate: isMobileMenuOpen ? 45 : 0,
+                y: isMobileMenuOpen ? 0 : -6,
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
+            <motion.span
+              className="absolute w-6 h-0.5 bg-foreground rounded-full"
+              animate={{
+                opacity: isMobileMenuOpen ? 0 : 1,
+                scaleX: isMobileMenuOpen ? 0 : 1,
+              }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="absolute w-6 h-0.5 bg-foreground rounded-full"
+              animate={{
+                rotate: isMobileMenuOpen ? -45 : 0,
+                y: isMobileMenuOpen ? 0 : 6,
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
           </button>
         </div>
 
