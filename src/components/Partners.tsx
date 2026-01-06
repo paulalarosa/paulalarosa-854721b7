@@ -30,6 +30,30 @@ const Partners = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
       
+      {/* CSS for smooth infinite marquee */}
+      <style>{`
+        @keyframes marquee-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .marquee-left {
+          animation: marquee-left 30s linear infinite;
+          will-change: transform;
+        }
+        .marquee-right {
+          animation: marquee-right 35s linear infinite;
+          will-change: transform;
+        }
+        .marquee-container:hover .marquee-left,
+        .marquee-container:hover .marquee-right {
+          animation-play-state: paused;
+        }
+      `}</style>
+      
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,52 +71,30 @@ const Partners = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto" />
         </motion.div>
 
-        {/* First Marquee Row - Left to Right */}
-        <div className="relative mb-6">
+        {/* First Marquee Row - Left */}
+        <div className="relative mb-6 marquee-container">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: [0, -1400] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...firstRow, ...firstRow, ...firstRow].map((partner, index) => (
+          <div className="flex gap-4 md:gap-6 marquee-left">
+            {[...firstRow, ...firstRow].map((partner, index) => (
               <PartnerCard key={`first-${index}`} partner={partner} />
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        {/* Second Marquee Row - Right to Left */}
-        <div className="relative">
+        {/* Second Marquee Row - Right */}
+        <div className="relative marquee-container">
           {/* Gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: [-1400, 0] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map((partner, index) => (
+          <div className="flex gap-4 md:gap-6 marquee-right">
+            {[...secondRow, ...secondRow].map((partner, index) => (
               <PartnerCard key={`second-${index}`} partner={partner} />
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Stats */}
@@ -123,11 +125,11 @@ const Partners = () => {
 
 const PartnerCard = ({ partner }: { partner: { name: string; highlight: boolean } }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.05, y: -2 }}
+    <div
       className={`
-        flex-shrink-0 px-8 py-5 rounded-2xl border backdrop-blur-sm
-        transition-all duration-300 cursor-default min-w-[180px]
+        flex-shrink-0 px-6 md:px-8 py-4 md:py-5 rounded-2xl border backdrop-blur-sm
+        transition-all duration-300 cursor-default min-w-[160px] md:min-w-[180px]
+        hover:scale-105 hover:-translate-y-1
         ${partner.highlight 
           ? 'bg-accent/10 border-accent/30 hover:border-accent/50 hover:bg-accent/15' 
           : 'bg-card/50 border-border/50 hover:border-accent/30 hover:bg-card/80'
@@ -136,13 +138,13 @@ const PartnerCard = ({ partner }: { partner: { name: string; highlight: boolean 
     >
       <span 
         className={`
-          text-base font-semibold whitespace-nowrap
+          text-sm md:text-base font-semibold whitespace-nowrap
           ${partner.highlight ? 'text-accent' : 'text-foreground/80'}
         `}
       >
         {partner.name}
       </span>
-    </motion.div>
+    </div>
   );
 };
 
