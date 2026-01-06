@@ -256,5 +256,9 @@
     "privacy": "Prometemos no enviar spam. Puedes cancelar en cualquier momento.",
     "errorEmpty": "Por favor, ingresa tu email.",
     "errorInvalid": "Por favor, ingresa un email válido."
+  },
+  "partners": {
+    "title": "Empresas con las que he trabajado",
+    "subtitle": "He tenido el privilegio de trabajar con marcas increíbles en diversos sectores"
   }
 }
