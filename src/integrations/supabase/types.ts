@@ -46,7 +46,11 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      delete_subscription_with_token: {
+        Args: { p_token: string }
+        Returns: boolean
+      }
+      unsubscribe_with_token: { Args: { p_token: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never

@@ -120,7 +120,9 @@ const Contact = () => {
       });
 
       if (verifyError) {
-        console.error('reCAPTCHA verification error:', verifyError);
+        if (import.meta.env.DEV) {
+          console.error('reCAPTCHA verification error:', verifyError);
+        }
         throw new Error('Failed to verify reCAPTCHA');
       }
 
@@ -150,7 +152,9 @@ const Contact = () => {
         description: t('contact.redirectingDesc'),
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      if (import.meta.env.DEV) {
+        console.error('Error submitting form:', error);
+      }
       toast({
         title: 'Erro',
         description: 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.',
