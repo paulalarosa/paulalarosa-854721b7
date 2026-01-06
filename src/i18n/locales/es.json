@@ -261,6 +261,10 @@
   },
   "partners": {
     "title": "Empresas con las que he trabajado",
-    "subtitle": "He tenido el privilegio de trabajar con marcas increíbles en diversos sectores"
+    "subtitle": "He tenido el privilegio de trabajar con marcas increíbles en diversos sectores",
+    "badge": "Clientes & Socios",
+    "companies": "Empresas atendidas",
+    "sectors": "Sectores diferentes",
+    "satisfaction": "Satisfacción"
   }
 }
