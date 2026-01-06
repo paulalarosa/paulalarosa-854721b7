@@ -256,5 +256,9 @@
     "privacy": "We promise not to spam. You can unsubscribe at any time.",
     "errorEmpty": "Please enter your email.",
     "errorInvalid": "Please enter a valid email."
+  },
+  "partners": {
+    "title": "Companies I've worked with",
+    "subtitle": "I've had the privilege of working with amazing brands across various industries"
   }
 }
