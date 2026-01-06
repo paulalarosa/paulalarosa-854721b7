@@ -255,7 +255,9 @@
     "thankyou": "Obrigada! Você está inscrito.",
     "privacy": "Prometemos não enviar spam. Você pode cancelar a qualquer momento.",
     "errorEmpty": "Por favor, informe seu email.",
-    "errorInvalid": "Por favor, informe um email válido."
+    "errorInvalid": "Por favor, informe um email válido.",
+    "alreadySubscribed": "Este email já está inscrito na newsletter.",
+    "errorGeneric": "Ocorreu um erro. Tente novamente."
   },
   "partners": {
     "title": "Empresas que já atendi",
