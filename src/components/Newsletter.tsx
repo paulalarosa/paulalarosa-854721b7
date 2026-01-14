@@ -1,85 +1,13 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'sonner';
-import { supabase } from '@/integrations/supabase/client';
-import { z } from 'zod';
-
-// Email validation schema matching database constraints
-const emailSchema = z.string()
-  .trim()
-  .email({ message: 'Invalid email address' })
-  .min(6, { message: 'Email must be at least 6 characters' })
-  .max(254, { message: 'Email must be less than 255 characters' })
-  .refine(email => email.includes('@') && email.includes('.'), {
-    message: 'Email must contain @ and .'
-  });
+import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
 
 const Newsletter = () => {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const trimmedEmail = email.trim().toLowerCase();
-    
-    // Validate with zod schema
-    const validation = emailSchema.safeParse(trimmedEmail);
-    
-    if (!validation.success) {
-      const errorMessage = validation.error.errors[0]?.message;
-      if (!trimmedEmail) {
-        toast.error(t('newsletter.errorEmpty'));
-      } else {
-        toast.error(t('newsletter.errorInvalid'));
-      }
-      return;
-    }
-
-    setIsLoading(true);
-    
-    try {
-      const { error } = await supabase
-        .from('newsletter_subscribers')
-        .insert({ email: validation.data });
-
-      if (error) {
-        if (error.code === '23505') {
-          // Email already exists
-          toast.info(t('newsletter.alreadySubscribed'));
-        } else {
-          // Log only in development
-          if (import.meta.env.DEV) {
-            console.error('Newsletter subscription error:', error);
-          }
-          toast.error(t('newsletter.errorGeneric'));
-        }
-        setIsLoading(false);
-        return;
-      }
-
-      setIsSubmitted(true);
-      toast.success(t('newsletter.success'));
-      setEmail('');
-      
-      // Reset after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      // Log only in development
-      if (import.meta.env.DEV) {
-        console.error('Newsletter subscription error:', err);
-      }
-      toast.error(t('newsletter.errorGeneric'));
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { email, setEmail, isSubmitted, isLoading, handleSubmit } = useNewsletterSubscription();
 
   return (
     <section className="py-16 bg-accent/5 border-y border-border">
