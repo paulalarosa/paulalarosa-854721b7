@@ -8,10 +8,27 @@
     "contactBtn": "Ponerse en Contacto"
   },
   "hero": {
-    "subtitle": "Especialista en Marketing, Innovación y Estrategia Digital",
-    "unifiedIntro": "Con una base sólida en Diseño y UX, mi carrera ha evolucionado hacia el centro de la estrategia digital. Hoy, mi enfoque es usar inteligencia competitiva, automatización y análisis de datos para coordinar proyectos de marketing que generan crecimiento real e innovación. Basada en Río de Janeiro.",
+    "name": "Paula La Rosa | Creative Frontend Developer",
+    "subtitle": "Construyendo productos digitales escalables con la precisión del código y el alma del diseño.",
+    "unifiedIntro": "Desarrolladora frontend con una base sólida en Diseño y UX. Creo interfaces elegantes y funcionales usando React, TypeScript y las mejores prácticas de ingeniería de software. Basada en Río de Janeiro.",
     "viewProjects": "Ver Proyectos",
     "scroll": "Scroll"
+  },
+  "hardSkills": {
+    "title": "Hard Skills",
+    "aiIntegration": "Integración con IA"
+  },
+  "featuredProject": {
+    "badge": "Proyecto Destacado",
+    "title": "Caso Principal",
+    "projectName": "Lumi Hub - MicroSaaS para Beauty Business",
+    "description": "Una plataforma CRM completa desarrollada desde cero. Combina un Design System exclusivo 'Industrial Noir' con funcionalidades avanzadas como agendamiento en tiempo real, generación de contratos PDF, dashboard financiero y asistente de IA.",
+    "comingSoon": "Próximamente",
+    "dashboardPreview": "Vista previa del Dashboard"
+  },
+  "designBackground": {
+    "title": "Background en Diseño & Branding",
+    "subtitle": "El diseño es mi base sólida para el desarrollo frontend"
   },
   "expertise": {
     "title": "Áreas de Competencia",
