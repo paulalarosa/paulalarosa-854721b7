@@ -7,19 +7,19 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.marketing.title'),
-      skills: ['Google Ads', 'Meta Ads', 'SEO', 'Analytics', 'CRM']
+      skills: ['React.js', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion']
     },
     {
       title: t('skills.design.title'),
-      skills: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'UI/UX']
+      skills: ['Figma', 'Design Systems', 'UI/UX', 'Prototyping', 'Adobe CC']
     },
     {
       title: t('skills.tech.title'),
-      skills: ['No-Code', 'Lovable', 'WordPress', 'HTML/CSS', 'Automação']
+      skills: ['Supabase', 'Node.js', 'PostgreSQL', 'Edge Functions', 'Git/GitHub']
     },
     {
       title: t('skills.strategy.title'),
-      skills: ['Inteligência Competitiva', 'Data Analysis', 'Design Thinking', 'Storytelling']
+      skills: ['VS Code', 'Vercel', 'Lovable', 'Cursor', 'AI Tools']
     }
   ];
 
