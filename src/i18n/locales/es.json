@@ -131,21 +131,21 @@
   },
   "aboutHero": {
     "greeting": "Hola, soy Paula La Rosa.",
-    "intro": "Con una base sólida en Diseño y UX, mi carrera ha evolucionado hacia el centro de la estrategia digital. Hoy, mi enfoque es usar inteligencia competitiva, automatización y análisis de datos para coordinar proyectos de marketing que generan crecimiento real e innovación."
+    "intro": "Desarrolladora frontend con background sólido en Diseño. Creo productos digitales que unen la precisión del código con la sensibilidad estética, entregando experiencias excepcionales del concepto a la producción."
   },
   "about": {
     "title": "Sobre Mí",
-    "highlights": "Aspectos Destacados de Calificación",
-    "text1": "Diseñadora gráfica con más de 5 años de experiencia y coordinadora de marketing especializada en innovación digital, actualmente cursando MBA en Inteligencia Competitiva y Marketing Orientado por Datos en Río de Janeiro.",
-    "text2": "Mi trayectoria profesional combina creatividad visual con pensamiento estratégico y análisis de mercado, permitiendo desarrollar soluciones que no solo encantan visualmente, sino que también generan resultados medibles para los negocios.",
-    "text3": "Especializada en gestión de tráfico pago (Google Ads y Meta Ads), branding estratégico, design thinking aplicado a la innovación e inteligencia competitiva. Transformo datos e insights de mercado en estrategias visuales y campañas de marketing digital que impulsan el crecimiento.",
-    "quote": "Creo que el diseño excepcional va más allá de la estética—debe estar orientado por datos, centrado en el usuario y alineado con los objetivos del negocio para generar un impacto real.",
+    "highlights": "Competencias Técnicas",
+    "text1": "Creative Frontend Developer con más de 5 años de experiencia en Diseño, ahora enfocada en ingeniería de software. Especializada en React, TypeScript y arquitecturas modernas de frontend.",
+    "text2": "Mi trayectoria combina visión creativa con pensamiento técnico, permitiendo desarrollar interfaces que no solo encantan visualmente, sino que también son performáticas, accesibles y escalables.",
+    "text3": "Experiencia construyendo productos completos: desde Design Systems y prototipado en Figma hasta implementación con React, integración con Supabase y deploy en producción. Foco en código limpio, componentización y buenas prácticas.",
+    "quote": "Creo que el código excepcional va más allá de la funcionalidad—debe ser elegante, mantenible y crear experiencias que encantan a los usuarios.",
     "items": {
-      "mba": "MBA en Inteligencia Competitiva",
+      "mba": "React & TypeScript",
       "degree": "Licenciatura en Diseño Gráfico",
-      "adobe": "Adobe Suite, Figma",
-      "ads": "Google Ads, Meta Ads",
-      "code": "HTML, CSS, WordPress",
+      "adobe": "Figma & Design Systems",
+      "ads": "Supabase & APIs",
+      "code": "Git, CI/CD, Testing",
       "english": "Inglés Avanzado"
     }
   },
@@ -165,7 +165,7 @@
     "redirectingDesc": "Serás redirigido para continuar la conversación."
   },
   "footer": {
-    "description": "Especialista en Marketing Digital, Inteligencia Competitiva e Innovación. Transformando datos en estrategias que generan resultados.",
+    "description": "Creative Frontend Developer & UI/UX Designer. Construyendo productos digitales escalables con la precisión del código y el alma del diseño.",
     "navigation": "Navegación",
     "social": "Redes Sociales",
     "rights": "Todos los derechos reservados."
@@ -249,18 +249,18 @@
     "satisfaction": "Satisfacción"
   },
   "skills": {
-    "title": "Herramientas y Tecnologías",
+    "title": "Stack & Tecnologías",
     "marketing": {
-      "title": "Marketing Digital"
+      "title": "Frontend"
     },
     "design": {
-      "title": "Diseño y Creación"
+      "title": "Diseño & UI"
     },
     "tech": {
-      "title": "Tecnología"
+      "title": "Backend & DevOps"
     },
     "strategy": {
-      "title": "Estrategia"
+      "title": "Herramientas"
     }
   },
   "newsletter": {
