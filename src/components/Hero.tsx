@@ -52,13 +52,13 @@ const Hero = () => {
             <div className="space-y-6">
               {/* Main Heading */}
               <h1 
-                className="font-serif text-6xl md:text-7xl lg:text-8xl font-semibold text-primary leading-[0.95] tracking-tight opacity-0 animate-stagger-1"
+                className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-primary leading-[0.95] tracking-tight opacity-0 animate-stagger-1"
                 style={{
                   animation: 'staggerFadeIn 0.6s ease-out forwards',
                   animationDelay: '0ms'
                 }}
               >
-                Paula La Rosa
+                {t('hero.name')}
               </h1>
 
               {/* Subtitle */}
@@ -125,7 +125,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
                 <img
                   src={paulaProfile}
-                  alt="Paula La Rosa - Marketing Coordinator and Innovation Specialist"
+                  alt="Paula La Rosa - Creative Frontend Developer & UI/UX Designer"
                   className="relative w-full h-auto rounded-lg shadow-lg object-cover aspect-square lg:aspect-[3/4] grayscale hover:grayscale-0 transition-slow"
                   loading="eager"
                 />

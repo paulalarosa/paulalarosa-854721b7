@@ -48,11 +48,11 @@ const LabInnovation = () => {
     <section id="lab-innovation" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-semibold text-primary mb-4">
-            {t('lab.title')}
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
+            {t('designBackground.title')}
           </h2>
           <p className="text-lg text-muted-foreground mb-2">
-            {t('lab.subtitle')}
+            {t('designBackground.subtitle')}
           </p>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
