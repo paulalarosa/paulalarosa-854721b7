@@ -113,19 +113,19 @@
     }
   },
   "qualifications": {
-    "title": "Aspectos Destacados de Calificación",
+    "title": "Competencias Técnicas",
     "items": {
       "strategy": {
-        "title": "Estrategia Basada en Datos",
-        "desc": "MBA en Inteligencia Competitiva con enfoque en análisis de mercado y posicionamiento estratégico. Transformo datos complejos en insights accionables para ventaja competitiva."
+        "title": "Frontend Engineering",
+        "desc": "Dominio de React, TypeScript y arquitectura de componentes. Creo interfaces performáticas con código limpio, testeable y escalable."
       },
       "performance": {
-        "title": "Performance y Medios Pagos",
-        "desc": "Especialización en gestión de tráfico pago (Google Ads y Meta Ads). Optimización continua de campañas con enfoque en ROI y métricas de rendimiento."
+        "title": "UI/UX & Design Systems",
+        "desc": "Background sólido en Diseño con foco en sistemas de diseño consistentes. Traduzco prototipos de Figma en código pixel-perfect con atención a los detalles."
       },
       "innovation": {
-        "title": "Desarrollo e Innovación Tecnológica",
-        "desc": "Conecto estrategia de marketing con desarrollo práctico. Construyo soluciones, automatizaciones y MicroSaaS con herramientas No-Code e IA para crear ventaja competitiva y escalar resultados."
+        "title": "Full-Stack & Integraciones",
+        "desc": "Experiencia con Supabase (Auth, Database, Edge Functions), APIs REST e integraciones con IA. Construyo productos completos desde el diseño hasta producción."
       }
     }
   },

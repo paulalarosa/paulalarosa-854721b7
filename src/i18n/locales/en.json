@@ -113,19 +113,19 @@
     }
   },
   "qualifications": {
-    "title": "Qualification Highlights",
+    "title": "Technical Skills",
     "items": {
       "strategy": {
-        "title": "Data-Driven Strategy",
-        "desc": "MBA in Competitive Intelligence focused on market analysis and strategic positioning. I transform complex data into actionable insights for competitive advantage."
+        "title": "Frontend Engineering",
+        "desc": "Mastery of React, TypeScript, and component architecture. I create performant interfaces with clean, testable, and scalable code."
       },
       "performance": {
-        "title": "Performance & Paid Media",
-        "desc": "Specialization in paid traffic management (Google Ads and Meta Ads). Continuous campaign optimization focused on ROI and performance metrics."
+        "title": "UI/UX & Design Systems",
+        "desc": "Solid background in Design focused on consistent design systems. I translate Figma prototypes into pixel-perfect code with attention to detail."
       },
       "innovation": {
-        "title": "Development & Technological Innovation",
-        "desc": "I connect marketing strategy to practical development. I build solutions, automations, and MicroSaaS with No-Code tools and AI to create competitive advantage and scale results."
+        "title": "Full-Stack & Integrations",
+        "desc": "Experience with Supabase (Auth, Database, Edge Functions), REST APIs, and AI integrations. I build complete products from design to production."
       }
     }
   },
