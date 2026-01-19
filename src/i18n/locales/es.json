@@ -174,19 +174,19 @@
     "title": "Lo que dicen de mí",
     "items": [
       {
-        "quote": "Paula transformó completamente nuestra estrategia digital. Su conocimiento en automatización y No-Code nos permitió escalar mucho más rápido de lo que imaginábamos.",
-        "author": "João Silva",
-        "role": "CEO, Startup Tecnológica"
+        "quote": "Paula desarrolló nuestro dashboard de analytics desde cero con React y TypeScript. El código es limpio, bien documentado y el rendimiento es excepcional. Su atención a los detalles de UI marcó la diferencia.",
+        "author": "Rafael Mendes",
+        "role": "CTO, SaaS Startup"
       },
       {
-        "quote": "Trabajar con Paula fue una experiencia excepcional. No solo entregó resultados medibles en rendimiento de medios, sino que también aportó una visión estratégica que cambió nuestro negocio.",
-        "author": "María Santos",
-        "role": "Directora de Marketing, E-commerce"
+        "quote": "Contratamos a Paula para refactorizar nuestro frontend legado. Implementó un Design System consistente, componentizó toda la aplicación y redujo nuestro bundle en un 40%. Profesional completa.",
+        "author": "Juliana Costa",
+        "role": "Head de Producto, Fintech"
       },
       {
-        "quote": "La capacidad de Paula para conectar estrategia con ejecución técnica es impresionante. Desarrolló soluciones que ahorraron tiempo y recursos significativos.",
-        "author": "Carlos Oliveira",
-        "role": "Fundador, Agencia Digital"
+        "quote": "Paula entregó una aplicación full-stack usando React y Supabase en tiempo récord. La integración con IA para generación de informes superó nuestras expectativas. ¡Súper recomendada!",
+        "author": "André Ferreira",
+        "role": "Founder, AgTech"
       }
     ]
   },
