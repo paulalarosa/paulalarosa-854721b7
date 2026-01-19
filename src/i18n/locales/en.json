@@ -33,24 +33,24 @@
   "expertise": {
     "title": "Areas of Expertise",
     "strategy": {
-      "title": "Strategy & Competitive Intelligence",
-      "desc": "MBA in Competitive Intelligence. Market analysis, benchmarking, and data-driven strategic positioning."
+      "title": "Component Architecture",
+      "desc": "Building reusable and scalable components with React and TypeScript. Design patterns, composition, and separation of concerns."
     },
     "automation": {
-      "title": "Automation & No-Code Development",
-      "desc": "Creating solutions, automations, and MicroSaaS with No-Code tools and AI to scale results."
+      "title": "Performance & Optimization",
+      "desc": "Code splitting, lazy loading, memoization, and render optimization. Focus on Core Web Vitals and smooth experience."
     },
     "performance": {
-      "title": "Performance & Paid Media",
-      "desc": "Specialized management of Google Ads and Meta Ads. ROI optimization and campaign performance analysis."
+      "title": "Accessibility (a11y)",
+      "desc": "Inclusive interfaces following WCAG. Semantic HTML, keyboard navigation, screen readers, and accessibility testing."
     },
     "ux": {
-      "title": "UX/UI & Design Thinking",
-      "desc": "User-centered design. Prototyping, usability testing, and high-conversion interfaces."
+      "title": "UI/UX & Design Systems",
+      "desc": "User-centered design with Figma. Creating consistent Design Systems, tokens, and component documentation."
     },
     "analytics": {
-      "title": "Data Analysis & ROI",
-      "desc": "Actionable metrics, dashboards, and KPI analysis for data-driven decisions."
+      "title": "Integration & APIs",
+      "desc": "REST API consumption, authentication, real-time with WebSockets, and integrations with AI and third-party services."
     }
   },
   "portfolio": {
