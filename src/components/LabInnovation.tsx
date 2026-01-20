@@ -34,13 +34,6 @@ const LabInnovation = () => {
       description: t('lab.projects.dashboard.desc'),
       tags: t('lab.projects.dashboard.tags', { returnObjects: true }) as string[],
       available: true
-    },
-    {
-      id: 'platform',
-      title: t('lab.projects.platform.title'),
-      description: t('lab.projects.platform.desc'),
-      tags: t('lab.projects.platform.tags', { returnObjects: true }) as string[],
-      available: true
     }
   ];
 
