@@ -165,8 +165,12 @@ const Header = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-3 text-foreground hover:text-accent transition-base font-medium"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    scrollToSection(item.href);
+                  }}
+                  className="block w-full text-left py-4 px-2 text-foreground hover:text-accent hover:bg-accent/10 transition-base font-medium cursor-pointer touch-manipulation"
                 >
                   {item.name}
                 </motion.button>
@@ -175,8 +179,11 @@ const Header = () => {
               {/* Mobile Language Selector */}
               <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
                 <button
-                  onClick={() => changeLanguage('pt')}
-                  className={`transition-base ${
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage('pt');
+                  }}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
                     i18n.language === 'pt'
                       ? 'font-bold text-primary'
                       : 'text-muted-foreground hover:text-accent'
@@ -186,8 +193,11 @@ const Header = () => {
                 </button>
                 <span className="text-muted-foreground">|</span>
                 <button
-                  onClick={() => changeLanguage('en')}
-                  className={`transition-base ${
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage('en');
+                  }}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
                     i18n.language === 'en'
                       ? 'font-bold text-primary'
                       : 'text-muted-foreground hover:text-accent'
@@ -197,8 +207,11 @@ const Header = () => {
                 </button>
                 <span className="text-muted-foreground">|</span>
                 <button
-                  onClick={() => changeLanguage('es')}
-                  className={`transition-base ${
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage('es');
+                  }}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
                     i18n.language === 'es'
                       ? 'font-bold text-primary'
                       : 'text-muted-foreground hover:text-accent'
@@ -211,8 +224,11 @@ const Header = () => {
               </div>
               
               <Button
-                onClick={() => scrollToSection('#contact')}
-                className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('#contact');
+                }}
+                className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30 touch-manipulation"
               >
                 {t('nav.contactBtn')}
               </Button>

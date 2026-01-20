@@ -104,11 +104,6 @@
         "title": "Performance Dashboard (Doctor Creator Board)",
         "desc": "Development of an analytical dashboard (under construction) for content creators in healthcare. Focus on data visualization and engagement metrics.",
         "tags": ["No-Code", "Dashboard", "DataViz", "Under Construction"]
-      },
-      "platform": {
-        "title": "Management Platform (BeautyPro Hub)",
-        "desc": "Ideation and development of a MicroSaaS platform (under construction) for makeup artists. Focus on scheduling, client management, and portfolio.",
-        "tags": ["MicroSaaS", "No-Code", "Scheduling", "Under Construction"]
       }
     }
   },
