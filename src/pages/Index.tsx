@@ -12,8 +12,12 @@ import Newsletter from '@/components/Newsletter';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const Index = () => {
+  // Initialize analytics tracking
+  useAnalytics();
+
   return (
     <div className="min-h-screen">
       <Header />
