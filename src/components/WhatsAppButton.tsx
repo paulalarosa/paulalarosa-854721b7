@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { trackEvent } from "@/hooks/useAnalytics";
 
 const WhatsAppButton = () => {
   const phoneNumber = "5521983604870";
@@ -6,11 +7,24 @@ const WhatsAppButton = () => {
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+  const handleClick = () => {
+    trackEvent({
+      event_type: 'external_link',
+      page_path: window.location.pathname,
+      metadata: { 
+        element: 'whatsapp_floating_button',
+        destination: 'whatsapp',
+        label: 'WhatsApp Flutuante'
+      }
+    });
+  };
+
   return (
     <motion.a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
