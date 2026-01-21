@@ -4,10 +4,28 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useTranslation } from 'react-i18next';
 import { useContactForm } from '@/hooks/useContactForm';
+import { trackEvent } from '@/hooks/useAnalytics';
 
 const Contact = () => {
   const { t } = useTranslation();
-  const { formData, isSubmitting, handleChange, handleSubmit } = useContactForm();
+  const { formData, isSubmitting, handleChange, handleSubmit: originalHandleSubmit } = useContactForm();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    trackEvent({
+      event_type: 'form_submit',
+      page_path: window.location.pathname,
+      metadata: { form_name: 'contact_form' }
+    });
+    await originalHandleSubmit(e);
+  };
+
+  const handleExternalLinkClick = (destination: string, label: string) => {
+    trackEvent({
+      event_type: 'external_link',
+      page_path: window.location.pathname,
+      metadata: { destination, label }
+    });
+  };
 
   return (
     <section id="contact" className="py-24 bg-secondary">
@@ -84,6 +102,7 @@ const Contact = () => {
           <div className="lg:col-span-2 space-y-6">
             <a
               href="mailto:prenata@gmail.com"
+              onClick={() => handleExternalLinkClick('email', 'Email Contact')}
               className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
@@ -99,6 +118,7 @@ const Contact = () => {
               href="https://wa.me/5521983604870"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleExternalLinkClick('whatsapp', 'WhatsApp Contact Section')}
               className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
@@ -114,6 +134,7 @@ const Contact = () => {
               href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleExternalLinkClick('linkedin', 'LinkedIn Profile')}
               className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
               <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
