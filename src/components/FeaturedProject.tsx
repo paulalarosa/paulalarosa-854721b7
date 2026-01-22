@@ -81,11 +81,11 @@ const FeaturedProject = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
-              <div className="relative aspect-video bg-card rounded-lg border border-border overflow-hidden shadow-xl">
+              <div className="relative aspect-video bg-card rounded-lg border border-border overflow-hidden shadow-xl group/image">
                 <img 
                   src={khaoskontrolPreview} 
                   alt="Khaos Kontrol Dashboard Preview" 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-110"
                 />
                 <div className="absolute top-0 left-0 right-0 h-8 bg-card/80 backdrop-blur-sm flex items-center px-3 gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-400/60"></div>
