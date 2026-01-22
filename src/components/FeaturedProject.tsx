@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import lumihubPreview from '@/assets/lumihub-preview.png';
+import khaoskontrolPreview from '@/assets/khaoskontrol-preview.png';
 
 const FeaturedProject = () => {
   const { t } = useTranslation();
@@ -83,8 +83,8 @@ const FeaturedProject = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
               <div className="relative aspect-video bg-card rounded-lg border border-border overflow-hidden shadow-xl">
                 <img 
-                  src={lumihubPreview} 
-                  alt="Lumi Hub Dashboard Preview" 
+                  src={khaoskontrolPreview} 
+                  alt="Khaos Kontrol Dashboard Preview" 
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute top-0 left-0 right-0 h-8 bg-card/80 backdrop-blur-sm flex items-center px-3 gap-2">
