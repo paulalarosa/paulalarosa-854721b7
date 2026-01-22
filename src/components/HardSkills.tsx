@@ -9,8 +9,14 @@ const HardSkills = () => {
     { name: 'TypeScript', icon: '📘' },
     { name: 'Tailwind CSS', icon: '🎨' },
     { name: 'Supabase', icon: '⚡' },
+    { name: 'Vite', icon: '⚡' },
+    { name: 'Framer Motion', icon: '🎬' },
+    { name: 'Node.js', icon: '🟢' },
+    { name: 'Edge Functions', icon: '☁️' },
     { name: 'Git/GitHub', icon: '🔀' },
     { name: 'Figma', icon: '✏️' },
+    { name: 'REST APIs', icon: '🔗' },
+    { name: 'Vercel', icon: '▲' },
     { name: t('hardSkills.aiIntegration'), icon: '🤖' }
   ];
 
