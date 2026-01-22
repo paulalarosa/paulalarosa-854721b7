@@ -66,7 +66,7 @@ const FeaturedProject = () => {
                 className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base group mt-4"
                 asChild
               >
-                <a href="https://lumihub.lovable.app/" target="_blank" rel="noopener noreferrer">
+                <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
                   {t('featuredProject.viewProject')}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
@@ -91,7 +91,7 @@ const FeaturedProject = () => {
                   <div className="w-3 h-3 rounded-full bg-red-400/60"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-400/60"></div>
                   <div className="w-3 h-3 rounded-full bg-green-400/60"></div>
-                  <span className="ml-2 text-xs text-muted-foreground">lumihub.lovable.app</span>
+                  <span className="ml-2 text-xs text-muted-foreground">khaoskontrol.com.br</span>
                 </div>
               </div>
             </motion.div>
