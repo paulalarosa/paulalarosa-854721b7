@@ -1,17 +1,27 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import khaoskontrolPreview from '@/assets/khaoskontrol-preview.png';
+import { useRef } from 'react';
 
 const FeaturedProject = () => {
   const { t } = useTranslation();
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   const techStack = ['React', 'Vite', 'Tailwind', 'Supabase (Auth/DB)', 'Edge Functions'];
 
   return (
-    <section id="featured-project" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="featured-project" ref={sectionRef} className="py-24 bg-background overflow-hidden">
+      <motion.div style={{ opacity }} className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,6 +88,7 @@ const FeaturedProject = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
+              style={{ y }}
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
@@ -88,16 +99,16 @@ const FeaturedProject = () => {
                   className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-110"
                 />
                 <div className="absolute top-0 left-0 right-0 h-8 bg-card/80 backdrop-blur-sm flex items-center px-3 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400/60"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400/60"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400/60"></div>
+                  <div className="w-3 h-3 rounded-full bg-destructive/60"></div>
+                  <div className="w-3 h-3 rounded-full bg-accent/60"></div>
+                  <div className="w-3 h-3 rounded-full bg-primary/60"></div>
                   <span className="ml-2 text-xs text-muted-foreground">khaoskontrol.com.br</span>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
