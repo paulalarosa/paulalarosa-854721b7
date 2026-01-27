@@ -35,3 +35,29 @@ export interface RecaptchaVerifyResponse {
   score?: number;
   error?: string;
 }
+
+export interface TechStackItem {
+  name: string;
+  icon: string;
+}
+
+export interface ProcessStep {
+  title: string;
+  desc: string;
+}
+
+export interface ProjectData {
+  key: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  challenge: string;
+  solution: string;
+  stack: TechStackItem[];
+  results: string[];
+  liveUrl: string;
+  role: string;
+  timeline: string;
+  process: ProcessStep[];
+  image: string;
+}
