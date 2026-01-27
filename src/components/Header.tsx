@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +10,9 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,26 +37,44 @@ const Header = () => {
   };
 
   const scrollToSection = (href: string) => {
+    setIsMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Small timeout to allow navigation to happen before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.hash = href;
+        }
+      }, 100);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-base ${
-        isScrolled
-          ? 'bg-background/98 backdrop-blur-sm border-b border-border shadow-xs'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-base ${isScrolled
+        ? 'bg-background/98 backdrop-blur-sm border-b border-border shadow-xs'
+        : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a
             href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('#home');
+            }}
             className="font-serif text-xl font-semibold text-primary hover:text-accent transition-base"
           >
             Paula La Rosa
@@ -69,45 +91,42 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
-            
+
             {/* Language Selector */}
             <div className="flex items-center gap-2 text-sm">
               <button
                 onClick={() => changeLanguage('pt')}
-                className={`transition-base ${
-                  i18n.language === 'pt'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
+                className={`transition-base ${i18n.language === 'pt'
+                  ? 'font-bold text-primary'
+                  : 'text-muted-foreground hover:text-accent'
+                  }`}
               >
                 PT
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => changeLanguage('en')}
-                className={`transition-base ${
-                  i18n.language === 'en'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
+                className={`transition-base ${i18n.language === 'en'
+                  ? 'font-bold text-primary'
+                  : 'text-muted-foreground hover:text-accent'
+                  }`}
               >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => changeLanguage('es')}
-                className={`transition-base ${
-                  i18n.language === 'es'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                }`}
+                className={`transition-base ${i18n.language === 'es'
+                  ? 'font-bold text-primary'
+                  : 'text-muted-foreground hover:text-accent'
+                  }`}
               >
                 ES
               </button>
             </div>
-            
+
             <ThemeToggle />
-            
+
             <Button
               onClick={() => scrollToSection('#contact')}
               className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
@@ -175,7 +194,7 @@ const Header = () => {
                   {item.name}
                 </motion.button>
               ))}
-              
+
               {/* Mobile Language Selector */}
               <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
                 <button
@@ -183,11 +202,10 @@ const Header = () => {
                     e.preventDefault();
                     changeLanguage('pt');
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === 'pt'
-                      ? 'font-bold text-primary'
-                      : 'text-muted-foreground hover:text-accent'
-                  }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'pt'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                    }`}
                 >
                   PT
                 </button>
@@ -197,11 +215,10 @@ const Header = () => {
                     e.preventDefault();
                     changeLanguage('en');
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === 'en'
-                      ? 'font-bold text-primary'
-                      : 'text-muted-foreground hover:text-accent'
-                  }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'en'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                    }`}
                 >
                   EN
                 </button>
@@ -211,18 +228,17 @@ const Header = () => {
                     e.preventDefault();
                     changeLanguage('es');
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === 'es'
-                      ? 'font-bold text-primary'
-                      : 'text-muted-foreground hover:text-accent'
-                  }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'es'
+                    ? 'font-bold text-primary'
+                    : 'text-muted-foreground hover:text-accent'
+                    }`}
                 >
                   ES
                 </button>
                 <span className="text-muted-foreground">|</span>
                 <ThemeToggle />
               </div>
-              
+
               <Button
                 onClick={(e) => {
                   e.preventDefault();

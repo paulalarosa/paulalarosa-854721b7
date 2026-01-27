@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import khaoskontrolPreview from '@/assets/khaoskontrol-preview.png';
@@ -8,12 +9,12 @@ import { useRef } from 'react';
 const FeaturedProject = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
@@ -50,7 +51,7 @@ const FeaturedProject = () => {
               <h3 className="font-serif text-3xl font-semibold text-primary">
                 {t('featuredProject.projectName')}
               </h3>
-              
+
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t('featuredProject.description')}
               </p>
@@ -71,16 +72,29 @@ const FeaturedProject = () => {
                 </div>
               </div>
 
-              <Button
-                size="lg"
-                className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base group mt-4"
-                asChild
-              >
-                <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
-                  {t('featuredProject.viewProject')}
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Button
+                  size="lg"
+                  className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base group"
+                  asChild
+                >
+                  <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
+                    {t('featuredProject.viewProject')}
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary/20 hover:bg-primary/5 hover:text-primary transition-base"
+                  asChild
+                >
+                  <Link to="/case-study/platform">
+                    {t('featuredProject.deepDive')}
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             <motion.div
@@ -93,9 +107,9 @@ const FeaturedProject = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
               <div className="relative aspect-video bg-card rounded-lg border border-border overflow-hidden shadow-xl group/image">
-                <img 
-                  src={khaoskontrolPreview} 
-                  alt="Khaos Kontrol Dashboard Preview" 
+                <img
+                  src={khaoskontrolPreview}
+                  alt="Khaos Kontrol Dashboard Preview"
                   className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-110"
                 />
                 <div className="absolute top-0 left-0 right-0 h-8 bg-card/80 backdrop-blur-sm flex items-center px-3 gap-2">

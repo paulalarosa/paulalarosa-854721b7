@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const LabInnovation = () => {
   const { t } = useTranslation();
-  
+
   const projects = [
     {
       id: 'website',
@@ -38,7 +38,7 @@ const LabInnovation = () => {
   ];
 
   return (
-    <section id="lab-innovation" className="py-24 bg-muted/30">
+    <section id="portfolio" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
@@ -52,24 +52,24 @@ const LabInnovation = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-8 border border-border hover:border-accent/50 transition-base bg-card group relative overflow-hidden hover-lift glass-effect"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-slow"></div>
-              
+
               <div className="relative z-10">
                 <h3 className="font-serif text-2xl font-semibold text-primary mb-4 leading-tight">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
-                    <span 
+                    <span
                       key={tagIndex}
                       className="px-3 py-1 text-xs text-accent border border-accent/30 rounded-full bg-accent/10"
                     >

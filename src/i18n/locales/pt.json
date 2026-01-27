@@ -15,7 +15,7 @@
     "scroll": "Scroll"
   },
   "hardSkills": {
-    "title": "Hard Skills",
+    "title": "Stack & Tecnologias",
     "aiIntegration": "Integração com IA"
   },
   "featuredProject": {
@@ -23,12 +23,13 @@
     "title": "Case Principal",
     "projectName": "Khaos Kontrol - MicroSaaS para Beauty Business",
     "description": "Uma plataforma CRM completa desenvolvida do zero. Combina um Design System exclusivo 'Industrial Noir' com funcionalidades avançadas como agendamento real-time, geração de contratos PDF, dashboard financeiro e assistente de IA.",
-    "viewProject": "Ver Projeto",
+    "viewProject": "Ver Projeto Ao Vivo",
+    "deepDive": "Ver Bastidores & Código",
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
-    "title": "Background em Design & Branding",
-    "subtitle": "O design é minha base forte para o desenvolvimento frontend"
+    "title": "Engenharia & Estética Visual",
+    "subtitle": "A fusão da precisão técnica com o design estratégico para criar experiências digitais de alto impacto."
   },
   "expertise": {
     "title": "Áreas de Competência",
@@ -64,17 +65,29 @@
       "klini": {
         "title": "Identidade Visual Klini Saúde",
         "desc": "Desenvolvimento completo de identidade visual para startup de saúde digital, incluindo logo, paleta de cores e aplicações.",
-        "tags": ["Branding", "Identidade Visual", "Saúde Digital"]
+        "tags": [
+          "Branding",
+          "Identidade Visual",
+          "Saúde Digital"
+        ]
       },
       "growth": {
         "title": "Campanha Digital Growth",
         "desc": "Estratégia e execução de campanha de performance com foco em crescimento acelerado e otimização de CAC.",
-        "tags": ["Performance", "Meta Ads", "Growth"]
+        "tags": [
+          "Performance",
+          "Meta Ads",
+          "Growth"
+        ]
       },
       "dashboard": {
         "title": "UX/UI Dashboard Analytics",
         "desc": "Design de interface e experiência para dashboard de analytics B2B, focado em visualização de dados complexos.",
-        "tags": ["UX/UI", "Dashboard", "Analytics"]
+        "tags": [
+          "UX/UI",
+          "Dashboard",
+          "Analytics"
+        ]
       }
     }
   },
@@ -85,25 +98,155 @@
     "comingSoon": "Em Breve",
     "visitSite": "Visitar Site",
     "projects": {
+      "platform": {
+        "title": "KONTROL System (Industrial Noir)",
+        "desc": "Plataforma de gestão de alta performance para o mercado da beleza. Design System exclusivo, geração de contratos e analytics financeiro.",
+        "tags": [
+          "React",
+          "Supabase",
+          "Edge Functions",
+          "Stripe"
+        ],
+        "role": "Founder & Lead Engineer",
+        "timeline": "6 Meses (Em Produção)",
+        "process": [
+          {
+            "title": "Concepção",
+            "desc": "Identificação da dor no mercado de luxo da beleza."
+          },
+          {
+            "title": "Design System",
+            "desc": "Criação da linguagem visual 'Industrial Noir' no Figma."
+          },
+          {
+            "title": "Arquitetura",
+            "desc": "Setup monorepo com React, Supabase e Edge Functions."
+          },
+          {
+            "title": "Lançamento",
+            "desc": "Deploy contínuo e onboarding dos primeiros usuários."
+          }
+        ]
+      },
       "website": {
-        "title": "Website & Automação (Consultor Familiar)",
-        "desc": "Desenvolvimento completo (No-Code) de plataforma de serviços, integrando blog, sistema de agendamento e automação de captação de leads. Foco em SEO técnico e performance.",
-        "tags": ["No-Code", "Desenvolvimento Web", "SEO", "Automação"]
+        "title": "Website de Alta Performance (Consultor Familiar)",
+        "desc": "Desenvolvimento de plataforma web otimizada, integrando blog, sistema de agendamento e automação de captação de leads. Foco em SEO técnico e Core Web Vitals.",
+        "tags": [
+          "React",
+          "Desenvolvimento Web",
+          "SEO",
+          "Automação"
+        ],
+        "role": "Lead Developer & Designer",
+        "timeline": "4 Semanas",
+        "process": [
+          {
+            "title": "Discovery",
+            "desc": "Análise de competidores e definição de persona."
+          },
+          {
+            "title": "Wireframing",
+            "desc": "Arquitetura de informação e fluxos do usuário."
+          },
+          {
+            "title": "Desenvolvimento",
+            "desc": "Implementação React com foco em Core Web Vitals."
+          },
+          {
+            "title": "Otimização",
+            "desc": "Ajustes finais de SEO e performance."
+          }
+        ]
       },
       "portfolio": {
-        "title": "Portfólio Interativo (Projeto Pessoal)",
-        "desc": "Design (UI/UX) e implementação deste portfólio, focado em microinterações, animações avançadas e arquitetura No-Code, servindo como prova de conceito.",
-        "tags": ["UI/UX", "Animações Web", "No-Code", "Glassmorphism"]
+        "title": "Experiência Interativa (Este Portfólio)",
+        "desc": "Este site é um produto real. Desenvolvido com React, TypeScript e Framer Motion para demonstrar domínio técnico em animações complexas e arquitetura limpa.",
+        "tags": [
+          "React",
+          "TypeScript",
+          "Framer Motion",
+          "Tailwind CSS"
+        ],
+        "role": "Frontend Engineer",
+        "timeline": "Contínuo",
+        "process": [
+          {
+            "title": "Conceito",
+            "desc": "Definição da estética 'Industrial Noir'."
+          },
+          {
+            "title": "Arquitetura",
+            "desc": "Setup do projeto React + TypeScript + Vite."
+          },
+          {
+            "title": "Motion Design",
+            "desc": "Implementação de animações com Framer Motion."
+          },
+          {
+            "title": "Internacionalização",
+            "desc": "Configuração i18n para 3 idiomas."
+          }
+        ]
       },
       "microsaas": {
-        "title": "MicroSaaS (Em Desenvolvimento)",
-        "desc": "Desenvolvimento de uma solução MicroSaaS focada em otimizar relatórios de performance para agências, utilizando IA e ferramentas No-Code.",
-        "tags": ["MicroSaaS", "IA", "Automação", "Em Breve"]
+        "title": "LMS Gamificado (SaaS)",
+        "desc": "Plataforma de ensino à distância com elementos de gamificação para engajamento de alunos. Foco em retenção de conhecimento e progressão dinâmica.",
+        "tags": [
+          "SaaS",
+          "Gamification",
+          "LMS",
+          "Education Tech"
+        ],
+        "role": "Full Stack Developer",
+        "timeline": "3 Meses",
+        "process": [
+          {
+            "title": "Pesquisa",
+            "desc": "Estudo sobre engajamento em EAD."
+          },
+          {
+            "title": "Prototipagem",
+            "desc": "Design do sistema de gamificação."
+          },
+          {
+            "title": "MVP",
+            "desc": "Desenvolvimento das funcionalidades core."
+          },
+          {
+            "title": "Testes",
+            "desc": "Validação com grupo beta de alunos."
+          }
+        ]
       },
       "dashboard": {
-        "title": "Dashboard de Performance (Doctor Creator Board)",
-        "desc": "Desenvolvimento de um dashboard analítico (em construção) para criadores de conteúdo na área da saúde. Foco em visualização de dados e métricas de engajamento.",
-        "tags": ["No-Code", "Dashboard", "DataViz", "Em Construção"]
+        "title": "Analytics para Planos de Saúde",
+        "desc": "Dashboard executivo para monitoramento de KPIs de engajamento e métricas operacionais de operadoras de saúde. Visualização de dados complexos simplificada.",
+        "tags": [
+          "Dashboard",
+          "Health Tech",
+          "DataViz",
+          "Analytics"
+        ],
+        "role": "UI Engineer",
+        "timeline": "6 Semanas",
+        "process": [
+          {
+            "title": "Análise de Dados",
+            "desc": "Mapeamento de KPIs essenciais."
+          },
+          {
+            "title": "UI Design",
+            "desc": "Criação de visualizações de dados complexos."
+          },
+          {
+            "title": "Frontend",
+            "desc": "Integração com APIs e gráficos interativos."
+          },
+          {
+            "title": "Refinamento",
+            "desc": "Melhorias de UX baseadas em feedback."
+          }
+        ]
       }
     }
   },
@@ -192,48 +335,48 @@
     "resultsTitle": "Resultados & Impacto",
     "visitLive": "Visitar Site Ao Vivo",
     "website": {
-      "challenge": "O cliente precisava de uma presença digital profissional que refletisse sua expertise em consultoria familiar, com um sistema de agendamento integrado e captação automatizada de leads. O desafio era criar uma solução completa sem comprometer a performance ou a experiência do usuário.",
-      "solution": "Desenvolvi uma plataforma completa usando ferramentas No-Code, integrando design responsivo, blog otimizado para SEO, sistema de agendamento e automação de leads. O foco foi em criar uma arquitetura escalável com excelente performance.",
+      "challenge": "O cliente precisava de uma presença digital profissional que refletisse sua expertise em consultoria familiar, com um sistema de agendamento integrado e captação automatizada de leads. O desafio era criar uma solução completa com carregamento instantâneo e SEO técnico impecável.",
+      "solution": "Desenvolvi uma plataforma web performática utilizando React, garantindo pontuação máxima no Lighthouse. A arquitetura integra blog para marketing de conteúdo, agendamento assíncrono e automação completa do funil de vendas.",
       "results": [
+        "Pontuação 100/100 no PageSpeed Insights",
         "Aumento de 150% em leads qualificados",
-        "Tempo de carregamento < 2 segundos",
         "Taxa de conversão de 8.5%"
       ]
     },
     "portfolio": {
-      "challenge": "Criar um portfólio que fosse além de uma simples galeria. O objetivo era construir uma plataforma que não apenas mostrasse meus projetos, mas que demonstrasse minhas habilidades em design (UI/UX), animações web avançadas, arquitetura No-Code e storytelling estratégico.",
-      "solution": "Desenvolvi este site do zero, tratando-o como um produto. O design (V3) é focado em sofisticação monocromática, a performance (V11) é otimizada com animações leves (sem 'lag'), e a estrutura (V12) é um funil de narrativa que prova minhas qualificações de forma enxuta e direta.",
+      "challenge": "Criar um portfólio que não fosse apenas uma galeria estática, mas uma prova viva das minhas competências técnicas. O objetivo era construir uma aplicação React completa que demonstrasse domínio sobre estados globais, animações complexas e tipagem rigorosa.",
+      "solution": "Desenvolvi este site do zero utilizando React e TypeScript. A interface utiliza Tailwind para estilização eficiente e Framer Motion para orquestrar animações de entrada e microinterações, criando uma experiência fluida e moderna sem comprometer a performance.",
       "results": [
-        "Plataforma 100% performática e fluida",
-        "Design de UI/UX alinhado às tendências 2025/26",
-        "Prova de Conceito (PoC) de habilidades em No-Code"
+        "Aplicação React/TS totalmente tipada",
+        "Animações fluidas a 60fps",
+        "Arquitetura de componentes reutilizáveis"
       ]
     },
     "microsaas": {
-      "challenge": "Agências de marketing digital gastam horas incontáveis compilando dados de múltiplas fontes (Google Ads, Meta Ads, Analytics) em relatórios manuais. Um processo lento, caro e suscetível a erros humanos, que atrasa a tomada de decisão.",
-      "solution": "Um MicroSaaS (em construção) que automatiza 100% da coleta e visualização de dados. A plataforma usará IA para analisar as métricas e gerar insights acionáveis (não apenas dados brutos), entregando relatórios de alta performance em segundos, não em horas.",
+      "challenge": "O ensino à distância tradicional sofre com altas taxas de evasão e baixo engajamento. Plataformas convencionais falham em manter o interesse do aluno a longo prazo, especialmente em nichos culturais específicos como estudos de Umbanda.",
+      "solution": "Desenvolvi um LMS (Learning Management System) focado em gamificação. A plataforma utiliza progressão por níveis, conquistas e rewards visuais para manter o aluno engajado. A arquitetura suporta streaming de vídeo e quizzes interativos em tempo real.",
       "results": [
-        "Redução de 90% no tempo de geração de relatórios",
-        "Plataforma escalável para múltiplas agências",
-        "Foco em 'Insights' (IA) em vez de 'Dados' (Manual)"
+        "Aumento na retenção de alunos",
+        "Sistema de progressão automatizado",
+        "Feedback instantâneo através de interface reativa"
       ]
     },
     "dashboard": {
-      "challenge": "Criadores de conteúdo na área da saúde (médicos, nutricionistas) produzem materiais de alto valor, mas têm dificuldade em medir o impacto real e o ROI de suas publicações em diferentes canais. As métricas são dispersas e difíceis de correlacionar.",
-      "solution": "Um dashboard analítico centralizado (em construção). A ferramenta unifica métricas de engajamento, crescimento de audiência e conversão de leads (ex: agendamentos), fornecendo uma visão clara de quais conteúdos estão gerando maior impacto de negócio.",
+      "challenge": "Operadoras de saúde acumulam dados massivos, mas dispersos. Gestores têm dificuldade em visualizar KPIs de engajamento e resultados operacionais em tempo real, dificultando a tomada de decisão estratégica.",
+      "solution": "Criei um Dashboard Executivo centralizado. A ferramenta processa dados complexos e os apresenta através de visualizações intuitivas (DataViz), permitindo que gestores monitorem a saúde da carteira e o ROI de ações de engajamento em uma única tela.",
       "results": [
-        "Visão unificada de performance de conteúdo",
-        "Otimização de estratégia baseada em dados reais",
-        "Interface intuitiva (UX) para não-especialistas"
+        "Visualização de dados (DataViz) intuitiva",
+        "Monitoramento de KPIs em tempo real",
+        "Ferramenta vital para decisão estratégica"
       ]
     },
     "platform": {
-      "challenge": "Maquiadoras profissionais gerenciam seus negócios de forma fragmentada: usam Instagram para portfólio, WhatsApp para agendamento e planilhas (ou cadernos) para controle de clientes. Isso gera perda de tempo, profissionalismo e receita.",
-      "solution": "Um MicroSaaS 'tudo-em-um' (em construção) focado na profissional de beleza. A plataforma integra um portfólio visual (UI/UX) com um sistema de agendamento inteligente, gestão de clientes (CRM) e controle financeiro básico, centralizando toda a operação do negócio.",
+      "challenge": "Profissionais de beleza perdem até 10 horas semanais com gestão manual. Agendamentos no WhatsApp, contratos em papel e falta de controle financeiro impedem o crescimento do negócio. O desafio era criar uma plataforma 'All-in-One' que fosse poderosa, mas com uma estética minimalista e luxuosa ('Industrial Noir') que atraísse esse público exigente.",
+      "solution": "Desenvolvi o KONTROL, um ecossistema completo. Utilizei React + Vite para performance instantânea e Supabase para um backend serverless escalável. A interface 'Industrial Noir' não é apenas estilos; é um Design System customizado focado em reduzir a carga cognitiva. Funcionalidades incluem geração automática de contratos PDF, agenda com drag-and-drop e dashboards financeiros em tempo real.",
       "results": [
-        "Centralização de 100% da gestão do negócio",
-        "Redução de falhas de agendamento manual",
-        "Fortalecimento da marca profissional (UX/UI)"
+        "10+ horas economizadas por semana por usuário",
+        "Design System 'Industrial Noir' exclusivo",
+        "Arquitetura Serverless escalável (Supabase)"
       ]
     }
   },

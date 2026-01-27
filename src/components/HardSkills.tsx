@@ -16,12 +16,13 @@ const HardSkills = () => {
     { name: 'Git/GitHub', icon: '🔀' },
     { name: 'Figma', icon: '✏️' },
     { name: 'REST APIs', icon: '🔗' },
-    { name: 'Vercel', icon: '▲' },
+    { name: 'Next.js', icon: '▲' },
+    { name: 'PostgreSQL', icon: '🐘' },
     { name: t('hardSkills.aiIntegration'), icon: '🤖' }
   ];
 
   return (
-    <section className="py-16 bg-muted/30 overflow-hidden">
+    <section id="expertise" className="py-16 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +39,7 @@ const HardSkills = () => {
 
         <div className="relative">
           <div className="flex animate-marquee">
-            {[...technologies, ...technologies].map((tech, index) => (
+            {[...technologies, ...technologies, ...technologies, ...technologies].map((tech, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0 }}

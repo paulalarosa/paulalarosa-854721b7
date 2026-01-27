@@ -74,7 +74,7 @@ const Contact = () => {
               />
 
               <div id="recaptcha-badge" />
-              
+
               <Button
                 type="submit"
                 size="lg"
@@ -84,7 +84,7 @@ const Contact = () => {
                 <Send className="mr-2 h-5 w-5" />
                 {isSubmitting ? 'Verificando...' : t('contact.send')}
               </Button>
-              
+
               <p className="text-xs text-muted-foreground mt-4">
                 Este site é protegido pelo reCAPTCHA e as{' '}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
@@ -101,7 +101,7 @@ const Contact = () => {
 
           <div className="lg:col-span-2 space-y-6">
             <a
-              href="mailto:prenata@gmail.com"
+              href="mailto:prenata@gmail.com?subject=Contato via Portfolio - Desenvolvimento Frontend"
               onClick={() => handleExternalLinkClick('email', 'Email Contact')}
               className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >

@@ -11,10 +11,10 @@ const allowedOrigins = [
 
 // Helper to get CORS headers based on request origin
 const getCorsHeaders = (origin: string | null) => {
-  const allowedOrigin = origin && allowedOrigins.some(allowed => 
-    origin === allowed || origin.endsWith('.lovable.app') || origin.endsWith('.lovableproject.com')
+  const allowedOrigin = origin && allowedOrigins.some(allowed =>
+    origin === allowed
   ) ? origin : allowedOrigins[0];
-  
+
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -32,33 +32,33 @@ serve(async (req) => {
 
   try {
     const { token } = await req.json();
-    
+
     if (!token) {
       console.error('No token provided');
       return new Response(
         JSON.stringify({ success: false, error: 'Token is required' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
     }
 
     const secretKey = Deno.env.get('RECAPTCHA_SECRET_KEY');
-    
+
     if (!secretKey) {
       console.error('RECAPTCHA_SECRET_KEY not configured');
       return new Response(
         JSON.stringify({ success: false, error: 'reCAPTCHA not configured' }),
-        { 
-          status: 500, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
     }
 
     console.log('Verifying reCAPTCHA token...');
-    
+
     // Verify token with Google
     const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
@@ -69,7 +69,7 @@ serve(async (req) => {
     });
 
     const verifyData = await verifyResponse.json();
-    
+
     console.log('reCAPTCHA verification result:', {
       success: verifyData.success,
       score: verifyData.score,
@@ -82,38 +82,38 @@ serve(async (req) => {
     // We'll use 0.5 as the threshold
     if (verifyData.success && verifyData.score >= 0.5) {
       return new Response(
-        JSON.stringify({ 
-          success: true, 
-          score: verifyData.score 
+        JSON.stringify({
+          success: true,
+          score: verifyData.score
         }),
-        { 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
     } else {
       console.warn('reCAPTCHA verification failed or low score:', verifyData);
       return new Response(
-        JSON.stringify({ 
-          success: false, 
+        JSON.stringify({
+          success: false,
           score: verifyData.score,
           error: 'Verification failed - possible bot detected'
         }),
-        { 
-          status: 403, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         }
       );
     }
   } catch (error) {
     console.error('Error verifying reCAPTCHA:', error);
     return new Response(
-      JSON.stringify({ 
-        success: false, 
+      JSON.stringify({
+        success: false,
         error: 'Verification error'
       }),
-      { 
-        status: 500, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     );
   }

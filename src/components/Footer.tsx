@@ -3,18 +3,18 @@ import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const { t } = useTranslation();
-  
+
   const keywords = [
-    "Estratégia",
-    "Inovação",
-    "Data-Driven",
+    "Frontend Engineering",
+    "React & TypeScript",
+    "Clean Code",
+    "UI/UX Design",
     "Performance",
-    "Liderança",
-    "Marketing",
-    "ROI",
-    "Growth",
-    "UX/UI",
-    "Branding"
+    "Scalability",
+    "Design Systems",
+    "Web Animation",
+    "Interactive",
+    "Modern Web"
   ];
 
   const navigation = [

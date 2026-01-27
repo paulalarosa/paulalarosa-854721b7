@@ -9,9 +9,9 @@ const Hero = () => {
   const { t } = useTranslation();
   const photoRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
-  
+
   const scrollToLab = () => {
-    const element = document.querySelector('#lab-innovation');
+    const element = document.querySelector('#portfolio');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -40,7 +40,7 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
       {/* Generative Art Background */}
       <GenerativeArt />
-      
+
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.015] data-grid"></div>
 
@@ -51,7 +51,7 @@ const Hero = () => {
             {/* Left Column - Text with Staggered Animation */}
             <div className="space-y-6">
               {/* Main Heading */}
-              <h1 
+              <h1
                 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-primary leading-[0.95] tracking-tight opacity-0 animate-stagger-1"
                 style={{
                   animation: 'staggerFadeIn 0.6s ease-out forwards',
@@ -62,7 +62,7 @@ const Hero = () => {
               </h1>
 
               {/* Subtitle */}
-              <h2 
+              <h2
                 className="font-sans text-2xl md:text-3xl text-muted-foreground font-light opacity-0"
                 style={{
                   animation: 'staggerFadeIn 0.6s ease-out forwards',
@@ -73,7 +73,7 @@ const Hero = () => {
               </h2>
 
               {/* Unified Description */}
-              <p 
+              <p
                 className="text-lg leading-relaxed text-foreground opacity-0"
                 style={{
                   animation: 'staggerFadeIn 0.6s ease-out forwards',
@@ -84,7 +84,7 @@ const Hero = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div 
+              <div
                 className="flex flex-col sm:flex-row gap-4 pt-4 opacity-0"
                 style={{
                   animation: 'staggerFadeIn 0.6s ease-out forwards',
@@ -111,7 +111,7 @@ const Hero = () => {
             </div>
 
             {/* Right Column - Photo with Parallax Effect */}
-            <div 
+            <div
               ref={photoRef}
               className="opacity-0 relative z-10"
               style={{
@@ -136,7 +136,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div 
+      <div
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 z-[99]"
         style={{
           animation: 'fadeIn 0.8s ease-out forwards',
