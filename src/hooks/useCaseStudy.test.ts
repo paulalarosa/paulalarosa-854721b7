@@ -5,7 +5,8 @@ import { describe, it, expect, vi } from 'vitest';
 // Mock react-i18next
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
-        t: (key: string, options?: any) => {
+        t: (key: string, options?: { returnObjects?: boolean }) => {
+
             // Mock return values for specific keys if needed, or just return the key
             if (options?.returnObjects) {
                 return []; // Return empty array for lists

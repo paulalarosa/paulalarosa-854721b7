@@ -7,7 +7,8 @@ vi.mock('framer-motion', async () => {
     const actual = await vi.importActual('framer-motion');
     return {
         ...actual,
-        AnimatePresence: ({ children }: any) => <>{children}</>,
+        AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+
     };
 });
 

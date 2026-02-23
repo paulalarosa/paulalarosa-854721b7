@@ -38,7 +38,8 @@ class IntersectionObserver {
     constructor() { }
 }
 window.IntersectionObserver = IntersectionObserver;
-global.IntersectionObserver = IntersectionObserver as any;
+global.IntersectionObserver = IntersectionObserver as unknown as typeof global.IntersectionObserver;
+
 
 // Mock scrollTo
 window.scrollTo = vi.fn();
