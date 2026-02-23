@@ -10,6 +10,7 @@ This project showcases the portfolio of Paula La Rosa, developed with modern fro
 
 ## Technologies
 
+
 - Vite
 - TypeScript
 - React
@@ -47,3 +48,4 @@ Build for production:
 ```sh
 npm run build
 ```
+

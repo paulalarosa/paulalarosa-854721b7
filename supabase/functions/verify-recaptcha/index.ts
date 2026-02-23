@@ -21,7 +21,7 @@ const getCorsHeaders = (origin: string | null) => {
   };
 };
 
-serve(async (req) => {
+serve(async (req: Request) => {
   const origin = req.headers.get('origin');
   const corsHeaders = getCorsHeaders(origin);
 
