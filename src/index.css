@@ -9,94 +9,119 @@
 @layer base {
   :root {
     /* Monochromatic Base - Light Mode Dominant */
-    --background: 0 0% 100%; /* Pure White */
-    --foreground: 0 0% 7%; /* Graphite Black #111111 */
+    --background: 0 0% 100%;
+    /* Pure White */
+    --foreground: 0 0% 7%;
+    /* Graphite Black #111111 */
 
     /* Primary - Graphite Black */
-    --primary: 0 0% 7%; /* #111111 */
-    --primary-foreground: 0 0% 100%; /* White */
-    --primary-light: 0 0% 20%; /* Lighter Graphite */
-    
+    --primary: 0 0% 7%;
+    /* #111111 */
+    --primary-foreground: 0 0% 100%;
+    /* White */
+    --primary-light: 0 0% 20%;
+    /* Lighter Graphite */
+
     /* Secondary - Very Light Gray */
-    --secondary: 0 0% 96%; /* #F5F5F5 */
+    --secondary: 0 0% 96%;
+    /* #F5F5F5 */
     --secondary-foreground: 0 0% 7%;
-    
+
     /* Accent - Silver (Replacing Coral) */
-    --accent: 0 0% 69%; /* Silver #B0B0B0 */
-    --accent-foreground: 0 0% 7%; /* Black text on Silver */
-    --accent-light: 0 0% 75%; /* Lighter Silver #C0C0C0 */
-    
+    --accent: 0 0% 69%;
+    /* Silver #B0B0B0 */
+    --accent-foreground: 0 0% 7%;
+    /* Black text on Silver */
+    --accent-light: 0 0% 75%;
+    /* Lighter Silver #C0C0C0 */
+
     /* Gray Scale Hierarchy */
-    --gray: 0 0% 53%; /* Medium Gray #888888 */
-    --gray-light: 0 0% 88%; /* Light Gray #E0E0E0 */
-    --gray-dark: 0 0% 20%; /* Dark Gray */
-    
-    --muted: 0 0% 96%; /* #F5F5F5 */
-    --muted-foreground: 0 0% 53%; /* Medium Gray */
-    
-    --card: 0 0% 100%; /* White */
+    --gray: 0 0% 53%;
+    /* Medium Gray #888888 */
+    --gray-light: 0 0% 88%;
+    /* Light Gray #E0E0E0 */
+    --gray-dark: 0 0% 20%;
+    /* Dark Gray */
+
+    --muted: 0 0% 96%;
+    /* #F5F5F5 */
+    --muted-foreground: 0 0% 53%;
+    /* Medium Gray */
+
+    --card: 0 0% 100%;
+    /* White */
     --card-foreground: 0 0% 7%;
-    
-    --border: 0 0% 88%; /* Light Gray #E0E0E0 */
+
+    --border: 0 0% 88%;
+    /* Light Gray #E0E0E0 */
     --input: 0 0% 88%;
-    --ring: 0 0% 69%; /* Silver */
-    
+    --ring: 0 0% 69%;
+    /* Silver */
+
     /* Minimal Gradients - Monochromatic */
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 96%));
     --gradient-overlay: linear-gradient(135deg, hsl(0 0% 7% / 0.95), hsl(0 0% 20% / 0.9));
     --gradient-silver: linear-gradient(135deg, hsl(0 0% 75%), hsl(0 0% 69%));
-    
+
     /* Sophisticated Shadows - Monochromatic */
     --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
     --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.1);
     --shadow-lg: 0 8px 24px -8px hsl(0 0% 0% / 0.15);
     --shadow-silver: 0 4px 20px -4px hsl(0 0% 69% / 0.3);
-    
+
     /* Smooth Transitions */
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     --radius: 0.5rem;
-    
+
     /* Additional UI Colors */
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 7%;
-    
+
     --destructive: 0 0% 30%;
     --destructive-foreground: 0 0% 100%;
   }
 
   /* Dark Mode Alternative */
   .dark {
-    --background: 0 0% 7%; /* Graphite Black #121212 */
-    --foreground: 0 0% 100%; /* White */
+    --background: 0 0% 7%;
+    /* Graphite Black #121212 */
+    --foreground: 0 0% 100%;
+    /* White */
 
-    --primary: 0 0% 100%; /* White */
-    --primary-foreground: 0 0% 7%; /* Black */
+    --primary: 0 0% 100%;
+    /* White */
+    --primary-foreground: 0 0% 7%;
+    /* Black */
     --primary-light: 0 0% 90%;
-    
-    --secondary: 0 0% 12%; /* Very Dark Gray */
+
+    --secondary: 0 0% 12%;
+    /* Very Dark Gray */
     --secondary-foreground: 0 0% 100%;
-    
-    --accent: 0 0% 69%; /* Silver */
-    --accent-foreground: 0 0% 100%; /* White text on Silver in dark mode */
+
+    --accent: 0 0% 69%;
+    /* Silver */
+    --accent-foreground: 0 0% 100%;
+    /* White text on Silver in dark mode */
     --accent-light: 0 0% 75%;
-    
-    --gray: 0 0% 67%; /* Lighter gray for dark bg #AAAAAA */
+
+    --gray: 0 0% 67%;
+    /* Lighter gray for dark bg #AAAAAA */
     --gray-light: 0 0% 25%;
     --gray-dark: 0 0% 80%;
-    
+
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 67%;
-    
+
     --card: 0 0% 10%;
     --card-foreground: 0 0% 100%;
-    
+
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 0 0% 69%;
-    
+
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 7%), hsl(0 0% 12%));
     --gradient-overlay: linear-gradient(135deg, hsl(0 0% 100% / 0.95), hsl(0 0% 90% / 0.9));
   }
@@ -111,8 +136,13 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', serif;
   }
 }
@@ -121,35 +151,35 @@
   .gradient-subtle {
     background: var(--gradient-subtle);
   }
-  
+
   .gradient-overlay {
     background: var(--gradient-overlay);
   }
-  
+
   .shadow-xs {
     box-shadow: var(--shadow-xs);
   }
-  
+
   .shadow-sm {
     box-shadow: var(--shadow-sm);
   }
-  
+
   .shadow-md {
     box-shadow: var(--shadow-md);
   }
-  
+
   .shadow-lg {
     box-shadow: var(--shadow-lg);
   }
-  
+
   .transition-base {
     transition: var(--transition-base);
   }
-  
+
   .transition-slow {
     transition: var(--transition-slow);
   }
-  
+
   /* Glassmorphism Effect - Monochromatic */
   .glass {
     background: rgba(255, 255, 255, 0.7);
@@ -157,7 +187,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .glass-dark {
     background: rgba(18, 18, 18, 0.7);
     backdrop-filter: blur(10px);
@@ -171,16 +201,16 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(176, 176, 176, 0.2);
   }
-  
+
   /* Data Visualization Elements - Silver Tones */
   .data-line {
     position: relative;
     height: 1px;
     background: linear-gradient(90deg, transparent, hsl(0 0% 69%), transparent);
   }
-  
+
   .data-grid {
-    background-image: 
+    background-image:
       linear-gradient(hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -190,23 +220,25 @@
   .gradient-silver {
     background: var(--gradient-silver);
   }
-  
+
   /* Scroll Reveal Animations */
   @keyframes fadeInUp {
     from {
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -217,6 +249,7 @@
       opacity: 0;
       transform: translateY(10px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -228,6 +261,7 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -239,6 +273,7 @@
       opacity: 0;
       transform: translateX(-30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -250,6 +285,7 @@
       opacity: 0;
       transform: translateY(20px) scale(0.9);
     }
+
     to {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -260,15 +296,16 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
   }
-  
+
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
   }
@@ -284,14 +321,31 @@
   .animate-counter-up {
     animation: counterUp 0.8s ease-out forwards;
   }
-  
+
   /* Stagger delays for scroll reveals */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
 
   /* Hover Effects */
   .hover-lift {

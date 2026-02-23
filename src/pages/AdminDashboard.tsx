@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { 
+import * as Sentry from '@sentry/react';
+import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  PieChart, Pie, Cell, LineChart, Line
+  LineChart, Line
 } from 'recharts';
-import { 
-  Eye, Users, MousePointerClick, Globe, 
+import {
+  Eye, Users, MousePointerClick, Globe,
   LogOut, RefreshCw, Calendar, TrendingUp
 } from 'lucide-react';
 import { format, subDays, startOfDay, endOfDay } from 'date-fns';
@@ -29,38 +30,10 @@ interface AnalyticsEvent {
   visitor_id: string;
 }
 
-interface StatCardProps {
-  title: string;
-  value: string | number;
-  icon: React.ReactNode;
-  description?: string;
-  trend?: number;
-}
-
-const StatCard = ({ title, value, icon, description, trend }: StatCardProps) => (
-  <Card>
-    <CardHeader className="flex flex-row items-center justify-between pb-2">
-      <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
-      <div className="h-8 w-8 rounded-full bg-accent/20 flex items-center justify-center">
-        {icon}
-      </div>
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">{value}</div>
-      {description && (
-        <p className="text-xs text-muted-foreground mt-1">{description}</p>
-      )}
-      {trend !== undefined && (
-        <div className={`flex items-center gap-1 text-xs mt-1 ${trend >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-          <TrendingUp className={`h-3 w-3 ${trend < 0 ? 'rotate-180' : ''}`} />
-          {Math.abs(trend)}% vs período anterior
-        </div>
-      )}
-    </CardContent>
-  </Card>
-);
-
-const COLORS = ['hsl(var(--accent))', 'hsl(var(--primary))', 'hsl(var(--muted-foreground))', '#8884d8'];
+import { StatCard } from '@/components/admin/StatCard';
+import { TopPagesChart } from '@/components/admin/TopPagesChart';
+import { DailyViewsChart } from '@/components/admin/DailyViewsChart';
+import { DistributionChart } from '@/components/admin/DistributionChart';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -69,19 +42,9 @@ const AdminDashboard = () => {
   const [events, setEvents] = useState<AnalyticsEvent[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  useEffect(() => {
-    if (isAdmin) {
-      fetchAnalytics();
-    }
-  }, [dateRange, isAdmin]);
-
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser();
-    
+
     if (!user) {
       navigate('/admin');
       return;
@@ -102,9 +65,9 @@ const AdminDashboard = () => {
     }
 
     setIsAdmin(true);
-  };
+  }, [navigate]);
 
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     setIsLoading(true);
     try {
       const startDate = startOfDay(subDays(new Date(), parseInt(dateRange)));
@@ -119,17 +82,32 @@ const AdminDashboard = () => {
 
       if (error) {
         console.error('Error fetching analytics:', error);
-        toast.error('Erro ao carregar analytics');
+        Sentry.captureException(error);
+        toast.error('Erro ao carregar analytics. Tente novamente.');
         return;
       }
 
       setEvents(data || []);
     } catch (error) {
       console.error('Error:', error);
+      Sentry.captureException(error);
+      toast.error('Erro de conexão. Verifique sua rede.');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [dateRange]);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  useEffect(() => {
+    if (isAdmin) {
+      fetchAnalytics();
+    }
+  }, [dateRange, isAdmin, fetchAnalytics]);
+
+
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -222,7 +200,7 @@ const AdminDashboard = () => {
               </SelectContent>
             </Select>
             <Button variant="outline" size="icon" onClick={fetchAnalytics} disabled={isLoading}>
-              <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`h - 4 w - 4 ${isLoading ? 'animate-spin' : ''} `} />
             </Button>
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />
@@ -264,161 +242,22 @@ const AdminDashboard = () => {
 
         {/* Charts Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Daily Views Chart */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Visualizações por Dia</CardTitle>
-              <CardDescription>Evolução do tráfego no período</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[300px]">
-                {dailyData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={dailyData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                      <XAxis dataKey="date" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                      <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: 'hsl(var(--card))', 
-                          border: '1px solid hsl(var(--border))',
-                          borderRadius: '8px'
-                        }} 
-                      />
-                      <Line 
-                        type="monotone" 
-                        dataKey="views" 
-                        stroke="hsl(var(--accent))" 
-                        strokeWidth={2}
-                        dot={{ fill: 'hsl(var(--accent))' }}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="h-full flex items-center justify-center text-muted-foreground">
-                    Sem dados no período
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Top Pages */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Páginas Mais Visitadas</CardTitle>
-              <CardDescription>Top 5 páginas por visualizações</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[300px]">
-                {topPages.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={topPages} layout="vertical">
-                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                      <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                      <YAxis 
-                        dataKey="path" 
-                        type="category" 
-                        stroke="hsl(var(--muted-foreground))" 
-                        fontSize={12}
-                        width={100}
-                        tickFormatter={(value) => value.length > 15 ? value.slice(0, 15) + '...' : value}
-                      />
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: 'hsl(var(--card))', 
-                          border: '1px solid hsl(var(--border))',
-                          borderRadius: '8px'
-                        }} 
-                      />
-                      <Bar dataKey="views" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="h-full flex items-center justify-center text-muted-foreground">
-                    Sem dados no período
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <DailyViewsChart data={dailyData} />
+          <TopPagesChart data={topPages} />
         </div>
 
         {/* Distribution Charts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Device Distribution */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Dispositivos</CardTitle>
-              <CardDescription>Distribuição por tipo de dispositivo</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[250px]">
-                {deviceData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={deviceData}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="value"
-                      >
-                        {deviceData.map((_, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="h-full flex items-center justify-center text-muted-foreground">
-                    Sem dados
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Browser Distribution */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Navegadores</CardTitle>
-              <CardDescription>Distribuição por navegador</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[250px]">
-                {browserData.length > 0 ? (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={browserData}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="value"
-                      >
-                        {browserData.map((_, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  <div className="h-full flex items-center justify-center text-muted-foreground">
-                    Sem dados
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <DistributionChart
+            title="Dispositivos"
+            description="Distribuição por tipo de dispositivo"
+            data={deviceData}
+          />
+          <DistributionChart
+            title="Navegadores"
+            description="Distribuição por navegador"
+            data={browserData}
+          />
         </div>
       </main>
     </div>

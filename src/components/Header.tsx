@@ -10,7 +10,6 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,23 +38,18 @@ const Header = () => {
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
 
+    // If not on homepage, navigate to homepage then scroll
     if (location.pathname !== '/') {
-      navigate('/');
-      // Small timeout to allow navigation to happen before scrolling
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.hash = href;
-        }
-      }, 100);
+      navigate('/', { state: { scrollTo: href } });
       return;
     }
 
+    // If already on homepage, just scroll
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -69,16 +63,12 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('#home');
-            }}
+          <button
+            onClick={() => scrollToSection('#home')}
             className="font-serif text-xl font-semibold text-primary hover:text-accent transition-base"
           >
             Paula La Rosa
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

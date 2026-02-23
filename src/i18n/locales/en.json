@@ -8,9 +8,9 @@
     "contactBtn": "Get in Touch"
   },
   "hero": {
-    "name": "Paula La Rosa | Creative Frontend Developer",
-    "subtitle": "Building scalable digital products with the precision of code and the soul of design.",
-    "unifiedIntro": "Frontend developer with a solid background in Design and UX. I create elegant and functional interfaces using React, TypeScript, and software engineering best practices. Based in Rio de Janeiro.",
+    "name": "Paula La Rosa | Product Designer & Frontend Developer",
+    "subtitle": "Building scalable digital products: from research and Figma to production code.",
+    "unifiedIntro": "Frontend Developer and Product Designer. I create elegant and complete interfaces, combining the precision of React/TypeScript and engineering best practices with the visual sensitivity of Figma. Based in Rio de Janeiro, Brazil.",
     "viewProjects": "View Projects",
     "scroll": "Scroll"
   },
@@ -21,15 +21,15 @@
   "featuredProject": {
     "badge": "Featured Project",
     "title": "Main Case",
-    "projectName": "Khaos Kontrol - MicroSaaS for Beauty Business",
-    "description": "A complete CRM platform built from scratch. Combines an exclusive 'Industrial Noir' Design System with advanced features like real-time scheduling, PDF contract generation, financial dashboard, and AI assistant.",
-    "viewProject": "View Live Project",
-    "deepDive": "See Behind the Code",
+    "projectName": "Khaos Kontrol - MicroSaaS for Beauty Professionals",
+    "description": "A complete CRM platform developed from scratch. Combines an exclusive 'Industrial Noir' Design System with advanced features like real-time scheduling, PDF contract generation, financial dashboard, and AI assistant.",
+    "viewLive": "View Live Project",
+    "viewBehindTheScenes": "View Behind the Scenes & Code",
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
-    "title": "Visual Engineering & Aesthetics",
-    "subtitle": "Merging technical precision with strategic design to create high-impact digital experiences."
+    "title": "Engineering & Visual Aesthetics",
+    "subtitle": "The fusion of technical precision with strategic design to create high-impact digital experiences."
   },
   "expertise": {
     "title": "Areas of Expertise",
@@ -106,146 +106,46 @@
           "Supabase",
           "Edge Functions",
           "Stripe"
-        ],
-        "role": "Founder & Lead Engineer",
-        "timeline": "6 Months (Live)",
-        "process": [
-          {
-            "title": "Conception",
-            "desc": "identifying pain points in the luxury beauty market."
-          },
-          {
-            "title": "Design System",
-            "desc": "Creating the 'Industrial Noir' visual language in Figma."
-          },
-          {
-            "title": "Architecture",
-            "desc": "Monorepo setup with React, Supabase, and Edge Functions."
-          },
-          {
-            "title": "Launch",
-            "desc": "Continuous deploy and initial user onboarding."
-          }
         ]
       },
       "website": {
-        "title": "High Performance Website (Family Consultant)",
-        "desc": "Development of an optimized web platform, integrating blog, booking system, and lead capture automation. Focus on technical SEO and Core Web Vitals.",
+        "title": "Website & Automation (Family Consultant)",
+        "desc": "Complete end-to-end development of service platform, integrating blog, booking system, and lead capture automation. Focus on scalable architecture and performance.",
         "tags": [
-          "React",
+          "End-to-End",
           "Web Development",
           "SEO",
           "Automation"
-        ],
-        "role": "Lead Developer & Designer",
-        "timeline": "4 Weeks",
-        "process": [
-          {
-            "title": "Discovery",
-            "desc": "Competitor analysis and persona definition."
-          },
-          {
-            "title": "Wireframing",
-            "desc": "Information architecture and user flows."
-          },
-          {
-            "title": "Development",
-            "desc": "React implementation focused on Core Web Vitals."
-          },
-          {
-            "title": "Optimization",
-            "desc": "Final SEO and performance tuning."
-          }
         ]
       },
       "portfolio": {
-        "title": "Interactive Experience (This Portfolio)",
-        "desc": "This site is a real product. Built with React, TypeScript, and Framer Motion to demonstrate technical mastery in complex animations and clean architecture.",
+        "title": "Interactive Portfolio (Personal Project)",
+        "desc": "Design (UI/UX) and implementation of this portfolio, focused on micro-interactions, advanced animations, and custom frontend architecture.",
         "tags": [
-          "React",
-          "TypeScript",
-          "Framer Motion",
-          "Tailwind CSS"
-        ],
-        "role": "Frontend Engineer",
-        "timeline": "Ongoing",
-        "process": [
-          {
-            "title": "Concept",
-            "desc": "Defining the 'Industrial Noir' aesthetic."
-          },
-          {
-            "title": "Architecture",
-            "desc": "React + TypeScript + Vite project setup."
-          },
-          {
-            "title": "Motion Design",
-            "desc": "Implementing animations with Framer Motion."
-          },
-          {
-            "title": "Internationalization",
-            "desc": "i18n configuration for 3 languages."
-          }
+          "UI/UX",
+          "Web Animations",
+          "React/TypeScript",
+          "Glassmorphism"
         ]
       },
       "microsaas": {
         "title": "Gamified LMS (SaaS)",
-        "desc": "Distance learning platform with gamification elements for student engagement. Focus on knowledge retention and dynamic progression.",
+        "desc": "Online learning platform featuring gamification mechanics. Focused on student retention (UX) and real-time progression architecture.",
         "tags": [
           "SaaS",
           "Gamification",
           "LMS",
           "Education Tech"
-        ],
-        "role": "Full Stack Developer",
-        "timeline": "3 Months",
-        "process": [
-          {
-            "title": "Research",
-            "desc": "Study on eLearning engagement."
-          },
-          {
-            "title": "Prototyping",
-            "desc": "Gamification system design."
-          },
-          {
-            "title": "MVP",
-            "desc": "Core feature development."
-          },
-          {
-            "title": "Testing",
-            "desc": "Validation with beta student group."
-          }
         ]
       },
       "dashboard": {
-        "title": "Health Plan Analytics",
-        "desc": "Executive dashboard for monitoring engagement KPIs and operational metrics for health insurance providers. Complex data visualization made simple.",
+        "title": "Performance Dashboard (Doctor Creator Board)",
+        "desc": "Development of an analytical dashboard (under construction) for content creators in the health area. Focus on data visualization and engagement metrics.",
         "tags": [
+          "React/TypeScript",
           "Dashboard",
-          "Health Tech",
           "DataViz",
-          "Analytics"
-        ],
-        "role": "UI Engineer",
-        "timeline": "6 Weeks",
-        "process": [
-          {
-            "title": "Data Analysis",
-            "desc": "Mapping essential KPIs."
-          },
-          {
-            "title": "UI Design",
-            "desc": "Creating complex data visualizations."
-          },
-          {
-            "title": "Frontend",
-            "desc": "API integration and interactive charts."
-          },
-          {
-            "title": "Refinement",
-            "desc": "UX improvements based on feedback."
-          }
+          "Under Construction"
         ]
       }
     }
@@ -253,17 +153,21 @@
   "qualifications": {
     "title": "Technical Skills",
     "items": {
-      "strategy": {
-        "title": "Frontend Engineering",
-        "desc": "Mastery of React, TypeScript, and component architecture. I create performant interfaces with clean, testable, and scalable code."
+      "discovery": {
+        "title": "Research & Discovery",
+        "desc": "Interviews, competitive analysis, and problem definition with a strong strategic user vision."
       },
-      "performance": {
+      "design": {
         "title": "UI/UX & Design Systems",
-        "desc": "Solid background in Design focused on consistent design systems. I translate Figma prototypes into pixel-perfect code with attention to detail."
+        "desc": "Solid background in Design. I translate requirements into interactive prototypes and consistent Design Systems in Figma."
       },
-      "innovation": {
+      "build": {
+        "title": "Frontend Engineering",
+        "desc": "Pixel-perfect implementation in React and TypeScript, focused on clean code, scalable architecture, and performance."
+      },
+      "ship": {
         "title": "Full-Stack & Integrations",
-        "desc": "Experience with Supabase (Auth, Database, Edge Functions), REST APIs, and AI integrations. I build complete products from design to production."
+        "desc": "Experience connecting frontends with Supabase, REST APIs, and Analytics tools for continuous iteration in production."
       }
     }
   },
@@ -303,7 +207,7 @@
     "redirectingDesc": "You will be redirected to continue the conversation."
   },
   "footer": {
-    "description": "Creative Frontend Developer & UI/UX Designer. Building scalable digital products with the precision of code and the soul of design.",
+    "description": "Product Designer & Frontend Developer. Building scalable digital products: from research and Figma to production code.",
     "navigation": "Navigation",
     "social": "Social Media",
     "rights": "All rights reserved."
@@ -331,21 +235,66 @@
   "caseStudy": {
     "challengeTitle": "The Challenge",
     "solutionTitle": "The Solution",
-    "stackTitle": "Technology Stack",
+    "stackTitle": "Tech Stack",
     "resultsTitle": "Results & Impact",
     "visitLive": "Visit Live Site",
+    "roleLabel": "ROLE",
+    "timelineLabel": "TIMELINE",
+    "processTitle": "Development Process",
+    "nextProjectLabel": "NEXT PROJECT",
+    "overviewTitle": "Overview",
     "website": {
-      "challenge": "The client needed a professional digital presence that reflected their expertise in family consulting, with an integrated booking system and automated lead capture. The challenge was to create a complete solution with instant loading and impeccable technical SEO.",
-      "solution": "I developed a performant web platform using React, ensuring maximum score on Lighthouse. The architecture integrates a blog for content marketing, asynchronous booking, and complete sales funnel automation.",
+      "role": "Lead Developer & Designer",
+      "timeline": "4 Weeks",
+      "challenge": "The client needed a comprehensive digital platform that went far beyond a simple institutional website. The Product Design challenge involved mapping the journey of a user seeking family counseling (often in an emotionally vulnerable state), designing a flow that establishes immediate trust and comfort. From a Frontend Engineering perspective, the requirement was an architecture capable of deeply integrating active lead generation and 100% automated scheduling, with blazing-fast performance to maximize technical SEO indexing without relying on slow, rigid third-party systems.",
+      "solution": "As a Product Designer, I mapped the user journey via flowcharts and drafted wireframes focused on accessibility (WCAG) and low cognitive friction, defining a Design System that reflected credibility through typography and color palette. In implementation, I assumed the Frontend Engineering role by building the application from scratch using React and TypeScript. I structured a highly reusable component ecosystem and developed custom asynchronous hooks to handle the scheduling and lead capture APIs. The result is a robust, lightning-fast platform highly optimized for conversion.",
+      "process": [
+        {
+          "title": "Discovery",
+          "desc": "Competitor analysis and persona definition focused on the target audience (families seeking consulting)."
+        },
+        {
+          "title": "Wireframing",
+          "desc": "Information architecture and user flows iteratively created in Figma."
+        },
+        {
+          "title": "Development",
+          "desc": "React implementation with strict focus on Core Web Vitals and scalable architecture."
+        },
+        {
+          "title": "Optimization",
+          "desc": "Fine-tuning of Technical SEO and loading performance."
+        }
+      ],
       "results": [
-        "100/100 score on PageSpeed Insights",
-        "150% increase in qualified leads",
-        "8.5% conversion rate"
+        "Simplified journey with a 3-step conversion flow",
+        "150% increase in qualified lead capture",
+        "Technical performance with LCP (Largest Contentful Paint) < 1.2s"
       ]
     },
     "portfolio": {
-      "challenge": "To create a portfolio that wasn't just a static gallery, but living proof of my technical skills. The goal was to build a complete React application that demonstrated mastery over global states, complex animations, and rigorous typing.",
-      "solution": "I developed this site from scratch using React and TypeScript. The interface uses Tailwind for efficient styling and Framer Motion to orchestrate entrance animations and micro-interactions, creating a fluid and modern experience without compromising performance.",
+      "role": "Frontend Engineer",
+      "timeline": "Continuous",
+      "challenge": "Create a portfolio that wasn't just a static gallery, but living proof of my technical skills. The goal was to build a complete React application demonstrating a solid grasp of global state, complex animations, and strict typing.",
+      "solution": "I developed this website from scratch using React and TypeScript. The interface uses Tailwind for efficient styling and Framer Motion to orchestrate entrance animations and micro-interactions, creating a fluid and modern experience without compromising performance.",
+      "process": [
+        {
+          "title": "Concept",
+          "desc": "Definition of the 'Industrial Noir' aesthetic."
+        },
+        {
+          "title": "Architecture",
+          "desc": "Setup of the React + TypeScript + Vite project."
+        },
+        {
+          "title": "Motion Design",
+          "desc": "Implementation of animations using Framer Motion."
+        },
+        {
+          "title": "Internationalization",
+          "desc": "i18n configuration for 3 languages."
+        }
+      ],
       "results": [
         "Fully typed React/TS application",
         "Fluid animations at 60fps",
@@ -353,30 +302,90 @@
       ]
     },
     "microsaas": {
-      "challenge": "Traditional distance learning suffers from high dropout rates and low engagement. Conventional platforms fail to maintain long-term student interest, especially in specific cultural niches like Umbanda studies.",
-      "solution": "I developed a Gamified LMS (Learning Management System). The platform uses level progression, achievements, and visual rewards to keep students engaged. The architecture supports video streaming and interactive real-time quizzes.",
+      "role": "Full Stack Developer",
+      "timeline": "3 Months",
+      "challenge": "Traditional distance learning suffers from high dropout rates and low engagement. Conventional platforms fail to keep long-term student interest, especially in specific cultural niches like Umbanda studies.",
+      "solution": "I developed an LMS (Learning Management System) focused on gamification. The platform uses level progression, achievements, and visual rewards to keep the student engaged. The architecture supports video streaming and interactive quizzes in real time.",
+      "process": [
+        {
+          "title": "Research",
+          "desc": "Study on engagement in e-learning."
+        },
+        {
+          "title": "Prototyping",
+          "desc": "Design of the gamification system."
+        },
+        {
+          "title": "MVP",
+          "desc": "Development of core functionalities."
+        },
+        {
+          "title": "Testing",
+          "desc": "Validation with a beta student group."
+        }
+      ],
       "results": [
-        "Increased student retention",
+        "Increase in student retention",
         "Automated progression system",
-        "Instant feedback via reactive interface"
+        "Instant feedback through a reactive interface"
       ]
     },
     "dashboard": {
-      "challenge": "Health insurance providers accumulate massive but scattered data. Managers struggle to visualize engagement KPIs and operational results in real-time, hindering strategic decision-making.",
-      "solution": "I created a centralized Executive Dashboard. The tool processes complex data and presents it through intuitive visualizations (DataViz), allowing managers to monitor portfolio health and ROI of engagement actions on a single screen.",
+      "role": "Data Visualization Designer",
+      "timeline": "6 Weeks",
+      "challenge": "Healthcare content creators face metric dispersion across multiple platforms. The core UX and Data Visualization challenge was to build a visual hierarchy that delivered engagement insights in a 3-second read, focusing entirely on a 'mobile-first' layout. Technologically, rendering complex charts in a mobile browser with data from multiple social networks demanded maximum DOM optimization and asynchronous components.",
+      "solution": "I created an iterative design subsystem focused on high contrast and DataViz legibility, refining each analytical component in Figma prior to coding. In development, I employed advanced libraries like Recharts in conjunction with React and TypeScript. State isolation and 'lazy loading' techniques ensured that numerical mapping occurred without delay. Instead of simply plotting charts, the interface cross-references engagement data versus lead capture, explicitly showing the user which format is the most profitable.",
+      "process": [
+        {
+          "title": "Information Architecture",
+          "desc": "Reorganization of creators' analytical priorities (e.g. conversions vs empty views)."
+        },
+        {
+          "title": "Mobile-First UX",
+          "desc": "Creation of dense charts and simplified tab navigation for small screens."
+        },
+        {
+          "title": "Recharts Integration",
+          "desc": "Rendering of canvas-based visualizations optimized for low repaint latency."
+        },
+        {
+          "title": "Memory Testing",
+          "desc": "Strict garbage collection via React Profiler, avoiding memory leaks on charts."
+        }
+      ],
       "results": [
-        "Intuitive DataViz",
-        "Real-time KPI monitoring",
-        "Vital tool for strategic decision"
+        "Creation of complex DataViz components for Mobile",
+        "Optimized rendering avoiding memory leaks in charts",
+        "Architectural evolution of data visualization in healthcare"
       ]
     },
     "platform": {
-      "challenge": "Beauty professionals lose up to 10 hours weekly on manual management. WhatsApp scheduling, paper contracts, and lack of financial control hinder growth. The challenge was to create an 'All-in-One' platform that was powerful yet had a minimalist, luxurious aesthetic ('Industrial Noir') to appeal to this demanding audience.",
-      "solution": "Built KONTROL, a complete ecosystem. Used React + Vite for instant performance and Supabase for a scalable serverless backend. The 'Industrial Noir' interface isn't just style; it's a custom Design System focused on reducing cognitive load. Features include auto-generated PDF contracts, drag-and-drop calendar, and real-time financial dashboards.",
+      "role": "Founder & Lead Engineer",
+      "timeline": "8 Months (In Production)",
+      "challenge": "Beauty professionals lose up to 10 hours a week on manual management. WhatsApp scheduling, paper contracts, and lack of financial control hinder business growth. The challenge was to create an 'All-in-One' platform that was powerful, yet featured a minimalist and luxurious aesthetic ('Industrial Noir') to attract this demanding audience.",
+      "solution": "I developed KONTROL, a complete ecosystem. It uses React + Vite for instantaneous performance and Supabase for a scalable serverless backend. The 'Industrial Noir' interface isn't just styling; it's a minimal customized Design System focused on reducing cognitive load. Features include automatic PDF contract generation, a drag-and-drop calendar, and real-time financial dashboards.",
+      "process": [
+        {
+          "title": "Conception",
+          "desc": "Identification of pain points within the luxury beauty market."
+        },
+        {
+          "title": "Design System",
+          "desc": "Creation of the 'Industrial Noir' visual language in Figma."
+        },
+        {
+          "title": "Development (Frontend & Backend)",
+          "desc": "Implementation using React, Vite, Tailwind CSS, and a real-time Supabase database."
+        },
+        {
+          "title": "Scalability & Payments",
+          "desc": "Creation of the PDF Contracts architecture and Stripe integration."
+        }
+      ],
       "results": [
-        "10+ hours saved weekly per user",
+        "10+ hours saved per week per user",
         "Exclusive 'Industrial Noir' Design System",
-        "Scalable Serverless Architecture (Supabase)"
+        "Scalable Serverless architecture (Supabase)"
       ]
     }
   },

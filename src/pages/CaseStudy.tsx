@@ -63,7 +63,6 @@ const CaseStudy = () => {
         </div>
 
         <CaseStudyNextProject nextProject={nextProject} />
-
       </main>
       <Footer />
     </div>

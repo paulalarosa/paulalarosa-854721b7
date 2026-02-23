@@ -79,7 +79,7 @@ const FeaturedProject = () => {
                   asChild
                 >
                   <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
-                    {t('featuredProject.viewProject')}
+                    {t('featuredProject.viewLive')}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -91,7 +91,7 @@ const FeaturedProject = () => {
                   asChild
                 >
                   <Link to="/case-study/platform">
-                    {t('featuredProject.deepDive')}
+                    {t('featuredProject.viewBehindTheScenes')}
                   </Link>
                 </Button>
               </div>
