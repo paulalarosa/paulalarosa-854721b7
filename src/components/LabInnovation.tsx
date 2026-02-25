@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, X, Info } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, X, Lightbulb } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -14,13 +14,9 @@ const webProjects = [
 ];
 
 // ─── Product Design Projects ──────────────────────────────────────────────────
-// 🔧 Quando tiver a URL pública do app (não a URL do editor), substitua em `appUrl`.
-//    No Figma Make: Share → "Publish" ou "Preview link" → copie a URL gerada.
-//    A URL do editor (figma.com/make/...) não funciona em iframe.
-
-interface DesignScreen {
-  label: string;
-  annotation: string;
+interface DesignInsight {
+  label: string;       // Nome da área/tela referenciada
+  annotation: string;  // Decisão de design
 }
 
 interface DesignProject {
@@ -31,7 +27,9 @@ interface DesignProject {
   tags: string[];
   appUrl: string;
   accentColor: string;
-  screens: DesignScreen[];
+  insights: DesignInsight[];
+  // Offset CSS para corrigir posição do app dentro do frame por projeto
+  iframeScale?: number;
 }
 
 const designProjects: DesignProject[] = [
@@ -43,10 +41,10 @@ const designProjects: DesignProject[] = [
     tags: ['HealthTech', 'Mobile App', 'UX Research'],
     appUrl: 'https://framer-true-60574725.figma.site',
     accentColor: '#0d6b3e',
-    screens: [
+    insights: [
       { label: 'Dashboard', annotation: 'Hierarquia visual progressiva: HealthRing captura atenção primeiro, depois direciona para ações prioritárias — reduzindo cognitive load.' },
       { label: 'Busca de Rede', annotation: 'Filtros contextuais aparecem apenas quando relevantes. Menos escolhas simultâneas = mais conversão.' },
-      { label: 'Consultas', annotation: 'Timeline de agendamento com feedback visual em tempo real. Confirmação em 2 etapas elimina cancelamentos acidentais.' },
+      { label: 'Consultas', annotation: 'Timeline com feedback visual em tempo real. Confirmação em 2 etapas elimina cancelamentos acidentais.' },
       { label: 'Perfil', annotation: 'Carteirinha digital com dados críticos above the fold. Design orientado a situações de urgência.' },
     ],
   },
@@ -54,13 +52,13 @@ const designProjects: DesignProject[] = [
     id: 'seguro-vida',
     name: 'Seguro de Vida',
     sector: 'InsurTech',
-    description: 'App de seguro pessoal with ShieldScore proprietário, visualização de cobertura em órbita, gestão de apólices e sinistros simplificada.',
+    description: 'App de seguro pessoal com ShieldScore proprietário, visualização de cobertura em órbita, gestão de apólices e sinistros simplificada.',
     tags: ['InsurTech', 'Mobile App', 'Product Design'],
     appUrl: 'https://run-wish-52765770.figma.site',
     accentColor: '#2d1b5e',
-    screens: [
-      { label: 'Home', annotation: 'ShieldScore transforma dado abstrato em métrica emocional tangível — aumenta engajamento e percepção de valor.' },
-      { label: 'Coverage Orbit', annotation: 'Visualização radial das coberturas: metáfora de órbita comunica proteção ao redor do usuário. UX que gera confiança.' },
+    insights: [
+      { label: 'ShieldScore', annotation: 'Transforma dado abstrato (cobertura) em métrica emocional tangível — aumenta engajamento e percepção de valor.' },
+      { label: 'Coverage Orbit', annotation: 'Visualização radial: metáfora de órbita comunica proteção ao redor do usuário. UX que gera confiança.' },
       { label: 'Apólices', annotation: 'Documentos densos traduzidos em cards escaneáveis. Redução de 70% no tempo para encontrar informação crítica.' },
       { label: 'Sinistro', annotation: 'Fluxo em 3 etapas com save automático — desenhado para momentos de estresse emocional alto.' },
     ],
@@ -73,9 +71,9 @@ const designProjects: DesignProject[] = [
     tags: ['HealthTech', 'Mobile App', 'UI Engineering'],
     appUrl: 'https://pecan-actor-86429791.figma.site',
     accentColor: '#0a4f6b',
-    screens: [
-      { label: 'Home', annotation: 'Dynamic Island nativo integrado: notificações do plano aparecem no componente certo, respeitando design language do iOS.' },
-      { label: 'HealthRing', annotation: 'Anel de saúde com animação procedural baseada em dados reais. Gamificação sutil que aumenta retenção.' },
+    insights: [
+      { label: 'Dynamic Island', annotation: 'Integrado ao sistema nativo: notificações do plano aparecem no componente certo, respeitando design language do iOS.' },
+      { label: 'HealthRing', annotation: 'Animação procedural baseada em dados reais do usuário. Gamificação sutil que aumenta retenção.' },
       { label: 'Agenda', annotation: 'Calendário + lista com switching fluido entre views. Context preservation: nenhum dado se perde na transição.' },
       { label: 'Coberturas', annotation: 'Linguagem visual clara para coberturas ativas vs carência. Ícones customizados por especialidade médica.' },
     ],
@@ -88,11 +86,12 @@ const designProjects: DesignProject[] = [
     tags: ['InsurTech', 'B2B', 'Dashboard'],
     appUrl: 'https://rare-yellow-39737195.figma.site',
     accentColor: '#1c3a6b',
-    screens: [
+    iframeScale: 0.85, // Akad tem viewport mais largo, escala para caber no frame
+    insights: [
       { label: 'Dashboard', annotation: 'KPIs acima do fold com drill-down progressivo. Design orientado a decisão rápida para corretores em campo.' },
       { label: 'Clientes', annotation: 'Search, filtros e preview inline eliminam navegação desnecessária. CRM enterprise simplificado.' },
-      { label: 'Apólices', annotation: 'Status visual por cor + tipografia hierárquica: corretor identifica apólices críticas em menos de 3 segundos.' },
-      { label: 'Academy', annotation: 'LMS integrado ao fluxo de trabalho — capacitação no contexto de uso, não em plataforma separada.' },
+      { label: 'Apólices', annotation: 'Status por cor + tipografia hierárquica: corretor identifica apólices críticas em menos de 3 segundos.' },
+      { label: 'Academy', annotation: 'LMS no fluxo de trabalho — capacitação no contexto de uso, não em plataforma separada.' },
     ],
   },
   {
@@ -103,16 +102,16 @@ const designProjects: DesignProject[] = [
     tags: ['E-commerce', 'Mobile App', 'Brand Design'],
     appUrl: 'https://civic-score-64769139.figma.site',
     accentColor: '#1a1a1a',
-    screens: [
-      { label: 'Home', annotation: 'HeroBanner editorial com Marquee Strip — linguagem de revista de moda aplicada a e-commerce. Diferenciação de concorrentes.' },
-      { label: 'Explore', annotation: 'CategoryScroll horizontal com ProductCards de proporção 3:4 — aspecto que maximiza percepção de qualidade do produto.' },
-      { label: 'Drops', annotation: 'Countdown + estoque em tempo real cria urgência autêntica. Dark mode por padrão na seção de drops: exclusividade visual.' },
-      { label: 'Bag', annotation: 'Checkout reduzido a gestos — swipe para remover, tap para quantidade. Menos fricção = menos abandono de carrinho.' },
+    insights: [
+      { label: 'Home', annotation: 'HeroBanner editorial com Marquee Strip — linguagem de revista de moda aplicada a e-commerce. Diferenciação clara de concorrentes.' },
+      { label: 'Explore', annotation: 'ProductCards em proporção 3:4 — aspecto ratio que maximiza percepção de qualidade do produto.' },
+      { label: 'Drops', annotation: 'Countdown + estoque em tempo real cria urgência autêntica. Dark mode por padrão: exclusividade visual.' },
+      { label: 'Bag', annotation: 'Checkout por gestos — swipe para remover, tap para quantidade. Menos fricção = menos abandono de carrinho.' },
     ],
   },
 ];
 
-// ─── Phone Frame Component ────────────────────────────────────────────────────
+// ─── Phone Frame ──────────────────────────────────────────────────────────────
 const PhoneFrame = ({
   project,
   isSelected,
@@ -122,50 +121,76 @@ const PhoneFrame = ({
   isSelected: boolean;
   onSelect: () => void;
 }) => {
-  const [currentScreen, setCurrentScreen] = useState(0);
-  const [showAnnotation, setShowAnnotation] = useState(false);
+  const [insightIndex, setInsightIndex] = useState(0);
+  const [showInsights, setShowInsights] = useState(false);
+  const scale = project.iframeScale ?? 1;
 
-  const goTo = (i: number, e: React.MouseEvent) => {
+  // Reset ao desselecionar
+  useEffect(() => {
+    if (!isSelected) {
+      setShowInsights(false);
+      setInsightIndex(0);
+    }
+  }, [isSelected]);
+
+  const goNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setCurrentScreen(i);
-    setShowAnnotation(false);
+    setInsightIndex((p) => (p + 1) % project.insights.length);
   };
-
-  const goNext = (e: React.MouseEvent) => goTo(Math.min(currentScreen + 1, project.screens.length - 1), e);
-  const goPrev = (e: React.MouseEvent) => goTo(Math.max(currentScreen - 1, 0), e);
-
-  const appIsReady = !project.appUrl.startsWith('SUBSTITUIR');
+  const goPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setInsightIndex((p) => (p - 1 + project.insights.length) % project.insights.length);
+  };
 
   return (
     <motion.div
       className="flex-shrink-0 flex flex-col items-center"
       style={{ width: 272 }}
-      whileHover={!isSelected ? { y: -8, scale: 1.02 } : {}}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      // FIX 1: animação mais fluida com spring
+      animate={isSelected ? { y: -6, scale: 1.03 } : { y: 0, scale: 1 }}
+      whileHover={!isSelected ? { y: -10, scale: 1.02 } : {}}
+      transition={{ type: 'spring', stiffness: 280, damping: 28 }}
     >
-      {/* Phone shell */}
       <div
         className="relative cursor-pointer"
         style={{ width: 272, height: 556 }}
         onClick={!isSelected ? onSelect : undefined}
       >
+        {/* Glow quando selecionado */}
+        <AnimatePresence>
+          {isSelected && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="absolute inset-0 rounded-[46px] pointer-events-none"
+              style={{
+                background: `radial-gradient(ellipse at center, ${project.accentColor}30 0%, transparent 70%)`,
+                transform: 'scale(1.15)',
+              }}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Bezel do iPhone */}
         <div
-          className="absolute inset-0 rounded-[46px] transition-all duration-500"
+          className="absolute inset-0 rounded-[46px] transition-shadow duration-500"
           style={{
             backgroundColor: '#0a0a0a',
             boxShadow: isSelected
-              ? `0 0 0 2px ${project.accentColor}, 0 32px 80px -16px rgba(0,0,0,0.55)`
-              : '0 12px 40px -8px rgba(0,0,0,0.3)',
+              ? `0 0 0 2px ${project.accentColor}, 0 28px 70px -12px rgba(0,0,0,0.6)`
+              : '0 10px 36px -8px rgba(0,0,0,0.28)',
           }}
         >
-          {/* Physical buttons */}
-          <div className="absolute -right-[3px] top-[108px] w-[3px] h-[36px] rounded-r-sm bg-neutral-800" />
-          <div className="absolute -left-[3px] top-[88px]  w-[3px] h-[24px] rounded-l-sm bg-neutral-800" />
-          <div className="absolute -left-[3px] top-[122px] w-[3px] h-[24px] rounded-l-sm bg-neutral-800" />
-          <div className="absolute -left-[3px] top-[158px] w-[3px] h-[24px] rounded-l-sm bg-neutral-800" />
+          {/* Botões físicos */}
+          <div className="absolute -right-[3px] top-[108px] w-[3px] h-[36px] rounded-r-sm bg-neutral-700" />
+          <div className="absolute -left-[3px] top-[88px]  w-[3px] h-[24px] rounded-l-sm bg-neutral-700" />
+          <div className="absolute -left-[3px] top-[122px] w-[3px] h-[24px] rounded-l-sm bg-neutral-700" />
+          <div className="absolute -left-[3px] top-[158px] w-[3px] h-[24px] rounded-l-sm bg-neutral-700" />
 
-          {/* Screen */}
+          {/* Tela */}
           <div className="absolute rounded-[40px] overflow-hidden bg-white" style={{ inset: 6 }}>
+
             {/* Status bar */}
             <div className="absolute top-0 left-0 right-0 z-20 h-11 flex items-center justify-between px-6 pointer-events-none">
               <span className="text-[11px] font-semibold text-white mix-blend-difference">9:41</span>
@@ -175,145 +200,160 @@ const PhoneFrame = ({
               </div>
             </div>
 
-            {/* App iframe / placeholder */}
-            {appIsReady ? (
+            {/* FIX 2: iframe com escala por projeto para centralizar conteúdo */}
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ top: 44 }} // abaixo da status bar
+            >
               <iframe
                 src={project.appUrl}
                 title={project.name}
-                className="absolute inset-0 w-full h-full border-0"
-                style={{ pointerEvents: isSelected ? 'auto' : 'none' }}
+                className="border-0 w-full h-full"
+                style={{
+                  pointerEvents: isSelected ? 'auto' : 'none',
+                  transform: scale !== 1 ? `scale(${scale})` : undefined,
+                  transformOrigin: 'top center',
+                  width: scale !== 1 ? `${100 / scale}%` : '100%',
+                  height: scale !== 1 ? `${100 / scale}%` : '100%',
+                }}
                 loading="lazy"
                 sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
               />
-            ) : (
-              // Placeholder until URL is configured
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-                style={{ background: `linear-gradient(135deg, ${project.accentColor}22, ${project.accentColor}08)` }}
-              >
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold text-white"
-                  style={{ backgroundColor: project.accentColor }}
-                >
-                  {project.name[0]}
-                </div>
-                <span className="text-sm font-medium text-center px-4" style={{ color: project.accentColor }}>
-                  {project.name}
-                </span>
-                <span className="text-xs text-muted-foreground text-center px-6">
-                  Configure a URL pública para visualizar o app
-                </span>
-              </div>
-            )}
+            </div>
 
-            {/* Click-to-activate overlay */}
+            {/* Overlay "clique para explorar" quando não selecionado */}
             <AnimatePresence>
               {!isSelected && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
                   className="absolute inset-0 flex items-end justify-center pb-10"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)' }}
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 52%)' }}
                 >
-                  <span className="text-white text-xs font-medium tracking-wide">
+                  <motion.span
+                    className="text-white text-xs font-medium tracking-wide px-3 py-1.5 rounded-full"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}
+                  >
                     Clique para explorar
-                  </span>
+                  </motion.span>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Portfolio tour controls */}
+            {/* FIX 3: Insights panel — aparece quando selecionado */}
             <AnimatePresence>
               {isSelected && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.2 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ type: 'spring', stiffness: 320, damping: 32 }}
                   className="absolute bottom-0 left-0 right-0 z-30"
                 >
-                  {/* Annotation */}
-                  <AnimatePresence>
-                    {showAnnotation && (
+                  {/* Card de insight — aparece quando aberto */}
+                  <AnimatePresence mode="wait">
+                    {showInsights && (
                       <motion.div
-                        initial={{ opacity: 0, y: 6 }}
+                        key={insightIndex}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
                         className="mx-3 mb-2 p-3 rounded-2xl"
-                        style={{ backgroundColor: 'rgba(8,8,8,0.9)', backdropFilter: 'blur(16px)' }}
+                        style={{ backgroundColor: 'rgba(6,6,6,0.92)', backdropFilter: 'blur(20px)' }}
                       >
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="text-white text-[11px] leading-relaxed flex-1">
-                            {project.screens[currentScreen].annotation}
-                          </p>
+                        <div className="flex items-start justify-between gap-2 mb-2">
+                          <div className="flex items-center gap-1.5">
+                            <div
+                              className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                              style={{ backgroundColor: project.accentColor }}
+                            />
+                            <span
+                              className="text-[10px] font-semibold tracking-widest uppercase"
+                              style={{ color: project.accentColor }}
+                            >
+                              {project.insights[insightIndex].label}
+                            </span>
+                          </div>
                           <button
-                            onClick={(e) => { e.stopPropagation(); setShowAnnotation(false); }}
-                            className="flex-shrink-0 mt-0.5 opacity-50 hover:opacity-100 transition-opacity"
+                            onClick={(e) => { e.stopPropagation(); setShowInsights(false); }}
+                            className="flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity"
                           >
                             <X className="w-3 h-3 text-white" />
                           </button>
                         </div>
+                        <p className="text-white/85 text-[11px] leading-relaxed">
+                          {project.insights[insightIndex].annotation}
+                        </p>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
-                  {/* Nav bar */}
+                  {/* Barra de controle */}
                   <div
-                    className="mx-3 mb-3 px-3 py-2.5 rounded-2xl flex items-center gap-2"
-                    style={{ backgroundColor: 'rgba(8,8,8,0.85)', backdropFilter: 'blur(16px)' }}
+                    className="mx-3 mb-3 px-3 py-2 rounded-2xl flex items-center gap-2"
+                    style={{ backgroundColor: 'rgba(6,6,6,0.82)', backdropFilter: 'blur(20px)' }}
                   >
-                    {/* Prev */}
-                    <button
+                    {/* Prev insight */}
+                    <motion.button
                       onClick={goPrev}
-                      disabled={currentScreen === 0}
-                      className="w-7 h-7 rounded-full flex items-center justify-center disabled:opacity-25 transition-opacity"
+                      whileTap={{ scale: 0.88 }}
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
                     >
                       <ChevronLeft className="w-3.5 h-3.5 text-white" />
-                    </button>
+                    </motion.button>
 
-                    {/* Center: label + dots */}
-                    <div className="flex-1 flex flex-col items-center gap-1.5">
-                      <span className="text-white/70 text-[10px] font-medium tracking-widest uppercase">
-                        {project.screens[currentScreen].label}
-                      </span>
-                      <div className="flex gap-1.5">
-                        {project.screens.map((_, i) => (
-                          <button
+                    {/* Dots + label */}
+                    <div className="flex-1 flex flex-col items-center gap-1">
+                      <div className="flex gap-1.5 items-center">
+                        {project.insights.map((ins, i) => (
+                          <motion.button
                             key={i}
-                            onClick={(e) => goTo(i, e)}
-                            className="rounded-full transition-all duration-300"
-                            style={{
-                              width: i === currentScreen ? 18 : 5,
-                              height: 5,
-                              backgroundColor: i === currentScreen
-                                ? project.accentColor
-                                : 'rgba(255,255,255,0.25)',
+                            onClick={(e) => { e.stopPropagation(); setInsightIndex(i); setShowInsights(true); }}
+                            animate={{
+                              width: i === insightIndex ? 18 : 5,
+                              backgroundColor: i === insightIndex ? project.accentColor : 'rgba(255,255,255,0.25)',
                             }}
+                            transition={{ duration: 0.25 }}
+                            className="h-[5px] rounded-full"
                           />
                         ))}
                       </div>
+                      {showInsights && (
+                        <motion.span
+                          key={insightIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className="text-white/50 text-[9px] tracking-widest uppercase"
+                        >
+                          insight {insightIndex + 1}/{project.insights.length}
+                        </motion.span>
+                      )}
                     </div>
 
-                    {/* Info */}
-                    <button
-                      onClick={(e) => { e.stopPropagation(); setShowAnnotation((p) => !p); }}
-                      className="w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200"
-                      style={{ backgroundColor: showAnnotation ? project.accentColor : 'rgba(255,255,255,0.1)' }}
+                    {/* Toggle insights */}
+                    <motion.button
+                      onClick={(e) => { e.stopPropagation(); setShowInsights((p) => !p); }}
+                      whileTap={{ scale: 0.88 }}
+                      animate={{ backgroundColor: showInsights ? project.accentColor : 'rgba(255,255,255,0.1)' }}
+                      transition={{ duration: 0.2 }}
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
                     >
-                      <Info className="w-3.5 h-3.5 text-white" />
-                    </button>
+                      <Lightbulb className="w-3.5 h-3.5 text-white" />
+                    </motion.button>
 
-                    {/* Next */}
-                    <button
+                    {/* Next insight */}
+                    <motion.button
                       onClick={goNext}
-                      disabled={currentScreen === project.screens.length - 1}
-                      className="w-7 h-7 rounded-full flex items-center justify-center disabled:opacity-25 transition-opacity"
+                      whileTap={{ scale: 0.88 }}
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
                     >
                       <ChevronRight className="w-3.5 h-3.5 text-white" />
-                    </button>
+                    </motion.button>
                   </div>
                 </motion.div>
               )}
@@ -323,15 +363,15 @@ const PhoneFrame = ({
           {/* Home indicator */}
           <div
             className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full"
-            style={{ width: 110, height: 4, backgroundColor: 'rgba(255,255,255,0.2)' }}
+            style={{ width: 110, height: 4, backgroundColor: 'rgba(255,255,255,0.18)' }}
           />
         </div>
       </div>
 
-      {/* Info below phone */}
+      {/* Info abaixo do phone */}
       <motion.div
         className="mt-5 text-center px-2"
-        animate={{ opacity: isSelected ? 1 : 0.55 }}
+        animate={{ opacity: isSelected ? 1 : 0.5 }}
         transition={{ duration: 0.3 }}
       >
         <div className="flex items-center justify-center gap-2 mb-1.5">
@@ -362,7 +402,7 @@ const PhoneFrame = ({
           ))}
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div >
   );
 };
 
@@ -390,6 +430,7 @@ const LabInnovation = () => {
     <section id="lab-innovation" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
 
+        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
             Engenharia & Estética Visual
@@ -399,24 +440,27 @@ const LabInnovation = () => {
           </p>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-10" />
 
+          {/* Tabs */}
           <div className="inline-flex items-center gap-1 p-1 bg-secondary rounded-full border border-border">
             {(['web', 'design'] as const).map((tab) => (
-              <button
+              <motion.button
                 key={tab}
                 onClick={() => { setActiveTab(tab); setSelectedPhone(null); }}
-                className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 ${activeTab === tab
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-primary'
+                className={`px-6 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${activeTab === tab
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-primary'
                   }`}
+                whileTap={{ scale: 0.97 }}
               >
                 {tab === 'web' ? 'Web & Fullstack' : 'Product Design'}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
         <AnimatePresence mode="wait">
 
+          {/* ── Web Projects ── */}
           {activeTab === 'web' && (
             <motion.div
               key="web"
@@ -453,6 +497,7 @@ const LabInnovation = () => {
             </motion.div>
           )}
 
+          {/* ── Product Design ── */}
           {activeTab === 'design' && (
             <motion.div
               key="design"
@@ -462,16 +507,25 @@ const LabInnovation = () => {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <button onClick={() => scrollBy('left')} className="absolute left-0 top-[278px] -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 rounded-full bg-card border border-border shadow-md items-center justify-center hover:border-accent/50 transition-base hidden md:flex">
+              {/* Setas de scroll */}
+              <button
+                onClick={() => scrollBy('left')}
+                className="absolute left-0 top-[278px] -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 rounded-full bg-card border border-border shadow-md items-center justify-center hover:border-accent/50 transition-base hidden md:flex"
+              >
                 <ChevronLeft className="h-5 w-5 text-primary" />
               </button>
-              <button onClick={() => scrollBy('right')} className="absolute right-0 top-[278px] -translate-y-1/2 translate-x-4 z-20 w-10 h-10 rounded-full bg-card border border-border shadow-md items-center justify-center hover:border-accent/50 transition-base hidden md:flex">
+              <button
+                onClick={() => scrollBy('right')}
+                className="absolute right-0 top-[278px] -translate-y-1/2 translate-x-4 z-20 w-10 h-10 rounded-full bg-card border border-border shadow-md items-center justify-center hover:border-accent/50 transition-base hidden md:flex"
+              >
                 <ChevronRight className="h-5 w-5 text-primary" />
               </button>
 
+              {/* Fade nas bordas */}
               <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
 
+              {/* Container de scroll */}
               <div
                 ref={scrollRef}
                 className="flex gap-10 overflow-x-auto pb-8 pt-4 px-10 scroll-smooth"
@@ -487,9 +541,14 @@ const LabInnovation = () => {
                 ))}
               </div>
 
-              <p className="text-center text-xs text-muted-foreground mt-2">
-                ← Arraste para navegar · Clique num app para explorar ·{' '}
-                <Info className="inline w-3 h-3 mx-0.5" /> para decisões de design
+              {/* Hint */}
+              <p className="text-center text-xs text-muted-foreground mt-2 flex items-center justify-center gap-1.5">
+                <span>← Arraste para navegar</span>
+                <span className="opacity-40">·</span>
+                <span>Clique no app para interagir</span>
+                <span className="opacity-40">·</span>
+                <Lightbulb className="inline w-3 h-3" />
+                <span>para insights de design</span>
               </p>
             </motion.div>
           )}
