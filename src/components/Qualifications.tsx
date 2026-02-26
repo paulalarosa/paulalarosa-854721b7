@@ -79,27 +79,32 @@ const Qualifications = () => {
             return (
               <div
                 key={qual.number}
-                className={`relative group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+                className={`relative overflow-hidden p-6 rounded-xl border border-white/10 bg-black/20 group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {}
-                <div className="mb-4 relative">
-                  <span className="font-serif text-8xl md:text-[140px] font-bold text-primary-foreground opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500 leading-none absolute -top-12 -left-4 md:-top-16 md:-left-6 pointer-events-none select-none">
-                    {qual.number}
-                  </span>
+                {/* Número decorativo de fundo */}
+                <span
+                  className="absolute -bottom-4 -right-2 font-serif font-bold select-none pointer-events-none leading-none"
+                  style={{
+                    fontSize: "9rem",
+                    color: "white",
+                    opacity: 0.04,
+                    lineHeight: 1,
+                  }}
+                >
+                  {qual.number}
+                </span>
 
-                  {}
+                <div className="mb-4 relative">
                   <div className="inline-flex items-center justify-center w-14 h-14 border border-primary-foreground/20 rounded-xl bg-primary-foreground/5 backdrop-blur-sm group-hover:bg-primary-foreground/10 group-hover:border-accent/50 transition-all duration-300 relative z-10">
                     <Icon className="h-6 w-6 stroke-[1.5] text-primary-foreground group-hover:text-accent transition-colors duration-300" />
                   </div>
                 </div>
 
-                {}
                 <h3 className="font-serif text-2xl md:text-3xl font-semibold mb-4 leading-tight mt-6 relative z-10 group-hover:text-accent transition-colors duration-300">
                   {qual.title}
                 </h3>
 
-                {}
                 <p className="text-primary-foreground/70 leading-relaxed relative z-10">
                   {qual.description}
                 </p>
