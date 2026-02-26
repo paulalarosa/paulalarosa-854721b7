@@ -1,31 +1,31 @@
-import { useTranslation } from 'react-i18next';
-import { Card } from '@/components/ui/card';
+import { useTranslation } from "react-i18next";
+import { Card } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
+} from "@/components/ui/carousel";
 
 const Testimonials = () => {
   const { t } = useTranslation();
 
   const testimonials = [
     {
-      quote: t('testimonials.items.0.quote'),
-      author: t('testimonials.items.0.author'),
-      role: t('testimonials.items.0.role'),
+      quote: t("testimonials.items.0.quote"),
+      author: t("testimonials.items.0.author"),
+      role: t("testimonials.items.0.role"),
     },
     {
-      quote: t('testimonials.items.1.quote'),
-      author: t('testimonials.items.1.author'),
-      role: t('testimonials.items.1.role'),
+      quote: t("testimonials.items.1.quote"),
+      author: t("testimonials.items.1.author"),
+      role: t("testimonials.items.1.role"),
     },
     {
-      quote: t('testimonials.items.2.quote'),
-      author: t('testimonials.items.2.author'),
-      role: t('testimonials.items.2.role'),
+      quote: t("testimonials.items.2.quote"),
+      author: t("testimonials.items.2.author"),
+      role: t("testimonials.items.2.role"),
     },
   ];
 
@@ -34,7 +34,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="font-serif text-5xl md:text-6xl font-semibold text-primary mb-4">
-            {t('testimonials.title')}
+            {t("testimonials.title")}
           </h2>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
@@ -65,12 +65,8 @@ const Testimonials = () => {
                         </p>
                       </div>
                       <div>
-                        <p className="font-semibold text-primary">
-                          {testimonial.author}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {testimonial.role}
-                        </p>
+                        <p className="font-semibold text-primary">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                       </div>
                     </Card>
                   </div>

@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -7,7 +7,7 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-const AnimatedSection = ({ children, className = '', delay = 0 }: AnimatedSectionProps) => {
+const AnimatedSection = ({ children, className = "", delay = 0 }: AnimatedSectionProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -16,7 +16,7 @@ const AnimatedSection = ({ children, className = '', delay = 0 }: AnimatedSectio
       transition={{
         duration: 0.7,
         delay,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1],
       }}
       className={className}
     >

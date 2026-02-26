@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useTranslation } from 'react-i18next';
-import ThemeToggle from './ThemeToggle';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import ThemeToggle from "./ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -18,59 +18,58 @@ const Header = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: t('nav.home'), href: '#home' },
-    { name: t('nav.expertise'), href: '#expertise' },
-    { name: t('nav.portfolio'), href: '#portfolio' },
-    { name: t('nav.qualifications'), href: '#qualifications' },
-    { name: t('nav.contact'), href: '#contact' },
+    { name: t("nav.home"), href: "#home" },
+    { name: t("nav.expertise"), href: "#expertise" },
+    { name: t("nav.portfolio"), href: "#portfolio" },
+    { name: t("nav.qualifications"), href: "#qualifications" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    localStorage.setItem('language', lng);
+    localStorage.setItem("language", lng);
   };
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
 
-    // If not on homepage, navigate to homepage then scroll
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: href } });
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: href } });
       return;
     }
 
-    // If already on homepage, just scroll
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else if (href === '#home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
+    } else if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-base ${isScrolled
-        ? 'bg-background/98 backdrop-blur-sm border-b border-border shadow-xs'
-        : 'bg-transparent'
-        }`}
+      className={`fixed top-0 w-full z-50 transition-base ${
+        isScrolled
+          ? "bg-background/98 backdrop-blur-sm border-b border-border shadow-xs"
+          : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {}
           <button
-            onClick={() => scrollToSection('#home')}
+            onClick={() => scrollToSection("#home")}
             className="font-serif text-xl font-semibold text-primary hover:text-accent transition-base"
           >
             Paula La Rosa
           </button>
 
-          {/* Desktop Navigation */}
+          {}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
@@ -82,34 +81,37 @@ const Header = () => {
               </button>
             ))}
 
-            {/* Language Selector */}
+            {}
             <div className="flex items-center gap-2 text-sm">
               <button
-                onClick={() => changeLanguage('pt')}
-                className={`transition-base ${i18n.language === 'pt'
-                  ? 'font-bold text-primary'
-                  : 'text-muted-foreground hover:text-accent'
-                  }`}
+                onClick={() => changeLanguage("pt")}
+                className={`transition-base ${
+                  i18n.language === "pt"
+                    ? "font-bold text-primary"
+                    : "text-muted-foreground hover:text-accent"
+                }`}
               >
                 PT
               </button>
               <span className="text-muted-foreground">|</span>
               <button
-                onClick={() => changeLanguage('en')}
-                className={`transition-base ${i18n.language === 'en'
-                  ? 'font-bold text-primary'
-                  : 'text-muted-foreground hover:text-accent'
-                  }`}
+                onClick={() => changeLanguage("en")}
+                className={`transition-base ${
+                  i18n.language === "en"
+                    ? "font-bold text-primary"
+                    : "text-muted-foreground hover:text-accent"
+                }`}
               >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
               <button
-                onClick={() => changeLanguage('es')}
-                className={`transition-base ${i18n.language === 'es'
-                  ? 'font-bold text-primary'
-                  : 'text-muted-foreground hover:text-accent'
-                  }`}
+                onClick={() => changeLanguage("es")}
+                className={`transition-base ${
+                  i18n.language === "es"
+                    ? "font-bold text-primary"
+                    : "text-muted-foreground hover:text-accent"
+                }`}
               >
                 ES
               </button>
@@ -118,14 +120,14 @@ const Header = () => {
             <ThemeToggle />
 
             <Button
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => scrollToSection("#contact")}
               className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
             >
-              {t('nav.contactBtn')}
+              {t("nav.contactBtn")}
             </Button>
           </nav>
 
-          {/* Mobile Menu Button - Animated Hamburger */}
+          {}
           <button
             className="md:hidden text-foreground relative w-6 h-6 flex flex-col justify-center items-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -139,6 +141,7 @@ const Header = () => {
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             />
+
             <motion.span
               className="absolute w-6 h-0.5 bg-foreground rounded-full"
               animate={{
@@ -147,6 +150,7 @@ const Header = () => {
               }}
               transition={{ duration: 0.2 }}
             />
+
             <motion.span
               className="absolute w-6 h-0.5 bg-foreground rounded-full"
               animate={{
@@ -158,12 +162,12 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.nav
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="md:hidden py-6 border-t border-border bg-background overflow-hidden"
@@ -185,17 +189,18 @@ const Header = () => {
                 </motion.button>
               ))}
 
-              {/* Mobile Language Selector */}
+              {}
               <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    changeLanguage('pt');
+                    changeLanguage("pt");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'pt'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                    }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
+                    i18n.language === "pt"
+                      ? "font-bold text-primary"
+                      : "text-muted-foreground hover:text-accent"
+                  }`}
                 >
                   PT
                 </button>
@@ -203,12 +208,13 @@ const Header = () => {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    changeLanguage('en');
+                    changeLanguage("en");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'en'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                    }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
+                    i18n.language === "en"
+                      ? "font-bold text-primary"
+                      : "text-muted-foreground hover:text-accent"
+                  }`}
                 >
                   EN
                 </button>
@@ -216,12 +222,13 @@ const Header = () => {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    changeLanguage('es');
+                    changeLanguage("es");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === 'es'
-                    ? 'font-bold text-primary'
-                    : 'text-muted-foreground hover:text-accent'
-                    }`}
+                  className={`py-2 px-3 touch-manipulation transition-base ${
+                    i18n.language === "es"
+                      ? "font-bold text-primary"
+                      : "text-muted-foreground hover:text-accent"
+                  }`}
                 >
                   ES
                 </button>
@@ -232,11 +239,11 @@ const Header = () => {
               <Button
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('#contact');
+                  scrollToSection("#contact");
                 }}
                 className="w-full mt-4 bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground border border-accent/30 touch-manipulation"
               >
-                {t('nav.contactBtn')}
+                {t("nav.contactBtn")}
               </Button>
             </motion.nav>
           )}

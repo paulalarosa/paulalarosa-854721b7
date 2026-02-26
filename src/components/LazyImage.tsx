@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface LazyImageProps {
   src: string;
@@ -8,7 +8,7 @@ interface LazyImageProps {
   placeholderClassName?: string;
 }
 
-const LazyImage = ({ src, alt, className = '', placeholderClassName = '' }: LazyImageProps) => {
+const LazyImage = ({ src, alt, className = "", placeholderClassName = "" }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -22,9 +22,9 @@ const LazyImage = ({ src, alt, className = '', placeholderClassName = '' }: Lazy
         }
       },
       {
-        rootMargin: '100px',
+        rootMargin: "100px",
         threshold: 0.1,
-      }
+      },
     );
 
     if (imgRef.current) {
@@ -36,12 +36,10 @@ const LazyImage = ({ src, alt, className = '', placeholderClassName = '' }: Lazy
 
   return (
     <div ref={imgRef} className={`relative overflow-hidden ${placeholderClassName}`}>
-      {/* Placeholder skeleton */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
-      )}
-      
-      {/* Actual image */}
+      {}
+      {!isLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
+
+      {}
       {isInView && (
         <motion.img
           src={src}

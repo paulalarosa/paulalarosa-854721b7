@@ -1,18 +1,18 @@
-import { useParams, Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import { useCaseStudy } from '@/hooks/useCaseStudy';
-import CaseStudyHero from '@/components/case-study/CaseStudyHero';
-import CaseStudyNavigation from '@/components/case-study/CaseStudyNavigation';
-import CaseStudyOverview from '@/components/case-study/CaseStudyOverview';
-import CaseStudyStack from '@/components/case-study/CaseStudyStack';
-import CaseStudyProcess from '@/components/case-study/CaseStudyProcess';
-import CaseStudyResults from '@/components/case-study/CaseStudyResults';
-import CaseStudyNextProject from '@/components/case-study/CaseStudyNextProject';
+import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useCaseStudy } from "@/hooks/useCaseStudy";
+import CaseStudyHero from "@/components/case-study/CaseStudyHero";
+import CaseStudyNavigation from "@/components/case-study/CaseStudyNavigation";
+import CaseStudyOverview from "@/components/case-study/CaseStudyOverview";
+import CaseStudyStack from "@/components/case-study/CaseStudyStack";
+import CaseStudyProcess from "@/components/case-study/CaseStudyProcess";
+import CaseStudyResults from "@/components/case-study/CaseStudyResults";
+import CaseStudyNextProject from "@/components/case-study/CaseStudyNextProject";
 
 const CaseStudy = () => {
   const { id } = useParams();
@@ -23,7 +23,7 @@ const CaseStudy = () => {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   return (
@@ -36,12 +36,15 @@ const CaseStudy = () => {
       <Header />
 
       <main className="pt-24 pb-20">
-        {/* Navigation & Breadcrumbs */}
+        {}
         <div className="container mx-auto px-6 mb-8">
           <Link to="/#portfolio">
-            <Button variant="ghost" className="group pl-0 hover:bg-transparent text-muted-foreground hover:text-primary">
+            <Button
+              variant="ghost"
+              className="group pl-0 hover:bg-transparent text-muted-foreground hover:text-primary"
+            >
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              {t('nav.portfolio')}
+              {t("nav.portfolio")}
             </Button>
           </Link>
         </div>
@@ -50,7 +53,6 @@ const CaseStudy = () => {
 
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-[300px_1fr] gap-12 relative">
-
             <CaseStudyNavigation />
 
             <div className="space-y-24">
@@ -70,4 +72,3 @@ const CaseStudy = () => {
 };
 
 export default CaseStudy;
-

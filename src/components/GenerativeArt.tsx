@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 const GenerativeArt = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -7,7 +7,7 @@ const GenerativeArt = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -16,9 +16,8 @@ const GenerativeArt = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
-    // Generative art parameters
     const particles: Array<{
       x: number;
       y: number;
@@ -37,39 +36,33 @@ const GenerativeArt = () => {
       };
     };
 
-    // Initialize particles
     for (let i = 0; i < 50; i++) {
       particles.push(createParticle());
     }
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
         particle.life -= 0.002;
 
-        // Boundary check
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-        // Reset dead particles
         if (particle.life <= 0) {
           particles[index] = createParticle();
           return;
         }
 
-        // Draw connections
         particles.forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            // Silver tones for connections
             ctx.strokeStyle = `rgba(176, 176, 176, ${0.15 * (1 - distance / 150) * particle.life})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -79,7 +72,6 @@ const GenerativeArt = () => {
           }
         });
 
-        // Draw particle - Silver/Gray tones
         ctx.fillStyle = `rgba(192, 192, 192, ${0.4 * particle.life})`;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
@@ -92,7 +84,7 @@ const GenerativeArt = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
@@ -100,7 +92,7 @@ const GenerativeArt = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 opacity-30"
-      style={{ pointerEvents: 'none' }}
+      style={{ pointerEvents: "none" }}
     />
   );
 };

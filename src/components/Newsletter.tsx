@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useTranslation } from 'react-i18next';
-import { useNewsletterSubscription } from '@/hooks/useNewsletterSubscription';
+import { motion } from "framer-motion";
+import { Mail, Send, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useTranslation } from "react-i18next";
+import { useNewsletterSubscription } from "@/hooks/useNewsletterSubscription";
 
 const Newsletter = () => {
   const { t } = useTranslation();
@@ -22,14 +22,12 @@ const Newsletter = () => {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent/10 mb-6">
             <Mail className="w-7 h-7 text-accent" />
           </div>
-          
+
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-primary mb-4">
-            {t('newsletter.title')}
+            {t("newsletter.title")}
           </h2>
-          
-          <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-            {t('newsletter.subtitle')}
-          </p>
+
+          <p className="text-muted-foreground mb-8 max-w-md mx-auto">{t("newsletter.subtitle")}</p>
 
           {isSubmitted ? (
             <motion.div
@@ -38,13 +36,16 @@ const Newsletter = () => {
               className="flex items-center justify-center gap-3 text-accent"
             >
               <CheckCircle className="w-6 h-6" />
-              <span className="font-medium">{t('newsletter.thankyou')}</span>
+              <span className="font-medium">{t("newsletter.thankyou")}</span>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            >
               <Input
                 type="email"
-                placeholder={t('newsletter.placeholder')}
+                placeholder={t("newsletter.placeholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 h-12 bg-background border-border focus:border-accent"
@@ -64,16 +65,14 @@ const Newsletter = () => {
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    {t('newsletter.button')}
+                    {t("newsletter.button")}
                   </>
                 )}
               </Button>
             </form>
           )}
 
-          <p className="text-xs text-muted-foreground mt-4">
-            {t('newsletter.privacy')}
-          </p>
+          <p className="text-xs text-muted-foreground mt-4">{t("newsletter.privacy")}</p>
         </motion.div>
       </div>
     </section>

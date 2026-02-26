@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { initRecaptcha, getRecaptchaWindow } from '@/services/recaptcha';
+import { useState, useEffect } from "react";
+import { initRecaptcha, getRecaptchaWindow } from "@/services/recaptcha";
 
 export function useRecaptcha() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const recaptchaWindow = getRecaptchaWindow();
-    
+
     if (recaptchaWindow?.grecaptcha) {
       initRecaptcha(() => setIsReady(true));
       return;

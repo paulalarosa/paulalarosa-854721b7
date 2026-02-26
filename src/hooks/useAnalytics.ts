@@ -1,29 +1,27 @@
-import { useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
-// Generate or retrieve visitor ID (persists across sessions)
 const getVisitorId = (): string => {
-  let visitorId = localStorage.getItem('visitor_id');
+  let visitorId = localStorage.getItem("visitor_id");
   if (!visitorId) {
     visitorId = crypto.randomUUID();
-    localStorage.setItem('visitor_id', visitorId);
+    localStorage.setItem("visitor_id", visitorId);
   }
   return visitorId;
 };
 
-// Generate session ID (new per session)
 const getSessionId = (): string => {
-  let sessionId = sessionStorage.getItem('session_id');
+  let sessionId = sessionStorage.getItem("session_id");
   if (!sessionId) {
     sessionId = crypto.randomUUID();
-    sessionStorage.setItem('session_id', sessionId);
+    sessionStorage.setItem("session_id", sessionId);
   }
   return sessionId;
 };
 
-type EventType = 'page_view' | 'click' | 'scroll' | 'form_submit' | 'external_link';
+type EventType = "page_view" | "click" | "scroll" | "form_submit" | "external_link";
 
 interface TrackEventOptions {
   event_type: EventType;
@@ -35,9 +33,9 @@ interface TrackEventOptions {
 export const trackEvent = async (options: TrackEventOptions): Promise<void> => {
   try {
     const response = await fetch(`${SUPABASE_URL}/functions/v1/track-event`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...options,
@@ -48,51 +46,56 @@ export const trackEvent = async (options: TrackEventOptions): Promise<void> => {
     });
 
     if (!response.ok) {
-      console.warn('[Analytics] Failed to track event:', await response.text());
+      console.warn("[Analytics] Failed to track event:", await response.text());
     }
   } catch (error) {
-    console.warn('[Analytics] Error tracking event:', error);
+    console.warn("[Analytics] Error tracking event:", error);
   }
 };
 
 export const useAnalytics = () => {
   const location = useLocation();
 
-  // Track page views on route change
   useEffect(() => {
     trackEvent({
-      event_type: 'page_view',
+      event_type: "page_view",
       page_path: location.pathname + location.hash,
       page_title: document.title,
     });
   }, [location.pathname, location.hash]);
 
-  // Track clicks on external links
-  const trackExternalLink = useCallback((url: string, label?: string) => {
-    trackEvent({
-      event_type: 'external_link',
-      page_path: location.pathname,
-      metadata: { url, label },
-    });
-  }, [location.pathname]);
+  const trackExternalLink = useCallback(
+    (url: string, label?: string) => {
+      trackEvent({
+        event_type: "external_link",
+        page_path: location.pathname,
+        metadata: { url, label },
+      });
+    },
+    [location.pathname],
+  );
 
-  // Track form submissions
-  const trackFormSubmit = useCallback((formName: string) => {
-    trackEvent({
-      event_type: 'form_submit',
-      page_path: location.pathname,
-      metadata: { form_name: formName },
-    });
-  }, [location.pathname]);
+  const trackFormSubmit = useCallback(
+    (formName: string) => {
+      trackEvent({
+        event_type: "form_submit",
+        page_path: location.pathname,
+        metadata: { form_name: formName },
+      });
+    },
+    [location.pathname],
+  );
 
-  // Track custom clicks
-  const trackClick = useCallback((elementId: string, label?: string) => {
-    trackEvent({
-      event_type: 'click',
-      page_path: location.pathname,
-      metadata: { element_id: elementId, label },
-    });
-  }, [location.pathname]);
+  const trackClick = useCallback(
+    (elementId: string, label?: string) => {
+      trackEvent({
+        event_type: "click",
+        page_path: location.pathname,
+        metadata: { element_id: elementId, label },
+      });
+    },
+    [location.pathname],
+  );
 
   return {
     trackExternalLink,

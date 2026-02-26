@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface StatItemProps {
   value: number;
@@ -20,7 +20,7 @@ const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
       const steps = 60;
       const increment = value / steps;
       let current = 0;
-      
+
       const timer = setTimeout(() => {
         const interval = setInterval(() => {
           current += increment;
@@ -31,10 +31,10 @@ const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
             setCount(Math.floor(current));
           }
         }, duration / steps);
-        
+
         return () => clearInterval(interval);
       }, delay);
-      
+
       return () => clearTimeout(timer);
     }
   }, [isInView, value, delay]);
@@ -49,7 +49,8 @@ const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
       className="text-center"
     >
       <div className="font-serif text-5xl md:text-7xl font-bold text-primary mb-2">
-        {count}{suffix}
+        {count}
+        {suffix}
       </div>
       <div className="text-muted-foreground text-sm md:text-base uppercase tracking-wider">
         {label}
@@ -62,10 +63,10 @@ const Stats = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { value: 5, suffix: '+', label: t('stats.experience') },
-    { value: 50, suffix: '+', label: t('stats.projects') },
-    { value: 150, suffix: '%', label: t('stats.leadGrowth') },
-    { value: 100, suffix: '%', label: t('stats.satisfaction') },
+    { value: 5, suffix: "+", label: t("stats.experience") },
+    { value: 50, suffix: "+", label: t("stats.projects") },
+    { value: 150, suffix: "%", label: t("stats.leadGrowth") },
+    { value: 100, suffix: "%", label: t("stats.satisfaction") },
   ];
 
   return (

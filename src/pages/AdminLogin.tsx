@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { toast } from 'sonner';
-import { Lock, Mail, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { toast } from "sonner";
+import { Lock, Mail, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -27,36 +27,35 @@ const AdminLogin = () => {
       });
 
       if (error) {
-        toast.error('Erro ao fazer login', { description: error.message });
+        toast.error("Erro ao fazer login", { description: error.message });
         return;
       }
 
       if (data.user) {
-        // Check if user has admin role
         const { data: roleData, error: roleError } = await supabase
-          .from('user_roles')
-          .select('role')
-          .eq('user_id', data.user.id)
-          .eq('role', 'admin')
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", data.user.id)
+          .eq("role", "admin")
           .maybeSingle();
 
         if (roleError) {
-          toast.error('Erro ao verificar permissões');
+          toast.error("Erro ao verificar permissões");
           await supabase.auth.signOut();
           return;
         }
 
         if (!roleData) {
-          toast.error('Acesso negado', { description: 'Você não tem permissão de administrador.' });
+          toast.error("Acesso negado", { description: "Você não tem permissão de administrador." });
           await supabase.auth.signOut();
           return;
         }
 
-        toast.success('Login realizado com sucesso!');
-        navigate('/admin/dashboard');
+        toast.success("Login realizado com sucesso!");
+        navigate("/admin/dashboard");
       }
     } catch (error) {
-      toast.error('Erro inesperado', { description: 'Tente novamente mais tarde.' });
+      toast.error("Erro inesperado", { description: "Tente novamente mais tarde." });
     } finally {
       setIsLoading(false);
     }
@@ -71,23 +70,23 @@ const AdminLogin = () => {
         email,
         password,
         options: {
-          emailRedirectTo: window.location.origin + '/admin',
-        }
+          emailRedirectTo: window.location.origin + "/admin",
+        },
       });
 
       if (error) {
-        toast.error('Erro ao criar conta', { description: error.message });
+        toast.error("Erro ao criar conta", { description: error.message });
         return;
       }
 
       if (data.user) {
-        toast.success('Conta criada com sucesso!', { 
-          description: 'Faça login para continuar.' 
+        toast.success("Conta criada com sucesso!", {
+          description: "Faça login para continuar.",
         });
-        setPassword('');
+        setPassword("");
       }
     } catch (error) {
-      toast.error('Erro inesperado', { description: 'Tente novamente mais tarde.' });
+      toast.error("Erro inesperado", { description: "Tente novamente mais tarde." });
     } finally {
       setIsLoading(false);
     }
@@ -96,8 +95,8 @@ const AdminLogin = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -110,9 +109,7 @@ const AdminLogin = () => {
               <Lock className="h-6 w-6 text-accent" />
             </div>
             <CardTitle className="font-serif text-2xl">Admin Dashboard</CardTitle>
-            <CardDescription>
-              Acesso restrito a administradores
-            </CardDescription>
+            <CardDescription>Acesso restrito a administradores</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
@@ -120,7 +117,7 @@ const AdminLogin = () => {
                 <TabsTrigger value="login">Login</TabsTrigger>
                 <TabsTrigger value="signup">Criar Conta</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="login">
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
@@ -160,7 +157,7 @@ const AdminLogin = () => {
                     className="w-full bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground"
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Entrando...' : 'Entrar'}
+                    {isLoading ? "Entrando..." : "Entrar"}
                   </Button>
                 </form>
               </TabsContent>
@@ -205,9 +202,9 @@ const AdminLogin = () => {
                     className="w-full bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground"
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Criando...' : 'Criar Conta'}
+                    {isLoading ? "Criando..." : "Criar Conta"}
                   </Button>
-                  
+
                   <p className="text-xs text-muted-foreground text-center mt-4">
                     Apenas usuários autorizados (prenata@gmail.com) terão acesso admin.
                   </p>

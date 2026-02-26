@@ -1,5 +1,5 @@
-import { Linkedin, Mail, Phone } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Linkedin, Mail, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -14,20 +14,20 @@ const Footer = () => {
     "Design Systems",
     "Web Animation",
     "Interactive",
-    "Modern Web"
+    "Modern Web",
   ];
 
   const navigation = [
-    { name: t('nav.home'), href: '#home' },
-    { name: t('nav.expertise'), href: '#expertise' },
-    { name: t('nav.portfolio'), href: '#portfolio' },
-    { name: t('nav.qualifications'), href: '#qualifications' },
-    { name: t('nav.contact'), href: '#contact' },
+    { name: t("nav.home"), href: "#home" },
+    { name: t("nav.expertise"), href: "#expertise" },
+    { name: t("nav.portfolio"), href: "#portfolio" },
+    { name: t("nav.qualifications"), href: "#qualifications" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground overflow-hidden">
-      {/* Marquee Ticker */}
+      {}
       <div className="border-y border-primary-foreground/10 py-6">
         <div className="marquee">
           <div className="marquee-content">
@@ -45,17 +45,17 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
+          {}
           <div>
             <h3 className="font-serif text-2xl font-semibold mb-2">Paula La Rosa</h3>
-            <p className="text-primary-foreground/70 text-sm">
-              {t('footer.description')}
-            </p>
+            <p className="text-primary-foreground/70 text-sm">{t("footer.description")}</p>
           </div>
 
-          {/* Navigation */}
+          {}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">{t('footer.navigation')}</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">
+              {t("footer.navigation")}
+            </h4>
             <nav className="space-y-2">
               {navigation.map((item) => (
                 <a
@@ -69,9 +69,11 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Social */}
+          {}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">{t('footer.social')}</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">
+              {t("footer.social")}
+            </h4>
             <div className="flex gap-4">
               <a
                 href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
@@ -97,10 +99,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {}
         <div className="border-t border-primary-foreground/10 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Paula La Rosa. {t('footer.rights')}
+            © {new Date().getFullYear()} Paula La Rosa. {t("footer.rights")}
           </p>
         </div>
       </div>

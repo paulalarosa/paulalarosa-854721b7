@@ -1,16 +1,17 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-export const EmailSchema = z.string()
+export const EmailSchema = z
+  .string()
   .trim()
   .email()
   .min(6)
   .max(254)
-  .refine(email => email.includes('@') && email.includes('.'));
+  .refine((email) => email.includes("@") && email.includes("."));
 
 export const ContactFormSchema = z.object({
   name: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(255),
-  message: z.string().trim().min(1).max(1000)
+  message: z.string().trim().min(1).max(1000),
 });
 
 export type ContactFormData = z.infer<typeof ContactFormSchema>;

@@ -4,18 +4,18 @@ import { trackEvent } from "@/hooks/useAnalytics";
 const WhatsAppButton = () => {
   const phoneNumber = "5521983604870";
   const message = "Olá Paula! Vim pelo seu site e gostaria de saber mais sobre seus serviços.";
-  
+
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const handleClick = () => {
     trackEvent({
-      event_type: 'external_link',
+      event_type: "external_link",
       page_path: window.location.pathname,
-      metadata: { 
-        element: 'whatsapp_floating_button',
-        destination: 'whatsapp',
-        label: 'WhatsApp Flutuante'
-      }
+      metadata: {
+        element: "whatsapp_floating_button",
+        destination: "whatsapp",
+        label: "WhatsApp Flutuante",
+      },
     });
   };
 
