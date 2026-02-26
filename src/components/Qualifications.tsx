@@ -79,7 +79,7 @@ const Qualifications = () => {
             return (
               <div
                 key={qual.number}
-                className={`relative overflow-hidden p-6 rounded-xl border border-white/10 bg-black/20 group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+                className={`relative overflow-hidden p-6 md:p-8 rounded-[2rem] bg-white/[0.015] hover:bg-white/[0.03] backdrop-blur-md transition-all duration-500 group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Número decorativo de fundo */}

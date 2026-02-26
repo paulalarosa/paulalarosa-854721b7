@@ -169,8 +169,8 @@ const PhoneFrame = ({
     <motion.div
       className="flex-shrink-0 flex flex-col items-center"
       style={{ width: 272 }}
-      animate={isSelected ? { y: -8, scale: 1.08, opacity: 1 } : { y: 0, scale: 0.97, opacity: 0.6 }}
-      whileHover={!isSelected ? { opacity: 0.85, scale: 1.01 } : {}}
+      animate={isSelected ? { y: -8, scale: 1.08, opacity: 1 } : { y: 0, scale: 0.95, opacity: 0.9 }}
+      whileHover={!isSelected ? { opacity: 1, scale: 0.98 } : {}}
       transition={{ type: 'spring', stiffness: 280, damping: 28 }}
     >
       <div className="relative cursor-pointer" style={{ width: 272, height: 556 }}
@@ -218,7 +218,7 @@ const PhoneFrame = ({
                   className="absolute inset-0 flex items-end justify-center pb-10"
                   style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 52%)' }}>
                   <span className="text-white text-xs font-medium tracking-wide px-3 py-1.5 rounded-full"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}>
+                    style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}>
                     Clique para explorar
                   </span>
                 </motion.div>

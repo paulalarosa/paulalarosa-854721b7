@@ -47,42 +47,40 @@ const HardSkills = () => {
           </h2>
           <div className="w-12 h-0.5 bg-accent mx-auto mt-4"></div>
         </motion.div>
+      </div>
 
-        <div className="relative flex flex-col gap-6">
-          {}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="relative flex flex-col gap-6 w-full max-w-[100vw] overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-background to-transparent z-10" />
 
-          {}
-          <div className="flex animate-marquee" style={{ animationDuration: "40s" }}>
-            {[...frontendTech, ...frontendTech, ...frontendTech].map((tech, index) => (
-              <div key={`front-${index}`} className="flex-shrink-0 mx-3">
-                <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
-                  <span className="text-xl">{tech.icon}</span>
-                  <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
-                    {tech.name}
-                  </span>
-                </div>
+        <div className="flex animate-marquee" style={{ animationDuration: "40s", width: "max-content" }}>
+          {[...frontendTech, ...frontendTech, ...frontendTech].map((tech, index) => (
+            <div key={`front-${index}`} className="flex-shrink-0 mx-3">
+              <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
+                <span className="text-xl">{tech.icon}</span>
+                <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
+                  {tech.name}
+                </span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
-          {}
-          <div
-            className="flex animate-marquee"
-            style={{ animationDirection: "reverse", animationDuration: "45s" }}
-          >
-            {[...backendTech, ...backendTech, ...backendTech].map((tech, index) => (
-              <div key={`back-${index}`} className="flex-shrink-0 mx-3">
-                <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
-                  <span className="text-xl">{tech.icon}</span>
-                  <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
-                    {tech.name}
-                  </span>
-                </div>
+        { }
+        <div
+          className="flex animate-marquee"
+          style={{ animationDirection: "reverse", animationDuration: "45s", width: "max-content" }}
+        >
+          {[...backendTech, ...backendTech, ...backendTech].map((tech, index) => (
+            <div key={`back-${index}`} className="flex-shrink-0 mx-3">
+              <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
+                <span className="text-xl">{tech.icon}</span>
+                <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
+                  {tech.name}
+                </span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
