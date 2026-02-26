@@ -95,9 +95,9 @@ const Qualifications = () => {
                   {qual.number}
                 </span>
 
-                <div className="mb-4 relative">
-                  <div className="inline-flex items-center justify-center w-14 h-14 border border-primary-foreground/20 rounded-xl bg-primary-foreground/5 backdrop-blur-sm group-hover:bg-primary-foreground/10 group-hover:border-accent/50 transition-all duration-300 relative z-10">
-                    <Icon className="h-6 w-6 stroke-[1.5] text-primary-foreground group-hover:text-accent transition-colors duration-300" />
+                <div className="mb-6 relative">
+                  <div className="inline-flex items-center justify-center w-16 h-16 border border-white/20 rounded-2xl bg-white/10 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.12)] group-hover:bg-white/15 group-hover:border-accent/40 group-hover:shadow-[0_8px_32px_rgba(var(--accent),0.15)] transition-all duration-500 relative z-10">
+                    <Icon className="h-7 w-7 stroke-[1.5] text-white group-hover:text-accent transition-colors duration-500" />
                   </div>
                 </div>
 
