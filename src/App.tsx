@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import CaseStudy from "./pages/CaseStudy";
+import ProjetoPage from "./pages/ProjetoPage";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -25,9 +26,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/case-study/:id" element={<CaseStudy />} />
+            <Route path="/projeto/:id" element={<ProjetoPage />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            {}
+            { }
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -26,6 +26,7 @@ build_project() {
   mv dist "$PUBLIC_APPS/$slug"
 
   echo "✅ $slug → public/apps/$slug/"
+  cd "$ROOT_DIR"
 }
 
 build_project "klini" "Projeto Klini"

@@ -11,7 +11,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "build:apps": "bash scripts/build-apps.sh",
+    "build:all": "npm run build:apps && npm run build"
   },
   "dependencies": {
     "@animaapp/anima-cli": "^1.1.3",

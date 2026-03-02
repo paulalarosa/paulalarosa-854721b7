@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { projects, type ProjectMeta } from '@/data/projects';
 
 const webProjects = [
   { id: 'website', titleKey: 'lab.projects.website.title', descKey: 'lab.projects.website.desc', tagsKey: 'lab.projects.website.tags' },
@@ -12,118 +13,13 @@ const webProjects = [
   { id: 'dashboard', titleKey: 'lab.projects.dashboard.title', descKey: 'lab.projects.dashboard.desc', tagsKey: 'lab.projects.dashboard.tags' },
 ];
 
-interface DesignInsight { label: string; annotation: string; }
-
-
-interface IframeConfig {
-  viewportWidth: number;
-  scale: number;
-  translateX: number;
-  translateY?: number;
-}
-
-interface DesignProject {
-  id: string; name: string; sector: string;
-  description: string; tags: string[];
-  appUrl: string; accentColor: string;
-  insights: DesignInsight[];
-  iframeConfig?: IframeConfig;
-}
-
-const designProjects: DesignProject[] = [
-  {
-    id: 'klini',
-    name: 'Klini',
-    sector: 'HealthTech',
-    description: 'Super app de saúde com rede de especialistas, agendamento inteligente, acompanhamento de consultas e gestão de coparticipação.',
-    tags: ['HealthTech', 'Mobile App', 'UX Research'],
-    appUrl: 'https://framer-true-60574725.figma.site',
-    accentColor: '#0d6b3e',
-    insights: [
-      { label: 'Dashboard', annotation: 'Hierarquia visual progressiva: HealthRing captura atenção primeiro, depois direciona para ações prioritárias — reduzindo cognitive load.' },
-      { label: 'Busca de Rede', annotation: 'Filtros contextuais aparecem apenas quando relevantes. Menos escolhas simultâneas = mais conversão.' },
-      { label: 'Consultas', annotation: 'Timeline com feedback visual em tempo real. Confirmação em 2 etapas elimina cancelamentos acidentais.' },
-      { label: 'Perfil', annotation: 'Carteirinha digital com dados críticos above the fold. Design orientado a situações de urgência.' },
-    ],
-  },
-  {
-    id: 'seguro-vida',
-    name: 'Seguro de Vida',
-    sector: 'InsurTech',
-    description: 'App de seguro pessoal com ShieldScore proprietário, visualização de cobertura em órbita, gestão de apólices e sinistros simplificada.',
-    tags: ['InsurTech', 'Mobile App', 'Product Design'],
-    appUrl: 'https://run-wish-52765770.figma.site',
-    accentColor: '#2d1b5e',
-    insights: [
-      { label: 'ShieldScore', annotation: 'Transforma dado abstrato em métrica emocional tangível — aumenta engajamento e percepção de valor.' },
-      { label: 'Coverage Orbit', annotation: 'Metáfora de órbita comunica proteção ao redor do usuário. UX que gera confiança sem uma linha de copy.' },
-      { label: 'Apólices', annotation: 'Documentos densos em cards escaneáveis. Redução de 70% no tempo para encontrar informação crítica.' },
-      { label: 'Sinistro', annotation: 'Fluxo em 3 etapas com save automático — desenhado para momentos de estresse emocional alto.' },
-    ],
-  },
-  {
-    id: 'plano-saude',
-    name: 'Plano de Saúde',
-    sector: 'HealthTech',
-    description: 'App de plano de saúde com HealthRing animado, Dynamic Island nativo, agenda de consultas e carteirinha digital integrada.',
-    tags: ['HealthTech', 'Mobile App', 'UI Engineering'],
-    appUrl: 'https://pecan-actor-86429791.figma.site',
-    accentColor: '#0a4f6b',
-    insights: [
-      { label: 'Dynamic Island', annotation: 'Notificações do plano aparecem no componente nativo certo — respeita o design language do iOS.' },
-      { label: 'HealthRing', annotation: 'Animação procedural baseada em dados reais. Gamificação sutil que aumenta retenção.' },
-      { label: 'Agenda', annotation: 'Calendário + lista com switching fluido. Context preservation: nenhum dado se perde na transição.' },
-      { label: 'Coberturas', annotation: 'Ícones customizados por especialidade e linguagem visual clara para cobertura ativa vs carência.' },
-    ],
-  },
-  {
-    id: 'akad',
-    name: 'Akad',
-    sector: 'InsurTech B2B',
-    description: 'Plataforma para corretores de seguros com CRM de clientes, gestão de apólices, relatórios analíticos e academia de capacitação.',
-    tags: ['InsurTech', 'B2B', 'Dashboard'],
-    appUrl: 'https://rare-yellow-39737195.figma.site',
-    accentColor: '#1c3a6b',
-
-    iframeConfig: {
-      viewportWidth: 1280,
-      scale: 0.6667,
-      translateX: -445,
-      translateY: -30,
-    },
-    insights: [
-      { label: 'Dashboard', annotation: 'KPIs acima do fold com drill-down progressivo. Decisão rápida para corretores em campo.' },
-      { label: 'Clientes', annotation: 'Search, filtros e preview inline eliminam navegação desnecessária. CRM enterprise simplificado.' },
-      { label: 'Apólices', annotation: 'Status por cor + tipografia hierárquica: corretor localiza apólices críticas em menos de 3 segundos.' },
-      { label: 'Academy', annotation: 'LMS integrado ao fluxo de trabalho — capacitação no contexto de uso, não em plataforma separada.' },
-    ],
-  },
-  {
-    id: 'loja-kaos',
-    name: 'Loja Kaos',
-    sector: 'E-commerce',
-    description: 'App de e-commerce para marca de streetwear com experiência editorial, drops exclusivos e navegação por bottom nav fluido.',
-    tags: ['E-commerce', 'Mobile App', 'Brand Design'],
-    appUrl: 'https://civic-score-64769139.figma.site',
-    accentColor: '#1a1a1a',
-    insights: [
-      { label: 'Home', annotation: 'HeroBanner editorial + Marquee Strip — linguagem de revista de moda. Diferenciação clara dos concorrentes.' },
-      { label: 'Explore', annotation: 'ProductCards em proporção 3:4 — aspecto ratio que maximiza percepção de qualidade do produto.' },
-      { label: 'Drops', annotation: 'Countdown + estoque em tempo real cria urgência autêntica. Dark mode exclusivo nessa seção.' },
-      { label: 'Bag', annotation: 'Checkout por gestos — swipe para remover, tap para quantidade. Menos fricção = menos abandono.' },
-    ],
-  },
-];
-
-
 const PhoneFrame = ({
   project, isSelected, onSelect,
 }: {
-  project: DesignProject; isSelected: boolean; onSelect: () => void;
+  project: ProjectMeta; isSelected: boolean; onSelect: () => void;
 }) => {
   const [insightIndex, setInsightIndex] = useState(0);
   const [showInsights, setShowInsights] = useState(false);
-  const cfg = project.iframeConfig;
 
   useEffect(() => {
     if (!isSelected) { setShowInsights(false); setInsightIndex(0); }
@@ -138,26 +34,15 @@ const PhoneFrame = ({
     setInsightIndex((p) => (p - 1 + project.insights.length) % project.insights.length);
   };
 
-
   const iframeWrapStyle: React.CSSProperties = {
     position: 'absolute', top: 44, left: 0, right: 0, bottom: 4,
     overflow: 'hidden',
   };
 
-  const iframeStyle: React.CSSProperties = cfg
-    ? {
-      border: 'none',
-      width: `${cfg.viewportWidth}px`,
-      height: `${cfg.viewportWidth * 0.75}px`,
-      transform: `translateX(${cfg.translateX}px) translateY(${cfg.translateY ?? 0}px) scale(${cfg.scale})`,
-      transformOrigin: 'top left',
-      pointerEvents: isSelected ? 'auto' : 'none',
-    }
-    : {
-
-      border: 'none', width: '100%', height: '100%',
-      pointerEvents: isSelected ? 'auto' : 'none',
-    };
+  const iframeStyle: React.CSSProperties = {
+    border: 'none', width: '100%', height: '100%',
+    pointerEvents: isSelected ? 'auto' : 'none',
+  };
 
   return (
     <motion.div
@@ -306,7 +191,7 @@ const PhoneFrame = ({
             {project.sector}
           </span>
         </div>
-        <p className="text-xs text-muted-foreground leading-relaxed max-w-[230px] mb-3">{project.description}</p>
+        <p className="text-xs text-muted-foreground leading-relaxed max-w-[230px] mb-3">{project.overview}</p>
         <div className="flex flex-wrap gap-1.5 justify-center">
           {project.tags.map((tag, i) => (
             <span key={i} className="px-2.5 py-0.5 text-[10px] font-medium border rounded-full"
@@ -315,11 +200,32 @@ const PhoneFrame = ({
             </span>
           ))}
         </div>
+        {isSelected && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className="mt-4"
+          >
+            <Link
+              to={`/projeto/${project.id}`}
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-full border transition-colors hover:opacity-80"
+              style={{
+                borderColor: project.accentColor,
+                color: project.accentColor,
+                backgroundColor: `${project.accentColor}10`,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Ver case study completo
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     </motion.div>
   );
 };
-
 
 const LabInnovation = () => {
   const { t } = useTranslation();
@@ -399,7 +305,7 @@ const LabInnovation = () => {
               <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
               <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-8 pt-4 px-10 scroll-smooth"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                {designProjects.map((project) => (
+                {projects.map((project) => (
                   <PhoneFrame key={project.id} project={project}
                     isSelected={selectedPhone === project.id}
                     onSelect={() => setSelectedPhone(project.id)} />
