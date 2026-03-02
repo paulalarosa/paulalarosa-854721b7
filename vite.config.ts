@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "fs";
 
 
 export default defineConfig(({ mode }) => ({
@@ -14,11 +15,32 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'apps-static-middleware',
       configureServer(server) {
-        server.middlewares.use((req, _res, next) => {
-          if (req.url?.startsWith('/apps/')) {
-            req.headers['accept'] = '';
+        server.middlewares.use((req, res, next) => {
+          if (!req.url?.startsWith('/apps/')) return next();
+
+          let filePath = path.join(__dirname, 'public', req.url);
+
+          if (filePath.endsWith('/')) {
+            filePath = path.join(filePath, 'index.html');
           }
-          next();
+
+          if (!fs.existsSync(filePath)) return next();
+
+          const ext = path.extname(filePath);
+          const mimeTypes: Record<string, string> = {
+            '.html': 'text/html',
+            '.js': 'application/javascript',
+            '.css': 'text/css',
+            '.json': 'application/json',
+            '.png': 'image/png',
+            '.jpg': 'image/jpeg',
+            '.svg': 'image/svg+xml',
+            '.woff': 'font/woff',
+            '.woff2': 'font/woff2',
+          };
+
+          res.setHeader('Content-Type', mimeTypes[ext] || 'application/octet-stream');
+          fs.createReadStream(filePath).pipe(res);
         });
       },
     },

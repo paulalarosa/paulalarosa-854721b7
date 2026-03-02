@@ -46,4 +46,4 @@ export const router = createBrowserRouter([
       { path: "terms", Component: Terms },
     ],
   },
-]);
+], { basename: '/apps/klini' });

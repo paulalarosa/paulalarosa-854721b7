@@ -51,4 +51,4 @@ export const router = createBrowserRouter([
       { path: "*", Component: HomeScreen },
     ],
   },
-]);
+], { basename: '/apps/plano-saude' });
