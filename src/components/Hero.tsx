@@ -33,24 +33,24 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate parallax offset (photo moves slower than scroll)
+
   const parallaxOffset = scrollY * 0.3;
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden">
-      {/* Generative Art Background */}
+
       <GenerativeArt />
 
-      {/* Subtle Grid Pattern */}
+
       <div className="absolute inset-0 opacity-[0.015] data-grid"></div>
 
-      {/* Content */}
+
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Text with Staggered Animation */}
+
             <div className="space-y-6">
-              {/* Main Heading */}
+
               <h1
                 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-primary leading-[0.95] tracking-tight opacity-0 animate-stagger-1"
                 style={{
@@ -61,7 +61,7 @@ const Hero = () => {
                 {t('hero.name')}
               </h1>
 
-              {/* Subtitle */}
+
               <h2
                 className="font-sans text-2xl md:text-3xl text-muted-foreground font-light opacity-0"
                 style={{
@@ -72,7 +72,7 @@ const Hero = () => {
                 {t('hero.subtitle')}
               </h2>
 
-              {/* Unified Description */}
+
               <p
                 className="text-lg leading-relaxed text-foreground opacity-0"
                 style={{
@@ -83,7 +83,7 @@ const Hero = () => {
                 {t('hero.unifiedIntro')}
               </p>
 
-              {/* CTA Buttons */}
+
               <div
                 className="flex flex-col sm:flex-row gap-4 pt-4 opacity-0"
                 style={{
@@ -110,7 +110,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right Column - Photo with Parallax Effect */}
+
             <div
               ref={photoRef}
               className="opacity-0 relative z-10"
@@ -135,7 +135,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+
       <div
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 z-[99]"
         style={{

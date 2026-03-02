@@ -82,7 +82,7 @@ const Qualifications = () => {
                 className={`relative overflow-hidden p-6 md:p-8 rounded-[2rem] bg-white/[0.015] hover:bg-white/[0.03] backdrop-blur-md transition-all duration-500 group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {/* Número decorativo de fundo */}
+
                 <span
                   className="absolute -bottom-4 -right-2 font-serif font-bold select-none pointer-events-none leading-none"
                   style={{

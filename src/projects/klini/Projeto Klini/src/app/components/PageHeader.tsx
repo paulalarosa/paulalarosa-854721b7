@@ -1,0 +1,31 @@
+import { useNavigate } from "react-router";
+import { ChevronLeft } from "lucide-react";
+
+interface PageHeaderProps {
+  title: string;
+  showBack?: boolean;
+  backTo?: string;
+  rightAction?: React.ReactNode;
+}
+
+export function PageHeader({ title, showBack = true, backTo = "/", rightAction }: PageHeaderProps) {
+  const navigate = useNavigate();
+
+  return (
+    <header className="px-6 pt-14 pb-4 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        {showBack && (
+          <button
+            onClick={() => navigate(backTo)}
+            className="w-9 h-9 rounded-xl flex items-center justify-center -ml-1 hover:bg-black/[0.03] transition-colors cursor-pointer"
+            aria-label="Voltar"
+          >
+            <ChevronLeft size={22} className="text-[#1a1a2e]" strokeWidth={2} />
+          </button>
+        )}
+        <h2 className="text-[#1a1a2e] tracking-[-0.02em]">{title}</h2>
+      </div>
+      {rightAction && <div>{rightAction}</div>}
+    </header>
+  );
+}

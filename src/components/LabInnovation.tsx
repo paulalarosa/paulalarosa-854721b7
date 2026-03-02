@@ -14,16 +14,12 @@ const webProjects = [
 
 interface DesignInsight { label: string; annotation: string; }
 
-// ─── iframeConfig ─────────────────────────────────────────────────────────────
-// Usado APENAS para apps que ainda renderizam como desktop com phone decorativo interno.
-// Quando o projeto Figma Make for corrigido para mobile nativo, basta REMOVER o bloco
-// iframeConfig do projeto — o código cai automaticamente no modo mobile simples.
-// ─────────────────────────────────────────────────────────────────────────────
+
 interface IframeConfig {
-  viewportWidth: number;  // largura do iframe em px (simula viewport desktop)
-  scale: number;          // zoom aplicado para isolar o phone interno
-  translateX: number;     // offset horizontal em px para centralizar
-  translateY?: number;    // offset vertical em px
+  viewportWidth: number;
+  scale: number;
+  translateX: number;
+  translateY?: number;
 }
 
 interface DesignProject {
@@ -31,7 +27,7 @@ interface DesignProject {
   description: string; tags: string[];
   appUrl: string; accentColor: string;
   insights: DesignInsight[];
-  iframeConfig?: IframeConfig; // opcional — só necessário durante o período de transição
+  iframeConfig?: IframeConfig;
 }
 
 const designProjects: DesignProject[] = [
@@ -88,9 +84,7 @@ const designProjects: DesignProject[] = [
     tags: ['InsurTech', 'B2B', 'Dashboard'],
     appUrl: 'https://rare-yellow-39737195.figma.site',
     accentColor: '#1c3a6b',
-    // ⚠️ REMOVER este bloco iframeConfig quando o Figma Make do Akad for corrigido
-    // para renderizar como app mobile nativo (sem PhoneFrame decorativo interno).
-    // Após remover, o app vai funcionar igual aos outros 4 projetos automaticamente.
+
     iframeConfig: {
       viewportWidth: 1280,
       scale: 0.6667,
@@ -121,7 +115,7 @@ const designProjects: DesignProject[] = [
   },
 ];
 
-// ─── Phone Frame ──────────────────────────────────────────────────────────────
+
 const PhoneFrame = ({
   project, isSelected, onSelect,
 }: {
@@ -144,7 +138,7 @@ const PhoneFrame = ({
     setInsightIndex((p) => (p - 1 + project.insights.length) % project.insights.length);
   };
 
-  // Detecção automática — se não tiver iframeConfig, usa mobile simples
+
   const iframeWrapStyle: React.CSSProperties = {
     position: 'absolute', top: 44, left: 0, right: 0, bottom: 4,
     overflow: 'hidden',
@@ -160,7 +154,7 @@ const PhoneFrame = ({
       pointerEvents: isSelected ? 'auto' : 'none',
     }
     : {
-      // Modo mobile nativo — padrão para todos os projetos corrigidos
+
       border: 'none', width: '100%', height: '100%',
       pointerEvents: isSelected ? 'auto' : 'none',
     };
@@ -326,7 +320,7 @@ const PhoneFrame = ({
   );
 };
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
+
 const LabInnovation = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'web' | 'design'>('web');
