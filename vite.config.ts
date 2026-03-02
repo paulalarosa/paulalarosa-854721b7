@@ -8,7 +8,21 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react()].filter(Boolean),
+  appType: 'spa',
+  plugins: [
+    react(),
+    {
+      name: 'apps-static-middleware',
+      configureServer(server) {
+        server.middlewares.use((req, _res, next) => {
+          if (req.url?.startsWith('/apps/')) {
+            req.headers['accept'] = '';
+          }
+          next();
+        });
+      },
+    },
+  ].filter(Boolean),
 
   resolve: {
     alias: {
