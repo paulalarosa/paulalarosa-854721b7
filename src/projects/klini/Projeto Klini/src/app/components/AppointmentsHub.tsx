@@ -102,7 +102,7 @@ function AppointmentCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="bg-white rounded-[20px] p-5"
-      style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
       role="article"
       aria-label={`Consulta com ${apt.doctor}`}
     >
@@ -186,9 +186,8 @@ export function AppointmentsHub() {
             role="tab"
             aria-selected={activeTab === "upcoming"}
             aria-controls="panel-upcoming"
-            className={`flex-1 py-2.5 rounded-[14px] text-[13px] transition-colors duration-200 relative z-10 cursor-pointer ${
-              activeTab === "upcoming" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
-            }`}
+            className={`flex-1 py-2.5 rounded-[14px] text-[13px] transition-colors duration-200 relative z-10 cursor-pointer ${activeTab === "upcoming" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
+              }`}
           >
             Próximas
             <span className="ml-1.5 text-[10px] px-1.5 py-0.5 rounded-full bg-[#2D9F93]/10 text-[#2D9F93]">
@@ -200,9 +199,8 @@ export function AppointmentsHub() {
             role="tab"
             aria-selected={activeTab === "history"}
             aria-controls="panel-history"
-            className={`flex-1 py-2.5 rounded-[14px] text-[13px] transition-colors duration-200 relative z-10 cursor-pointer ${
-              activeTab === "history" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
-            }`}
+            className={`flex-1 py-2.5 rounded-[14px] text-[13px] transition-colors duration-200 relative z-10 cursor-pointer ${activeTab === "history" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
+              }`}
           >
             Histórico
           </button>

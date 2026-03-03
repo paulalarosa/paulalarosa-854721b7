@@ -113,7 +113,7 @@ export function Profile() {
           whileTap={{ scale: 0.98 }}
           onClick={() => navigate("/card")}
           className="w-full bg-white rounded-[20px] p-4 flex items-center gap-3 text-left cursor-pointer"
-          style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02)" }}
+          style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03)" }}
           aria-label="Ver carteirinha digital"
         >
           <div
@@ -142,7 +142,7 @@ export function Profile() {
           </p>
           <div
             className="bg-white rounded-[20px] overflow-hidden"
-            style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+            style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
           >
             {section.items.map((item, iIdx) => (
               <motion.button
@@ -151,9 +151,8 @@ export function Profile() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: (sIdx * 3 + iIdx) * 0.04 }}
                 onClick={() => navigate(item.path)}
-                className={`w-full px-4 py-3.5 flex items-center gap-3 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors ${
-                  iIdx < section.items.length - 1 ? "border-b border-[#F5F5F7]" : ""
-                }`}
+                className={`w-full px-4 py-3.5 flex items-center gap-3 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors ${iIdx < section.items.length - 1 ? "border-b border-[#F5F5F7]" : ""
+                  }`}
                 aria-label={item.label}
               >
                 <div className="w-9 h-9 rounded-[12px] bg-[#FAFBFC] flex items-center justify-center shrink-0">
@@ -174,7 +173,7 @@ export function Profile() {
       <div className="px-5 pt-5">
         <button
           className="w-full py-3.5 rounded-[20px] bg-white flex items-center justify-center gap-2 text-[#D07048] cursor-pointer"
-          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
           aria-label="Sair da conta"
         >
           <LogOut size={16} strokeWidth={1.8} />

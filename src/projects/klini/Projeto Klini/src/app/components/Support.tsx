@@ -68,7 +68,7 @@ export function Support() {
       <div className="px-5 pt-1">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
-          style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+          style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
         >
           <div className="w-10 h-10 rounded-[14px] bg-[#2D9F93]/[0.07] flex items-center justify-center shrink-0">
             <Clock size={18} className="text-[#2D9F93]" />
@@ -96,7 +96,7 @@ export function Support() {
               transition={{ duration: 0.35, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
               whileTap={{ scale: 0.98 }}
               className="bg-white rounded-[20px] p-4 flex items-center gap-4 w-full text-left cursor-pointer"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
               aria-label={`${option.label}: ${option.subtitle}`}
             >
               <div className="w-10 h-10 rounded-[14px] bg-[#2D9F93]/[0.07] flex items-center justify-center shrink-0">
@@ -117,7 +117,7 @@ export function Support() {
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Clínica Mais Próxima</p>
         <div
           className="bg-white rounded-[20px] p-5"
-          style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+          style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
         >
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-[14px] bg-[#2D9F93]/[0.07] flex items-center justify-center shrink-0">
@@ -147,7 +147,7 @@ export function Support() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: index * 0.05 + 0.2 }}
               className="bg-white rounded-[20px] overflow-hidden"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
             >
               <button
                 onClick={() => setOpenFaq(openFaq === item.id ? null : item.id)}

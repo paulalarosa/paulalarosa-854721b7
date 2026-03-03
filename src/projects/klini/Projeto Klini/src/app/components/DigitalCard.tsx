@@ -81,7 +81,7 @@ export function DigitalCard() {
           whileTap={{ scale: 0.96 }}
           onClick={() => setShowQr(!showQr)}
           className="flex-1 bg-white rounded-[16px] py-3.5 flex items-center justify-center gap-2 cursor-pointer"
-          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
         >
           <QrCode size={16} className="text-[#2D9F93]" strokeWidth={1.8} />
           <span className="text-[13px] text-[#3a3a4a]">QR Code</span>
@@ -89,7 +89,7 @@ export function DigitalCard() {
         <motion.button
           whileTap={{ scale: 0.96 }}
           className="flex-1 bg-white rounded-[16px] py-3.5 flex items-center justify-center gap-2 cursor-pointer"
-          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
         >
           <Share2 size={16} className="text-[#2D9F93]" strokeWidth={1.8} />
           <span className="text-[13px] text-[#3a3a4a]">Compartilhar</span>
@@ -97,7 +97,7 @@ export function DigitalCard() {
         <motion.button
           whileTap={{ scale: 0.96 }}
           className="flex-1 bg-white rounded-[16px] py-3.5 flex items-center justify-center gap-2 cursor-pointer"
-          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
         >
           <Download size={16} className="text-[#2D9F93]" strokeWidth={1.8} />
           <span className="text-[13px] text-[#3a3a4a]">Baixar</span>
@@ -113,7 +113,7 @@ export function DigitalCard() {
         >
           <div
             className="bg-white rounded-[20px] p-6 flex flex-col items-center"
-            style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+            style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
           >
             <div className="w-[160px] h-[160px] bg-[#F5F6F8] rounded-2xl flex items-center justify-center mb-3">
               <QrCode size={80} className="text-[#1a1a2e]" strokeWidth={0.8} />
@@ -128,7 +128,7 @@ export function DigitalCard() {
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Dados do Beneficiário</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden"
-          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
+          style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}
         >
           {cardFields.map((field, index) => (
             <motion.div
@@ -136,9 +136,8 @@ export function DigitalCard() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.03 }}
-              className={`px-5 py-3.5 flex items-center justify-between ${
-                index < cardFields.length - 1 ? "border-b border-[#F5F5F7]" : ""
-              }`}
+              className={`px-5 py-3.5 flex items-center justify-between ${index < cardFields.length - 1 ? "border-b border-[#F5F5F7]" : ""
+                }`}
             >
               <div>
                 <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase">{field.label}</p>

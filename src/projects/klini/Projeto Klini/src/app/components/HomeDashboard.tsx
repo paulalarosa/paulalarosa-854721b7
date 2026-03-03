@@ -13,32 +13,34 @@ import {
   Copy,
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface QuickTile {
   icon: React.ElementType;
   label: string;
   path: string;
+  accentColor: string;
+  accentBg: string;
 }
 
 const myPlanTiles: QuickTile[] = [
-  { icon: Search, label: "Rede\nCredenciada", path: "/search" },
-  { icon: Hourglass, label: "Carências", path: "/waiting-periods" },
-  { icon: Headphones, label: "Suporte", path: "/support" },
+  { icon: Search, label: "Rede\nCredenciada", path: "/search", accentColor: "#2D9F93", accentBg: "rgba(45,159,147,0.07)" },
+  { icon: Hourglass, label: "Carências", path: "/waiting-periods", accentColor: "#2D9F93", accentBg: "rgba(45,159,147,0.07)" },
+  { icon: Headphones, label: "Suporte", path: "/support", accentColor: "#2D9F93", accentBg: "rgba(45,159,147,0.07)" },
 ];
 
 const servicesTiles: QuickTile[] = [
-  { icon: CalendarDays, label: "Consultas", path: "/appointments" },
-  { icon: Hash, label: "Guias", path: "/tokens" },
-  { icon: FileText, label: "Solicitações", path: "/requests" },
+  { icon: CalendarDays, label: "Consultas", path: "/appointments", accentColor: "#4A7FD9", accentBg: "rgba(74,127,217,0.07)" },
+  { icon: Hash, label: "Guias", path: "/tokens", accentColor: "#4A7FD9", accentBg: "rgba(74,127,217,0.07)" },
+  { icon: FileText, label: "Solicitações", path: "/requests", accentColor: "#4A7FD9", accentBg: "rgba(74,127,217,0.07)" },
 ];
 
 const statementsTiles: QuickTile[] = [
-  { icon: DollarSign, label: "Coparticipação", path: "/co-participation" },
-  { icon: Activity, label: "Utilização", path: "/usage" },
+  { icon: DollarSign, label: "Coparticipação", path: "/co-participation", accentColor: "#D4944A", accentBg: "rgba(212,148,74,0.07)" },
+  { icon: Activity, label: "Utilização", path: "/usage", accentColor: "#D4944A", accentBg: "rgba(212,148,74,0.07)" },
 ];
 
-function BentoTile({ icon: Icon, label, path, index }: QuickTile & { index: number }) {
+function BentoTile({ icon: Icon, label, path, accentColor, accentBg, index }: QuickTile & { index: number }) {
   const navigate = useNavigate();
   return (
     <motion.button
@@ -47,23 +49,93 @@ function BentoTile({ icon: Icon, label, path, index }: QuickTile & { index: numb
       transition={{ duration: 0.35, delay: 0.06 * index, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileTap={{ scale: 0.96 }}
       onClick={() => navigate(path)}
-      className="bg-white rounded-[20px] p-4 flex flex-col items-start gap-4 text-left cursor-pointer group relative overflow-hidden"
-      style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+      className="bg-white rounded-[20px] p-4 flex flex-col items-start gap-4 text-left cursor-pointer group relative overflow-hidden transition-shadow duration-300"
+      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
       aria-label={label.replace("\n", " ")}
     >
-      <div className="w-10 h-10 rounded-[14px] bg-[#2D9F93]/[0.07] flex items-center justify-center group-hover:bg-[#2D9F93]/[0.12] transition-colors">
-        <Icon size={20} className="text-[#2D9F93]" strokeWidth={1.7} />
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{ background: `radial-gradient(circle at 30% 30%, ${accentColor}08 0%, transparent 70%)` }}
+      />
+      <div
+        className="w-10 h-10 rounded-[14px] flex items-center justify-center transition-colors duration-200 relative z-10"
+        style={{ backgroundColor: accentBg }}
+      >
+        <Icon size={20} style={{ color: accentColor }} strokeWidth={1.7} />
       </div>
-      <span className="text-[13px] text-[#3a3a4a] leading-[1.3] whitespace-pre-line tracking-[-0.01em]">
+      <span className="text-[13px] text-[#3a3a4a] leading-[1.3] whitespace-pre-line tracking-[-0.01em] relative z-10">
         {label}
       </span>
     </motion.button>
   );
 }
 
+function HealthRing({ percentage }: { percentage: number }) {
+  const radius = 52;
+  const stroke = 7;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percentage / 100) * circumference;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="flex flex-col items-center"
+    >
+      <div className="relative w-[132px] h-[132px]">
+        <svg width="132" height="132" viewBox="0 0 132 132" className="-rotate-90">
+          <circle
+            cx="66" cy="66" r={radius}
+            fill="none" stroke="rgba(255,255,255,0.12)"
+            strokeWidth={stroke} strokeLinecap="round"
+          />
+          <motion.circle
+            cx="66" cy="66" r={radius}
+            fill="none" stroke="url(#healthGradient)"
+            strokeWidth={stroke} strokeLinecap="round"
+            strokeDasharray={circumference}
+            initial={{ strokeDashoffset: circumference }}
+            animate={{ strokeDashoffset: offset }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          />
+          <defs>
+            <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#6EEBD6" />
+              <stop offset="100%" stopColor="#2D9F93" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <motion.span
+            className="text-white text-[28px] tracking-[-0.03em] leading-none"
+            style={{ fontWeight: 600 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            {percentage}%
+          </motion.span>
+          <span className="text-white/50 text-[10px] tracking-wider uppercase mt-1">utilizado</span>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function useGreeting() {
+  return useMemo(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) return { text: "Bom dia", emoji: "☀️" };
+    if (hour < 18) return { text: "Boa tarde", emoji: "🌤" };
+    return { text: "Boa noite", emoji: "🌙" };
+  }, []);
+}
+
 export function HomeDashboard() {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
+  const greeting = useGreeting();
 
   const handleCopy = () => {
     setCopied(true);
@@ -72,7 +144,6 @@ export function HomeDashboard() {
 
   return (
     <div className="pb-4">
-      {/* Header com gradiente */}
       <div
         className="px-6 pt-14 pb-8 relative overflow-hidden"
         style={{
@@ -84,7 +155,9 @@ export function HomeDashboard() {
 
         <div className="flex items-start justify-between relative z-10">
           <div>
-            <p className="text-white/70 text-[13px] tracking-wide">Olá,</p>
+            <p className="text-white/70 text-[13px] tracking-wide flex items-center gap-1.5">
+              {greeting.text} <span className="text-[12px]">{greeting.emoji}</span>
+            </p>
             <h1 className="text-white tracking-[-0.03em] mt-0.5">Paula Rosa</h1>
           </div>
           <button
@@ -96,17 +169,21 @@ export function HomeDashboard() {
           </button>
         </div>
 
-        {/* Carteirinha Digital */}
+        <div className="flex items-center justify-center mt-5 mb-2">
+          <HealthRing percentage={32} />
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-6 rounded-[22px] p-5 relative overflow-hidden"
+          className="mt-4 rounded-[22px] p-5 relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 100%)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
-            border: "1px solid rgba(255,255,255,0.25)",
+            background: "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%)",
+            backdropFilter: "blur(28px)",
+            WebkitBackdropFilter: "blur(28px)",
+            border: "1px solid rgba(255,255,255,0.30)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
           }}
           role="region"
           aria-label="Carteirinha Digital"
@@ -167,7 +244,6 @@ export function HomeDashboard() {
         </motion.div>
       </div>
 
-      {/* Seções Bento */}
       <div className="px-5 -mt-1">
         <section aria-label="Meu Plano" className="pt-6">
           <div className="flex items-center justify-between mb-3 px-1">

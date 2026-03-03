@@ -72,7 +72,7 @@ export function WaitingPeriods() {
       <div className="px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5"
-          style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+          style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
         >
           <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3">Início do Plano</p>
           <p className="text-[20px] text-[#1a1a2e] tracking-[-0.02em]">1 de Janeiro de 2026</p>
@@ -96,7 +96,7 @@ export function WaitingPeriods() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="bg-white rounded-[20px] p-5"
-                style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
+                style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
                 role="listitem"
               >
                 <div className="flex items-start justify-between mb-3">
