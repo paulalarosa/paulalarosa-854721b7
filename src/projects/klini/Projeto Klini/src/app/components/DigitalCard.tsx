@@ -40,7 +40,7 @@ export function DigitalCard() {
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="rounded-[24px] p-6 relative overflow-hidden"
           style={{
-            background: "linear-gradient(145deg, #2A9B8F 0%, #35A99D 35%, #D4944A 75%, #D07048 100%)",
+            background: "linear-gradient(160deg, #1A7A70 0%, #2D9F93 45%, #3DBDB0 100%)",
             aspectRatio: "1.6 / 1",
           }}
         >

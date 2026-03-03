@@ -30,46 +30,47 @@ export function MobileShell() {
       </main>
 
       <nav
-        className="bg-white/90 backdrop-blur-xl border-t border-[#f0f0f2] px-2 flex justify-around relative shrink-0"
-        style={{ paddingBottom: "max(1.25rem, env(safe-area-inset-bottom))", paddingTop: "0.375rem" }}
+        className="bg-white border-t border-[#f0f0f2] px-3 flex justify-around relative shrink-0"
+        style={{
+          paddingBottom: "max(1.75rem, env(safe-area-inset-bottom))",
+          paddingTop: "0.5rem",
+          boxShadow: "0 -1px 0 rgba(0,0,0,0.04), 0 -4px 16px rgba(0,0,0,0.03)",
+        }}
         role="tablist"
         aria-label="Navegação principal"
       >
         {tabs.map((tab) => {
           const active = isActive(tab.path);
           return (
-            <motion.button
+            <button
               key={tab.path}
               onClick={() => navigate(tab.path)}
               role="tab"
               aria-selected={active}
               aria-label={tab.label}
-              whileTap={{ scale: 0.88 }}
-              className="flex flex-col items-center gap-0.5 py-1.5 rounded-2xl transition-all duration-200 relative min-w-[64px] cursor-pointer"
+              className="flex flex-col items-center gap-1 px-5 py-1.5 rounded-2xl transition-all duration-200 relative min-w-[60px] cursor-pointer"
             >
               {active && (
                 <motion.div
-                  layoutId="tab-pill"
-                  className="absolute inset-0 rounded-2xl"
-                  style={{
-                    background: "rgba(45,159,147,0.08)",
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                  layoutId="tab-indicator"
+                  className="absolute -top-[1px] w-6 h-[2.5px] rounded-full"
+                  style={{ background: "#2D9F93" }}
+                  transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
               <tab.icon
-                size={22}
-                strokeWidth={active ? 2.2 : 1.5}
-                className={`transition-colors duration-200 relative z-10 ${active ? "text-[#2D9F93]" : "text-[#C0C4CC]"
+                size={21}
+                strokeWidth={active ? 2.3 : 1.6}
+                className={`transition-colors duration-200 ${active ? "text-[#2D9F93]" : "text-[#C0C4CC]"
                   }`}
               />
               <span
-                className={`text-[10px] tracking-wide transition-all duration-200 relative z-10 ${active ? "text-[#2D9F93] font-medium" : "text-[#C0C4CC]"
+                className={`text-[10px] tracking-wide transition-all duration-200 ${active ? "text-[#2D9F93] font-semibold" : "text-[#C0C4CC] font-normal"
                   }`}
               >
                 {tab.label}
               </span>
-            </motion.button>
+            </button>
           );
         })}
       </nav>

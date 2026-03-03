@@ -57,7 +57,7 @@ export function Profile() {
       <div
         className="px-6 pt-14 pb-8 relative overflow-hidden"
         style={{
-          background: "linear-gradient(145deg, #2A9B8F 0%, #35A99D 35%, #D4944A 75%, #D07048 100%)",
+          background: "linear-gradient(160deg, #155F57 0%, #1A7A70 40%, #2D9F93 100%)",
         }}
       >
         <div className="absolute top-[-40px] right-[-30px] w-[160px] h-[160px] rounded-full bg-white/[0.06]" />

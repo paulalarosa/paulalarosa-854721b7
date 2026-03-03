@@ -1,26 +1,40 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Search, MapPin, Star, Clock, SlidersHorizontal } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Star,
+  Clock,
+  SlidersHorizontal,
+  Brain,
+  Heart,
+  Sparkles,
+  Bone,
+  Baby,
+  Microscope,
+  Eye,
+  Stethoscope,
+} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "./PageHeader";
 
 const specialties = [
-  { label: "Psiquiatria", emoji: "🧠" },
-  { label: "Cardiologia", emoji: "❤️" },
-  { label: "Dermatologia", emoji: "✨" },
-  { label: "Ortopedia", emoji: "🦴" },
-  { label: "Pediatria", emoji: "👶" },
-  { label: "Neurologia", emoji: "🔬" },
-  { label: "Oftalmologia", emoji: "👁️" },
-  { label: "Ginecologia", emoji: "🩺" },
+  { label: "Psiquiatria", icon: Brain },
+  { label: "Cardiologia", icon: Heart },
+  { label: "Dermatologia", icon: Sparkles },
+  { label: "Ortopedia", icon: Bone },
+  { label: "Pediatria", icon: Baby },
+  { label: "Neurologia", icon: Microscope },
+  { label: "Oftalmologia", icon: Eye },
+  { label: "Ginecologia", icon: Stethoscope },
 ];
 
 const serviceTypes = ["Consulta", "Exame", "Terapia", "Cirurgia"];
 
-const avatarGradients = [
-  "linear-gradient(135deg, #2D9F93, #6EEBD6)",
-  "linear-gradient(135deg, #4A7FD9, #7CB3F0)",
-  "linear-gradient(135deg, #D4944A, #F0C88E)",
+const doctorGradients = [
+  "linear-gradient(135deg, #2D9F93, #1A7A70)",
+  "linear-gradient(135deg, #4A7FD9, #2A5FAA)",
+  "linear-gradient(135deg, #1A7A70, #3DBDB0)",
 ];
 
 const mockResults = [
@@ -146,6 +160,7 @@ export function NetworkSearch() {
         <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar" role="group" aria-label="Filtro por especialidade">
           {specialties.map((s) => {
             const active = selectedSpecialty === s.label;
+            const SpecIcon = s.icon;
             return (
               <motion.button
                 key={s.label}
@@ -165,7 +180,7 @@ export function NetworkSearch() {
                     }
                 }
               >
-                <span className="text-[12px]">{s.emoji}</span>
+                <SpecIcon size={14} strokeWidth={1.6} />
                 {s.label}
               </motion.button>
             );
@@ -214,8 +229,8 @@ export function NetworkSearch() {
                 >
                   <div className="flex items-start gap-3.5 mb-3">
                     <div
-                      className="w-11 h-11 rounded-[14px] flex items-center justify-center shrink-0 text-[13px] text-white font-medium"
-                      style={{ background: avatarGradients[doctor.gradientIndex] }}
+                      className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 text-white text-[13px] font-semibold"
+                      style={{ background: doctorGradients[doctor.gradientIndex] }}
                       aria-hidden="true"
                     >
                       {doctor.avatar}
@@ -226,10 +241,10 @@ export function NetworkSearch() {
                       </h4>
                       <span className="text-[12px] text-[#9a9aaa]">{doctor.specialty}</span>
                     </div>
-                    <div className="flex items-center gap-1 shrink-0 bg-amber-50 px-2 py-1 rounded-lg">
-                      <Star size={11} className="text-amber-400 fill-amber-400" />
-                      <span className="text-[12px] text-amber-700 font-medium">{doctor.rating}</span>
-                      <span className="text-[10px] text-amber-400">({doctor.reviews})</span>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <Star size={11} className="fill-amber-400 text-amber-400" />
+                      <span className="text-[12px] font-semibold text-[#1a1a2e]">{doctor.rating}</span>
+                      <span className="text-[11px] text-[#9ca3af]">({doctor.reviews})</span>
                     </div>
                   </div>
 

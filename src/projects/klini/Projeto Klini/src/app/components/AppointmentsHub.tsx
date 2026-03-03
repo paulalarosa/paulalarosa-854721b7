@@ -4,7 +4,20 @@ import { MapPin, Search, Plus, Clock, Video } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "./PageHeader";
 
-const upcomingAppointments = [
+interface Appointment {
+  id: number;
+  doctor: string;
+  specialty: string;
+  location: string;
+  room: string;
+  date: string;
+  time: string;
+  status: "Confirmada" | "Pendente" | "Realizada" | "Cancelada";
+  isTelemedicine?: boolean;
+  avatar: string;
+}
+
+const upcomingAppointments: Appointment[] = [
   {
     id: 1,
     doctor: "Dr. Marcelo Ximenes Furtado",
@@ -13,7 +26,7 @@ const upcomingAppointments = [
     room: "Térreo, Sala 122",
     date: "27 Fev",
     time: "09:20",
-    status: "Confirmada" as const,
+    status: "Confirmada",
     isTelemedicine: false,
     avatar: "MX",
   },
@@ -25,7 +38,7 @@ const upcomingAppointments = [
     room: "3º Andar, Sala 312",
     date: "5 Mar",
     time: "14:00",
-    status: "Pendente" as const,
+    status: "Pendente",
     isTelemedicine: true,
     avatar: "AC",
   },
@@ -37,13 +50,13 @@ const upcomingAppointments = [
     room: "Térreo, Sala 122",
     date: "20 Mar",
     time: "13:06",
-    status: "Confirmada" as const,
+    status: "Confirmada",
     isTelemedicine: false,
     avatar: "MX",
   },
 ];
 
-const historyAppointments = [
+const historyAppointments: Appointment[] = [
   {
     id: 4,
     doctor: "Dra. Patricia Sodre de Oliveira",
@@ -52,7 +65,7 @@ const historyAppointments = [
     room: "5º Andar, Sala 508",
     date: "15 Jan",
     time: "10:00",
-    status: "Realizada" as const,
+    status: "Realizada",
     avatar: "PS",
   },
   {
@@ -63,7 +76,7 @@ const historyAppointments = [
     room: "2º Andar, Sala 204",
     date: "8 Dez",
     time: "14:30",
-    status: "Realizada" as const,
+    status: "Realizada",
     avatar: "RA",
   },
   {
@@ -74,12 +87,19 @@ const historyAppointments = [
     room: "3º Andar, Sala 312",
     date: "22 Nov",
     time: "11:00",
-    status: "Cancelada" as const,
+    status: "Cancelada",
     avatar: "AC",
   },
 ];
 
 type Tab = "upcoming" | "history";
+
+const statusBorderColors: Record<string, string> = {
+  Confirmada: "#2D9F93",
+  Pendente: "#F59E0B",
+  Realizada: "#2D9F93",
+  Cancelada: "#E5E7EB",
+};
 
 const statusConfig = {
   Confirmada: { bg: "bg-[#2D9F93]/[0.08]", text: "text-[#2D9F93]" },
@@ -88,28 +108,27 @@ const statusConfig = {
   Cancelada: { bg: "bg-gray-50", text: "text-[#B0B4BC]" },
 };
 
-function AppointmentCard({
-  apt,
-  index,
-}: {
-  apt: (typeof upcomingAppointments)[0] & { isTelemedicine?: boolean };
-  index: number;
-}) {
+function AppointmentCard({ apt, index }: { apt: Appointment; index: number }) {
   const status = statusConfig[apt.status];
+  const borderColor = statusBorderColors[apt.status];
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="bg-white rounded-[20px] p-5"
-      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
+      className="bg-white rounded-[18px] p-4 relative overflow-hidden"
+      style={{
+        boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)",
+        borderLeft: `3px solid ${borderColor}`,
+      }}
       role="article"
       aria-label={`Consulta com ${apt.doctor}`}
     >
       <div className="flex items-start gap-3.5 mb-3">
         <div
-          className="w-11 h-11 rounded-[14px] flex items-center justify-center shrink-0 text-[13px] text-[#2D9F93]"
-          style={{ background: "linear-gradient(135deg, #E8F6F4, #F0FAF9)" }}
+          className="w-11 h-11 rounded-full flex items-center justify-center shrink-0 text-white text-[13px] font-semibold"
+          style={{ background: "linear-gradient(135deg, #2D9F93, #1A7A70)" }}
           aria-hidden="true"
         >
           {apt.avatar}
@@ -119,12 +138,16 @@ function AppointmentCard({
             {apt.doctor}
           </h4>
           <span className="text-[12px] text-[#9a9aaa]">{apt.specialty}</span>
+          {apt.isTelemedicine && (
+            <div
+              className="flex items-center gap-1 px-2 py-0.5 rounded-full mt-1"
+              style={{ backgroundColor: "#EBF8F7", width: "fit-content" }}
+            >
+              <Video size={10} className="text-[#2D9F93]" />
+              <span className="text-[10px] text-[#2D9F93] font-medium">Telemedicina</span>
+            </div>
+          )}
         </div>
-        {"isTelemedicine" in apt && apt.isTelemedicine && (
-          <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center shrink-0" aria-label="Consulta por telemedicina">
-            <Video size={14} className="text-blue-500" />
-          </div>
-        )}
       </div>
 
       <div className="flex items-center gap-2 mb-1">
@@ -165,7 +188,6 @@ export function AppointmentsHub() {
     <div className="pb-4">
       <PageHeader title="Consultas" />
 
-      {/* Abas */}
       <div className="px-5 pt-1">
         <div
           className="flex bg-[#F0F1F3] rounded-2xl p-1 relative"
@@ -207,7 +229,6 @@ export function AppointmentsHub() {
         </div>
       </div>
 
-      {/* Conteúdo */}
       <AnimatePresence mode="wait">
         {activeTab === "upcoming" ? (
           <motion.div
@@ -253,7 +274,7 @@ export function AppointmentsHub() {
           >
             <div
               className="flex items-center bg-white rounded-2xl px-4 py-3.5 gap-3 mb-4"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.03)" }}
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
             >
               <Search size={16} className="text-[#C0C4CC] shrink-0" />
               <input
