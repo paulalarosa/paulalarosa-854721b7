@@ -14,6 +14,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   useAnalytics();
@@ -35,7 +37,20 @@ const Index = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen">
+    <motion.div
+      className="min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
+      <Helmet>
+        <title>Khaos Kontrol | Product Design & Engineering</title>
+        <meta name="description" content="Engenharia de Software e Product Design focado em inovação, performance e alta conversão." />
+        <meta property="og:title" content="Khaos Kontrol | Product Design & Engineering" />
+        <meta property="og:description" content="Engenharia de Software e Product Design focado em inovação, performance e alta conversão." />
+      </Helmet>
+
       <Header />
       <main>
         <Hero />
@@ -51,7 +66,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
-    </div>
+    </motion.div>
   );
 };
 

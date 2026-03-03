@@ -53,7 +53,7 @@ export function TabBar({ active, onNavigate, dark = false }: TabBarProps) {
                 layoutId="tabIndicator"
                 className="absolute inset-0 rounded-xl"
                 style={{
-                  background: dark ? "rgba(230, 0, 126, 0.10)" : "rgba(230, 0, 126, 0.07)",
+                  background: dark ? "rgba(230, 0, 126, 0.15)" : "rgba(230, 0, 126, 0.08)",
                 }}
                 transition={{ type: "spring", stiffness: 500, damping: 35 }}
               />

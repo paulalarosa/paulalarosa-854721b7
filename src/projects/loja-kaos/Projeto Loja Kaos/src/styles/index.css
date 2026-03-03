@@ -2,10 +2,23 @@
 @import './tailwind.css';
 @import './theme.css';
 
-/* Hide scrollbar */
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  background: #F5F4F0;
+  color: #0A0A0A;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

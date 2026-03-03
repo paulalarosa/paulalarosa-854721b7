@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import GenerativeArt from './GenerativeArt';
 import { useTranslation } from 'react-i18next';
-import paulaProfile from '@/assets/paula-profile.png';
+import paulaProfile from '@/assets/paula-profile.webp';
 import { useEffect, useRef, useState } from 'react';
 
 const Hero = () => {

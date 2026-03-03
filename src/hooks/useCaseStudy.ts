@@ -11,11 +11,11 @@ export const useCaseStudy = (projectId: string | undefined) => {
     const projectKey = id && PROJECTS.includes(id as ProjectKey) ? id : "website";
 
     const projectImages: Record<string, string> = {
-      website: "url(/hero-bg.jpg)",
-      portfolio: "url(/hero-bg.jpg)",
-      microsaas: "url(/hero-bg.jpg)",
-      dashboard: "url(/hero-bg.jpg)",
-      platform: "url(/hero-bg.jpg)",
+      website: "url(/hero-bg.webp)",
+      portfolio: "url(/hero-bg.webp)",
+      microsaas: "url(/hero-bg.webp)",
+      dashboard: "url(/hero-bg.webp)",
+      platform: "url(/hero-bg.webp)",
     };
 
     const projectUrls: Record<string, string> = {
@@ -82,7 +82,7 @@ export const useCaseStudy = (projectId: string | undefined) => {
       role: t(`lab.projects.${projectKey}.role`) || "Developer",
       timeline: t(`lab.projects.${projectKey}.timeline`) || "Not specified",
       process: Array.isArray(process) ? process : [],
-      image: projectImages[projectKey] || "url(/hero-bg.jpg)",
+      image: projectImages[projectKey] || "url(/hero-bg.webp)",
     };
   };
 

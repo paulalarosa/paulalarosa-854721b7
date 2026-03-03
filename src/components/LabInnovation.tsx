@@ -46,7 +46,7 @@ const PhoneFrame = ({
 
   return (
     <motion.div
-      className="flex-shrink-0 flex flex-col items-center"
+      className="flex-shrink-0 flex flex-col items-center snap-center"
       style={{ width: 272 }}
       animate={isSelected ? { y: -8, scale: 1.08, opacity: 1 } : { y: 0, scale: 0.95, opacity: 0.9 }}
       whileHover={!isSelected ? { opacity: 1, scale: 0.98 } : {}}
@@ -137,7 +137,7 @@ const PhoneFrame = ({
 
                   <div className="mx-3 mb-3 px-3 py-2 rounded-2xl flex items-center gap-2"
                     style={{ backgroundColor: 'rgba(6,6,6,0.82)', backdropFilter: 'blur(20px)' }}>
-                    <motion.button onClick={goPrev} whileTap={{ scale: 0.88 }}
+                    <motion.button onClick={goPrev} whileTap={{ scale: 0.88 }} aria-label="Ver insight anterior"
                       className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
                       <ChevronLeft className="w-3.5 h-3.5 text-white" />
@@ -145,7 +145,7 @@ const PhoneFrame = ({
                     <div className="flex-1 flex flex-col items-center gap-1">
                       <div className="flex gap-1.5 items-center">
                         {project.insights.map((_, i) => (
-                          <motion.button key={i}
+                          <motion.button key={i} aria-label={`Ver insight ${i + 1}`}
                             onClick={(e) => { e.stopPropagation(); setInsightIndex(i); setShowInsights(true); }}
                             animate={{ width: i === insightIndex ? 18 : 5, backgroundColor: i === insightIndex ? project.accentColor : 'rgba(255,255,255,0.25)' }}
                             transition={{ duration: 0.25 }} className="h-[5px] rounded-full" />
@@ -159,6 +159,7 @@ const PhoneFrame = ({
                       )}
                     </div>
                     <motion.button
+                      aria-label={showInsights ? 'Fechar insights' : 'Ver insights de design'}
                       onClick={(e) => { e.stopPropagation(); setShowInsights((p) => !p); }}
                       whileTap={{ scale: 0.88 }}
                       animate={{ backgroundColor: showInsights ? project.accentColor : 'rgba(255,255,255,0.1)' }}
@@ -166,7 +167,7 @@ const PhoneFrame = ({
                       className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0">
                       <Lightbulb className="w-3.5 h-3.5 text-white" />
                     </motion.button>
-                    <motion.button onClick={goNext} whileTap={{ scale: 0.88 }}
+                    <motion.button onClick={goNext} whileTap={{ scale: 0.88 }} aria-label="Ver próximo insight"
                       className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
                       <ChevronRight className="w-3.5 h-3.5 text-white" />
@@ -303,8 +304,8 @@ const LabInnovation = () => {
               </button>
               <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
-              <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-8 pt-4 px-10 scroll-smooth"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <div ref={scrollRef} className="flex gap-6 md:gap-10 overflow-x-auto pb-8 pt-4 px-10 scroll-smooth snap-x snap-mandatory"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
                 {projects.map((project) => (
                   <PhoneFrame key={project.id} project={project}
                     isSelected={selectedPhone === project.id}

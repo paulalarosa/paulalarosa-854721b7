@@ -53,15 +53,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-base ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-base ${isScrolled
           ? "bg-background/98 backdrop-blur-sm border-b border-border shadow-xs"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {}
+          { }
           <button
             onClick={() => scrollToSection("#home")}
             className="font-serif text-xl font-semibold text-primary hover:text-accent transition-base"
@@ -69,7 +68,7 @@ const Header = () => {
             Paula La Rosa
           </button>
 
-          {}
+          { }
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
@@ -81,37 +80,34 @@ const Header = () => {
               </button>
             ))}
 
-            {}
+            { }
             <div className="flex items-center gap-2 text-sm">
               <button
                 onClick={() => changeLanguage("pt")}
-                className={`transition-base ${
-                  i18n.language === "pt"
+                className={`transition-base ${i18n.language === "pt"
                     ? "font-bold text-primary"
                     : "text-muted-foreground hover:text-accent"
-                }`}
+                  }`}
               >
                 PT
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => changeLanguage("en")}
-                className={`transition-base ${
-                  i18n.language === "en"
+                className={`transition-base ${i18n.language === "en"
                     ? "font-bold text-primary"
                     : "text-muted-foreground hover:text-accent"
-                }`}
+                  }`}
               >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => changeLanguage("es")}
-                className={`transition-base ${
-                  i18n.language === "es"
+                className={`transition-base ${i18n.language === "es"
                     ? "font-bold text-primary"
                     : "text-muted-foreground hover:text-accent"
-                }`}
+                  }`}
               >
                 ES
               </button>
@@ -127,11 +123,11 @@ const Header = () => {
             </Button>
           </nav>
 
-          {}
+          { }
           <button
             className="md:hidden text-foreground relative w-6 h-6 flex flex-col justify-center items-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             <motion.span
               className="absolute w-6 h-0.5 bg-foreground rounded-full"
@@ -162,7 +158,7 @@ const Header = () => {
           </button>
         </div>
 
-        {}
+        { }
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.nav
@@ -189,18 +185,17 @@ const Header = () => {
                 </motion.button>
               ))}
 
-              {}
+              { }
               <div className="flex items-center gap-3 py-3 justify-center border-t border-border mt-3 pt-3">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     changeLanguage("pt");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === "pt"
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === "pt"
                       ? "font-bold text-primary"
                       : "text-muted-foreground hover:text-accent"
-                  }`}
+                    }`}
                 >
                   PT
                 </button>
@@ -210,11 +205,10 @@ const Header = () => {
                     e.preventDefault();
                     changeLanguage("en");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === "en"
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === "en"
                       ? "font-bold text-primary"
                       : "text-muted-foreground hover:text-accent"
-                  }`}
+                    }`}
                 >
                   EN
                 </button>
@@ -224,11 +218,10 @@ const Header = () => {
                     e.preventDefault();
                     changeLanguage("es");
                   }}
-                  className={`py-2 px-3 touch-manipulation transition-base ${
-                    i18n.language === "es"
+                  className={`py-2 px-3 touch-manipulation transition-base ${i18n.language === "es"
                       ? "font-bold text-primary"
                       : "text-muted-foreground hover:text-accent"
-                  }`}
+                    }`}
                 >
                   ES
                 </button>

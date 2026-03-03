@@ -63,7 +63,7 @@ export function MobileShell({ children }: MobileShellProps) {
   return (
     <div
       className="w-full h-full overflow-hidden flex flex-col relative"
-      style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", background: "linear-gradient(180deg, #F0FAFA 0%, #F8F8FA 40%)" }}
+      style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", background: "linear-gradient(180deg, rgba(13, 148, 136, 0.08) 0%, rgba(13, 148, 136, 0.02) 40%, #F8F8FA 100%)" }}
     >
       {/* Ambient lighting — shifts with time of day */}
       <motion.div

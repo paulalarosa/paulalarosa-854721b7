@@ -63,36 +63,26 @@ export default function App() {
     switch (screen.type) {
       case "clientProfile":
         return (
-          <PhoneFrame>
-            <ClientProfileScreen
-              onBack={() => handleBack("clients")}
-              onSendQuote={() => handleSendQuote("Ana Carolina Silva")}
-            />
-          </PhoneFrame>
+          <ClientProfileScreen
+            onBack={() => handleBack("clients")}
+            onSendQuote={() => handleSendQuote("Ana Carolina Silva")}
+          />
         );
       case "notifications":
         return (
-          <PhoneFrame dark>
-            <NotificationsScreen onBack={() => handleBack("dashboard")} />
-          </PhoneFrame>
+          <NotificationsScreen onBack={() => handleBack("dashboard")} />
         );
       case "report":
         return (
-          <PhoneFrame dark>
-            <ReportScreen onBack={() => handleBack("dashboard")} />
-          </PhoneFrame>
+          <ReportScreen onBack={() => handleBack("dashboard")} />
         );
       case "newClient":
         return (
-          <PhoneFrame>
-            <NewClientScreen onBack={() => handleBack("clients")} />
-          </PhoneFrame>
+          <NewClientScreen onBack={() => handleBack("clients")} />
         );
       case "sendQuote":
         return (
-          <PhoneFrame>
-            <SendQuoteScreen clientName={screen.clientName} onBack={() => setScreen({ type: "clientProfile", clientId: "ana" })} />
-          </PhoneFrame>
+          <SendQuoteScreen clientName={screen.clientName} onBack={() => setScreen({ type: "clientProfile", clientId: "ana" })} />
         );
       case "tab":
         switch (screen.tab) {

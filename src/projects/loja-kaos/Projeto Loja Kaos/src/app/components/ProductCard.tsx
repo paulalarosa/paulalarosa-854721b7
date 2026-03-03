@@ -16,95 +16,80 @@ interface ProductCardProps {
 export function ProductCard({ image, name, price, tag, tall = false, delay = 0, onAdd, onPress }: ProductCardProps) {
   const [added, setAdded] = useState(false);
 
-  const handleAdd = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setAdded(true);
-    onAdd?.();
-    setTimeout(() => setAdded(false), 1500);
-  };
-
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, delay, ease: [0.25, 1, 0.5, 1] }}
-      className={`relative overflow-hidden cursor-pointer group ${tall ? "row-span-2" : ""}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, delay }}
+      className={`cursor-pointer group ${tall ? "row-span-2" : ""}`}
       onClick={onPress}
       tabIndex={0}
-      aria-label={`${name}, ${price}`}
       onKeyDown={(e) => e.key === "Enter" && onPress?.()}
+      aria-label={`${name} — ${price}`}
     >
-      <div className={`relative w-full overflow-hidden ${tall ? "h-full min-h-[340px] sm:min-h-[400px]" : "aspect-[3/4]"}`}>
+      {/* Imagem — fundo branco puro */}
+      <div
+        className={`relative overflow-hidden w-full ${tall ? "aspect-[2/3]" : "aspect-[3/4]"}`}
+        style={{ background: "#FFFFFF" }}
+      >
         <ImageWithFallback
           src={image}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-600 ease-out group-hover:scale-[1.03]"
-        />
-
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(180deg, transparent 45%, rgba(8,8,8,0.9) 100%)" }}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
 
         {tag && (
           <div
-            className="absolute top-0 left-0 px-2 py-1 z-10"
+            className="absolute top-0 left-0 px-2 py-1"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: "7.5px",
-              letterSpacing: "0.15em",
-              color: tag === "ESGOTANDO" ? "#fff" : "#080808",
-              background: tag === "ESGOTANDO" ? "rgba(200,40,40,0.85)" : "rgba(255,255,255,0.85)",
+              fontSize: "7px",
+              letterSpacing: "0.16em",
+              fontWeight: 500,
+              color: tag === "ESGOTANDO" ? "#fff" : "#0A0A0A",
+              background: tag === "ESGOTANDO" ? "#B91C1C" : "rgba(245,244,240,0.88)",
             }}
-          >
-            {tag}
-          </div>
+          >{tag}</div>
         )}
 
-        {/* Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
-          <h3
-            className="text-white/90 uppercase mb-0.5"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: tall ? "18px" : "15px",
-              lineHeight: 1.15,
-              letterSpacing: "0.01em",
-            }}
-          >
-            {name}
-          </h3>
-          <p
-            className="text-white/35"
-            style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px" }}
-          >
-            {price}
-          </p>
-        </div>
-
-        {/* Add button */}
-        <motion.button
-          onClick={handleAdd}
-          whileTap={{ scale: 0.92 }}
-          className="absolute bottom-3 right-2.5 z-20 w-8 h-8 flex items-center justify-center cursor-pointer"
-          style={{
-            background: added ? "white" : "rgba(255,255,255,0.08)",
-            backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            transition: "background 0.25s",
+        {/* Botão + no hover */}
+        <button
+          className="absolute bottom-0 right-0 w-9 h-9 flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          style={{ background: "#0A0A0A" }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setAdded(true);
+            onAdd?.();
+            setTimeout(() => setAdded(false), 1500);
           }}
-          aria-label={added ? "Adicionado" : `Adicionar ${name}`}
+          aria-label={added ? "Adicionado" : "Adicionar à sacola"}
         >
-          {added ? (
-            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-              <path d="M2.5 7L5.5 10.5L11.5 3.5" stroke="#080808" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          ) : (
-            <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-              <path d="M7 3V11M3 7H11" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
-            </svg>
-          )}
-        </motion.button>
+          <span style={{ fontSize: "15px", color: "#F5F4F0", lineHeight: 1 }}>
+            {added ? "✓" : "+"}
+          </span>
+        </button>
+      </div>
+
+      {/* Info abaixo — off-white, não sobre a imagem */}
+      <div className="pt-2 pb-3 px-0.5">
+        <p style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "10px",
+          letterSpacing: "0.02em",
+          color: "rgba(10,10,10,0.42)",
+          fontWeight: 300,
+          lineHeight: 1.4,
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+        }}>{name}</p>
+        <p style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "11px",
+          color: "#0A0A0A",
+          fontWeight: 500,
+          marginTop: "2px",
+        }}>{price}</p>
       </div>
     </motion.article>
   );

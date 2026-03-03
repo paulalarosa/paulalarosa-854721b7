@@ -1,7 +1,7 @@
 import React from "react";
 import { Search, Plus, ChevronRight, X } from "lucide-react";
 import { akad } from "./akad-theme";
-import { PhoneFrame } from "./PhoneFrame";
+
 import { TabBar, TabId } from "./TabBar";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion } from "motion/react";
@@ -42,119 +42,131 @@ export function ClientsScreen({ activeTab, onNavigate, onSelectClient, onAddClie
   );
 
   return (
-    <PhoneFrame>
-      <header className="px-5 pt-2 pb-1">
+    <div className="flex flex-col h-full bg-[#f8f9fa]">
+      <header className="px-5 pt-12 pb-4 bg-white border-b border-gray-100 shadow-sm z-10">
         <div className="flex items-center justify-between">
           <div>
-            <h1 style={{ color: akad.text, fontSize: "26px", fontWeight: 700, letterSpacing: "-0.8px", lineHeight: 1.2 }}>
+            <h1 style={{ color: akad.text, fontSize: "28px", fontWeight: 700, letterSpacing: "-0.8px", lineHeight: 1.2 }}>
               Clientes
             </h1>
-            <p style={{ color: akad.textTertiary, fontSize: "12px", marginTop: "2px" }}>
-              {filtered.length} {search ? "encontrado" + (filtered.length !== 1 ? "s" : "") : "ativos"}
+            <p style={{ color: akad.textTertiary, fontSize: "13px", marginTop: "2px", fontWeight: 500 }}>
+              {filtered.length} {search ? "encontrado" + (filtered.length !== 1 ? "s" : "") : "ativos"} no portfólio
             </p>
-            <div className="flex items-center gap-3 mt-2">
+            <div className="flex items-center gap-4 mt-4 bg-gray-50/80 p-3 rounded-[14px]">
               <div>
-                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Carteira</p>
-                <p style={{ color: akad.text, fontSize: "13px", fontWeight: 700, letterSpacing: "-0.3px" }}>R$ 51.0K</p>
+                <p style={{ color: akad.textTertiary, fontSize: "10px", letterSpacing: "1px", textTransform: "uppercase", fontWeight: 600 }}>Carteira</p>
+                <p style={{ color: akad.text, fontSize: "15px", fontWeight: 700, letterSpacing: "-0.3px", marginTop: "1px" }}>R$ 51.0K</p>
               </div>
               <div style={{ width: "1px", height: "24px", background: akad.border }} />
               <div>
-                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Premium</p>
-                <p style={{ color: akad.pink, fontSize: "13px", fontWeight: 700 }}>2</p>
+                <p style={{ color: akad.textTertiary, fontSize: "10px", letterSpacing: "1px", textTransform: "uppercase", fontWeight: 600 }}>Premium</p>
+                <p style={{ color: akad.pink, fontSize: "15px", fontWeight: 700, marginTop: "1px" }}>2</p>
               </div>
               <div style={{ width: "1px", height: "24px", background: akad.border }} />
               <div>
-                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Empresarial</p>
-                <p style={{ color: akad.blueLight, fontSize: "13px", fontWeight: 700 }}>1</p>
+                <p style={{ color: akad.textTertiary, fontSize: "10px", letterSpacing: "1px", textTransform: "uppercase", fontWeight: 600 }}>Empresarial</p>
+                <p style={{ color: akad.blueLight, fontSize: "15px", fontWeight: 700, marginTop: "1px" }}>1</p>
               </div>
             </div>
           </div>
           <button
             onClick={onAddClient}
-            className="w-9 h-9 rounded-[12px] flex items-center justify-center cursor-pointer"
-            style={{ background: akad.gradientAccent, boxShadow: "0 4px 12px rgba(230,0,126,0.2)" }}
+            className="w-12 h-12 rounded-[16px] flex items-center justify-center cursor-pointer transition-transform hover:scale-105"
+            style={{ background: akad.gradientAccent, boxShadow: "0 8px 16px rgba(230,0,126,0.25)" }}
             aria-label="Adicionar novo cliente"
           >
-            <Plus size={18} color="#fff" />
+            <Plus size={22} color="#fff" strokeWidth={2.5} />
           </button>
         </div>
       </header>
 
-      <div className="px-4 pt-2 pb-2">
-        <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl"
-          style={{ background: akad.surface }}>
-          <Search size={16} color={akad.textTertiary} aria-hidden="true" />
+      <div className="px-5 pt-4 pb-2 z-0 relative">
+        <div className="flex items-center gap-3 px-4 py-3.5 rounded-[16px] shadow-sm border border-gray-100"
+          style={{ background: "#fff" }}>
+          <Search size={18} color={akad.textTertiary} aria-hidden="true" />
           <input
             type="search"
-            placeholder="Nome ou cidade..."
+            placeholder="Buscar por nome ou cidade..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="flex-1 bg-transparent outline-none placeholder:text-[#A09CB8]"
-            style={{ color: akad.text, fontSize: "13px", fontWeight: 500, lineHeight: 1.4 }}
+            style={{ color: akad.text, fontSize: "14px", fontWeight: 500, lineHeight: 1.4 }}
             aria-label="Buscar clientes"
           />
           {search && (
-            <button onClick={() => setSearch("")} className="cursor-pointer" aria-label="Limpar busca">
-              <X size={15} color={akad.textTertiary} />
+            <button onClick={() => setSearch("")} className="cursor-pointer bg-gray-100 p-1 rounded-full" aria-label="Limpar busca">
+              <X size={14} color={akad.text} />
             </button>
           )}
         </div>
       </div>
 
-      <main className="flex-1 px-4 pb-1 overflow-y-auto" style={{ scrollbarWidth: "none" }} role="list" aria-label="Lista de clientes">
+      <main className="flex-1 px-5 pb-4 overflow-y-auto" style={{ scrollbarWidth: "none" }} role="list" aria-label="Lista de clientes">
         {!search && (
-          <p className="px-1" style={{ fontSize: "10px", fontWeight: 600, color: akad.textTertiary, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>
+          <p className="px-1" style={{ fontSize: "11px", fontWeight: 600, color: akad.textTertiary, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "10px", marginTop: "4px" }}>
             Recentes
           </p>
         )}
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-3">
           {filtered.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-10">
-              <Search size={28} color={akad.textTertiary} />
-              <p style={{ fontSize: "13px", color: akad.textTertiary, marginTop: "8px", fontWeight: 500 }}>Nenhum cliente encontrado</p>
+            <div className="flex flex-col items-center justify-center py-12 bg-white rounded-[20px] border border-gray-100 shadow-sm">
+              <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-3">
+                <Search size={24} color={akad.textTertiary} />
+              </div>
+              <p style={{ fontSize: "15px", color: akad.text, fontWeight: 600 }}>Nenhum cliente encontrado</p>
+              <p style={{ fontSize: "13px", color: akad.textTertiary, marginTop: "4px" }}>Tente ajustar a busca</p>
             </div>
           )}
           {filtered.map((client, i) => (
             <motion.button
               key={client.id}
               onClick={() => onSelectClient(client.id)}
-              className="flex items-center gap-3 p-3 rounded-[16px] w-full text-left cursor-pointer"
-              style={{ background: akad.card, border: `1px solid ${akad.border}`, boxShadow: akad.shadow }}
-              initial={{ opacity: 0, y: 5 }}
+              className="flex items-center gap-4 p-4 rounded-[20px] w-full text-left cursor-pointer transition-shadow hover:shadow-md"
+              style={{ background: "#fff", border: `1px solid ${akad.border}`, boxShadow: "0 2px 8px rgba(0,0,0,0.03)" }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.12, delay: i * 0.025 }}
+              transition={{ duration: 0.2, delay: i * 0.04 }}
               role="listitem"
               aria-label={`${client.name} — ${client.policies} apólice${client.policies > 1 ? "s" : ""} — ${client.city}`}
             >
               {client.avatar ? (
-                <div className="w-11 h-11 rounded-[14px] overflow-hidden shrink-0">
+                <div className="w-14 h-14 rounded-[16px] overflow-hidden shrink-0 shadow-sm border border-gray-100">
                   <ImageWithFallback src={client.avatar} alt="" className="w-full h-full object-cover" />
                 </div>
               ) : (
-                <AvatarInitials name={client.name} />
+                <div className="w-14 h-14 shrink-0 shadow-sm border border-gray-100 rounded-[16px]">
+                  <AvatarInitials name={client.name} />
+                </div>
               )}
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <p className="truncate" style={{ fontSize: "14px", fontWeight: 600, color: akad.text }}>{client.name}</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="truncate" style={{ fontSize: "16px", fontWeight: 600, color: akad.text }}>{client.name}</p>
+                </div>
+                <p className="truncate" style={{ fontSize: "13px", color: akad.textTertiary, fontWeight: 500 }}>
+                  {client.policies} apólice{client.policies > 1 ? "s" : ""} · {client.totalValue}/ano
+                </p>
+                <div className="flex items-center gap-2 mt-2">
+                  <p className="truncate" style={{ fontSize: "11px", color: akad.textSecondary, fontWeight: 500 }}>
+                    📍 {client.city}
+                  </p>
                   {client.tag && (
-                    <span className="px-1.5 py-0.5 rounded shrink-0"
-                      style={{ background: client.tag === "Premium" ? `${akad.pink}10` : `${akad.blue}10`, color: client.tag === "Premium" ? akad.pink : akad.blueLight, fontSize: "8px", fontWeight: 700, letterSpacing: "0.5px" }}>
+                    <span className="px-2 py-0.5 rounded-[6px] shrink-0"
+                      style={{ background: client.tag === "Premium" ? `${akad.pink}15` : `${akad.blue}15`, color: client.tag === "Premium" ? akad.pink : akad.blueLight, fontSize: "9px", fontWeight: 700, letterSpacing: "0.5px" }}>
                       {client.tag.toUpperCase()}
                     </span>
                   )}
                 </div>
-                <p className="truncate" style={{ fontSize: "11px", color: akad.textTertiary, marginTop: "1px" }}>
-                  {client.policies} apólice{client.policies > 1 ? "s" : ""} · {client.totalValue}/ano · {client.city}
-                </p>
               </div>
-              <ChevronRight size={15} color={akad.textTertiary} aria-hidden="true" />
+              <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center">
+                <ChevronRight size={18} color={akad.textSecondary} aria-hidden="true" />
+              </div>
             </motion.button>
           ))}
         </div>
-        <div className="h-1" />
+        <div className="h-6" />
       </main>
 
       <TabBar active={activeTab} onNavigate={onNavigate} />
-    </PhoneFrame>
+    </div>
   );
 }

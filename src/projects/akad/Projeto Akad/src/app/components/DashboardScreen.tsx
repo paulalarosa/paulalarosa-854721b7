@@ -1,6 +1,5 @@
 import { Bell, TrendingUp, AlertTriangle, Users, FileText, ArrowUpRight } from "lucide-react";
 import { akad } from "./akad-theme";
-import { PhoneFrame } from "./PhoneFrame";
 import { TabBar, TabId } from "./TabBar";
 import { motion } from "motion/react";
 
@@ -75,179 +74,197 @@ interface DashboardScreenProps {
 
 export function DashboardScreen({ activeTab, onNavigate, onOpenNotifications, onOpenReport }: DashboardScreenProps) {
   return (
-    <PhoneFrame dark>
-      <header className="px-5 pt-2 pb-1">
+    <div className="flex flex-col h-full bg-[#0D0826]">
+      <header className="px-5 pt-12 pb-2">
         <div className="flex items-center justify-between">
           <div>
             <p style={{ color: akad.textOnDarkTertiary, fontSize: "10px", letterSpacing: "2.5px", textTransform: "uppercase", fontWeight: 500 }}>
               Akad Seguros
             </p>
-            <h1 style={{ color: akad.textOnDark, fontSize: "26px", fontWeight: 700, lineHeight: 1.2, marginTop: "1px", letterSpacing: "-0.8px" }}>
+            <h1 style={{ color: akad.textOnDark, fontSize: "28px", fontWeight: 700, lineHeight: 1.2, marginTop: "2px", letterSpacing: "-0.8px" }}>
               Dashboard
             </h1>
           </div>
           <button onClick={onOpenNotifications}
-            className="relative w-9 h-9 rounded-[12px] flex items-center justify-center cursor-pointer"
-            style={{ background: "rgba(255,255,255,0.05)" }}
+            className="relative w-10 h-10 rounded-2xl flex items-center justify-center cursor-pointer"
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.05)" }}
             aria-label="Notificações — 3 novas">
-            <Bell size={18} color="rgba(255,255,255,0.5)" />
-            <motion.span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full"
-              style={{ background: akad.pink, boxShadow: `0 0 6px ${akad.pink}` }}
-              animate={{ scale: [1, 1.3, 1] }}
+            <Bell size={20} color="rgba(255,255,255,0.7)" />
+            <motion.span className="absolute top-2 right-2 w-2.5 h-2.5 rounded-full"
+              style={{ background: akad.pink, boxShadow: `0 0 8px ${akad.pink}` }}
+              animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }} aria-hidden="true" />
           </button>
         </div>
       </header>
 
-      <div className="px-5 py-2 flex items-center gap-3">
-        <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full" style={{ background: akad.success }} />
-          <span style={{ color: akad.textOnDarkTertiary, fontSize: "10px", letterSpacing: "1px" }}>
+      <div className="px-5 py-3 flex items-center gap-4 border-b border-white/5 mx-5 mb-2">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: akad.success, boxShadow: `0 0 4px ${akad.success}` }} />
+          <span style={{ color: akad.textOnDarkSecondary, fontSize: "11px", letterSpacing: "0.5px", fontWeight: 500 }}>
             CORRETOR ATIVO
           </span>
         </div>
-        <div style={{ width: "1px", height: "10px", background: akad.darkBorder }} />
-        <span style={{ color: akad.textOnDarkSecondary, fontSize: "10px" }}>
+        <div style={{ width: "1px", height: "12px", background: akad.darkBorder }} />
+        <span style={{ color: akad.textOnDarkSecondary, fontSize: "11px", fontWeight: 500 }}>
           Região Sul · SP
-        </span>
-        <div style={{ width: "1px", height: "10px", background: akad.darkBorder }} />
-        <span style={{ color: akad.textOnDarkSecondary, fontSize: "10px" }}>
-          Meta: R$ 3M
         </span>
       </div>
 
-      <main className="flex-1 px-4 pb-1 overflow-y-auto" style={{ scrollbarWidth: "none" }} role="region" aria-label="Métricas">
-        <div className="grid grid-cols-2 gap-2">
+      <main className="flex-1 px-5 pb-4 overflow-y-auto" style={{ scrollbarWidth: "none" }} role="region" aria-label="Métricas">
+        <div className="grid grid-cols-2 gap-3">
           {/* Sales Hero */}
-          <motion.article className="col-span-2 rounded-[18px] p-4 relative overflow-hidden"
-            style={{ background: akad.gradientPrimary, border: "1px solid rgba(230,0,126,0.12)" }}
+          <motion.article className="col-span-2 rounded-[24px] p-5 relative overflow-hidden"
+            style={{ background: akad.gradientPrimary, border: "1px solid rgba(230,0,126,0.15)", boxShadow: "0 8px 32px rgba(230,0,126,0.15)" }}
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}
             aria-label="Vendas totais">
-            <div className="absolute top-0 right-0 w-[140px] h-[140px] rounded-full"
-              style={{ background: "radial-gradient(circle, rgba(230,0,126,0.08) 0%, transparent 70%)" }} aria-hidden="true" />
+            <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full blur-3xl opacity-50"
+              style={{ background: akad.pink }} aria-hidden="true" />
             <div className="flex items-start justify-between relative z-10">
               <div className="flex-1 min-w-0">
-                <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", fontWeight: 500 }}>
-                  Vendas Totais
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "11px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 600 }}>
+                  Volume de Prêmios
                 </p>
-                <p style={{ color: "#fff", fontSize: "36px", fontWeight: 800, lineHeight: 1, letterSpacing: "-2px", marginTop: "4px" }}>
+                <p style={{ color: "#fff", fontSize: "40px", fontWeight: 800, lineHeight: 1, letterSpacing: "-1.5px", marginTop: "8px" }}>
                   R$ 2.4M
                 </p>
-                <div className="flex items-center gap-1.5 mt-1.5">
-                  <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-full"
-                    style={{ background: "rgba(0,196,140,0.15)", color: akad.success, fontSize: "10px", fontWeight: 600 }}>
-                    <TrendingUp size={10} /> +18.2%
+                <div className="flex items-center gap-2 mt-3">
+                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/10"
+                    style={{ color: akad.success, fontSize: "11px", fontWeight: 600, backdropFilter: "blur(4px)" }}>
+                    <TrendingUp size={12} /> +18.2%
                   </span>
-                  <span style={{ color: "rgba(255,255,255,0.25)", fontSize: "10px" }}>vs. mês anterior</span>
+                  <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px" }}>vs. mês anterior</span>
                 </div>
               </div>
-              <div className="w-[90px] h-[65px] shrink-0 ml-2">
+              <div className="w-[100px] h-[75px] shrink-0 ml-3">
                 <MiniBarChart />
               </div>
             </div>
           </motion.article>
 
           {/* Comissões */}
-          <motion.article className="col-span-1 rounded-[16px] p-3.5 flex flex-col justify-between"
-            style={{ background: akad.darkCard, border: `1px solid ${akad.darkBorder}` }}
+          <motion.article className="col-span-1 rounded-[20px] p-4 flex flex-col justify-between"
+            style={{ background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.06)`, backdropFilter: "blur(12px)" }}
             initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25, delay: 0.08 }}
             aria-label="Comissões">
-            <div>
-              <p style={{ color: akad.textOnDarkTertiary, fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 500 }}>Comissões</p>
-              <p style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginTop: "2px", letterSpacing: "-0.8px" }}>R$ 184K</p>
+            <div className="mb-4">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-6 h-6 rounded-lg flex items-center justify-center bg-white/5">
+                  <TrendingUp size={12} color={akad.pinkLight} />
+                </div>
+                <p style={{ color: akad.textOnDarkSecondary, fontSize: "11px", fontWeight: 600 }}>Comissões</p>
+              </div>
+              <p style={{ color: "#fff", fontSize: "24px", fontWeight: 700, letterSpacing: "-0.5px" }}>R$ 184K</p>
             </div>
             <CommissionChart />
           </motion.article>
 
           {/* Clientes */}
           <motion.button onClick={() => onNavigate("clients")}
-            className="col-span-1 rounded-[16px] p-3.5 flex flex-col justify-between text-left cursor-pointer"
-            style={{ background: akad.darkCard, border: `1px solid ${akad.darkBorder}` }}
+            className="col-span-1 rounded-[20px] p-4 flex flex-col justify-between text-left cursor-pointer"
+            style={{ background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.06)`, backdropFilter: "blur(12px)" }}
             initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25, delay: 0.08 }}
             aria-label="Clientes — ver todos">
-            <div className="flex items-center justify-between">
-              <p style={{ color: akad.textOnDarkTertiary, fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 500 }}>Clientes</p>
-              <Users size={13} color="rgba(230,0,126,0.35)" aria-hidden="true" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-6 rounded-lg flex items-center justify-center bg-white/5">
+                <Users size={12} color={akad.pinkLight} />
+              </div>
+              <p style={{ color: akad.textOnDarkSecondary, fontSize: "11px", fontWeight: 600 }}>Clientes</p>
             </div>
             <div>
-              <p style={{ color: "#fff", fontSize: "32px", fontWeight: 800, letterSpacing: "-1.5px", lineHeight: 1 }}>847</p>
-              <p style={{ color: akad.success, fontSize: "10px", fontWeight: 500, marginTop: "3px" }}>+23 este mês</p>
+              <p style={{ color: "#fff", fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", lineHeight: 1 }}>847</p>
+              <p className="mt-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-white/5" style={{ color: akad.success, fontSize: "10px", fontWeight: 600 }}>
+                +23 novos
+              </p>
             </div>
           </motion.button>
 
           {/* Renovações */}
           <motion.button onClick={() => onNavigate("policies")}
-            className="col-span-2 rounded-[16px] p-3.5 flex items-center gap-3 cursor-pointer text-left"
-            style={{ background: "linear-gradient(135deg, rgba(230,0,126,0.05) 0%, rgba(59,34,184,0.03) 100%)", border: "1px solid rgba(230,0,126,0.08)" }}
+            className="col-span-2 rounded-[20px] p-4 flex items-center gap-4 cursor-pointer text-left overflow-hidden relative"
+            style={{ background: "linear-gradient(135deg, rgba(230,0,126,0.08) 0%, rgba(59,34,184,0.05) 100%)", border: "1px solid rgba(230,0,126,0.15)" }}
             initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, delay: 0.12 }}
             aria-label="12 renovações pendentes">
-            <div className="w-10 h-10 rounded-[12px] flex items-center justify-center shrink-0"
-              style={{ background: "rgba(230,0,126,0.08)" }}>
-              <AlertTriangle size={17} color={akad.pink} />
+            <div className="absolute right-0 top-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl transform translate-x-12 -translate-y-8" />
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+              style={{ background: "rgba(230,0,126,0.15)", border: "1px solid rgba(230,0,126,0.2)" }}>
+              <AlertTriangle size={20} color={akad.pinkLight} />
             </div>
-            <div className="flex-1 min-w-0">
-              <p style={{ color: "#fff", fontSize: "13px", fontWeight: 600 }}>Renovações Pendentes</p>
-              <p style={{ color: akad.textOnDarkTertiary, fontSize: "11px" }}>12 apólices vencem esta semana</p>
+            <div className="flex-1 min-w-0 z-10">
+              <p style={{ color: "#fff", fontSize: "15px", fontWeight: 600 }}>Renovações Pendentes</p>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", marginTop: "2px" }}>12 apólices vencem esta semana</p>
             </div>
-            <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-              style={{ background: akad.gradientAccent }}>
-              <span style={{ color: "#fff", fontSize: "13px", fontWeight: 800 }}>12</span>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 z-10"
+              style={{ background: akad.gradientAccent, boxShadow: "0 4px 12px rgba(230,0,126,0.3)" }}>
+              <span style={{ color: "#fff", fontSize: "15px", fontWeight: 800 }}>12</span>
             </div>
           </motion.button>
 
           {/* Apólices */}
           <motion.button onClick={() => onNavigate("policies")}
-            className="col-span-1 rounded-[16px] p-3.5 flex flex-col justify-between cursor-pointer text-left"
-            style={{ background: akad.darkCard, border: `1px solid ${akad.darkBorder}` }}
+            className="col-span-1 rounded-[20px] p-4 flex flex-col justify-between text-left cursor-pointer"
+            style={{ background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.06)`, backdropFilter: "blur(12px)" }}
             initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25, delay: 0.16 }}
             aria-label="Apólices — ver todas">
-            <div className="flex items-center justify-between">
-              <p style={{ color: akad.textOnDarkTertiary, fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 500 }}>Apólices</p>
-              <FileText size={13} color="rgba(230,0,126,0.35)" aria-hidden="true" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-6 rounded-lg flex items-center justify-center bg-white/5">
+                <FileText size={12} color={akad.pinkLight} />
+              </div>
+              <p style={{ color: akad.textOnDarkSecondary, fontSize: "11px", fontWeight: 600 }}>Apólices</p>
             </div>
             <div>
-              <p style={{ color: "#fff", fontSize: "28px", fontWeight: 800, letterSpacing: "-1.2px", lineHeight: 1 }}>1.2K</p>
-              <p style={{ color: akad.pink, fontSize: "10px", fontWeight: 500, marginTop: "3px" }}>98% ativas</p>
+              <p style={{ color: "#fff", fontSize: "32px", fontWeight: 800, letterSpacing: "-1.2px", lineHeight: 1 }}>1.2K</p>
+              <div className="w-full h-1.5 bg-white/10 rounded-full mt-3 overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: "98%", background: akad.pink }} />
+              </div>
+              <p style={{ color: akad.pinkLight, fontSize: "10px", fontWeight: 500, marginTop: "6px" }}>98% de retenção</p>
             </div>
           </motion.button>
 
           {/* Conversão */}
-          <motion.article className="col-span-1 rounded-[16px] p-3.5 flex flex-col justify-between relative overflow-hidden"
-            style={{ background: akad.gradientAccent }}
+          <motion.article className="col-span-1 rounded-[20px] p-4 flex flex-col justify-between relative overflow-hidden"
+            style={{ background: akad.gradientAccent, boxShadow: "0 8px 24px rgba(59,34,184,0.2)" }}
             initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25, delay: 0.16 }}
             aria-label="Conversão 73%">
-            <div className="absolute -top-3 -right-3 w-16 h-16 rounded-full"
-              style={{ background: "rgba(255,255,255,0.08)" }} aria-hidden="true" />
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "9px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 500 }}>Conversão</p>
-            <div>
-              <p style={{ color: "#fff", fontSize: "32px", fontWeight: 800, letterSpacing: "-1.5px", lineHeight: 1 }}>73%</p>
-              <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "10px", marginTop: "3px" }}>Meta: 70%</p>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full"
+              style={{ background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }} aria-hidden="true" />
+            <div className="flex items-center gap-2 mb-1 relative z-10">
+              <div className="w-6 h-6 rounded-lg flex items-center justify-center bg-white/20">
+                <TrendingUp size={12} color="#fff" />
+              </div>
+              <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "11px", fontWeight: 600 }}>Conversão</p>
+            </div>
+            <div className="relative z-10 mt-4">
+              <p style={{ color: "#fff", fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", lineHeight: 1 }}>73%</p>
+              <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "11px", marginTop: "4px", fontWeight: 500 }}>Meta: 70%</p>
             </div>
           </motion.article>
 
           {/* Relatório */}
           <motion.button onClick={onOpenReport}
-            className="col-span-2 rounded-[16px] p-3.5 flex items-center justify-between cursor-pointer"
-            style={{ background: akad.darkCard, border: `1px solid ${akad.darkBorder}` }}
+            className="col-span-2 rounded-[20px] p-4 flex items-center justify-between cursor-pointer group"
+            style={{ background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.06)`, backdropFilter: "blur(12px)" }}
             initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, delay: 0.2 }}
             aria-label="Relatório mensal">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-[10px] flex items-center justify-center"
-                style={{ background: "rgba(59,34,184,0.12)" }}>
-                <TrendingUp size={16} color={akad.blueLight} />
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-[14px] flex items-center justify-center transition-colors group-hover:bg-white/10"
+                style={{ background: "rgba(59,34,184,0.15)", border: "1px solid rgba(59,34,184,0.3)" }}>
+                <FileText size={20} color={akad.blueLight} />
               </div>
               <div className="text-left">
-                <p style={{ color: "#fff", fontSize: "13px", fontWeight: 600 }}>Relatório Mensal</p>
-                <p style={{ color: akad.textOnDarkTertiary, fontSize: "10px" }}>Fevereiro 2026</p>
+                <p style={{ color: "#fff", fontSize: "15px", fontWeight: 600 }}>Relatório Mensal</p>
+                <p style={{ color: akad.textOnDarkTertiary, fontSize: "12px", marginTop: "2px" }}>Fevereiro 2026 emitido</p>
               </div>
             </div>
-            <ArrowUpRight size={16} color="rgba(255,255,255,0.2)" />
+            <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+              <ArrowUpRight size={18} color="rgba(255,255,255,0.4)" />
+            </div>
           </motion.button>
         </div>
-        <div className="h-1" />
+        <div className="h-6" />
       </main>
 
       <TabBar active={activeTab} onNavigate={onNavigate} dark />
-    </PhoneFrame>
+    </div>
   );
 }

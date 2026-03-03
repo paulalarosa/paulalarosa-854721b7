@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getProject } from '@/data/projects';
+import { Helmet } from 'react-helmet-async';
 
 export default function ProjetoPage() {
     const { id } = useParams<{ id: string }>();
@@ -19,7 +20,24 @@ export default function ProjetoPage() {
     }
 
     return (
-        <div className="min-h-screen bg-background">
+        <motion.div
+            className="min-h-screen bg-background"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+            <Helmet>
+                <title>{project.name} - Khaos Kontrol</title>
+                <meta name="description" content={project.tagline} />
+                <meta property="og:title" content={`${project.name} - Khaos Kontrol`} />
+                <meta property="og:description" content={project.tagline} />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${project.name} - Khaos Kontrol`} />
+                <meta name="twitter:description" content={project.tagline} />
+            </Helmet>
+
             <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
                     <Link
@@ -244,6 +262,6 @@ export default function ProjetoPage() {
                     </a>
                 </div>
             </main>
-        </div>
+        </motion.div>
     );
 }
