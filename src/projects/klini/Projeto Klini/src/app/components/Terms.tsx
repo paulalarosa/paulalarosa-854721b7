@@ -42,7 +42,7 @@ export function Terms() {
       <PageHeader title="Termos de Uso" backTo="/profile" />
 
       {/* Info */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -61,7 +61,7 @@ export function Terms() {
       </div>
 
       {/* Seções */}
-      <div className="px-5 pt-3 flex flex-col gap-2.5">
+      <div className="px-4 xs:px-5 pt-3 flex flex-col gap-2.5">
         {sections.map((section, index) => (
           <motion.div
             key={section.id}
@@ -96,7 +96,7 @@ export function Terms() {
                   transition={{ duration: 0.25 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-5 pb-5 pt-0">
+                  <div className="px-4 xs:px-5 pb-5 pt-0">
                     <p className="text-[12px] text-[#7a7a8a] leading-[1.7]">{section.content}</p>
                   </div>
                 </motion.div>
@@ -107,7 +107,7 @@ export function Terms() {
       </div>
 
       {/* Aceite */}
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <div
           className="bg-[#2D9F93]/[0.05] rounded-[20px] p-5 border border-[#2D9F93]/10"
         >

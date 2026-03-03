@@ -84,7 +84,7 @@ export function Requests() {
       <PageHeader title="Solicitações" />
 
       {/* Botão Nova Solicitação */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <motion.button
           whileTap={{ scale: 0.98 }}
           className="w-full py-4 rounded-2xl text-white text-[14px] tracking-wide flex items-center justify-center gap-2 cursor-pointer"
@@ -100,7 +100,7 @@ export function Requests() {
       </div>
 
       {/* Filtros */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <div className="flex gap-2 overflow-x-auto no-scrollbar" role="group" aria-label="Filtrar solicitações">
           {(Object.keys(filterLabels) as FilterType[]).map((f) => {
             const active = filter === f;
@@ -110,15 +110,14 @@ export function Requests() {
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setFilter(f)}
                 aria-pressed={active}
-                className={`shrink-0 px-4 py-2.5 rounded-full text-[13px] cursor-pointer transition-all ${
-                  active ? "text-white" : "text-[#5a5a6a] bg-white"
-                }`}
+                className={`shrink-0 px-4 py-2.5 rounded-full text-[13px] cursor-pointer transition-all ${active ? "text-white" : "text-[#5a5a6a] bg-white"
+                  }`}
                 style={
                   active
                     ? {
-                        background: "linear-gradient(135deg, #2D9F93, #3DB4A7)",
-                        boxShadow: "0 4px 12px rgba(45,159,147,0.25)",
-                      }
+                      background: "linear-gradient(135deg, #2D9F93, #3DB4A7)",
+                      boxShadow: "0 4px 12px rgba(45,159,147,0.25)",
+                    }
                     : { boxShadow: "0 1px 2px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.03)" }
                 }
               >
@@ -130,7 +129,7 @@ export function Requests() {
       </div>
 
       {/* Lista de solicitações */}
-      <div className="px-5 pt-4 flex flex-col gap-3" role="list" aria-label="Lista de solicitações">
+      <div className="px-4 xs:px-5 pt-4 flex flex-col gap-3" role="list" aria-label="Lista de solicitações">
         {filtered.map((req, index) => {
           const config = statusConfig[req.status];
           const StatusIcon = config.icon;

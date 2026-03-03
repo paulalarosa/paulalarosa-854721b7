@@ -45,10 +45,19 @@ const Index = () => {
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <Helmet>
-        <title>Khaos Kontrol | Product Design & Engineering</title>
-        <meta name="description" content="Engenharia de Software e Product Design focado em inovação, performance e alta conversão." />
-        <meta property="og:title" content="Khaos Kontrol | Product Design & Engineering" />
-        <meta property="og:description" content="Engenharia de Software e Product Design focado em inovação, performance e alta conversão." />
+        <title>Paula La Rosa | Creative Frontend Developer &amp; UI Engineer</title>
+        <meta name="description" content="Desenvolvedora Frontend Especialista em React, TypeScript e Next.js. Interfaces imersivas, animações de alta performance e produtos digitais escaláveis." />
+        <link rel="canonical" href="https://paulalarosa.com/" />
+        <meta property="og:title" content="Paula La Rosa | Creative Frontend Developer &amp; UI Engineer" />
+        <meta property="og:description" content="Engenharia Frontend &amp; Design. Especialista em React, Next.js e Animações Web. Transforme sua visão em produtos digitais de alta performance." />
+        <meta property="og:url" content="https://paulalarosa.com/" />
+        <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Paula La Rosa | Creative Frontend Developer" />
+        <meta name="twitter:description" content="Engenharia Frontend &amp; Design. Especialista em React, Next.js e Animações Web." />
+        <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
       </Helmet>
 
       <Header />

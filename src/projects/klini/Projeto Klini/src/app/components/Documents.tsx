@@ -65,7 +65,7 @@ export function Documents() {
       <PageHeader title="Documentos do Plano" backTo="/profile" />
 
       {/* Resumo */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -84,7 +84,7 @@ export function Documents() {
       </div>
 
       {/* Lista */}
-      <div className="px-5 pt-3 flex flex-col gap-2.5" role="list" aria-label="Lista de documentos">
+      <div className="px-4 xs:px-5 pt-3 flex flex-col gap-2.5" role="list" aria-label="Lista de documentos">
         {documents.map((doc, index) => (
           <motion.div
             key={doc.id}

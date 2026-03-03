@@ -25,16 +25,16 @@ export function MobileShell() {
       role="application"
       aria-label="Klini - Plano de Saúde Digital"
     >
-      <main className="flex-1 overflow-y-auto overscroll-contain" id="main-content">
+      <main className="flex-1 overflow-y-auto overscroll-contain pb-[72px]" id="main-content">
         <Outlet />
       </main>
 
       <nav
-        className="bg-white border-t border-[#f0f0f2] px-3 flex justify-around relative shrink-0"
+        className="bg-white border-t border-[#f0f0f2] px-1.5 flex justify-around fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto z-50"
         style={{
-          paddingBottom: "max(1.75rem, env(safe-area-inset-bottom))",
+          paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
           paddingTop: "0.5rem",
-          boxShadow: "0 -1px 0 rgba(0,0,0,0.04), 0 -4px 16px rgba(0,0,0,0.03)",
+          boxShadow: "0 -1px 40px rgba(0,0,0,0.03), 0 -4px 16px rgba(0,0,0,0.02)",
         }}
         role="tablist"
         aria-label="Navegação principal"
@@ -48,7 +48,7 @@ export function MobileShell() {
               role="tab"
               aria-selected={active}
               aria-label={tab.label}
-              className="flex flex-col items-center gap-1 px-5 py-1.5 rounded-2xl transition-all duration-200 relative min-w-[60px] cursor-pointer"
+              className="flex flex-col items-center gap-1 px-3 xs:px-5 py-1.5 rounded-2xl transition-all duration-200 relative min-w-[56px] cursor-pointer"
             >
               {active && (
                 <motion.div

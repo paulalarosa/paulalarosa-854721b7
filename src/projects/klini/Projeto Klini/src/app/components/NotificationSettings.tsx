@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 interface ToggleRowProps {
-  icon: React.ElementType;
+  icon: any;
   label: string;
   description: string;
   defaultOn?: boolean;
@@ -27,7 +27,7 @@ function ToggleRow({ icon: Icon, label, description, defaultOn = true, delay }: 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay }}
-      className="flex items-center gap-3.5 px-5 py-4"
+      className="flex items-center gap-3.5 px-4 xs:px-5 py-4"
     >
       <div className="w-10 h-10 rounded-[14px] bg-[#FAFBFC] flex items-center justify-center shrink-0">
         <Icon size={17} className="text-[#7a7a8a]" strokeWidth={1.7} />
@@ -38,9 +38,8 @@ function ToggleRow({ icon: Icon, label, description, defaultOn = true, delay }: 
       </div>
       <button
         onClick={() => setEnabled(!enabled)}
-        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${
-          enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
-        }`}
+        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
+          }`}
         role="switch"
         aria-checked={enabled}
         aria-label={label}
@@ -62,7 +61,7 @@ export function NotificationSettings() {
       <PageHeader title="Notificações" backTo="/profile" />
 
       {/* Canais */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Canais</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden divide-y divide-[#F5F5F7]"
@@ -75,7 +74,7 @@ export function NotificationSettings() {
       </div>
 
       {/* Categorias */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Categorias</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden divide-y divide-[#F5F5F7]"

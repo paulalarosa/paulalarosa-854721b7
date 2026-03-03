@@ -79,7 +79,7 @@ export function Tokens() {
       <PageHeader title="Guias" />
 
       {/* Resumo */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
@@ -100,7 +100,7 @@ export function Tokens() {
       </div>
 
       {/* Abas */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <div className="flex bg-[#F0F1F3] rounded-2xl p-1 relative" role="tablist" aria-label="Abas de guias">
           <motion.div
             className="absolute top-1 bottom-1 rounded-[14px] bg-white"
@@ -115,9 +115,8 @@ export function Tokens() {
             onClick={() => setActiveTab("active")}
             role="tab"
             aria-selected={activeTab === "active"}
-            className={`flex-1 py-2.5 rounded-[14px] text-[13px] relative z-10 cursor-pointer transition-colors ${
-              activeTab === "active" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
-            }`}
+            className={`flex-1 py-2.5 rounded-[14px] text-[13px] relative z-10 cursor-pointer transition-colors ${activeTab === "active" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
+              }`}
           >
             Ativas
           </button>
@@ -125,9 +124,8 @@ export function Tokens() {
             onClick={() => setActiveTab("past")}
             role="tab"
             aria-selected={activeTab === "past"}
-            className={`flex-1 py-2.5 rounded-[14px] text-[13px] relative z-10 cursor-pointer transition-colors ${
-              activeTab === "past" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
-            }`}
+            className={`flex-1 py-2.5 rounded-[14px] text-[13px] relative z-10 cursor-pointer transition-colors ${activeTab === "past" ? "text-[#1a1a2e]" : "text-[#B0B4BC]"
+              }`}
           >
             Anteriores
           </button>
@@ -139,10 +137,10 @@ export function Tokens() {
         <motion.div
           key={activeTab}
           initial={{ opacity: 0, x: activeTab === "active" ? -8 : 8 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
           exit={{ opacity: 0, x: activeTab === "active" ? 8 : -8 }}
           transition={{ duration: 0.2 }}
-          className="px-5 pt-4 flex flex-col gap-3"
+          className="px-4 xs:px-5 pt-4 flex flex-col gap-3"
           role="list"
           aria-label={`Guias ${activeTab === "active" ? "ativas" : "anteriores"}`}
         >

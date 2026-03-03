@@ -4,7 +4,7 @@ import { PageHeader } from "./PageHeader";
 import { Shield, Fingerprint, Lock, Eye, EyeOff, Smartphone, KeyRound } from "lucide-react";
 
 interface ToggleItemProps {
-  icon: React.ElementType;
+  icon: any;
   label: string;
   description: string;
   defaultOn?: boolean;
@@ -18,7 +18,7 @@ function ToggleItem({ icon: Icon, label, description, defaultOn = false, delay }
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay }}
-      className="flex items-center gap-3.5 px-5 py-4"
+      className="flex items-center gap-3.5 px-4 xs:px-5 py-4"
     >
       <div className="w-10 h-10 rounded-[14px] bg-[#FAFBFC] flex items-center justify-center shrink-0">
         <Icon size={17} className="text-[#7a7a8a]" strokeWidth={1.7} />
@@ -29,9 +29,8 @@ function ToggleItem({ icon: Icon, label, description, defaultOn = false, delay }
       </div>
       <button
         onClick={() => setEnabled(!enabled)}
-        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${
-          enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
-        }`}
+        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
+          }`}
         role="switch"
         aria-checked={enabled}
         aria-label={label}
@@ -55,7 +54,7 @@ export function Privacy() {
       <PageHeader title="Privacidade e Segurança" />
 
       {/* Status */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -78,8 +77,8 @@ export function Privacy() {
       </div>
 
       {/* Autenticação */}
-      <div className="px-5 pt-4">
-        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Autenticação</p>
+      <div className="px-4 xs:px-5 pt-4">
+        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Acesso</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden divide-y divide-[#F5F5F7]"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -109,7 +108,7 @@ export function Privacy() {
       </div>
 
       {/* Privacidade */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Privacidade</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden divide-y divide-[#F5F5F7]"
@@ -133,7 +132,7 @@ export function Privacy() {
       </div>
 
       {/* Alterar PIN */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Credenciais</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden"
@@ -142,7 +141,7 @@ export function Privacy() {
           <motion.button
             whileTap={{ scale: 0.98 }}
             onClick={() => setShowPin(!showPin)}
-            className="w-full px-5 py-4 flex items-center gap-3.5 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors"
+            className="w-full px-4 xs:px-5 py-4 flex items-center gap-3.5 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors"
           >
             <div className="w-10 h-10 rounded-[14px] bg-[#FAFBFC] flex items-center justify-center shrink-0">
               <Lock size={17} className="text-[#7a7a8a]" strokeWidth={1.7} />
@@ -161,7 +160,7 @@ export function Privacy() {
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.98 }}
-            className="w-full px-5 py-4 flex items-center gap-3.5 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors border-t border-[#F5F5F7]"
+            className="w-full px-4 xs:px-5 py-4 flex items-center gap-3.5 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors border-t border-[#F5F5F7]"
           >
             <div className="w-10 h-10 rounded-[14px] bg-[#FAFBFC] flex items-center justify-center shrink-0">
               <KeyRound size={17} className="text-[#7a7a8a]" strokeWidth={1.7} />

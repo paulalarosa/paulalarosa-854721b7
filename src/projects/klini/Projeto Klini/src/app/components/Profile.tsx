@@ -55,7 +55,7 @@ export function Profile() {
     <div className="pb-4">
       {/* Header do perfil */}
       <div
-        className="px-6 pt-14 pb-8 relative overflow-hidden"
+        className="px-4 xs:px-6 pt-10 xs:pt-14 pb-8 relative overflow-hidden"
         style={{
           background: "linear-gradient(160deg, #155F57 0%, #1A7A70 40%, #2D9F93 100%)",
         }}
@@ -108,7 +108,7 @@ export function Profile() {
       </div>
 
       {/* Badge do plano */}
-      <div className="px-5 -mt-4 relative z-20">
+      <div className="px-4 xs:px-5 -mt-4 relative z-20">
         <motion.button
           whileTap={{ scale: 0.98 }}
           onClick={() => navigate("/card")}
@@ -136,7 +136,7 @@ export function Profile() {
 
       {/* Seções do menu */}
       {menuSections.map((section, sIdx) => (
-        <div key={section.title} className="px-5 pt-5">
+        <div key={section.title} className="px-4 xs:px-5 pt-5">
           <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">
             {section.title}
           </p>
@@ -170,7 +170,7 @@ export function Profile() {
       ))}
 
       {/* Sair */}
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <button
           className="w-full py-3.5 rounded-[20px] bg-white flex items-center justify-center gap-2 text-[#D07048] cursor-pointer"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.04)" }}

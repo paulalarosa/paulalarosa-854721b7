@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,9 @@ import { Helmet } from "react-helmet-async";
 const CaseStudy = () => {
   const { id } = useParams();
   const { t } = useTranslation();
+  const location = useLocation();
   const { projectData, nextProject } = useCaseStudy(id);
+  const canonicalUrl = `https://paulalarosa.com${location.pathname}`;
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -36,14 +38,19 @@ const CaseStudy = () => {
       transition={{ duration: 0.5, ease: "circOut" }}
     >
       <Helmet>
-        <title>{projectData?.title ? `${projectData.title} - Case Study` : 'Case Study'}</title>
-        <meta name="description" content={projectData?.subtitle || 'Case Study - Khaos Kontrol'} />
-        <meta property="og:title" content={projectData?.title ? `${projectData.title} - Case Study` : 'Case Study'} />
-        <meta property="og:description" content={projectData?.subtitle || 'Case Study - Khaos Kontrol'} />
+        <title>{projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study — Paula La Rosa'}</title>
+        <meta name="description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study'} />
+        <meta property="og:description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
         <meta property="og:type" content="article" />
+        <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={projectData?.title ? `${projectData.title} - Case Study` : 'Case Study'} />
-        <meta name="twitter:description" content={projectData?.subtitle || 'Case Study - Khaos Kontrol'} />
+        <meta name="twitter:title" content={projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study'} />
+        <meta name="twitter:description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
+        <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
       </Helmet>
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-accent z-50 origin-left"

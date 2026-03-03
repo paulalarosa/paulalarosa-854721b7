@@ -57,7 +57,7 @@ export function BiometricData() {
       <PageHeader title="Dados de Saúde" backTo="/profile" />
 
       {/* Perfil de saúde */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -76,7 +76,7 @@ export function BiometricData() {
       </div>
 
       {/* Cards de dados vitais */}
-      <div className="px-5 pt-3">
+      <div className="px-4 xs:px-5 pt-3">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Dados Vitais</p>
         <div className="grid grid-cols-2 gap-2.5">
           {healthData.map((item, index) => (
@@ -128,9 +128,8 @@ export function BiometricData() {
           {conditions.map((condition, index) => (
             <div
               key={condition.name}
-              className={`px-5 py-4 flex items-center gap-3 ${
-                index < conditions.length - 1 ? "border-b border-[#F5F5F7]" : ""
-              }`}
+              className={`px-5 py-4 flex items-center gap-3 ${index < conditions.length - 1 ? "border-b border-[#F5F5F7]" : ""
+                }`}
             >
               <div className="w-10 h-10 rounded-[14px] bg-amber-50 flex items-center justify-center shrink-0">
                 <Activity size={16} className="text-amber-500" strokeWidth={1.7} />
@@ -157,9 +156,8 @@ export function BiometricData() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.04 + 0.2 }}
-              className={`px-5 py-3.5 flex items-center gap-3 ${
-                index < vaccinations.length - 1 ? "border-b border-[#F5F5F7]" : ""
-              }`}
+              className={`px-5 py-3.5 flex items-center gap-3 ${index < vaccinations.length - 1 ? "border-b border-[#F5F5F7]" : ""
+                }`}
             >
               <div className="w-1 h-8 rounded-full bg-[#2D9F93]/20" />
               <div className="flex-1">

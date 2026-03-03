@@ -69,7 +69,7 @@ export function WaitingPeriods() {
       <PageHeader title="Carências" />
 
       {/* Resumo */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5"
           style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -81,7 +81,7 @@ export function WaitingPeriods() {
       </div>
 
       {/* Lista de carências */}
-      <div className="px-5 pt-3">
+      <div className="px-4 xs:px-5 pt-3">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Cronograma de Cobertura</p>
         <div className="flex flex-col gap-3" role="list" aria-label="Lista de carências">
           {periods.map((period, index) => {

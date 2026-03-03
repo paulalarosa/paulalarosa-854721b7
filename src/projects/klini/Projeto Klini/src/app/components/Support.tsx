@@ -65,7 +65,7 @@ export function Support() {
       <PageHeader title="Suporte" />
 
       {/* Horário de funcionamento */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -85,8 +85,8 @@ export function Support() {
       </div>
 
       {/* Opções de contato */}
-      <div className="px-5 pt-5">
-        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Fale Conosco</p>
+      <div className="px-4 xs:px-5 pt-5">
+        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Canais de Atendimento</p>
         <div className="flex flex-col gap-2.5">
           {contactOptions.map((option, index) => (
             <motion.button

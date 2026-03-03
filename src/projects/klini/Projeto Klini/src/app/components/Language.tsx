@@ -16,7 +16,7 @@ export function Language() {
     <div className="pb-4">
       <PageHeader title="Idioma" backTo="/profile" />
 
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -34,7 +34,7 @@ export function Language() {
         </div>
       </div>
 
-      <div className="px-5 pt-3">
+      <div className="px-4 xs:px-5 pt-3">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Disponíveis</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden"
@@ -47,9 +47,8 @@ export function Language() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
               onClick={() => setSelected(lang.code)}
-              className={`w-full px-5 py-4 flex items-center gap-4 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors ${
-                index < languages.length - 1 ? "border-b border-[#F5F5F7]" : ""
-              }`}
+              className={`w-full px-4 xs:px-5 py-4 flex items-center gap-4 text-left cursor-pointer hover:bg-[#FAFBFC] transition-colors ${index < languages.length - 1 ? "border-b border-[#F5F5F7]" : ""
+                }`}
               aria-pressed={selected === lang.code}
             >
               <span className="text-[24px]">{lang.flag}</span>

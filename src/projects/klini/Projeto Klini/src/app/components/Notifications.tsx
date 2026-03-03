@@ -128,7 +128,7 @@ export function Notifications() {
       />
 
       {/* Resumo */}
-      <div className="px-5 pt-1 pb-2">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <div
           className="bg-white rounded-[20px] p-5 flex items-center gap-4"
           style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
@@ -151,7 +151,7 @@ export function Notifications() {
       </div>
 
       {/* Lista */}
-      <div className="px-5 pt-3">
+      <div className="px-4 xs:px-5 pt-3">
         <AnimatePresence>
           <div className="flex flex-col gap-2" role="list" aria-label="Lista de notificações">
             {notifications.map((notif, index) => (
@@ -162,9 +162,8 @@ export function Notifications() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -100, height: 0, marginBottom: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.04 }}
-                className={`bg-white rounded-[20px] p-4 relative overflow-hidden ${
-                  !notif.read ? "border-l-[3px] border-l-[#2D9F93]" : ""
-                }`}
+                className={`bg-white rounded-[20px] p-4 relative overflow-hidden ${!notif.read ? "border-l-[3px] border-l-[#2D9F93]" : ""
+                  }`}
                 style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.03)" }}
                 role="listitem"
               >

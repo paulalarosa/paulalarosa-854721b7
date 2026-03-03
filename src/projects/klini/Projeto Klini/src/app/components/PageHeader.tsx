@@ -13,7 +13,7 @@ export function PageHeader({ title, showBack = true, backTo = "/", rightAction }
 
   return (
     <header
-      className="px-6 pt-14 pb-4 flex items-center justify-between sticky top-0 z-40"
+      className="px-4 xs:px-6 pt-10 xs:pt-14 pb-4 flex items-center justify-between sticky top-0 z-40"
       style={{
         background: "rgba(250,251,252,0.82)",
         backdropFilter: "blur(20px)",
@@ -30,7 +30,7 @@ export function PageHeader({ title, showBack = true, backTo = "/", rightAction }
             <ChevronLeft size={22} className="text-[#1a1a2e]" strokeWidth={2} />
           </button>
         )}
-        <h2 className="text-[#1a1a2e] tracking-[-0.02em]">{title}</h2>
+        <h2 className="text-[#1a1a2e] text-[16px] font-semibold tracking-[-0.02em] truncate">{title}</h2>
       </div>
       {rightAction && <div>{rightAction}</div>}
     </header>

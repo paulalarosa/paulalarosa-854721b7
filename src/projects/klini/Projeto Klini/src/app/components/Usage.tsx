@@ -28,7 +28,7 @@ export function Usage() {
       <PageHeader title="Utilização" />
 
       {/* Uso geral */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <div
           className="bg-white rounded-[20px] p-5"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
@@ -65,8 +65,8 @@ export function Usage() {
       </div>
 
       {/* Por categoria */}
-      <div className="px-5 pt-5">
-        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Por Categoria</p>
+      <div className="px-4 xs:px-5 pt-5">
+        <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Consultas</p>
         <div className="flex flex-col gap-2.5">
           {usageStats.map((stat, index) => {
             const percentage = Math.round((stat.count / stat.limit) * 100);
@@ -114,7 +114,7 @@ export function Usage() {
       </div>
 
       {/* Atividade recente */}
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Atividade Recente</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden"
@@ -126,9 +126,8 @@ export function Usage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.05 + 0.3 }}
-              className={`px-4 py-3.5 flex items-center gap-3 ${
-                index < recentActivity.length - 1 ? "border-b border-[#F0F1F3]" : ""
-              }`}
+              className={`px-4 py-3.5 flex items-center gap-3 ${index < recentActivity.length - 1 ? "border-b border-[#F0F1F3]" : ""
+                }`}
             >
               <div className="w-1 h-8 rounded-full bg-[#2D9F93]/20" />
               <div className="flex-1 min-w-0">

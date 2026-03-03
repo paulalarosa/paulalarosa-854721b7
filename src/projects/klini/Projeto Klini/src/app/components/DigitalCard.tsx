@@ -33,12 +33,12 @@ export function DigitalCard() {
       <PageHeader title="Carteirinha Digital" />
 
       {/* Card visual */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="rounded-[24px] p-6 relative overflow-hidden"
+          className="rounded-[24px] p-4 xs:p-6 relative overflow-hidden"
           style={{
             background: "linear-gradient(160deg, #1A7A70 0%, #2D9F93 45%, #3DBDB0 100%)",
             aspectRatio: "1.6 / 1",
@@ -76,7 +76,7 @@ export function DigitalCard() {
       </div>
 
       {/* Ações rápidas */}
-      <div className="px-5 pt-4 flex gap-2.5">
+      <div className="px-4 xs:px-5 pt-4 flex gap-2.5">
         <motion.button
           whileTap={{ scale: 0.96 }}
           onClick={() => setShowQr(!showQr)}
@@ -109,7 +109,7 @@ export function DigitalCard() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="px-5 pt-3 overflow-hidden"
+          className="px-4 xs:px-5 pt-3 overflow-hidden"
         >
           <div
             className="bg-white rounded-[20px] p-6 flex flex-col items-center"
@@ -124,7 +124,7 @@ export function DigitalCard() {
       )}
 
       {/* Dados do cartão */}
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Dados do Beneficiário</p>
         <div
           className="bg-white rounded-[20px] overflow-hidden"

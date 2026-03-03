@@ -102,7 +102,7 @@ export function NetworkSearch() {
         }
       />
 
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <label htmlFor="search-network" className="sr-only">
           Buscar médico ou especialidade
         </label>
@@ -124,7 +124,7 @@ export function NetworkSearch() {
         </div>
       </div>
 
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Tipo de Atendimento</p>
         <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar" role="group" aria-label="Filtro por tipo de atendimento">
           {serviceTypes.map((service) => {
@@ -155,7 +155,7 @@ export function NetworkSearch() {
         </div>
       </div>
 
-      <div className="px-5 pt-4">
+      <div className="px-4 xs:px-5 pt-4">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Especialidade</p>
         <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar" role="group" aria-label="Filtro por especialidade">
           {specialties.map((s) => {
@@ -188,7 +188,7 @@ export function NetworkSearch() {
         </div>
       </div>
 
-      <div className="px-5 pt-6">
+      <div className="px-4 xs:px-5 pt-6">
         <motion.button
           whileTap={{ scale: 0.98 }}
           onClick={handleSearch}
@@ -210,7 +210,7 @@ export function NetworkSearch() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="px-5 pt-6"
+            className="px-4 xs:px-5 pt-6"
           >
             <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">
               {mockResults.length} profissionais encontrados
@@ -236,7 +236,7 @@ export function NetworkSearch() {
                       {doctor.avatar}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[14px] text-[#1a1a2e] tracking-[-0.01em] mb-0.5">
+                      <h4 className="text-[13px] text-[#1a1a2e] tracking-[-0.01em] mb-0.5 truncate">
                         {doctor.name}
                       </h4>
                       <span className="text-[12px] text-[#9a9aaa]">{doctor.specialty}</span>
@@ -250,7 +250,7 @@ export function NetworkSearch() {
 
                   <div className="flex items-center gap-2 mb-1.5">
                     <MapPin size={13} className="text-[#C0C4CC] shrink-0" />
-                    <span className="text-[12px] text-[#7a7a8a]">{doctor.location}</span>
+                    <span className="text-[11px] text-[#7a7a8a] truncate">{doctor.location}</span>
                   </div>
                   <div className="flex items-center gap-2 mb-4 pl-[21px]">
                     <span className="text-[11px] text-[#B0B4BC]">{doctor.room}</span>

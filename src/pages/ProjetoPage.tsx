@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getProject } from '@/data/projects';
@@ -6,7 +6,9 @@ import { Helmet } from 'react-helmet-async';
 
 export default function ProjetoPage() {
     const { id } = useParams<{ id: string }>();
+    const location = useLocation();
     const project = getProject(id ?? '');
+    const canonicalUrl = `https://paulalarosa.com${location.pathname}`;
 
     if (!project) {
         return (
@@ -28,14 +30,19 @@ export default function ProjetoPage() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
         >
             <Helmet>
-                <title>{project.name} - Khaos Kontrol</title>
+                <title>{project.name} — Paula La Rosa</title>
                 <meta name="description" content={project.tagline} />
-                <meta property="og:title" content={`${project.name} - Khaos Kontrol`} />
+                <link rel="canonical" href={canonicalUrl} />
+                <meta property="og:title" content={`${project.name} — Paula La Rosa`} />
                 <meta property="og:description" content={project.tagline} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
                 <meta property="og:type" content="website" />
+                <meta property="og:locale" content="pt_BR" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={`${project.name} - Khaos Kontrol`} />
+                <meta name="twitter:title" content={`${project.name} — Paula La Rosa`} />
                 <meta name="twitter:description" content={project.tagline} />
+                <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
             </Helmet>
 
             <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">

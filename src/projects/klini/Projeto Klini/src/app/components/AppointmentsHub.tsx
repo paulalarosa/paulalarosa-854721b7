@@ -134,7 +134,7 @@ function AppointmentCard({ apt, index }: { apt: Appointment; index: number }) {
           {apt.avatar}
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-[14px] text-[#1a1a2e] tracking-[-0.01em] mb-0.5">
+          <h4 className="text-[13px] text-[#1a1a2e] tracking-[-0.01em] mb-0.5 truncate">
             {apt.doctor}
           </h4>
           <span className="text-[12px] text-[#9a9aaa]">{apt.specialty}</span>
@@ -152,7 +152,7 @@ function AppointmentCard({ apt, index }: { apt: Appointment; index: number }) {
 
       <div className="flex items-center gap-2 mb-1">
         <MapPin size={13} className="text-[#C0C4CC] shrink-0" />
-        <span className="text-[12px] text-[#7a7a8a]">{apt.location}</span>
+        <span className="text-[11px] text-[#7a7a8a] truncate">{apt.location}</span>
       </div>
       <div className="pl-[21px] mb-4">
         <span className="text-[11px] text-[#B0B4BC]">{apt.room}</span>
@@ -188,7 +188,7 @@ export function AppointmentsHub() {
     <div className="pb-4">
       <PageHeader title="Consultas" />
 
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1">
         <div
           className="flex bg-[#F0F1F3] rounded-2xl p-1 relative"
           role="tablist"
@@ -239,7 +239,7 @@ export function AppointmentsHub() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 8 }}
             transition={{ duration: 0.2 }}
-            className="px-5 pt-4"
+            className="px-4 xs:px-5 pt-4"
           >
             <motion.button
               whileTap={{ scale: 0.98 }}
@@ -270,7 +270,7 @@ export function AppointmentsHub() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -8 }}
             transition={{ duration: 0.2 }}
-            className="px-5 pt-4"
+            className="px-4 xs:px-5 pt-4"
           >
             <div
               className="flex items-center bg-white rounded-2xl px-4 py-3.5 gap-3 mb-4"

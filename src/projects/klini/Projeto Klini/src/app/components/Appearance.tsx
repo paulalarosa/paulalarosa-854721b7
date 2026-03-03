@@ -6,9 +6,9 @@ import { Sun, Moon, Monitor, Palette, Type, Maximize } from "lucide-react";
 type Theme = "light" | "dark" | "system";
 
 const themes: { value: Theme; label: string; icon: React.ElementType; description: string }[] = [
-  { value: "light", label: "Claro", icon: Sun, description: "Fundo branco com texto escuro" },
-  { value: "dark", label: "Escuro", icon: Moon, description: "Fundo escuro com texto claro" },
-  { value: "system", label: "Sistema", icon: Monitor, description: "Seguir configuração do dispositivo" },
+  { value: "light", label: "Claro", icon: Sun as any, description: "Fundo branco com texto escuro" },
+  { value: "dark", label: "Escuro", icon: Moon as any, description: "Fundo escuro com texto claro" },
+  { value: "system", label: "Sistema", icon: Monitor as any, description: "Seguir configuração do dispositivo" },
 ];
 
 export function Appearance() {
@@ -22,7 +22,7 @@ export function Appearance() {
       <PageHeader title="Aparência" backTo="/profile" />
 
       {/* Tema */}
-      <div className="px-5 pt-1">
+      <div className="px-4 xs:px-5 pt-1 pb-2">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-2.5 px-1">Tema</p>
         <div className="flex gap-2.5">
           {themes.map((theme, index) => {
@@ -35,18 +35,16 @@ export function Appearance() {
                 transition={{ duration: 0.3, delay: index * 0.06 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setSelectedTheme(theme.value)}
-                className={`flex-1 rounded-[20px] p-4 flex flex-col items-center gap-3 cursor-pointer transition-all ${
-                  isSelected ? "ring-2 ring-[#2D9F93]" : ""
-                }`}
+                className={`flex-1 rounded-[20px] p-4 flex flex-col items-center gap-3 cursor-pointer transition-all ${isSelected ? "ring-2 ring-[#2D9F93]" : ""
+                  }`}
                 style={{
                   background: isSelected ? "linear-gradient(135deg, #E8F6F4, #F0FAF9)" : "#fff",
                   boxShadow: "0 0 0 1px rgba(0,0,0,0.03)",
                 }}
                 aria-pressed={isSelected}
               >
-                <div className={`w-11 h-11 rounded-[14px] flex items-center justify-center ${
-                  isSelected ? "bg-[#2D9F93]/[0.12]" : "bg-[#FAFBFC]"
-                }`}>
+                <div className={`w-11 h-11 rounded-[14px] flex items-center justify-center ${isSelected ? "bg-[#2D9F93]/[0.12]" : "bg-[#FAFBFC]"
+                  }`}>
                   <theme.icon size={20} className={isSelected ? "text-[#2D9F93]" : "text-[#7a7a8a]"} strokeWidth={1.7} />
                 </div>
                 <span className={`text-[12px] ${isSelected ? "text-[#2D9F93]" : "text-[#5a5a6a]"}`}>
@@ -131,7 +129,7 @@ export function Appearance() {
 }
 
 function ToggleOption({ icon: Icon, label, description, defaultOn = false, delay }: {
-  icon: React.ElementType;
+  icon: any;
   label: string;
   description: string;
   defaultOn?: boolean;
@@ -154,9 +152,8 @@ function ToggleOption({ icon: Icon, label, description, defaultOn = false, delay
       </div>
       <button
         onClick={() => setEnabled(!enabled)}
-        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${
-          enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
-        }`}
+        className={`w-[46px] h-[28px] rounded-full p-[2px] transition-colors duration-200 cursor-pointer shrink-0 ${enabled ? "bg-[#2D9F93]" : "bg-[#E0E2E6]"
+          }`}
         role="switch"
         aria-checked={enabled}
         aria-label={label}

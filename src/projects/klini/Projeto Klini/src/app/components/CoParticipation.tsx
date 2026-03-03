@@ -58,7 +58,7 @@ export function CoParticipation() {
       <PageHeader title="Coparticipação" />
 
       {/* Cards resumo */}
-      <div className="px-5 pt-1 flex gap-2.5">
+      <div className="px-4 xs:px-5 pt-1 flex gap-2.5">
         <div
           className="flex-1 bg-white rounded-[20px] p-4"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.02)" }}
@@ -83,7 +83,7 @@ export function CoParticipation() {
       </div>
 
       {/* Gráfico */}
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Últimos 6 Meses</p>
         <div
           className="bg-white rounded-[20px] p-5"
@@ -117,7 +117,7 @@ export function CoParticipation() {
       </div>
 
       {/* Transações */}
-      <div className="px-5 pt-5">
+      <div className="px-4 xs:px-5 pt-5">
         <p className="text-[11px] text-[#9a9aaa] tracking-wider uppercase mb-3 px-1">Transações Recentes</p>
         <div className="flex flex-col gap-3" role="list" aria-label="Transações de coparticipação">
           {transactions.map((tx, index) => (
@@ -135,18 +135,18 @@ export function CoParticipation() {
                   <Receipt size={16} className="text-[#7a7a8a]" strokeWidth={1.7} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between mb-0.5">
-                    <h4 className="text-[13px] text-[#1a1a2e] tracking-[-0.01em]">{tx.procedure}</h4>
-                    <span className="text-[14px] text-[#2D9F93] shrink-0 ml-2">{tx.copay}</span>
+                  <div className="flex items-start justify-between mb-0.5 gap-1">
+                    <h4 className="text-[13px] text-[#1a1a2e] tracking-[-0.01em] truncate min-w-0">{tx.procedure}</h4>
+                    <span className="text-[13px] text-[#2D9F93] shrink-0">{tx.copay}</span>
                   </div>
                   <p className="text-[12px] text-[#9a9aaa]">{tx.provider}</p>
-                  <div className="flex items-center gap-3 mt-2">
+                  <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mt-2">
                     <div className="flex items-center gap-1">
                       <Calendar size={11} className="text-[#C0C4CC]" />
-                      <span className="text-[11px] text-[#B0B4BC]">{tx.date}</span>
+                      <span className="text-[10px] text-[#B0B4BC]">{tx.date}</span>
                     </div>
-                    <span className="text-[11px] text-[#B0B4BC]">Total: {tx.total}</span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#2D9F93]/[0.08] text-[#2D9F93]">
+                    <span className="text-[10px] text-[#B0B4BC]">{tx.total}</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-[#2D9F93]/[0.08] text-[#2D9F93]">
                       {tx.percentage}
                     </span>
                   </div>

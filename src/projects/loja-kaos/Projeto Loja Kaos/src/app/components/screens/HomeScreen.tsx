@@ -15,7 +15,7 @@ export function HomeScreen({ onAddToCart, onProductPress, onNavigate }: HomeScre
   return (
     <main className="pb-28" style={{ background: "#F5F4F0" }} role="main">
       <HeroBanner
-        image="/img/kaos/kaos_hero.png"
+        image="/img/kaos/kaos_hero.webp"
         onShop={() => onNavigate("explore")}
       />
       <MarqueeStrip />
