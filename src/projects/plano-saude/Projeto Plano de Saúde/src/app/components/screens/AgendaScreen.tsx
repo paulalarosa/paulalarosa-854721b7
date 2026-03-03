@@ -13,13 +13,13 @@ const fadeUp = {
 };
 
 const weekDays = [
-  { key: "seg", label: "S", num: 24 },
-  { key: "ter", label: "T", num: 25, active: true, events: 2 },
-  { key: "qua", label: "Q", num: 26 },
-  { key: "qui", label: "Q", num: 27, events: 1 },
-  { key: "sex", label: "S", num: 28 },
-  { key: "sab", label: "S", num: 29 },
-  { key: "dom", label: "D", num: 30 },
+  { key: "seg", label: "S", num: 2 },
+  { key: "ter", label: "T", num: 3, active: true, events: 2 },
+  { key: "qua", label: "Q", num: 4 },
+  { key: "qui", label: "Q", num: 5, events: 1 },
+  { key: "sex", label: "S", num: 6 },
+  { key: "sab", label: "S", num: 7 },
+  { key: "dom", label: "D", num: 8 },
 ];
 
 interface Appointment {
@@ -92,7 +92,7 @@ export function AgendaScreen() {
               Agenda
             </h1>
             <p style={{ fontSize: "12px", fontWeight: 500, color: "#8F8FA3", marginTop: "1px" }}>
-              Fevereiro 2026
+              Março 2026
             </p>
           </div>
           <button

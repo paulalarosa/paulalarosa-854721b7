@@ -122,7 +122,7 @@ export function GuinchoScreen({ onBack }: GuinchoScreenProps) {
                 {[
                   { label: "Tipo", value: types.find(t => t.id === selectedType)?.label },
                   { label: "Veiculo", value: "Hyundai HB20 2024" },
-                  { label: "Apolice", value: "AUT-2024-001847" },
+                  { label: "Apolice", value: "AUT-2025-001847" },
                   { label: "Localizacao", value: "Usando GPS atual" },
                 ].map(item => (
                   <div key={item.label} className="flex items-center justify-between">

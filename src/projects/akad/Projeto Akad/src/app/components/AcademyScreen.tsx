@@ -5,8 +5,8 @@ import { PhoneFrame } from "./PhoneFrame";
 import { TabBar, TabId } from "./TabBar";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const cyberImage = "https://images.unsplash.com/photo-1759661881353-5b9cc55e1cf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbmV0d29yayUyMHNlY3VyaXR5JTIwYWJzdHJhY3QlMjBibHVlfGVufDF8fHx8MTc3MTkzODM5Mnww&ixlib=rb-4.1.0&q=80&w=1080";
-const abstractImage = "https://images.unsplash.com/photo-1670834416096-08d3e126f083?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMDNEJTIwZ2VvbWV0cmljJTIwcHVycGxlJTIwc2hhcGVzfGVufDF8fHx8MTc3MTkzODM5Mnww&ixlib=rb-4.1.0&q=80&w=1080";
+const cyberImage = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80";
+const abstractImage = "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80";
 
 interface CourseData { id: string; title: string; subtitle: string; image: string; lessons: number; duration: string; progress: number; tag: string; }
 
@@ -47,8 +47,8 @@ function ProgressRing({ progress, size = 30 }: { progress: number; size?: number
       </svg>
       <div className="absolute flex items-center justify-center">
         {done ? <Award size={11} color={akad.success} /> :
-         active ? <span style={{ fontSize: "8px", fontWeight: 700, color: akad.text }}>{progress}%</span> :
-         <span style={{ fontSize: "8px", color: akad.textTertiary }}>—</span>}
+          active ? <span style={{ fontSize: "8px", fontWeight: 700, color: akad.text }}>{progress}%</span> :
+            <span style={{ fontSize: "8px", color: akad.textTertiary }}>—</span>}
       </div>
     </div>
   );

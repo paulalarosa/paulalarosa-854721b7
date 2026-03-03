@@ -53,7 +53,7 @@ export function TabBar({ active, onNavigate, dark = false }: TabBarProps) {
                 layoutId="tabIndicator"
                 className="absolute inset-0 rounded-xl"
                 style={{
-                  background: dark ? "rgba(230, 0, 126, 0.08)" : akad.pinkSubtle,
+                  background: dark ? "rgba(230, 0, 126, 0.10)" : "rgba(230, 0, 126, 0.07)",
                 }}
                 transition={{ type: "spring", stiffness: 500, damping: 35 }}
               />
@@ -70,8 +70,8 @@ export function TabBar({ active, onNavigate, dark = false }: TabBarProps) {
                   isActive
                     ? akad.pink
                     : dark
-                    ? "rgba(255,255,255,0.28)"
-                    : akad.textTertiary
+                      ? "rgba(255,255,255,0.28)"
+                      : akad.textTertiary
                 }
               />
             </motion.div>
@@ -83,8 +83,8 @@ export function TabBar({ active, onNavigate, dark = false }: TabBarProps) {
                 color: isActive
                   ? akad.pink
                   : dark
-                  ? "rgba(255,255,255,0.28)"
-                  : akad.textTertiary,
+                    ? "rgba(255,255,255,0.28)"
+                    : akad.textTertiary,
                 letterSpacing: "0.3px",
               }}
             >

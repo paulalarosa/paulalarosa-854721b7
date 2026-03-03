@@ -32,7 +32,7 @@ export function HomeScreen({ onNavigate, onOpenSearch, onQuickAction }: HomeScre
         className="flex items-center justify-between pt-2 pb-4"
       >
         <div onClick={() => { hapticLight(); onNavigate("perfil"); }}>
-          <SmartGreeting name="Ricardo" />
+          <SmartGreeting name="Ricardo Lima" />
         </div>
 
         <div className="flex items-center gap-2">

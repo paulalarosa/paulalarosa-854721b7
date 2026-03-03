@@ -60,8 +60,8 @@ const stories: StoryItem[] = [
   {
     id: "dica",
     label: "Dica",
-    gradientFrom: "#FFB347",
-    gradientTo: "#FFA020",
+    gradientFrom: "#8B7CF0",
+    gradientTo: "#6C5CE7",
     isNew: false,
     path: "/dicas",
     icon: (

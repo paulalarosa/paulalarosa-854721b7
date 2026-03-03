@@ -99,6 +99,23 @@ export function DashboardScreen({ activeTab, onNavigate, onOpenNotifications, on
         </div>
       </header>
 
+      <div className="px-5 py-2 flex items-center gap-3">
+        <div className="flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: akad.success }} />
+          <span style={{ color: akad.textOnDarkTertiary, fontSize: "10px", letterSpacing: "1px" }}>
+            CORRETOR ATIVO
+          </span>
+        </div>
+        <div style={{ width: "1px", height: "10px", background: akad.darkBorder }} />
+        <span style={{ color: akad.textOnDarkSecondary, fontSize: "10px" }}>
+          Região Sul · SP
+        </span>
+        <div style={{ width: "1px", height: "10px", background: akad.darkBorder }} />
+        <span style={{ color: akad.textOnDarkSecondary, fontSize: "10px" }}>
+          Meta: R$ 3M
+        </span>
+      </div>
+
       <main className="flex-1 px-4 pb-1 overflow-y-auto" style={{ scrollbarWidth: "none" }} role="region" aria-label="Métricas">
         <div className="grid grid-cols-2 gap-2">
           {/* Sales Hero */}

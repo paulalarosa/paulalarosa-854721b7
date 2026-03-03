@@ -62,8 +62,8 @@ export function MobileShell({ children }: MobileShellProps) {
 
   return (
     <div
-      className="w-full h-full bg-[#F8F8FA] overflow-hidden flex flex-col relative"
-      style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}
+      className="w-full h-full overflow-hidden flex flex-col relative"
+      style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", background: "linear-gradient(180deg, #F0FAFA 0%, #F8F8FA 40%)" }}
     >
       {/* Ambient lighting — shifts with time of day */}
       <motion.div

@@ -45,6 +45,9 @@ export function HomeScreen() {
             <h1 style={{ fontSize: "24px", fontWeight: 800, lineHeight: 1.2, color: "#0F0F23", letterSpacing: "-0.03em" }}>
               Mariana
             </h1>
+            <p style={{ fontSize: "11px", color: "#8F8FA3", marginTop: "1px" }}>
+              Viva Saúde Premium · Titular
+            </p>
           </div>
           <button
             onClick={() => navigate("/perfil/notificacoes")}

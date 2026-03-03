@@ -69,7 +69,7 @@ export function BottomTabBar({ active, onTabChange }: BottomTabBarProps) {
               <div className="relative">
                 <tab.icon
                   size={20}
-                  className={`transition-colors duration-200 ${isActive ? "text-[#0F172A]" : "text-gray-300"}`}
+                  className={`transition-colors duration-200 ${isActive ? "text-[#0D9488]" : "text-gray-300"}`}
                   strokeWidth={isActive ? 2 : 1.5}
                 />
                 {tab.badge && tab.badge > 0 && (
@@ -82,14 +82,14 @@ export function BottomTabBar({ active, onTabChange }: BottomTabBarProps) {
                 )}
               </div>
               <span
-                className={`text-[9px] sm:text-[10px] tracking-wide transition-colors duration-200 ${isActive ? "text-[#0F172A]" : "text-gray-300"}`}
+                className={`text-[9px] sm:text-[10px] tracking-wide transition-colors duration-200 ${isActive ? "text-[#0D9488]" : "text-gray-300"}`}
               >
                 {tab.label}
               </span>
               {isActive && (
                 <motion.div
                   layoutId="tab-indicator"
-                  className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full bg-[#0F172A]"
+                  className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full bg-[#0D9488]"
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}

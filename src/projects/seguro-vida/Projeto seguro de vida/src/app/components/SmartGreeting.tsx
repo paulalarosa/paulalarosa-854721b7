@@ -47,7 +47,7 @@ export function SmartGreeting({ name }: SmartGreetingProps) {
             <Icon size={11} style={{ color: ambientColor }} strokeWidth={1.8} />
           </motion.div>
         </div>
-        <h1 className="text-[20px] text-[#0F172A] tracking-tight">{name}</h1>
+        <h1 className="text-[20px] text-[#0F172A] tracking-tight font-semibold">{name.split(" ")[0]}</h1>
       </div>
     </div>
   );

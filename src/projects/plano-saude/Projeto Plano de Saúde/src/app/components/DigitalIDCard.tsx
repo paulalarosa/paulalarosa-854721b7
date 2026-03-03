@@ -107,7 +107,7 @@ export function DigitalIDCard() {
               TITULAR
             </p>
             <p style={{ fontSize: "22px", fontWeight: 800, lineHeight: 1.1, color: "#FFFFFF", letterSpacing: "-0.03em" }}>
-              Mariana Silva
+              Mariana Costa Oliveira
             </p>
           </div>
 
@@ -119,7 +119,7 @@ export function DigitalIDCard() {
                   Nº CARTÃO
                 </p>
                 <p style={{ fontSize: "12px", fontWeight: 600, color: "rgba(255,255,255,0.75)", fontVariantNumeric: "tabular-nums", letterSpacing: "0.06em" }}>
-                  0042 8891 7703
+                  0072 4819 2026 0001
                 </p>
               </div>
               <div>
@@ -127,7 +127,7 @@ export function DigitalIDCard() {
                   PLANO
                 </p>
                 <p style={{ fontSize: "12px", fontWeight: 600, color: "rgba(255,255,255,0.75)" }}>
-                  Premium
+                  Premium PJ
                 </p>
               </div>
             </div>

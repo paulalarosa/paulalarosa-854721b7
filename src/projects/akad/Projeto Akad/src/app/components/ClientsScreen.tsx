@@ -52,6 +52,22 @@ export function ClientsScreen({ activeTab, onNavigate, onSelectClient, onAddClie
             <p style={{ color: akad.textTertiary, fontSize: "12px", marginTop: "2px" }}>
               {filtered.length} {search ? "encontrado" + (filtered.length !== 1 ? "s" : "") : "ativos"}
             </p>
+            <div className="flex items-center gap-3 mt-2">
+              <div>
+                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Carteira</p>
+                <p style={{ color: akad.text, fontSize: "13px", fontWeight: 700, letterSpacing: "-0.3px" }}>R$ 51.0K</p>
+              </div>
+              <div style={{ width: "1px", height: "24px", background: akad.border }} />
+              <div>
+                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Premium</p>
+                <p style={{ color: akad.pink, fontSize: "13px", fontWeight: 700 }}>2</p>
+              </div>
+              <div style={{ width: "1px", height: "24px", background: akad.border }} />
+              <div>
+                <p style={{ color: akad.textTertiary, fontSize: "9px", letterSpacing: "1px", textTransform: "uppercase" }}>Empresarial</p>
+                <p style={{ color: akad.blueLight, fontSize: "13px", fontWeight: 700 }}>1</p>
+              </div>
+            </div>
           </div>
           <button
             onClick={onAddClient}
