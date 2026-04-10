@@ -5,13 +5,14 @@ const Footer = () => {
   const { t } = useTranslation();
 
   const keywords = [
-    "Frontend Engineering",
+    "Product Design",
+    "Interface Engineering",
+    "UI/UX Design",
+    "Design Systems",
     "React & TypeScript",
     "Clean Code",
-    "UI/UX Design",
     "Performance",
     "Scalability",
-    "Design Systems",
     "Web Animation",
     "Interactive",
     "Modern Web",

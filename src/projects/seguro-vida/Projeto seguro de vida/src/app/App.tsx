@@ -22,10 +22,10 @@ type SubScreen = QuickActionId | null;
 
 const screens: Record<TabId, React.ComponentType<{ onNavigate: (tab: TabId) => void; onOpenSearch?: () => void; onQuickAction?: (id: QuickActionId) => void }>> = {
   inicio: HomeScreen,
-  apolices: PoliciesScreen as any,
+  apolices: PoliciesScreen,
   sinistro: ClaimScreen,
-  alertas: AlertsScreen as any,
-  perfil: ProfileScreen as any,
+  alertas: AlertsScreen,
+  perfil: ProfileScreen,
 };
 
 export default function App() {

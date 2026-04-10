@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const partners = [
+  { name: "Contented Lead" },
   { name: "Bradesco" },
   { name: "Cosan" },
   { name: "O Boticário" },
@@ -21,8 +22,8 @@ const partners = [
 const Partners = () => {
   const { t } = useTranslation();
 
-  const firstRow = partners.slice(0, 7);
-  const secondRow = partners.slice(7);
+  const firstRow = partners.slice(0, 8);
+  const secondRow = partners.slice(8);
 
   return (
     <section className="py-20 overflow-hidden relative">

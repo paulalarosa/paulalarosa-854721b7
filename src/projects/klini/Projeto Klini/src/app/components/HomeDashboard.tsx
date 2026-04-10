@@ -12,12 +12,13 @@ import {
   Bell,
   Copy,
   Video,
+  LucideIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useMemo } from "react";
 
 interface QuickTile {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   path: string;
   highlight?: boolean;

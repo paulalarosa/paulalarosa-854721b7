@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Car, Heart, Shield, ChevronRight, ChevronLeft, CheckCircle2, Clock, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { hapticLight, hapticMedium, hapticTick } from "../haptics";
+import type { TabId } from "../BottomTabBar";
+import type { QuickActionId } from "../QuickActions";
 
 interface Policy {
   id: string;
@@ -147,7 +149,15 @@ function PolicyDetail({ policy, onBack }: { policy: Policy; onBack: () => void }
   );
 }
 
-export function PoliciesScreen() {
+interface ScreenProps {
+  onNavigate: (tab: TabId) => void;
+  onOpenSearch?: () => void;
+  onQuickAction?: (id: QuickActionId) => void;
+}
+
+export function PoliciesScreen({ onNavigate, onOpenSearch, onQuickAction }: ScreenProps) {
+  // Props handled via destructuring for type safety
+  void onNavigate; void onOpenSearch; void onQuickAction;
   const [selectedPolicy, setSelectedPolicy] = useState<Policy | null>(null);
 
   return (

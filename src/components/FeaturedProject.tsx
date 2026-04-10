@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import khaoskontrolPreview from '@/assets/khaoskontrol-preview.webp';
+import khaoskontrolPreview from '@/assets/khaos_home_real.png';
 import { useRef } from 'react';
 
 const FeaturedProject = () => {

@@ -17,6 +17,14 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { hapticLight, hapticMedium, hapticWarning } from "../haptics";
+import type { TabId } from "../BottomTabBar";
+import type { QuickActionId } from "../QuickActions";
+
+interface ScreenProps {
+  onNavigate: (tab: TabId) => void;
+  onOpenSearch?: () => void;
+  onQuickAction?: (id: QuickActionId) => void;
+}
 
 interface SettingGroup {
   title: string;
@@ -31,7 +39,9 @@ interface SettingGroup {
   }[];
 }
 
-export function ProfileScreen() {
+export function ProfileScreen({ onNavigate, onOpenSearch, onQuickAction }: ScreenProps) {
+  // Props handled via destructuring for type safety
+  void onNavigate; void onOpenSearch; void onQuickAction;
   const [toggleStates, setToggleStates] = useState<Record<string, boolean>>({
     Notificacoes: true,
     "Tema escuro": false,
@@ -44,7 +54,11 @@ export function ProfileScreen() {
 
   const handleReplayOnboarding = () => {
     hapticMedium();
-    try { localStorage.removeItem("shield-onboarding-seen"); } catch {}
+    try { 
+      localStorage.removeItem("shield-onboarding-seen"); 
+    } catch (err) {
+      // Silently fail if localStorage is not available
+    }
     window.location.reload();
   };
 

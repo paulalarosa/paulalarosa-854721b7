@@ -80,7 +80,9 @@ export function ShieldOnboarding({ onComplete }: ShieldOnboardingProps) {
     if (isLast) {
       try {
         localStorage.setItem(STORAGE_KEY, "true");
-      } catch {}
+      } catch (err) {
+        // Silently fail if localStorage is not available
+      }
       hapticSuccess();
       onComplete();
     } else {
@@ -92,7 +94,9 @@ export function ShieldOnboarding({ onComplete }: ShieldOnboardingProps) {
     hapticLight();
     try {
       localStorage.setItem(STORAGE_KEY, "true");
-    } catch {}
+    } catch (err) {
+      // Silently fail if localStorage is not available
+    }
     onComplete();
   }, [onComplete]);
 
@@ -365,7 +369,7 @@ function StatusVisual() {
       setActive((p) => (p + 1) % colors.length);
     }, 2000);
     return () => clearInterval(timer);
-  }, []);
+  }, [colors.length]);
 
   return (
     <div className="flex flex-col items-center gap-5">

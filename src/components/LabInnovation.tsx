@@ -228,10 +228,60 @@ const PhoneFrame = ({
   );
 };
 
+interface Framework {
+  id: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  figmaUrl: string;
+  accentColor: string;
+}
+
+const frameworks: Framework[] = [
+  {
+    id: 'lumi-digital-content',
+    title: 'Lumi Digital - Framework de Conteúdo',
+    desc: 'Sistema estratégico para gestão e criação de conteúdo digital escalável.',
+    tags: ['Marketing Strategy', 'Content System', 'Social Media'],
+    figmaUrl: 'https://embed.figma.com/design/RUwQiPGc2Dpi4hYHfqPsnU/Frameworks-Conte%C3%BAdo-Digital?node-id=0-1&embed-host=share',
+    accentColor: '#f43f5e'
+  }
+];
+
+const FrameworkCard = ({ framework, isSelected, onSelect }: { framework: Framework; isSelected: boolean; onSelect: () => void }) => {
+  return (
+    <Card 
+      onClick={onSelect}
+      className={`p-6 border cursor-pointer transition-all duration-300 group ${
+        isSelected ? 'border-accent bg-accent/5 ring-1 ring-accent/20' : 'border-border hover:border-accent/40 bg-card'
+      }`}
+    >
+      <div className="flex items-start justify-between mb-4">
+        <div className={`p-2 rounded-lg ${isSelected ? 'bg-accent/20' : 'bg-muted'}`}>
+          <div className="w-5 h-5 rounded-sm" style={{ backgroundColor: framework.accentColor }} />
+        </div>
+        {isSelected && (
+          <motion.div layoutId="active-indicator" className="w-1.5 h-1.5 rounded-full bg-accent" />
+        )}
+      </div>
+      <h4 className="font-serif text-lg font-semibold text-primary mb-2">{framework.title}</h4>
+      <p className="text-xs text-muted-foreground mb-4 line-clamp-2">{framework.desc}</p>
+      <div className="flex flex-wrap gap-1.5 mt-auto">
+        {framework.tags.map((tag: string, i: number) => (
+          <span key={i} className="px-2 py-0.5 text-[9px] font-medium border rounded-full bg-muted/50 text-muted-foreground">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </Card>
+  );
+};
+
 const LabInnovation = () => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'web' | 'design'>('web');
+  const [activeTab, setActiveTab] = useState<'design' | 'web' | 'frameworks'>('design');
   const [selectedPhone, setSelectedPhone] = useState<string | null>(null);
+  const [selectedFramework, setSelectedFramework] = useState<string | null>(frameworks[0].id);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -250,20 +300,20 @@ const LabInnovation = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mb-4">
-            Engenharia & Estética Visual
+            {t('designBackground.title')}
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            A fusão da precisão técnica com o design estratégico para criar experiências digitais de alto impacto.
+            {t('designBackground.subtitle')}
           </p>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-10" />
           <div className="inline-flex items-center gap-1 p-1 bg-secondary rounded-full border border-border">
-            {(['web', 'design'] as const).map((tab) => (
+            {(['design', 'web', 'frameworks'] as const).map((tab) => (
               <motion.button key={tab}
                 onClick={() => { setActiveTab(tab); setSelectedPhone(null); }}
                 whileTap={{ scale: 0.97 }}
                 className={`px-6 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${activeTab === tab ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-primary'
                   }`}>
-                {tab === 'web' ? 'Web & Fullstack' : 'Product Design'}
+                {tab === 'design' ? t('skills.design.title') : tab === 'web' ? t('skills.marketing.title') : t('skills.frameworks.title')}
               </motion.button>
             ))}
           </div>
@@ -320,6 +370,41 @@ const LabInnovation = () => {
                 <Lightbulb className="inline w-3 h-3" />
                 <span>para insights de design</span>
               </p>
+            </motion.div>
+          )}
+
+          {activeTab === 'frameworks' && (
+            <motion.div key="frameworks" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.3 }}
+              className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="lg:col-span-4 grid grid-cols-1 gap-4">
+                  {frameworks.map((fw) => (
+                    <FrameworkCard 
+                      key={fw.id} 
+                      framework={fw} 
+                      isSelected={selectedFramework === fw.id} 
+                      onSelect={() => setSelectedFramework(fw.id)} 
+                    />
+                  ))}
+                </div>
+                <div className="lg:col-span-8">
+                  <div className="relative aspect-[16/10] bg-card rounded-2xl border border-border overflow-hidden shadow-2xl glass-effect">
+                    {selectedFramework ? (
+                      <iframe 
+                        key={selectedFramework}
+                        src={frameworks.find(f => f.id === selectedFramework)?.figmaUrl} 
+                        className="w-full h-full border-none"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8 text-center">
+                        <Lightbulb className="w-12 h-12 mb-4 opacity-20" />
+                        <p className="text-sm">Selecione um framework para visualizar os detalhes interativos diretamente do Figma.</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { PageHeader } from "./PageHeader";
-import { Sun, Moon, Monitor, Palette, Type, Maximize } from "lucide-react";
+import { LucideIcon, Sun, Moon, Monitor, Palette, Type, Maximize } from "lucide-react";
 
 type Theme = "light" | "dark" | "system";
 
-const themes: { value: Theme; label: string; icon: React.ElementType; description: string }[] = [
-  { value: "light", label: "Claro", icon: Sun as any, description: "Fundo branco com texto escuro" },
-  { value: "dark", label: "Escuro", icon: Moon as any, description: "Fundo escuro com texto claro" },
-  { value: "system", label: "Sistema", icon: Monitor as any, description: "Seguir configuração do dispositivo" },
+const themes: { value: Theme; label: string; icon: LucideIcon; description: string }[] = [
+  { value: "light", label: "Claro", icon: Sun, description: "Fundo branco com texto escuro" },
+  { value: "dark", label: "Escuro", icon: Moon, description: "Fundo escuro com texto claro" },
+  { value: "system", label: "Sistema", icon: Monitor, description: "Seguir configuração do dispositivo" },
 ];
 
 export function Appearance() {
@@ -129,7 +129,7 @@ export function Appearance() {
 }
 
 function ToggleOption({ icon: Icon, label, description, defaultOn = false, delay }: {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   description: string;
   defaultOn?: boolean;

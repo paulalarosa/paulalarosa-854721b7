@@ -8,15 +8,34 @@
     "contactBtn": "Get in Touch"
   },
   "hero": {
-    "name": "Paula La Rosa | Product Designer & UI Engineer",
-    "subtitle": "From research and Figma to production code — end-to-end.",
-    "unifiedIntro": "Frontend Developer and Product Designer. I create elegant and complete interfaces, combining the precision of React/TypeScript and engineering best practices with the visual sensitivity of Figma. Based in Rio de Janeiro, Brazil.",
+    "name": "Paula La Rosa | Product Designer & Interface Engineer",
+    "subtitle": "From research and Figma to production code — strategic design and technical execution.",
+    "unifiedIntro": "Product Designer & Interface Engineer. I create elegant and functional interfaces, combining engineering precision with Design's visual sensitivity. Specialist in solving complex problems through high-impact digital experiences.",
     "viewProjects": "View Projects",
     "scroll": "Scroll"
   },
   "hardSkills": {
-    "title": "Stack & Technologies",
-    "aiIntegration": "AI Integration"
+    "title": "Expertise & Technology",
+    "ecosystem": "Ecosystem",
+    "aiIntegration": "AI Integration",
+    "marquee": {
+      "uxResearch": "UX Research",
+      "uiDesign": "UI Design",
+      "figma": "Figma",
+      "designSystems": "Design Systems",
+      "interactionDesign": "Interaction Design",
+      "visualIdentity": "Visual Identity",
+      "wireframing": "Wireframing",
+      "prototyping": "Prototyping",
+      "react": "React.js",
+      "typescript": "TypeScript",
+      "nextjs": "Next.js",
+      "tailwind": "Tailwind CSS",
+      "framer": "Framer Motion",
+      "architecture": "Scalable Architecture",
+      "performance": "Performance Optimization",
+      "accessibility": "Accessibility (a11y)"
+    }
   },
   "featuredProject": {
     "badge": "Featured Project",
@@ -173,14 +192,14 @@
   },
   "aboutHero": {
     "greeting": "Hello, I'm Paula La Rosa.",
-    "intro": "Frontend developer with a solid background in Design. I create digital products that combine code precision with aesthetic sensibility, delivering exceptional experiences from concept to production."
+    "intro": "Product Designer with a solid background in Software Engineering. I create digital products that combine code precision with aesthetic sensibility, delivering exceptional experiences from concept to production."
   },
   "about": {
     "title": "About Me",
     "highlights": "Technical Skills",
-    "text1": "Creative Frontend Developer with over 5 years of experience in Design, now focused on software engineering. Specialized in React, TypeScript, and modern frontend architectures.",
-    "text2": "My journey combines creative vision with technical thinking, allowing me to develop interfaces that not only visually delight but are also performant, accessible, and scalable.",
-    "text3": "Experience building complete products: from Design Systems and Figma prototyping to implementation with React, Supabase integration, and production deployment. Focus on clean code, componentization, and best practices.",
+    "text1": "Strategic Product Designer with over 5 years of experience, now blending interface design with high-performance software engineering. Specialized in building visual systems that scale.",
+    "text2": "My journey combines creative vision with analytical thinking, allowing me to develop interfaces that not only visually delight but are also performant and accessible.",
+    "text3": "Focused on end-to-end product construction: from Product Discovery and high-fidelity prototyping to rigorous technical implementation with React and TypeScript.",
     "quote": "I believe exceptional code goes beyond functionality—it must be elegant, maintainable, and create experiences that delight users.",
     "items": {
       "mba": "React & TypeScript",
@@ -207,7 +226,7 @@
     "redirectingDesc": "You will be redirected to continue the conversation."
   },
   "footer": {
-    "description": "Product Designer & Frontend Developer. Building scalable digital products: from research and Figma to production code.",
+    "description": "Product Designer & Interface Engineer. Building scalable digital products through strategic design and precision engineering.",
     "navigation": "Navigation",
     "social": "Social Media",
     "rights": "All rights reserved."
@@ -244,7 +263,7 @@
     "nextProjectLabel": "NEXT PROJECT",
     "overviewTitle": "Overview",
     "website": {
-      "role": "Lead Developer & Designer",
+      "role": "Lead Product Designer & Lead Engineer",
       "timeline": "4 Weeks",
       "challenge": "The client needed a comprehensive digital platform that went far beyond a simple institutional website. The Product Design challenge involved mapping the journey of a user seeking family counseling (often in an emotionally vulnerable state), designing a flow that establishes immediate trust and comfort. From a Frontend Engineering perspective, the requirement was an architecture capable of deeply integrating active lead generation and 100% automated scheduling, with blazing-fast performance to maximize technical SEO indexing without relying on slow, rigid third-party systems.",
       "solution": "As a Product Designer, I mapped the user journey via flowcharts and drafted wireframes focused on accessibility (WCAG) and low cognitive friction, defining a Design System that reflected credibility through typography and color palette. In implementation, I assumed the Frontend Engineering role by building the application from scratch using React and TypeScript. I structured a highly reusable component ecosystem and developed custom asynchronous hooks to handle the scheduling and lead capture APIs. The result is a robust, lightning-fast platform highly optimized for conversion.",
@@ -273,7 +292,7 @@
       ]
     },
     "portfolio": {
-      "role": "Frontend Engineer",
+      "role": "Product Designer & Interface Engineer",
       "timeline": "Continuous",
       "challenge": "Create a portfolio that wasn't just a static gallery, but living proof of my technical skills. The goal was to build a complete React application demonstrating a solid grasp of global state, complex animations, and strict typing.",
       "solution": "I developed this website from scratch using React and TypeScript. The interface uses Tailwind for efficient styling and Framer Motion to orchestrate entrance animations and micro-interactions, creating a fluid and modern experience without compromising performance.",
@@ -302,7 +321,7 @@
       ]
     },
     "microsaas": {
-      "role": "Full Stack Developer",
+      "role": "Product Designer & Full Stack Engineer",
       "timeline": "3 Months",
       "challenge": "Traditional distance learning suffers from high dropout rates and low engagement. Conventional platforms fail to keep long-term student interest, especially in specific cultural niches like Umbanda studies.",
       "solution": "I developed an LMS (Learning Management System) focused on gamification. The platform uses level progression, achievements, and visual rewards to keep the student engaged. The architecture supports video streaming and interactive quizzes in real time.",
@@ -360,7 +379,7 @@
       ]
     },
     "platform": {
-      "role": "Founder & Lead Engineer",
+      "role": "Founder & Lead Product Designer",
       "timeline": "8 Months (In Production)",
       "challenge": "Beauty professionals lose up to 10 hours a week on manual management. WhatsApp scheduling, paper contracts, and lack of financial control hinder business growth. The challenge was to create an 'All-in-One' platform that was powerful, yet featured a minimalist and luxurious aesthetic ('Industrial Noir') to attract this demanding audience.",
       "solution": "I developed KONTROL, a complete ecosystem. It uses React + Vite for instantaneous performance and Supabase for a scalable serverless backend. The 'Industrial Noir' interface isn't just styling; it's a minimal customized Design System focused on reducing cognitive load. Features include automatic PDF contract generation, a drag-and-drop calendar, and real-time financial dashboards.",
@@ -398,10 +417,13 @@
   "skills": {
     "title": "Stack & Technologies",
     "marketing": {
-      "title": "Frontend"
+      "title": "Interface Engineering"
     },
     "design": {
-      "title": "Design & UI"
+      "title": "Product Design"
+    },
+    "frameworks": {
+      "title": "UI Frameworks"
     },
     "tech": {
       "title": "Backend & DevOps"

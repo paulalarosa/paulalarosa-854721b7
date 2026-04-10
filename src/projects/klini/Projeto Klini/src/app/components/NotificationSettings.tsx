@@ -10,10 +10,11 @@ import {
   Mail,
   Smartphone,
   MessageCircle,
+  LucideIcon,
 } from "lucide-react";
 
 interface ToggleRowProps {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   description: string;
   defaultOn?: boolean;

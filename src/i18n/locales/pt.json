@@ -8,15 +8,34 @@
     "contactBtn": "Entrar em Contato"
   },
   "hero": {
-    "name": "Paula La Rosa | Product Designer & UI Engineer",
-    "subtitle": "Do research e Figma ao código em produção — end-to-end.",
-    "unifiedIntro": "Desenvolvedora Frontend e Product Designer. Crio interfaces elegantes e completas, unindo a precisão do React/TypeScript e boas práticas de engenharia com a sensibilidade visual do Figma. Baseada no Rio de Janeiro.",
+    "name": "Paula La Rosa | Product Designer & Interface Engineer",
+    "subtitle": "Do research e Figma ao código em produção — design estratégico e execução técnica.",
+    "unifiedIntro": "Product Designer & Interface Engineer. Crio interfaces elegantes e funcionais, unindo a precisão da engenharia com a sensibilidade visual do Design. Especialista em resolver problemas complexos através de experiências digitais de alto impacto.",
     "viewProjects": "Ver Projetos",
     "scroll": "Scroll"
   },
   "hardSkills": {
-    "title": "Stack & Tecnologias",
-    "aiIntegration": "Integração com IA"
+    "title": "Expertise & Tecnologia",
+    "ecosystem": "Ecossistema",
+    "aiIntegration": "Integração com IA",
+    "marquee": {
+      "uxResearch": "UX Research",
+      "uiDesign": "UI Design",
+      "figma": "Figma",
+      "designSystems": "Design Systems",
+      "interactionDesign": "Interaction Design",
+      "visualIdentity": "Identidade Visual",
+      "wireframing": "Wireframing",
+      "prototyping": "Prototipagem",
+      "react": "React.js",
+      "typescript": "TypeScript",
+      "nextjs": "Next.js",
+      "tailwind": "Tailwind CSS",
+      "framer": "Framer Motion",
+      "architecture": "Arquitetura Escalável",
+      "performance": "Otimização de Performance",
+      "accessibility": "Acessibilidade (a11y)"
+    }
   },
   "featuredProject": {
     "badge": "Projeto em Destaque",
@@ -173,14 +192,14 @@
   },
   "aboutHero": {
     "greeting": "Olá, sou Paula La Rosa.",
-    "intro": "Desenvolvedora frontend com background sólido em Design. Crio produtos digitais que unem a precisão do código à sensibilidade estética, entregando experiências excepcionais do conceito à produção."
+    "intro": "Product Designer com background sólido em Engenharia de Software. Crio produtos digitais que unem a precisão do código à sensibilidade estética, entregando experiências excepcionais do conceito à produção."
   },
   "about": {
     "title": "Sobre Mim",
     "highlights": "Competências Técnicas",
-    "text1": "Creative Frontend Developer com mais de 5 anos de experiência em Design, agora focada em engenharia de software. Especializada em React, TypeScript e arquiteturas modernas de frontend.",
-    "text2": "Minha trajetória combina visão criativa com pensamento técnico, permitindo desenvolver interfaces que não apenas encantam visualmente, mas também são performáticas, acessíveis e escaláveis.",
-    "text3": "Experiência em construção de produtos completos: desde Design Systems e prototipagem no Figma até implementação com React, integração com Supabase e deploy em produção. Foco em código limpo, componentização e boas práticas.",
+    "text1": "Product Designer estratégica com mais de 5 anos de experiência, agora unindo design de interface com engenharia de software de alta performance. Especializada em criar sistemas visuais que escalam.",
+    "text2": "Minha trajetória combina visão criativa com pensamento analítico, permitindo desenvolver interfaces que não apenas encantam visualmente, mas também são performáticas e acessíveis.",
+    "text3": "Focada na construção de produtos de ponta a ponta: desde o Product Discovery e prototipagem de alta fidelidade até a implementação técnica rigorosa com React e TypeScript.",
     "quote": "Acredito que código excepcional vai além da funcionalidade—deve ser elegante, manutenível e criar experiências que encantam os usuários.",
     "items": {
       "mba": "React & TypeScript",
@@ -207,7 +226,7 @@
     "redirectingDesc": "Você será redirecionado para continuar a conversa."
   },
   "footer": {
-    "description": "Product Designer & Frontend Developer. Construindo produtos digitais escaláveis: do research e Figma ao código em produção.",
+    "description": "Product Designer & Interface Engineer. Construindo produtos digitais escaláveis através de design estratégico e engenharia de precisão.",
     "navigation": "Navegação",
     "social": "Redes Sociais",
     "rights": "Todos os direitos reservados."
@@ -244,7 +263,7 @@
     "nextProjectLabel": "NEXT PROJECT",
     "overviewTitle": "Overview",
     "website": {
-      "role": "Lead Developer & Designer",
+      "role": "Lead Product Designer & Lead Engineer",
       "timeline": "4 Semanas",
       "challenge": "O cliente necessitava de uma plataforma digital completa que fosse muito além de um site institucional. O desafio de Product Design envolvia mapear a jornada de um usuário que busca auxílio familiar (frequentemente em estado de vulnerabilidade emocional), desenhando um fluxo de confiança e acolhimento imediato. Do lado de Engenharia Frontend, a exigência era uma arquitetura capaz de integrar captação ativa de leads e agendamento de forma 100% automatizada, com altíssima performance para garantir indexação máxima (SEO) sem depender de sistemas lentos e engessados.",
       "solution": "Como Product Designer, conduzi o mapeamento da jornada via fluxogramas e elaborei wireframes focados na acessibilidade (WCAG) e baixo atrito cognitivo, definindo um Design System que refletisse credibilidade através da tipografia e paleta de cores. Na implementação, assumi a Engenharia Frontend criando a aplicação do zero utilizando React e TypeScript. Estruturei um ecossistema de componentes reutilizáveis e desenvolvi integrações assíncronas assents em hooks customizados para lidar com as APIs de agendamento e captura de leads. O resultado é uma plataforma robusta, veloz e focada em conversão.",
@@ -273,7 +292,7 @@
       ]
     },
     "portfolio": {
-      "role": "Frontend Engineer",
+      "role": "Product Designer & Interface Engineer",
       "timeline": "Contínuo",
       "challenge": "Criar um portfólio que não focasse apenas uma galeria estática, mas uma prova viva das minhas competências técnicas. O objetivo era construir uma aplicação React completa que demonstrasse domínio sobre estados globais, animações complexas e tipagem rigorosa.",
       "solution": "Desenvolvi este site do zero utilizando React e TypeScript. A interface utiliza Tailwind para estilização eficiente e Framer Motion para orquestrar animações de entrada e microinterações, criando uma experiência fluida e moderna sem comprometer a performance.",
@@ -302,7 +321,7 @@
       ]
     },
     "microsaas": {
-      "role": "Full Stack Developer",
+      "role": "Product Designer & Full Stack Engineer",
       "timeline": "3 Meses",
       "challenge": "O ensino à distância tradicional sofre com altas taxas de evasão e baixo engajamento. Plataformas convencionais falham em manter o interesse do aluno a longo prazo, especialmente em nichos culturais específicos como estudos de Umbanda.",
       "solution": "Desenvolvi um LMS (Learning Management System) focado em gamification. A plataforma utiliza progressão por níveis, conquistas e rewards visuais para manter o aluno engajado. A arquitetura suporta streaming de vídeo e quizzes interativos em tempo real.",
@@ -360,7 +379,7 @@
       ]
     },
     "platform": {
-      "role": "Founder & Lead Engineer",
+      "role": "Founder & Lead Product Designer",
       "timeline": "8 Meses (Em Produção)",
       "challenge": "Profissionais de beleza perdem até 10 horas semanais com gestão manual. Agendamentos no WhatsApp, contratos em papel e falta de controle financeiro impedem o crescimento do negócio. O desafio era criar uma plataforma 'All-in-One' que fosse poderosa, mas com uma estética minimalista e luxuosa ('Industrial Noir') que atraísse esse público exigente.",
       "solution": "Desenvolvi o KONTROL, um ecossistema completo. Utiliza React + Vite para performance instantânea e Supabase para um backend serverless escalável. A interface 'Industrial Noir' não é apenas estilos; é um Design System customizado focado em reduzir a carga cognitiva. Funcionalidades incluem geração automática de contratos PDF, agenda com drag-and-drop e dashboards financeiros em tempo real.",
@@ -398,10 +417,13 @@
   "skills": {
     "title": "Stack & Tecnologias",
     "marketing": {
-      "title": "Frontend"
+      "title": "Interface Engineering"
     },
     "design": {
-      "title": "Design & UI"
+      "title": "Product Design"
+    },
+    "frameworks": {
+      "title": "Frameworks UI"
     },
     "tech": {
       "title": "Backend & DevOps"

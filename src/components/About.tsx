@@ -5,11 +5,11 @@ const About = () => {
   const { t } = useTranslation();
 
   const highlights = [
-    { icon: GraduationCap, text: t("about.items.mba") },
-    { icon: Award, text: t("about.items.degree") },
     { icon: Palette, text: t("about.items.adobe") },
-    { icon: TrendingUp, text: t("about.items.ads") },
+    { icon: GraduationCap, text: t("about.items.degree") },
+    { icon: Award, text: t("about.items.mba") },
     { icon: Code, text: t("about.items.code") },
+    { icon: TrendingUp, text: t("about.items.ads") },
     { icon: Globe, text: t("about.items.english") },
   ];
 

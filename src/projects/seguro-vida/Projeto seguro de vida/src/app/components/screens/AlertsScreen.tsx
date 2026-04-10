@@ -10,6 +10,14 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { hapticTick } from "../haptics";
+import type { TabId } from "../BottomTabBar";
+import type { QuickActionId } from "../QuickActions";
+
+interface ScreenProps {
+  onNavigate: (tab: TabId) => void;
+  onOpenSearch?: () => void;
+  onQuickAction?: (id: QuickActionId) => void;
+}
 
 interface Notification {
   id: string;
@@ -85,7 +93,9 @@ const colorMap = {
   warning: "#D97706",
 };
 
-export function AlertsScreen() {
+export function AlertsScreen({ onNavigate, onOpenSearch, onQuickAction }: ScreenProps) {
+  // Props handled via destructuring for type safety
+  void onNavigate; void onOpenSearch; void onQuickAction;
   const [notifications, setNotifications] = useState(initialNotifications);
   const [filter, setFilter] = useState<"all" | "unread">("all");
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { PageHeader } from "./PageHeader";
-import { Shield, Fingerprint, Lock, Eye, EyeOff, Smartphone, KeyRound } from "lucide-react";
+import { LucideIcon, Shield, Fingerprint, Lock, Eye, EyeOff, Smartphone, KeyRound } from "lucide-react";
 
 interface ToggleItemProps {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   description: string;
   defaultOn?: boolean;
