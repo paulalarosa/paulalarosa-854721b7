@@ -56,9 +56,7 @@ const GeometricMotion = () => {
       canvas.style.height = `${rect.height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       sizeRef.current = { w: rect.width, h: rect.height };
-      if (shapesRef.current.length === 0) {
-        initShapes(rect.width, rect.height);
-      }
+      if (shapesRef.current.length === 0) initShapes(rect.width, rect.height);
     };
 
     resize();
@@ -69,12 +67,8 @@ const GeometricMotion = () => {
       ctx.translate(s.x, s.y);
       ctx.rotate(s.rotation);
       ctx.lineWidth = 0.6;
-
-      const fillC = `rgba(176,176,176,${s.opacity})`;
-      const strokeC = `rgba(200,200,200,${s.opacity * (s.strokeOnly ? 2.2 : 0.7)})`;
-
-      ctx.fillStyle = s.strokeOnly ? "transparent" : fillC;
-      ctx.strokeStyle = strokeC;
+      ctx.fillStyle = s.strokeOnly ? "transparent" : `rgba(176,176,176,${s.opacity})`;
+      ctx.strokeStyle = `rgba(200,200,200,${s.opacity * (s.strokeOnly ? 2.2 : 0.7)})`;
 
       ctx.beginPath();
       switch (s.type) {
@@ -104,7 +98,6 @@ const GeometricMotion = () => {
           ctx.closePath();
           break;
       }
-
       if (!s.strokeOnly) ctx.fill();
       ctx.stroke();
       ctx.restore();
@@ -117,7 +110,6 @@ const GeometricMotion = () => {
       const spacing = 50;
       const offX = (t * 3) % spacing;
       const offY = (t * 2) % spacing;
-
       for (let x = -spacing + offX; x < w; x += spacing) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -141,8 +133,7 @@ const GeometricMotion = () => {
           const dy = shapes[i].y - shapes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 200) {
-            const alpha = (1 - dist / 200) * 0.1;
-            ctx.strokeStyle = `rgba(200,200,200,${alpha})`;
+            ctx.strokeStyle = `rgba(200,200,200,${(1 - dist / 200) * 0.1})`;
             ctx.beginPath();
             ctx.moveTo(shapes[i].x, shapes[i].y);
             ctx.lineTo(shapes[j].x, shapes[j].y);
@@ -156,9 +147,7 @@ const GeometricMotion = () => {
       const { w, h } = sizeRef.current;
       timeRef.current += 0.016;
       ctx.clearRect(0, 0, w, h);
-
       drawGrid(timeRef.current);
-
       shapesRef.current.forEach((s) => {
         s.x += s.driftX;
         s.y += s.driftY;
@@ -169,14 +158,11 @@ const GeometricMotion = () => {
         if (s.y > h + 130) s.y = -70;
         drawShape(s);
       });
-
       drawConnectors();
-
       animRef.current = requestAnimationFrame(animate);
     };
 
     animate();
-
     return () => {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animRef.current);

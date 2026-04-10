@@ -12,7 +12,7 @@ interface StatItemProps {
 const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
     if (isInView) {
@@ -40,22 +40,18 @@ const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
   }, [isInView, value, delay]);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: delay / 1000 }}
-      viewport={{ once: true }}
       className="text-center"
     >
-      <div className="font-serif text-5xl md:text-7xl font-bold text-primary mb-2">
+      <div className="font-serif text-6xl md:text-8xl font-bold tracking-tighter text-primary mb-3">
         {count}
         {suffix}
       </div>
-      <div className="text-muted-foreground text-sm md:text-base uppercase tracking-wider">
+      <div className="text-foreground/40 text-xs md:text-sm uppercase tracking-[0.3em] font-medium">
         {label}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -70,9 +66,9 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-32 bg-background border-y border-border/40">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
             <StatItem
               key={index}

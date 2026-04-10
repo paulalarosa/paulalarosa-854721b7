@@ -8,6 +8,9 @@ import { HelmetProvider } from "react-helmet-async";
 import React, { Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
+import SmoothScroll from "./components/SmoothScroll";
+import GrainOverlay from "./components/GrainOverlay";
+import PageTransition from "./components/PageTransition";
 import "./i18n/config";
 
 const Index = React.lazy(() => import("./pages/Index"));
@@ -25,12 +28,40 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/case-study/:id" element={<CaseStudy />} />
-        <Route path="/projeto/:id" element={<ProjetoPage />} />
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Index />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/case-study/:id"
+          element={
+            <PageTransition>
+              <CaseStudy />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/projeto/:id"
+          element={
+            <PageTransition>
+              <ProjetoPage />
+            </PageTransition>
+          }
+        />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -44,10 +75,17 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <ScrollToTop />
-            <Suspense fallback={<div className="h-screen w-full bg-background grid place-items-center"></div>}>
-              <AnimatedRoutes />
-            </Suspense>
+            <SmoothScroll>
+              <ScrollToTop />
+              <Suspense
+                fallback={
+                  <div className="h-screen w-full bg-background grid place-items-center"></div>
+                }
+              >
+                <AnimatedRoutes />
+              </Suspense>
+              <GrainOverlay />
+            </SmoothScroll>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

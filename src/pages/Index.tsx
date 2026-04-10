@@ -11,11 +11,10 @@ import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import ParallaxSection from "@/components/ParallaxSection";
+import ScrollSection from "@/components/ScrollSection";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -26,85 +25,68 @@ const Index = () => {
     if (location.state && location.state.scrollTo) {
       setTimeout(() => {
         const element = document.querySelector(location.state.scrollTo);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        } else if (location.state.scrollTo === "#home") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+        else if (location.state.scrollTo === "#home") window.scrollTo({ top: 0, behavior: "smooth" });
         window.history.replaceState({}, document.title);
       }, 100);
     }
   }, [location]);
 
   return (
-    <motion.div
-      className="min-h-screen"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
+    <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Paula La Rosa | Product Designer &amp; Interface Engineering Specialist</title>
-        <meta name="description" content="Product Designer especialista em Interfaces de Alta Fidelidade e Interface Engineering. Do research e prototipagem ao código em produção com React e TypeScript." />
-        <link rel="canonical" href="https://paulalarosa.com/" />
-        <meta property="og:title" content="Paula La Rosa | Product Designer &amp; Interface Engineering" />
-        <meta property="og:description" content="Product Design &amp; Engenharia de Interface. Especialista em resolver problemas complexos com design estratégico e tecnologia de ponta." />
-        <meta property="og:url" content="https://paulalarosa.com/" />
-        <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="pt_BR" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Paula La Rosa | Product Designer" />
-        <meta name="twitter:description" content="Product Design &amp; Engenharia de Interface. Especialista em React, TypeScript e Animações Web." />
-        <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
+        <title>Paula La Rosa | Creative UI Engineer & Designer</title>
+        <meta name="description" content="Especialista em interfaces imersivas, animações cinematográficas e engenharia front-end de alta performance." />
       </Helmet>
 
       <Header />
 
-      <main>
+      <main className="relative z-0">
         <Hero />
 
-        <ParallaxSection speed={0.92} fade>
+        {/* Expertise & Tech */}
+        <ScrollSection pin scaleDown id="expertise">
           <HardSkills />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={1.08} fade>
+        {/* Main Case Study */}
+        <ScrollSection speed={1.1} id="portfolio">
           <FeaturedProject />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={0.94} fade>
+        {/* Engenharia & Estética Visual (Stats) */}
+        <ScrollSection pin scaleDown>
           <Stats />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={1.05} fade>
+        <ScrollSection speed={1.05}>
           <LabInnovation />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={0.9} fade scale>
+        <ScrollSection pin scaleDown id="qualifications">
           <Qualifications />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={1.1} fade>
+        <ScrollSection speed={1.05}>
           <Partners />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={0.95} fade>
+        <ScrollSection scaleDown speed={0.98}>
           <Testimonials />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={1.02} fade>
+        <ScrollSection speed={1.0}>
           <Contact />
-        </ParallaxSection>
+        </ScrollSection>
 
-        <ParallaxSection speed={0.98} fade={false}>
+        <ScrollSection>
           <Newsletter />
-        </ParallaxSection>
+        </ScrollSection>
       </main>
 
       <Footer />
       <WhatsAppButton />
-    </motion.div>
+    </div>
   );
 };
 

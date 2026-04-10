@@ -2,80 +2,122 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GeometricMotion from "./GeometricMotion";
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (selector: string) => {
     const el = document.querySelector(selector);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
 
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
+    const ctx = gsap.context(() => {
+      // Pinned zoom experience
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "+=150%", // How long to stay pinned for the zoom
+        pin: true,
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
 
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -140]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.35, 0.65], [1, 1, 0]);
-  const textScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.94]);
+          // Background depth
+          if (bgRef.current) {
+            gsap.set(bgRef.current, {
+              scale: 1 + progress * 0.4,
+              opacity: 1 - progress * 0.5,
+              y: progress * 100,
+            });
+          }
 
-  const ctaY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const ctaOpacity = useTransform(scrollYProgress, [0, 0.25, 0.55], [1, 1, 0]);
+          // Dramatic Text Zoom
+          if (textRef.current) {
+            gsap.set(textRef.current, {
+              scale: 1 + Math.pow(progress, 2) * 8, // Exponential zoom for "diving in" feel
+              opacity: 1 - progress * 1.5, // Fades completely before progress reaches 1
+              filter: `blur(${progress * 20}px)`,
+            });
+          }
 
-  const scrollOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+          // CTA Lift and Fade
+          if (ctaRef.current) {
+            gsap.set(ctaRef.current, {
+              y: progress * -200,
+              opacity: 1 - progress * 2.5,
+              scale: 1 - progress * 0.5,
+            });
+          }
+
+          // Hide scroll indicator immediately
+          if (scrollRef.current) {
+            gsap.set(scrollRef.current, {
+              opacity: 1 - progress * 10,
+            });
+          }
+        },
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        background: "#0a0a0a",
-        minHeight: "115vh",
-      }}
+      className="relative flex flex-col items-center justify-center overflow-hidden w-full"
+      style={{ background: "#0a0a0a", height: "100vh" }}
     >
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: bgY, scale: bgScale }}
-      >
+      <div ref={bgRef} className="absolute inset-0 will-change-transform">
         <GeometricMotion />
-      </motion.div>
+      </div>
 
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 100%)",
+          background: "radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.7) 100%)",
+          zIndex: 5,
         }}
       />
 
-      <motion.div
-        className="relative z-10 flex flex-col items-center justify-center px-4"
-        style={{ y: textY, opacity: textOpacity, scale: textScale }}
+      <div
+        ref={textRef}
+        className="relative z-10 flex flex-col items-center justify-center px-4 will-change-transform"
       >
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-          className="hero-mask-text font-serif font-bold text-center leading-[0.85] tracking-tight select-none"
+          initial={{ opacity: 0, scale: 0.85, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.1,
+          }}
+          className="hero-mask-text font-serif font-bold text-center leading-[0.8] tracking-tighter select-none"
           style={{
-            fontSize: "clamp(3.5rem, 13vw, 12rem)",
+            fontSize: "clamp(4.5rem, 18vw, 18rem)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             color: "transparent",
             WebkitTextFillColor: "transparent",
-            backgroundImage:
-              "linear-gradient(160deg, rgba(255,255,255,0.95) 0%, rgba(210,210,210,0.8) 35%, rgba(255,255,255,0.9) 65%, rgba(180,180,180,0.7) 100%)",
+            backgroundImage: "linear-gradient(180deg, #ffffff 0%, #d0d0d0 100%)",
+            filter: "drop-shadow(0 0 50px rgba(255,255,255,0.1))",
           }}
         >
           PAULA
@@ -84,105 +126,84 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-5 text-center font-sans"
+          transition={{ duration: 1, delay: 0.9 }}
+          className="mt-8 text-center font-sans"
           style={{
-            fontSize: "clamp(0.65rem, 1.1vw, 0.85rem)",
-            letterSpacing: "0.4em",
+            fontSize: "clamp(0.75rem, 1.3vw, 1rem)",
+            letterSpacing: "0.6em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.35)",
+            color: "rgba(255,255,255,0.45)",
+            fontWeight: 300,
           }}
         >
-          Product Designer & Interface Engineer
+          Creative UI Engineer & Designer
         </motion.p>
+      </div>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-6"
-          style={{
-            width: "48px",
-            height: "1px",
-            background: "rgba(255,255,255,0.15)",
-            transformOrigin: "center",
-          }}
-        />
-      </motion.div>
-
-      <motion.div
-        className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mt-10"
-        style={{ y: ctaY, opacity: ctaOpacity }}
+      <div
+        ref={ctaRef}
+        className="relative z-10 flex flex-col sm:flex-row items-center gap-6 mt-16 will-change-transform"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
           <Button
             size="lg"
-            onClick={() => scrollToSection("#lab-innovation")}
-            className="bg-white/[0.07] hover:bg-white/[0.14] text-white/80 hover:text-white border border-white/[0.12] hover:border-white/[0.22] backdrop-blur-sm transition-all duration-300 group px-8 rounded-full"
+            onClick={() => scrollToSection("#portfolio")}
+            className="bg-white text-black hover:bg-white/90 font-bold px-12 rounded-full h-16 transition-all duration-500 hover:scale-105"
           >
             {t("hero.viewProjects")}
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.35, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.8, delay: 1.35 }}
         >
           <Button
+            variant="outline"
             size="lg"
             onClick={() => scrollToSection("#contact")}
-            className="bg-transparent hover:bg-white/[0.07] text-white/50 hover:text-white/80 border border-white/[0.08] hover:border-white/[0.15] transition-all duration-300 px-8 rounded-full"
+            className="bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20 px-12 rounded-full h-16 transition-all duration-500"
           >
             {t("nav.contact")}
           </Button>
         </motion.div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        style={{ opacity: scrollOpacity }}
+      <div
+        ref={scrollRef}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4"
       >
+        <motion.div
+          animate={{ y: [0, 10, 0], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          style={{
+            width: "1px",
+            height: "80px",
+            background: "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)",
+          }}
+        />
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.8 }}
+          transition={{ delay: 1.5, duration: 1 }}
           className="font-sans"
           style={{
             fontSize: "10px",
-            letterSpacing: "3px",
+            letterSpacing: "5px",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.18)",
+            color: "rgba(255,255,255,0.3)",
           }}
         >
           {t("hero.scroll")}
         </motion.span>
-        <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ delay: 1.8, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{
-            width: "1px",
-            height: "36px",
-            background: "linear-gradient(to bottom, rgba(255,255,255,0.2), transparent)",
-            transformOrigin: "top",
-          }}
-        />
-      </motion.div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none"
-        style={{
-          height: "200px",
-          background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)",
-        }}
-      />
+      </div>
     </section>
   );
 };

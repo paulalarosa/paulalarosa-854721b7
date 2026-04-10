@@ -388,10 +388,24 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Smooth scroll base */
+html.lenis, html.lenis body {
+  height: auto;
 }
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hero text shimmer */
 .hero-mask-text {
   background-clip: text;
   -webkit-background-clip: text;
@@ -401,8 +415,7 @@ html {
 }
 
 @keyframes shimmerText {
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
@@ -410,22 +423,18 @@ html {
   }
 }
 
-.parallax-layer {
+/* GPU hints for scroll-driven elements */
+.will-change-transform {
   will-change: transform;
-  transform: translateZ(0);
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .hero-mask-text {
     animation: none;
   }
-
-  .parallax-layer {
+  
+  .will-change-transform {
     will-change: auto;
-    transform: none;
   }
 }
