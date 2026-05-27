@@ -1,5 +1,6 @@
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { CONTACT } from "@/lib/constants";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -77,7 +78,7 @@ const Footer = () => {
             </h4>
             <div className="flex gap-4">
               <a
-                href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
+                href={CONTACT.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift"
@@ -86,7 +87,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://www.behance.net/paulalarosa"
+                href={CONTACT.behance}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift"

@@ -4,12 +4,11 @@ import { useTranslation } from "react-i18next";
 import { ContactFormSchema, type ContactFormData } from "@/types";
 import { executeRecaptcha, verifyRecaptchaToken } from "@/services/recaptcha";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
-
-const WHATSAPP_NUMBER = "5521983604870";
+import { whatsappUrl } from "@/lib/constants";
 
 function buildWhatsAppUrl(data: ContactFormData): string {
   const message = `Olá Paula! Meu nome é ${data.name}.\n\nEmail: ${data.email}\n\nMensagem: ${data.message}`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return whatsappUrl(message);
 }
 
 export function useContactForm() {

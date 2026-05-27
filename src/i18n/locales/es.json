@@ -223,7 +223,13 @@
     "requiredFields": "Campos obligatorios",
     "fillAllFields": "Por favor, completa todos los campos.",
     "redirecting": "Redirigiendo a WhatsApp",
-    "redirectingDesc": "Serás redirigido para continuar la conversación."
+    "redirectingDesc": "Serás redirigido para continuar la conversación.",
+    "verifying": "Verificando...",
+    "recaptchaNotice": "Este sitio está protegido por reCAPTCHA y las",
+    "recaptchaPrivacy": "Políticas de Privacidad",
+    "recaptchaAnd": "y",
+    "recaptchaTerms": "Términos de Servicio",
+    "recaptchaApply": "de Google se aplican."
   },
   "footer": {
     "description": "Product Designer & Interface Engineer. Construyendo productos digitales escalables a través del diseño estratégico y la ingeniería de precisión.",

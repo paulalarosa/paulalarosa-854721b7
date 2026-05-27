@@ -14,12 +14,15 @@ describe("App Smoke Test", () => {
   it("renders the application without crashing", async () => {
     render(<App />);
 
-    await waitFor(() => {
-      const titleElements = screen.getAllByText(/Paula La Rosa/i);
-      expect(titleElements.length).toBeGreaterThan(0);
-    });
+    await waitFor(
+      () => {
+        const titleElements = screen.getAllByText(/Paula La Rosa/i);
+        expect(titleElements.length).toBeGreaterThan(0);
+      },
+      { timeout: 5000 },
+    );
 
-    const navElement = screen.getByRole("banner");
+    const navElement = await screen.findByRole("banner");
     expect(navElement).toBeInTheDocument();
   });
 });

@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { trackEvent } from "@/hooks/useAnalytics";
+import { whatsappUrl } from "@/lib/constants";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "5521983604870";
-  const message = "Olá Paula! Vim pelo seu site e gostaria de saber mais sobre seus serviços.";
-
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const href = whatsappUrl("Olá Paula! Vim pelo seu site e gostaria de saber mais sobre seus serviços.");
 
   const handleClick = () => {
     trackEvent({
@@ -21,7 +19,7 @@ const WhatsAppButton = () => {
 
   return (
     <motion.a
-      href={whatsappUrl}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

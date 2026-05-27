@@ -32,11 +32,9 @@ interface TrackEventOptions {
 
 export const trackEvent = async (options: TrackEventOptions): Promise<void> => {
   try {
-    const response = await fetch(`${SUPABASE_URL}/functions/v1/track-event`, {
+    await fetch(`${SUPABASE_URL}/functions/v1/track-event`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ...options,
         session_id: getSessionId(),
@@ -44,12 +42,8 @@ export const trackEvent = async (options: TrackEventOptions): Promise<void> => {
         referrer: document.referrer,
       }),
     });
-
-    if (!response.ok) {
-      console.warn("[Analytics] Failed to track event:", await response.text());
-    }
-  } catch (error) {
-    console.warn("[Analytics] Error tracking event:", error);
+  } catch {
+    // Analytics failures must not break the UX.
   }
 };
 

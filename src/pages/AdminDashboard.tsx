@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -13,17 +12,6 @@ import {
 import { toast } from "sonner";
 import * as Sentry from "@sentry/react";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-} from "recharts";
-import {
   Eye,
   Users,
   MousePointerClick,
@@ -31,7 +19,6 @@ import {
   LogOut,
   RefreshCw,
   Calendar,
-  TrendingUp,
 } from "lucide-react";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -102,7 +89,6 @@ const AdminDashboard = () => {
         .order("created_at", { ascending: false });
 
       if (error) {
-        console.error("Error fetching analytics:", error);
         Sentry.captureException(error);
         toast.error("Erro ao carregar analytics. Tente novamente.");
         return;
@@ -110,7 +96,6 @@ const AdminDashboard = () => {
 
       setEvents(data || []);
     } catch (error) {
-      console.error("Error:", error);
       Sentry.captureException(error);
       toast.error("Erro de conexão. Verifique sua rede.");
     } finally {
@@ -224,7 +209,7 @@ const AdminDashboard = () => {
               </SelectContent>
             </Select>
             <Button variant="outline" size="icon" onClick={fetchAnalytics} disabled={isLoading}>
-              <RefreshCw className={`h - 4 w - 4 ${isLoading ? "animate-spin" : ""} `} />
+              <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
             </Button>
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4 mr-2" />

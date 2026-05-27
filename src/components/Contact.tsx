@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useTranslation } from 'react-i18next';
 import { useContactForm } from '@/hooks/useContactForm';
 import { trackEvent } from '@/hooks/useAnalytics';
+import { CONTACT, whatsappUrl } from '@/lib/constants';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -82,26 +83,26 @@ const Contact = () => {
                 className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base shadow-silver border border-accent/30 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="mr-2 h-5 w-5" />
-                {isSubmitting ? 'Verificando...' : t('contact.send')}
+                {isSubmitting ? t('contact.verifying') : t('contact.send')}
               </Button>
 
               <p className="text-xs text-muted-foreground mt-4">
-                Este site é protegido pelo reCAPTCHA e as{' '}
+                {t('contact.recaptchaNotice')}{' '}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                  Políticas de Privacidade
+                  {t('contact.recaptchaPrivacy')}
                 </a>{' '}
-                e{' '}
+                {t('contact.recaptchaAnd')}{' '}
                 <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                  Termos de Serviço
+                  {t('contact.recaptchaTerms')}
                 </a>{' '}
-                do Google se aplicam.
+                {t('contact.recaptchaApply')}
               </p>
             </form>
           </div>
 
           <div className="lg:col-span-2 space-y-6">
             <a
-              href="mailto:prenata@gmail.com?subject=Contato via Portfolio - Desenvolvimento Frontend"
+              href={`mailto:${CONTACT.email}?subject=Contato via Portfolio - Desenvolvimento Frontend`}
               onClick={() => handleExternalLinkClick('email', 'Email Contact')}
               className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift"
             >
@@ -115,7 +116,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://wa.me/5521983604870"
+              href={whatsappUrl('Olá Paula!')}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleExternalLinkClick('whatsapp', 'WhatsApp Contact Section')}
@@ -131,7 +132,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/paula-la-rosa-228889119/"
+              href={CONTACT.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleExternalLinkClick('linkedin', 'LinkedIn Profile')}
