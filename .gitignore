@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Lint / typecheck reports (artifacts — not source)
+eslint-results.json
+lint-output.txt
+lint-report.txt
+tsc-output.txt
+tsc-report.txt
+tsc-results.txt
+repomix-output.xml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
