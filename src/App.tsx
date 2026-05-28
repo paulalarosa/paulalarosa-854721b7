@@ -20,6 +20,7 @@ import "./i18n/config";
 const Index = React.lazy(() => import("./pages/Index"));
 const CaseStudy = React.lazy(() => import("./pages/CaseStudy"));
 const ProjetoPage = React.lazy(() => import("./pages/ProjetoPage"));
+const PressKit = React.lazy(() => import("./pages/PressKit"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const AdminLogin = React.lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
@@ -53,6 +54,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <ProjetoPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/press-kit"
+          element={
+            <PageTransition>
+              <PressKit />
             </PageTransition>
           }
         />

@@ -15,6 +15,7 @@ const urls = [
     changefreq: "monthly",
     priority: "0.8",
   })),
+  { loc: "/press-kit", changefreq: "monthly", priority: "0.5" },
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
