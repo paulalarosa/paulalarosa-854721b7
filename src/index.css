@@ -140,6 +140,41 @@
     height: 100svh;
   }
 
+  /* Underline reveal — left-to-right wipe under inline links */
+  .link-reveal {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .link-reveal:hover,
+  .link-reveal:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* View Transitions API (Chrome 111+, Edge 111+, Safari 18.2+) — soft crossfade
+     when the wrapping callback runs (changeLanguage, navigate, etc.). Honors
+     prefers-reduced-motion via the global rule above. */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  ::view-transition-old(root) {
+    animation-name: vt-fade-out;
+  }
+  ::view-transition-new(root) {
+    animation-name: vt-fade-in;
+  }
+  @keyframes vt-fade-out {
+    to { opacity: 0; filter: blur(4px); }
+  }
+  @keyframes vt-fade-in {
+    from { opacity: 0; filter: blur(4px); }
+  }
+
   @media print {
     *, *::before, *::after {
       animation: none !important;

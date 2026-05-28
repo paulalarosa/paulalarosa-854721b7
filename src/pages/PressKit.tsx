@@ -181,25 +181,25 @@ const PressKit = () => (
             <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                <a href="https://paulalarosa.com" className="hover:underline">
+                <a href="https://paulalarosa.com" className="link-reveal">
                   paulalarosa.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:underline">
+                <a href={`mailto:${CONTACT.email}`} className="link-reveal">
                   {CONTACT.email}
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                <a href={`https://wa.me/${CONTACT.whatsappNumber}`} className="hover:underline">
+                <a href={`https://wa.me/${CONTACT.whatsappNumber}`} className="link-reveal">
                   +55 (21) 98360-4870
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Linkedin className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
-                <a href={CONTACT.linkedin} className="hover:underline">
+                <a href={CONTACT.linkedin} className="link-reveal">
                   linkedin.com/in/paula-la-rosa
                 </a>
               </div>

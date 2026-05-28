@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
+import { useViewTransition } from "@/hooks/useViewTransition";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -12,6 +13,7 @@ const Header = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const withViewTransition = useViewTransition();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -33,8 +35,10 @@ const Header = () => {
   ];
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem("language", lng);
+    withViewTransition(() => {
+      i18n.changeLanguage(lng);
+      localStorage.setItem("language", lng);
+    });
   };
 
   const scrollToSection = (href: string) => {

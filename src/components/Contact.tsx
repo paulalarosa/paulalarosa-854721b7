@@ -172,7 +172,7 @@ const Contact = () => {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+                  className="link-reveal hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
                 >
                   {t("contact.recaptchaPrivacy")}
                 </a>{" "}
@@ -181,7 +181,7 @@ const Contact = () => {
                   href="https://policies.google.com/terms"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+                  className="link-reveal hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
                 >
                   {t("contact.recaptchaTerms")}
                 </a>{" "}
