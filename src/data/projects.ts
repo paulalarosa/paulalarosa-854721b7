@@ -30,7 +30,7 @@ export const projects: ProjectMeta[] = [
     {
         id: 'klini',
         name: 'Klini',
-        tagline: 'Super app de saúde para quem leva bem-estar a sério',
+        tagline: 'A jornada de saúde em um app, sem precisar abrir cinco.',
         sector: 'HealthTech',
         year: '2024',
         role: 'Product Design · UI Engineering',
@@ -38,8 +38,8 @@ export const projects: ProjectMeta[] = [
         accentColor: '#0d6b3e',
         tags: ['HealthTech', 'Mobile App', 'UX Research', 'Design System'],
         overview: 'Klini é um super app de saúde que unifica rede de especialistas, agendamento inteligente, acompanhamento de consultas e gestão de coparticipação em uma experiência coesa e humana.',
-        problem: 'Usuários de planos de saúde navegam entre 3 a 5 apps diferentes para agendar, acompanhar e pagar serviços médicos. A fragmentação gera abandono, erros e frustração em momentos de vulnerabilidade.',
-        solution: 'Centralizar toda a jornada de saúde em um único app com hierarquia visual progressiva — o HealthRing como âncora emocional e as ações prioritárias sempre acessíveis a um toque.',
+        problem: 'Quem tem plano de saúde abre 3 a 5 apps pra agendar, acompanhar consulta e pagar coparticipação. Cada um é uma marca, uma senha, uma UI diferente. A fragmentação custa abandono, erro e frustração — exatamente nos momentos em que o usuário está mais vulnerável.',
+        solution: 'Uma única jornada com hierarquia visual progressiva: o HealthRing como âncora emocional acima do fold, ações prioritárias sempre a um toque, carteirinha digital exposta pra contexto de urgência. Não é "tudo numa só tela" — é a tela certa pra cada momento, com transições que preservam contexto.',
         decisions: [
             {
                 title: 'HealthRing como métrica emocional',
@@ -81,8 +81,8 @@ export const projects: ProjectMeta[] = [
         accentColor: '#2d1b5e',
         tags: ['InsurTech', 'Mobile App', 'Product Design', 'Visualização de Dados'],
         overview: 'App de seguro pessoal que traduz apólices complexas em linguagem visual acessível, com ShieldScore proprietário, visualização de cobertura em órbita e fluxo de sinistros desenhado para momentos de estresse.',
-        problem: 'Seguros de vida têm uma das maiores taxas de churn do mercado financeiro — não por falta de valor, mas por falta de percepção de valor. Usuários não conseguem entender o que têm contratado.',
-        solution: 'Criar uma linguagem visual proprietária que torne o seguro tangível e compreensível — o ShieldScore como âncora de valor e a Coverage Orbit como metáfora de proteção.',
+        problem: 'Seguros de vida têm uma das maiores taxas de churn do mercado financeiro — não por falta de valor entregue, mas por falta de valor percebido. O cliente paga todo mês e não sabe explicar o que tem. Aí cancela.',
+        solution: 'Linguagem visual proprietária que torna a cobertura tangível: ShieldScore como score emocional do que você tem hoje, Coverage Orbit como metáfora de proteção orbitando o usuário, e fluxo de sinistro desenhado para mente sob estresse — etapas mínimas, save automático, zero jargão jurídico.',
         decisions: [
             {
                 title: 'ShieldScore como métrica de valor',
@@ -120,8 +120,8 @@ export const projects: ProjectMeta[] = [
         accentColor: '#0a4f6b',
         tags: ['HealthTech', 'Mobile App', 'UI Engineering', 'iOS Design'],
         overview: 'App de plano de saúde com integração nativa ao iOS — Dynamic Island, HealthKit e widgets na tela de bloqueio. HealthRing animado como identidade visual central e carteirinha digital integrada.',
-        problem: 'Apps de planos de saúde ignoram as capacidades nativas dos sistemas operacionais modernos, entregando experiências genéricas que parecem portais web adaptados para mobile.',
-        solution: 'Aproveitar ao máximo o iOS — Dynamic Island para notificações contextuais, HealthKit para dados reais, design system 100% alinhado ao Human Interface Guidelines.',
+        problem: 'A maioria dos apps de plano de saúde parece portal web vestido de app: ignora Dynamic Island, ignora HealthKit, ignora widgets na tela de bloqueio. O usuário paga por "app premium" e recebe experiência genérica.',
+        solution: 'Construir nativo de verdade: Dynamic Island pra notificações contextuais (resultado de exame, alerta de carência), HealthKit alimentando o HealthRing com dado real, design system 100% alinhado ao Human Interface Guidelines da Apple. Gamificação com propósito, não decorativa.',
         decisions: [
             {
                 title: 'Dynamic Island como canal de comunicação',
@@ -159,8 +159,8 @@ export const projects: ProjectMeta[] = [
         accentColor: '#1c3a6b',
         tags: ['InsurTech', 'B2B', 'Dashboard', 'Design System', 'CRM'],
         overview: 'Plataforma mobile-first para corretores de seguros com CRM de clientes, gestão de apólices em tempo real, relatórios analíticos e academia de capacitação integrada ao fluxo de trabalho.',
-        problem: 'Corretores de seguros gerenciam portfólios de centenas de clientes com ferramentas de desktop desatualizadas, planilhas e WhatsApp. A falta de mobilidade custa negócios fechados em campo.',
-        solution: 'App mobile B2B com design orientado a decisão rápida — KPIs críticos above the fold, CRM com search instantâneo e gestão de apólices com alertas proativos de renovação.',
+        problem: 'Corretor de seguros gerencia centenas de clientes em desktop legado + planilhas + WhatsApp. Quando está em campo, fechando negócio, depende de memória. Apólices vencendo passam batido. Cotação demora horas a mais porque ele precisa voltar pro escritório.',
+        solution: 'B2B mobile-first orientado a decisão: KPIs críticos acima do fold com drill-down pra ação (não pra lista), CRM com preview inline sem navegação aninhada, alertas proativos de renovação no dashboard, e LMS contextual sugerindo capacitação na hora certa — não em plataforma separada.',
         decisions: [
             {
                 title: 'Dashboard orientado a ação',
@@ -198,8 +198,8 @@ export const projects: ProjectMeta[] = [
         accentColor: '#1a1a1a',
         tags: ['E-commerce', 'Mobile App', 'Brand Design', 'Streetwear'],
         overview: 'App de e-commerce para marca de streetwear com experiência editorial inspirada em revistas de moda — HeroBanner cinematográfico, drops exclusivos com urgência real e checkout fluido por gestos.',
-        problem: 'Marcas de streetwear independentes perdem para grandes players não pelo produto, mas pela experiência digital genérica. Apps de e-commerce padrão apagam a identidade da marca.',
-        solution: 'Criar uma experiência digital que reflete a personalidade da Kaos — dark, editorial, exclusiva. A navegação em si comunica a identidade da marca antes de qualquer produto.',
+        problem: 'Marca de streetwear independente perde pra grande player não pelo produto — pela experiência digital. Templates Shopify, fotos centralizadas, checkout genérico: nada disso comunica que esta marca tem voz própria. A identidade morre antes do produto aparecer.',
+        solution: 'Experiência digital que parece editorial de moda: HeroBanner cinematográfico em full-bleed, ProductCards 3:4 que valorizam o produto como uma revista valorizaria o look, Drops com countdown autêntico em dark-mode exclusivo, checkout por gestos. A navegação é a marca antes do produto ser a marca.',
         decisions: [
             {
                 title: 'HeroBanner como capa de revista',

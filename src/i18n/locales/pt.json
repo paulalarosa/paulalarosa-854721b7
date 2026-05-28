@@ -528,17 +528,17 @@
     }
   },
   "newsletter": {
-    "title": "Fique por dentro das novidades",
-    "subtitle": "Receba insights sobre marketing, inovação e estratégia digital diretamente no seu email.",
-    "placeholder": "Seu melhor email",
-    "button": "Inscrever",
-    "success": "Inscrição realizada com sucesso!",
-    "thankyou": "Obrigada! Você está inscrito.",
-    "privacy": "Prometemos não enviar spam. Você pode cancelar a qualquer momento.",
+    "title": "Um email por mês. Tudo que aprendi no código e no Figma.",
+    "subtitle": "Padrões, decisões técnicas e bastidores de projetos reais. Nada de fluff motivacional. Cancele com 1 clique quando quiser.",
+    "placeholder": "seuemail@empresa.com",
+    "button": "Quero receber",
+    "success": "Inscrição feita.",
+    "thankyou": "Pronto. Seu primeiro email chega no próximo lançamento.",
+    "privacy": "Sem spam. Sem listas vendidas. Cancele com 1 clique.",
     "errorEmpty": "Por favor, informe seu email.",
-    "errorInvalid": "Por favor, informe um email válido.",
-    "alreadySubscribed": "Este email já está inscrito na newsletter.",
-    "errorGeneric": "Ocorreu um erro. Tente novamente."
+    "errorInvalid": "Email inválido — confere o formato e tenta de novo.",
+    "alreadySubscribed": "Este email já está inscrito.",
+    "errorGeneric": "Algo deu errado por aqui. Tenta de novo em alguns segundos."
   },
   "partners": {
     "title": "Empresas que já atendi",
