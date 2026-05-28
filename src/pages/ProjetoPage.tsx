@@ -30,17 +30,18 @@ export default function ProjetoPage() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
         >
             <Helmet>
-                <title>{project.name} — Paula La Rosa</title>
+                <title>{`${project.name} — Case Study | Paula La Rosa`}</title>
                 <meta name="description" content={project.tagline} />
+                <meta name="keywords" content={project.tags.join(", ")} />
                 <link rel="canonical" href={canonicalUrl} />
-                <meta property="og:title" content={`${project.name} — Paula La Rosa`} />
+                <meta property="og:title" content={`${project.name} — Case Study | Paula La Rosa`} />
                 <meta property="og:description" content={project.tagline} />
                 <meta property="og:url" content={canonicalUrl} />
                 <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
-                <meta property="og:type" content="website" />
+                <meta property="og:type" content="article" />
                 <meta property="og:locale" content="pt_BR" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={`${project.name} — Paula La Rosa`} />
+                <meta name="twitter:title" content={`${project.name} — Case Study | Paula La Rosa`} />
                 <meta name="twitter:description" content={project.tagline} />
                 <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
             </Helmet>
@@ -83,19 +84,17 @@ export default function ProjetoPage() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start mb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-start mb-20 justify-items-center lg:justify-items-start">
                     <motion.div
                         initial={{ opacity: 0, x: -24 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="flex flex-col items-center lg:sticky lg:top-24"
+                        className="flex flex-col items-center lg:sticky lg:top-24 w-full max-w-[300px]"
                     >
                         <div
-                            className="relative rounded-[46px] p-[6px]"
+                            className="relative rounded-[46px] p-[6px] aspect-[300/616] w-[min(80vw,300px)]"
                             style={{
                                 backgroundColor: '#0a0a0a',
-                                width: 300,
-                                height: 616,
                                 boxShadow: `0 0 0 2px ${project.accentColor}, 0 40px 80px -20px rgba(0,0,0,0.4)`,
                             }}
                         >

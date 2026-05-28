@@ -42,19 +42,20 @@ const CaseStudy = () => {
       transition={{ duration: 0.5, ease: "circOut" }}
     >
       <Helmet>
-        <title>{projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study — Paula La Rosa'}</title>
-        <meta name="description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
+        <title>{`${projectData.title} — Case Study | Paula La Rosa`}</title>
+        <meta name="description" content={projectData.subtitle} />
+        <meta name="keywords" content={projectData.tags.join(", ")} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study'} />
-        <meta property="og:description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
+        <meta property="og:title" content={`${projectData.title} — Case Study | Paula La Rosa`} />
+        <meta property="og:description" content={projectData.subtitle} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
+        <meta property="og:image" content={`https://paulalarosa.com${projectData.image}`} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={projectData?.title ? `${projectData.title} — Paula La Rosa` : 'Case Study'} />
-        <meta name="twitter:description" content={projectData?.subtitle || 'Case Study de produto digital por Paula La Rosa'} />
-        <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
+        <meta name="twitter:title" content={`${projectData.title} — Case Study | Paula La Rosa`} />
+        <meta name="twitter:description" content={projectData.subtitle} />
+        <meta name="twitter:image" content={`https://paulalarosa.com${projectData.image}`} />
       </Helmet>
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-accent z-50 origin-left"
