@@ -40,11 +40,20 @@ export interface RecaptchaVerifyResponse {
 export interface TechStackItem {
   name: string;
   icon: string;
+  reason?: string;
 }
 
 export interface ProcessStep {
   title: string;
   desc: string;
+  duration?: string;
+  highlight?: boolean;
+}
+
+export interface ResultMetric {
+  value: string;
+  metric: string;
+  description: string;
 }
 
 export interface ProjectData {
@@ -55,10 +64,11 @@ export interface ProjectData {
   challenge: string;
   solution: string;
   stack: TechStackItem[];
-  results: string[];
+  results: ResultMetric[];
   liveUrl: string;
   role: string;
   timeline: string;
   process: ProcessStep[];
   image: string;
+  accentColor: string;
 }
