@@ -27,10 +27,8 @@ const Partners = () => {
 
   return (
     <section className="py-20 overflow-hidden relative">
-      {}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
 
-      {}
       <style>{`
         @keyframes marquee-left {
           0% { transform: translateX(0); }
@@ -54,7 +52,6 @@ const Partners = () => {
         }
       `}</style>
 
-      {}
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,13 +70,10 @@ const Partners = () => {
         </motion.div>
       </div>
 
-      {}
       <div className="relative z-10">
-        {}
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
-        {}
         <div className="mb-4 marquee-wrapper">
           <div className="flex gap-4 marquee-left">
             {[...firstRow, ...firstRow].map((partner, index) => (
@@ -88,7 +82,6 @@ const Partners = () => {
           </div>
         </div>
 
-        {}
         <div className="marquee-wrapper">
           <div className="flex gap-4 marquee-right">
             {[...secondRow, ...secondRow].map((partner, index) => (
@@ -98,7 +91,6 @@ const Partners = () => {
         </div>
       </div>
 
-      {}
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

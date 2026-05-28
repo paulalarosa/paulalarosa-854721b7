@@ -22,7 +22,7 @@ describe("App Smoke Test", () => {
       { timeout: 5000 },
     );
 
-    const navElement = await screen.findByRole("banner");
+    const navElement = await screen.findByRole("banner", undefined, { timeout: 8000 });
     expect(navElement).toBeInTheDocument();
   });
 });

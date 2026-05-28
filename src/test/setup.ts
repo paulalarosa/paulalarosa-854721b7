@@ -1,6 +1,10 @@
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
 
+vi.stubEnv("VITE_SUPABASE_URL", "https://test.supabase.co");
+vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "test-anon-key");
+vi.stubEnv("VITE_RECAPTCHA_SITE_KEY", "test-recaptcha-key");
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query) => ({

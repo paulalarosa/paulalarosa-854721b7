@@ -66,7 +66,6 @@ const HardSkills = () => {
           ))}
         </div>
 
-        { }
         <div
           className="flex animate-marquee"
           style={{ animationDirection: "reverse", animationDuration: "45s", width: "max-content" }}

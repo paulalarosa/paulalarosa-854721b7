@@ -188,7 +188,6 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {}
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div>
@@ -219,9 +218,7 @@ const AdminDashboard = () => {
         </div>
       </header>
 
-      {}
       <main className="container mx-auto px-6 py-8">
-        {}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             title="Total de Visualizações"
@@ -252,13 +249,11 @@ const AdminDashboard = () => {
           />
         </div>
 
-        {}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <DailyViewsChart data={dailyData} />
           <TopPagesChart data={topPages} />
         </div>
 
-        {}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DistributionChart
             title="Dispositivos"
