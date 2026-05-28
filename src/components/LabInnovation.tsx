@@ -3,6 +3,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, X, Lightbulb } from 'lucide-reac
 import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import PrefetchLink from '@/components/PrefetchLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, type ProjectMeta } from '@/data/projects';
 
@@ -208,7 +209,7 @@ const PhoneFrame = ({
             transition={{ delay: 0.15 }}
             className="mt-4"
           >
-            <Link
+            <PrefetchLink
               to={`/projeto/${project.id}`}
               className="inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-full border transition-colors hover:opacity-80"
               style={{
@@ -220,7 +221,7 @@ const PhoneFrame = ({
             >
               Ver case study completo
               <ArrowRight className="w-3 h-3" />
-            </Link>
+            </PrefetchLink>
           </motion.div>
         )}
       </motion.div>
@@ -334,10 +335,10 @@ const LabInnovation = () => {
                         <span key={i} className="px-3 py-1 text-xs text-accent border border-accent/30 rounded-full bg-accent/10">{tag}</span>
                       ))}
                     </div>
-                    <Link to={`/case-study/${project.id}`} className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-base group/link">
+                    <PrefetchLink to={`/case-study/${project.id}`} className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-base group/link">
                       {t('lab.viewCaseStudy')}
                       <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
+                    </PrefetchLink>
                   </div>
                 </Card>
               ))}

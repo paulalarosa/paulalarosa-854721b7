@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import PrefetchLink from '@/components/PrefetchLink';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import khaosHomeWebp from '@/assets/khaos_home_real.webp';
@@ -91,9 +91,9 @@ const FeaturedProject = () => {
                   className="border-primary/20 hover:bg-primary/5 hover:text-primary transition-base"
                   asChild
                 >
-                  <Link to="/case-study/platform">
+                  <PrefetchLink to="/case-study/platform">
                     {t('featuredProject.viewBehindTheScenes')}
-                  </Link>
+                  </PrefetchLink>
                 </Button>
               </div>
             </div>

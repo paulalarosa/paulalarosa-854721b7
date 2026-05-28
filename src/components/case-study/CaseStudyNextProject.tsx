@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { ProjectData } from "@/types";
+import PrefetchLink from "@/components/PrefetchLink";
 
 interface CaseStudyNextProjectProps {
   nextProject: ProjectData;
@@ -11,7 +11,7 @@ const CaseStudyNextProject = ({ nextProject }: CaseStudyNextProjectProps) => {
     <section className="container mx-auto px-6 mt-32">
       <div className="border-t border-border pt-16">
         <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Next Project</p>
-        <Link
+        <PrefetchLink
           to={`/case-study/${nextProject.key}`}
           onClick={() => window.scrollTo(0, 0)}
           className="group block"
@@ -27,7 +27,7 @@ const CaseStudyNextProject = ({ nextProject }: CaseStudyNextProjectProps) => {
             </div>
             <ArrowRight className="h-8 w-8 md:h-12 md:w-12 text-muted-foreground group-hover:text-accent group-hover:translate-x-4 transition-all" />
           </div>
-        </Link>
+        </PrefetchLink>
       </div>
     </section>
   );
