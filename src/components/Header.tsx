@@ -20,8 +20,8 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setHasLoaded(true), 100);
-    return () => clearTimeout(timer);
+    const id = requestAnimationFrame(() => setHasLoaded(true));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   const navItems = [
@@ -67,7 +67,7 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <motion.div
           className="flex items-center justify-between"
-          animate={{ height: isScrolled ? 64 : 80 }}
+          animate={{ paddingTop: isScrolled ? 12 : 20, paddingBottom: isScrolled ? 12 : 20 }}
           transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         >
           <motion.button
