@@ -37,13 +37,13 @@ export default function ProjetoPage() {
                 <meta property="og:title" content={`${project.name} — Case Study | Paula La Rosa`} />
                 <meta property="og:description" content={project.tagline} />
                 <meta property="og:url" content={canonicalUrl} />
-                <meta property="og:image" content="https://paulalarosa.com/og-image.jpg" />
+                <meta property="og:image" content={`https://paulalarosa.com/og/projeto-${project.id}.jpg`} />
                 <meta property="og:type" content="article" />
                 <meta property="og:locale" content="pt_BR" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={`${project.name} — Case Study | Paula La Rosa`} />
                 <meta name="twitter:description" content={project.tagline} />
-                <meta name="twitter:image" content="https://paulalarosa.com/og-image.jpg" />
+                <meta name="twitter:image" content={`https://paulalarosa.com/og/projeto-${project.id}.jpg`} />
             </Helmet>
 
             <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">

@@ -24,11 +24,11 @@ const PROJECT_ACCENT: Record<ProjectKey, string> = {
 };
 
 const PROJECT_IMAGE: Record<ProjectKey, string> = {
-  website: "/hero-bg.webp",
-  portfolio: "/og-image.jpg",
-  microsaas: "/hero-bg.webp",
-  dashboard: "/hero-bg.webp",
-  platform: "/og-image.jpg",
+  website: "/og/website.jpg",
+  portfolio: "/og/portfolio.jpg",
+  microsaas: "/og/microsaas.jpg",
+  dashboard: "/og/dashboard.jpg",
+  platform: "/og/platform.jpg",
 };
 
 const PROJECT_STACKS: Record<ProjectKey, TechStackItem[]> = {

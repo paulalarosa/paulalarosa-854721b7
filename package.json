@@ -17,6 +17,7 @@
     "optimize-images": "node scripts/optimize-images.mjs",
     "generate-grain": "node scripts/generate-grain.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "generate-og": "node scripts/generate-og-images.mjs",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "deploy": "node scripts/deploy.mjs",
     "deploy:dry": "node scripts/deploy.mjs --dry-run"
