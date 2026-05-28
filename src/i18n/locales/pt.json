@@ -9,8 +9,8 @@
   },
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
-    "subtitle": "Do research e Figma ao código em produção — design estratégico e execução técnica.",
-    "unifiedIntro": "Product Designer & Interface Engineer. Crio interfaces elegantes e funcionais, unindo a precisão da engenharia com a sensibilidade visual do Design. Especialista em resolver problemas complexos através de experiências digitais de alto impacto.",
+    "subtitle": "Para founders e times de produto que perdem semanas entre o Figma e o deploy — uma só cabeça, um só vocabulário, um só repositório.",
+    "unifiedIntro": "A maioria dos produtos digitais morre na fronteira entre design e código: o wireframe fica bonito, o código fica genérico, ninguém entrega o que o usuário sentiu no protótipo. Eu fecho essa lacuna. Desenho a interface no Figma e implemento em React + TypeScript — passa code review, Lighthouse 95+ e sai do mockup à produção sem handoff.",
     "viewProjects": "Ver Projetos",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
@@ -42,14 +42,14 @@
     "badge": "Projeto em Destaque",
     "title": "Case Principal",
     "projectName": "Khaos Kontrol - MicroSaaS para Beauty Business",
-    "description": "Uma plataforma CRM completa desenvolvida do zero. Combina um Design System exclusivo 'Industrial Noir' com funcionalidades avançadas como agendamento real-time, geração de contratos PDF, dashboard financeiro e assistente de IA.",
+    "description": "Profissionais autônomos do mercado de beleza perdem 8 a 12 horas por semana entre Calendly, planilhas e WhatsApp. As ferramentas genéricas não falam o vocabulário do nicho; as planilhas custom não escalam. Khaos Kontrol é o SaaS especializado: agenda em tempo real, contratos PDF gerados via edge function, cobrança Pix com webhook tracking e IA operacional — tudo dentro de um Design System Industrial Noir de 60+ telas em produção.",
     "viewLive": "Ver Projeto ao Vivo",
     "viewBehindTheScenes": "Ver Bastidores e Código",
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
-    "title": "Engenharia & Estética Visual",
-    "subtitle": "A fusão da precisão técnica com o design estratégico para criar experiências digitais de alto impacto."
+    "title": "Engineering e Design no mesmo cérebro",
+    "subtitle": "Sem handoff Figma → Dev. Sem 'isso não dá pra fazer'. Eu desenho o que sei implementar e implemento o que desenho — o protótipo é o produto."
   },
   "expertise": {
     "title": "Áreas de Competência",
@@ -112,8 +112,8 @@
     }
   },
   "lab": {
-    "title": "Projetos em Destaque",
-    "subtitle": "Projetos que conectam estratégia, design e desenvolvimento tecnológico",
+    "title": "Projetos vivos, código real",
+    "subtitle": "Cada um resolveu um problema concreto — leads que não convertiam, evasão em educação, gestão manual roubando 10 horas por semana. Clica em qualquer um pra ver o processo, as decisões técnicas e o impacto medido.",
     "viewCaseStudy": "Ver Estudo de Caso",
     "comingSoon": "Em Breve",
     "visitSite": "Visitar Site",
@@ -212,8 +212,8 @@
     }
   },
   "contact": {
-    "title": "Vamos Criar Algo Incrível",
-    "subtitle": "Entre em contato para discutir como podemos trabalhar juntos",
+    "title": "Tem um produto pra lançar?",
+    "subtitle": "Respondo em até 24 horas. Primeira call de diagnóstico gratuita, sem compromisso — se eu não for a pessoa certa pro seu desafio, indico quem é.",
     "name": "Nome",
     "email": "Email",
     "message": "Mensagem",
