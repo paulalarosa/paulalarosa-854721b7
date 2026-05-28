@@ -138,7 +138,7 @@ const Hero = () => {
             fontWeight: 300,
           }}
         >
-          Creative UI Engineer & Designer
+          {t("hero.tagline")}
         </motion.p>
       </div>
 

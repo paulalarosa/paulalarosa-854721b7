@@ -43,8 +43,16 @@ const Newsletter = () => {
               onSubmit={handleSubmit}
               className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
             >
+              <label htmlFor="newsletter-email" className="sr-only">
+                {t("newsletter.placeholder")}
+              </label>
               <Input
+                id="newsletter-email"
                 type="email"
+                name="email"
+                autoComplete="email"
+                inputMode="email"
+                required
                 placeholder={t("newsletter.placeholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
