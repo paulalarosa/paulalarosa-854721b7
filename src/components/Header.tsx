@@ -10,20 +10,23 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const withViewTransition = useViewTransition();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20);
+        ticking = false;
+      });
+    };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setHasLoaded(true));
-    return () => cancelAnimationFrame(id);
   }, []);
 
   const navItems = [
@@ -55,99 +58,59 @@ const Header = () => {
   const isInHero = !isScrolled;
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 w-full z-50"
-      style={{
-        backgroundColor: isScrolled ? "hsl(var(--background) / 0.97)" : "transparent",
-        borderBottom: isScrolled ? "1px solid hsl(var(--border))" : "1px solid transparent",
-        backdropFilter: isScrolled ? "blur(12px)" : "none",
-        boxShadow: isScrolled ? "var(--shadow-xs)" : "none",
-        transition: "background-color 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s, backdrop-filter 0.5s, box-shadow 0.5s",
-      }}
+    <header
+      data-scrolled={isScrolled}
+      data-in-hero={isInHero}
+      className="site-header fixed top-0 w-full z-50"
     >
       <div className="container mx-auto px-6">
-        <motion.div
-          className="flex items-center justify-between"
-          animate={{ paddingTop: isScrolled ? 12 : 20, paddingBottom: isScrolled ? 12 : 20 }}
-          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={hasLoaded ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
+        <div className="site-header__inner flex items-center justify-between">
+          <button
             onClick={() => scrollToSection("#home")}
-            className="font-serif text-xl font-semibold relative group transition-colors duration-300"
-            style={{ color: isInHero ? "rgba(255,255,255,0.9)" : "hsl(var(--primary))" }}
+            className="site-header__brand font-serif text-xl font-semibold relative group"
           >
             Paula La Rosa
-            <span
-              className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ease-out"
-              style={{ backgroundColor: isInHero ? "rgba(255,255,255,0.4)" : "hsl(var(--accent))" }}
-            />
-          </motion.button>
+            <span className="site-header__brand-underline absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ease-out" />
+          </button>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <motion.button
+            {navItems.map((item) => (
+              <button
                 key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={hasLoaded ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.4 + index * 0.06 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium relative group transition-colors duration-300"
-                style={{ color: isInHero ? "rgba(255,255,255,0.7)" : "hsl(var(--foreground))" }}
+                className="site-header__navlink text-sm font-medium relative group"
               >
                 {item.name}
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ease-out"
-                  style={{ backgroundColor: isInHero ? "rgba(255,255,255,0.4)" : "hsl(var(--accent))" }}
-                />
-              </motion.button>
+                <span className="site-header__navlink-underline absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ease-out" />
+              </button>
             ))}
 
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={hasLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.7 }}
-              className="flex items-center gap-2 text-sm"
-            >
+            <div className="flex items-center gap-2 text-sm">
               {["pt", "en", "es"].map((lng, i) => (
                 <span key={lng} className="flex items-center gap-2">
-                  {i > 0 && <span style={{ color: isInHero ? "rgba(255,255,255,0.2)" : "hsl(var(--muted-foreground))" }}>|</span>}
+                  {i > 0 && <span className="site-header__sep">|</span>}
                   <button
                     onClick={() => changeLanguage(lng)}
-                    className="transition-colors duration-300"
-                    style={{
-                      color: i18n.language === lng
-                        ? isInHero ? "rgba(255,255,255,0.9)" : "hsl(var(--primary))"
-                        : isInHero ? "rgba(255,255,255,0.4)" : "hsl(var(--muted-foreground))",
-                      fontWeight: i18n.language === lng ? 700 : 400,
-                    }}
+                    className="site-header__lang"
+                    data-active={i18n.language === lng}
                   >
                     {lng.toUpperCase()}
                   </button>
                 </span>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={hasLoaded ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.75 }}>
-              <ThemeToggle />
-            </motion.div>
+            <ThemeToggle />
 
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={hasLoaded ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.4, delay: 0.8 }}>
-              <Button
-                onClick={() => scrollToSection("#contact")}
-                className={isInHero
-                  ? "bg-white/10 hover:bg-white/20 text-white/90 border border-white/15 hover:border-white/25 backdrop-blur-sm transition-all duration-300"
-                  : "bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
-                }
-              >
-                {t("nav.contactBtn")}
-              </Button>
-            </motion.div>
+            <Button
+              onClick={() => scrollToSection("#contact")}
+              className={isInHero
+                ? "bg-white/10 hover:bg-white/20 text-white/90 border border-white/15 hover:border-white/25 backdrop-blur-sm transition-colors duration-300"
+                : "bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base border border-accent/30"
+              }
+            >
+              {t("nav.contactBtn")}
+            </Button>
           </nav>
 
           <button
@@ -162,14 +125,13 @@ const Header = () => {
             ].map((anim, i) => (
               <motion.span
                 key={i}
-                className="absolute w-6 h-0.5 rounded-full"
-                style={{ backgroundColor: isInHero ? "rgba(255,255,255,0.8)" : "hsl(var(--foreground))" }}
+                className="absolute w-6 h-0.5 rounded-full site-header__burger"
                 animate={anim}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
             ))}
           </button>
-        </motion.div>
+        </div>
 
         <AnimatePresence>
           {isMobileMenuOpen && (
@@ -211,7 +173,7 @@ const Header = () => {
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

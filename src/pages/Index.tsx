@@ -62,21 +62,21 @@ const Index = () => {
 
         <SectionDivider label="Selected Work" />
 
-        <ScrollSection speed={1.05}>
+        <ScrollSection>
           <LabInnovation />
         </ScrollSection>
 
-        <ScrollSection pin scaleDown id="qualifications">
+        <ScrollSection id="qualifications" noEntrance>
           <Qualifications />
         </ScrollSection>
 
         <SectionDivider label="Trusted by" />
 
-        <ScrollSection speed={1.05}>
+        <ScrollSection>
           <Partners />
         </ScrollSection>
 
-        <ScrollSection scaleDown speed={0.98}>
+        <ScrollSection noEntrance>
           <Testimonials />
         </ScrollSection>
 

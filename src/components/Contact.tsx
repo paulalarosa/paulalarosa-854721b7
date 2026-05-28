@@ -18,23 +18,32 @@ interface ContactLinkProps {
   external?: boolean;
 }
 
-const ContactLink = ({ href, icon: Icon, label, value, ariaLabel, onTrack, external }: ContactLinkProps) => (
-  <a
-    href={href}
-    onClick={onTrack}
-    aria-label={ariaLabel}
-    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-    className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-  >
-    <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
-      <Icon className="h-5 w-5 text-primary stroke-[1.5]" aria-hidden="true" />
-    </div>
-    <div className="flex-1 min-w-0">
-      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{label}</div>
-      <div className="font-medium text-foreground text-sm">{value}</div>
-    </div>
-  </a>
-);
+const ContactLink = ({ href, icon: Icon, label, value, ariaLabel, onTrack, external }: ContactLinkProps) => {
+  const handleClick = () => {
+    onTrack();
+    if (external) {
+      window.open(href, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = href;
+    }
+  };
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-label={ariaLabel}
+      className="w-full text-left flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent/30 transition-base group hover-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      <div className="w-12 h-12 border-2 border-gray-light rounded-lg flex items-center justify-center group-hover:border-accent/30 transition-base">
+        <Icon className="h-5 w-5 text-primary stroke-[1.5]" aria-hidden="true" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{label}</div>
+        <div className="font-medium text-foreground text-sm">{value}</div>
+      </div>
+    </button>
+  );
+};
 
 const Contact = () => {
   const { t } = useTranslation();

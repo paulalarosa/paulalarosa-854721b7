@@ -11,6 +11,7 @@ interface ScrollSectionProps {
   pin?: boolean;
   scaleDown?: boolean;
   speed?: number;
+  noEntrance?: boolean;
 }
 
 const ScrollSection = ({
@@ -20,6 +21,7 @@ const ScrollSection = ({
   pin = false,
   scaleDown = false,
   speed,
+  noEntrance = false,
 }: ScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -112,27 +114,28 @@ const ScrollSection = ({
         );
       }
       
-      // Entrance animation
-      gsap.fromTo(
-        content,
-        { opacity: 0, y: 80, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.4,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 92%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      // Entrance animation — faster, fires earlier, no reverse on scroll-back
+      if (!noEntrance) {
+        gsap.fromTo(
+          content,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
     }, section);
 
     return () => ctx.revert();
-  }, [pin, scaleDown, speed]);
+  }, [pin, scaleDown, speed, noEntrance]);
 
   return (
     <div ref={sectionRef} id={id} className={`relative ${className}`}>
