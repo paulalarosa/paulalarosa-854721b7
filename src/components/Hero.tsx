@@ -12,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -27,18 +26,20 @@ const Hero = () => {
     const section = sectionRef.current;
     if (!section) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Pinned zoom experience
       ScrollTrigger.create({
         trigger: section,
         start: "top top",
-        end: "+=150%", // How long to stay pinned for the zoom
+        end: "+=150%",
         pin: true,
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
 
-          // Background depth
           if (bgRef.current) {
             gsap.set(bgRef.current, {
               scale: 1 + progress * 0.4,
@@ -47,25 +48,24 @@ const Hero = () => {
             });
           }
 
-          // Dramatic Text Zoom
           if (textRef.current) {
             gsap.set(textRef.current, {
-              scale: 1 + Math.pow(progress, 2) * 8, // Exponential zoom for "diving in" feel
-              opacity: 1 - progress * 1.5, // Fades completely before progress reaches 1
+              scale: 1 + Math.pow(progress, 2) * 8,
+              opacity: 1 - progress * 1.5,
               filter: `blur(${progress * 20}px)`,
+              pointerEvents: progress > 0.3 ? "none" : "auto",
             });
           }
 
-          // CTA Lift and Fade
           if (ctaRef.current) {
             gsap.set(ctaRef.current, {
               y: progress * -200,
               opacity: 1 - progress * 2.5,
               scale: 1 - progress * 0.5,
+              pointerEvents: progress > 0.3 ? "none" : "auto",
             });
           }
 
-          // Hide scroll indicator immediately
           if (scrollRef.current) {
             gsap.set(scrollRef.current, {
               opacity: 1 - progress * 10,
@@ -82,8 +82,8 @@ const Hero = () => {
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center overflow-hidden w-full"
-      style={{ background: "#0a0a0a", height: "100vh" }}
+      className="relative flex flex-col items-center justify-center overflow-hidden w-full hero-viewport"
+      style={{ background: "#0a0a0a" }}
     >
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
         <GeometricMotion />
@@ -132,7 +132,7 @@ const Hero = () => {
           className="mt-8 text-center font-sans"
           style={{
             fontSize: "clamp(0.75rem, 1.3vw, 1rem)",
-            letterSpacing: "0.6em",
+            letterSpacing: "clamp(0.25em, 0.5vw + 0.1em, 0.6em)",
             textTransform: "uppercase",
             color: "rgba(255,255,255,0.45)",
             fontWeight: 300,

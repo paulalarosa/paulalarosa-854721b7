@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,19 +12,36 @@ interface SmoothScrollProps {
 
 const SmoothScroll = ({ children }: SmoothScrollProps) => {
   const lenisRef = useRef<Lenis | null>(null);
+  const { pathname } = useLocation();
+  const enabled =
+    !pathname.startsWith("/admin") &&
+    typeof window !== "undefined" &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   useEffect(() => {
+    if (!enabled) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.0,
+      syncTouch: false,
     });
 
     lenisRef.current = lenis;
     window.__lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
+
+    const onRefresh = () => lenis.resize();
+    ScrollTrigger.addEventListener("refresh", onRefresh);
+
+    const onResize = () => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", onResize);
 
     const update = (time: number) => {
       lenis.raf(time * 1000);
@@ -34,10 +52,12 @@ const SmoothScroll = ({ children }: SmoothScrollProps) => {
 
     return () => {
       gsap.ticker.remove(update);
+      window.removeEventListener("resize", onResize);
+      ScrollTrigger.removeEventListener("refresh", onRefresh);
       lenis.destroy();
       window.__lenis = null;
     };
-  }, []);
+  }, [enabled]);
 
   return <>{children}</>;
 };

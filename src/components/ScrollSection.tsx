@@ -29,6 +29,13 @@ const ScrollSection = ({
     const content = contentRef.current;
     if (!section || !content) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const maxBlur = isMobile ? 20 : 40;
+
     const ctx = gsap.context(() => {
       if (pin && scaleDown) {
         ScrollTrigger.create({
@@ -40,13 +47,12 @@ const ScrollSection = ({
           scrub: true,
           onUpdate: (self) => {
             const p = self.progress;
-            
-            // Opacity hits 0 much faster (at 75% progress) to prevent ghosting
-            const opacity = Math.max(0, 1 - p * 1.35); 
+
+            const opacity = Math.max(0, 1 - p * 1.35);
             const scale = 1 - p * 0.18;
-            const blur = p * 40; // Increased blur for better depth masking
+            const blur = p * maxBlur;
             const borderRadius = p * 80;
-            
+
             gsap.set(content, {
               scale,
               opacity,
@@ -70,7 +76,7 @@ const ScrollSection = ({
         gsap.to(content, {
           scale: 0.85,
           opacity: 0,
-          filter: "blur(30px)",
+          filter: `blur(${isMobile ? 15 : 30}px)`,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -83,7 +89,7 @@ const ScrollSection = ({
               } else {
                 gsap.set(content, { visibility: "visible" });
               }
-            }
+            },
           },
         });
       }
