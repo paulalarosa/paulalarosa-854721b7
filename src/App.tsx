@@ -12,6 +12,9 @@ import SmoothScroll from "./components/SmoothScroll";
 import GrainOverlay from "./components/GrainOverlay";
 import PageTransition from "./components/PageTransition";
 import BrandLoader from "./components/BrandLoader";
+import ErrorBoundary from "./components/ErrorBoundary";
+import KeyboardShortcuts from "./components/KeyboardShortcuts";
+import { useWebVitals } from "./hooks/useWebVitals";
 import "./i18n/config";
 
 const Index = React.lazy(() => import("./pages/Index"));
@@ -68,32 +71,42 @@ const AnimatedRoutes = () => {
   );
 };
 
+const AppShell = () => {
+  useWebVitals();
+  return (
+    <SmoothScroll>
+      <ScrollToTop />
+      <KeyboardShortcuts />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10000] focus:px-4 focus:py-2 focus:rounded-md focus:bg-primary focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        Pular para o conteúdo
+      </a>
+      <Suspense fallback={<BrandLoader />}>
+        <AnimatedRoutes />
+      </Suspense>
+      <GrainOverlay />
+    </SmoothScroll>
+  );
+};
+
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <SmoothScroll>
-              <ScrollToTop />
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10000] focus:px-4 focus:py-2 focus:rounded-md focus:bg-primary focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-              >
-                Pular para o conteúdo
-              </a>
-              <Suspense fallback={<BrandLoader />}>
-                <AnimatedRoutes />
-              </Suspense>
-              <GrainOverlay />
-            </SmoothScroll>
-          </BrowserRouter>
-        </TooltipProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+  <ErrorBoundary>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <AppShell />
+            </BrowserRouter>
+          </TooltipProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ErrorBoundary>
 );
 
 export default App;
