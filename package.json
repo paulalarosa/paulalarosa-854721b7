@@ -15,6 +15,7 @@
     "build:apps": "bash scripts/build-apps.sh",
     "build:all": "npm run build:apps && npm run build",
     "optimize-images": "node scripts/optimize-images.mjs",
+    "generate-grain": "node scripts/generate-grain.mjs",
     "deploy": "node scripts/deploy.mjs",
     "deploy:dry": "node scripts/deploy.mjs --dry-run"
   },
