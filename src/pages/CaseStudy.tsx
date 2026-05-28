@@ -1,11 +1,11 @@
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useCaseStudy } from "@/hooks/useCaseStudy";
+import { useCaseStudy, isProjectKey } from "@/hooks/useCaseStudy";
 import CaseStudyHero from "@/components/case-study/CaseStudyHero";
 import CaseStudyNavigation from "@/components/case-study/CaseStudyNavigation";
 import CaseStudyOverview from "@/components/case-study/CaseStudyOverview";
@@ -28,6 +28,10 @@ const CaseStudy = () => {
     damping: 30,
     restDelta: 0.001,
   });
+
+  if (!isProjectKey(id)) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <motion.div
@@ -59,8 +63,7 @@ const CaseStudy = () => {
 
       <Header />
 
-      <main className="pt-24 pb-20">
-        { }
+      <main id="main-content" className="pt-24 pb-20">
         <div className="container mx-auto px-6 mb-8">
           <Link to="/#portfolio">
             <Button

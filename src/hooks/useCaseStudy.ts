@@ -1,8 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { ProjectData, TechStackItem, ProcessStep } from "@/types";
 
-const PROJECTS = ["website", "portfolio", "microsaas", "dashboard", "platform"] as const;
-type ProjectKey = (typeof PROJECTS)[number];
+export const PROJECTS = ["website", "portfolio", "microsaas", "dashboard", "platform"] as const;
+export type ProjectKey = (typeof PROJECTS)[number];
+
+export const isProjectKey = (id: string | undefined): id is ProjectKey =>
+  !!id && (PROJECTS as readonly string[]).includes(id);
 
 export const useCaseStudy = (projectId: string | undefined) => {
   const { t } = useTranslation();

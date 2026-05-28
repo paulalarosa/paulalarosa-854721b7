@@ -29,7 +29,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground overflow-hidden">
-      {}
       <div className="border-y border-primary-foreground/10 py-6">
         <div className="marquee">
           <div className="marquee-content">
@@ -47,14 +46,12 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {}
-          <div>
+              <div>
             <h3 className="font-serif text-2xl font-semibold mb-2">Paula La Rosa</h3>
             <p className="text-primary-foreground/70 text-sm">{t("footer.description")}</p>
           </div>
 
-          {}
-          <div>
+              <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">
               {t("footer.navigation")}
             </h4>
@@ -71,8 +68,7 @@ const Footer = () => {
             </nav>
           </div>
 
-          {}
-          <div>
+              <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider">
               {t("footer.social")}
             </h4>
@@ -81,7 +77,7 @@ const Footer = () => {
                 href={CONTACT.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift"
+                className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -90,7 +86,7 @@ const Footer = () => {
                 href={CONTACT.behance}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift"
+                className="w-10 h-10 border border-primary-foreground/20 rounded-lg flex items-center justify-center hover:border-accent hover:bg-accent/10 transition-base hover-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                 aria-label="Behance"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -101,8 +97,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {}
-        <div className="border-t border-primary-foreground/10 pt-8 text-center">
+          <div className="border-t border-primary-foreground/10 pt-8 text-center">
           <p className="text-primary-foreground/60 text-sm">
             © {new Date().getFullYear()} Paula La Rosa. {t("footer.rights")}
           </p>

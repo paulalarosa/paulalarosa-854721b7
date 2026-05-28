@@ -41,7 +41,7 @@ const Index = () => {
 
       <Header />
 
-      <main className="relative z-0">
+      <main id="main-content" className="relative z-0">
         <Hero />
 
         {/* Expertise & Tech */}

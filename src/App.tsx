@@ -11,6 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SmoothScroll from "./components/SmoothScroll";
 import GrainOverlay from "./components/GrainOverlay";
 import PageTransition from "./components/PageTransition";
+import BrandLoader from "./components/BrandLoader";
 import "./i18n/config";
 
 const Index = React.lazy(() => import("./pages/Index"));
@@ -77,11 +78,13 @@ const App = () => (
           <BrowserRouter>
             <SmoothScroll>
               <ScrollToTop />
-              <Suspense
-                fallback={
-                  <div className="h-screen w-full bg-background grid place-items-center"></div>
-                }
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[10000] focus:px-4 focus:py-2 focus:rounded-md focus:bg-primary focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               >
+                Pular para o conteúdo
+              </a>
+              <Suspense fallback={<BrandLoader />}>
                 <AnimatedRoutes />
               </Suspense>
               <GrainOverlay />
