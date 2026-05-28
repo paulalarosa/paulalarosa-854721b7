@@ -12,6 +12,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollSection from "@/components/ScrollSection";
+import SectionDivider from "@/components/SectionDivider";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -59,6 +60,8 @@ const Index = () => {
           <Stats />
         </ScrollSection>
 
+        <SectionDivider label="Selected Work" />
+
         <ScrollSection speed={1.05}>
           <LabInnovation />
         </ScrollSection>
@@ -67,6 +70,8 @@ const Index = () => {
           <Qualifications />
         </ScrollSection>
 
+        <SectionDivider label="Trusted by" />
+
         <ScrollSection speed={1.05}>
           <Partners />
         </ScrollSection>
@@ -74,6 +79,8 @@ const Index = () => {
         <ScrollSection scaleDown speed={0.98}>
           <Testimonials />
         </ScrollSection>
+
+        <SectionDivider label="Let's talk" />
 
         <ScrollSection speed={1.0}>
           <Contact />

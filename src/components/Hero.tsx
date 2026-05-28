@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GeometricMotion from "./GeometricMotion";
+import MagneticButton from "./MagneticButton";
 import { useTranslation } from "react-i18next";
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -151,28 +152,34 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <Button
-            size="lg"
-            onClick={() => scrollToSection("#portfolio")}
-            className="bg-white text-black hover:bg-white/90 font-bold px-12 rounded-full h-16 transition-all duration-500 hover:scale-105"
-          >
-            {t("hero.viewProjects")}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <MagneticButton strength={0.3}>
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("#portfolio")}
+              data-magnetic
+              className="bg-white text-black hover:bg-white/90 font-bold px-12 rounded-full h-16 transition-all duration-500 hover:scale-105"
+            >
+              {t("hero.viewProjects")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </MagneticButton>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.35 }}
         >
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => scrollToSection("#contact")}
-            className="bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20 px-12 rounded-full h-16 transition-all duration-500"
-          >
-            {t("nav.contact")}
-          </Button>
+          <MagneticButton strength={0.3}>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => scrollToSection("#contact")}
+              data-magnetic
+              className="bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20 px-12 rounded-full h-16 transition-all duration-500"
+            >
+              {t("nav.contact")}
+            </Button>
+          </MagneticButton>
         </motion.div>
       </div>
 

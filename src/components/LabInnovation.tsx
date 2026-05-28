@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import PrefetchLink from '@/components/PrefetchLink';
+import Spotlight from '@/components/Spotlight';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, type ProjectMeta } from '@/data/projects';
 
@@ -325,22 +326,24 @@ const LabInnovation = () => {
             <motion.div key="web" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {webProjects.map((project) => (
-                <Card key={project.id} className="p-8 border border-border hover:border-accent/50 transition-base bg-card group relative overflow-hidden hover-lift glass-effect">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-slow" />
-                  <div className="relative z-10">
-                    <h3 className="font-serif text-2xl font-semibold text-primary mb-4 leading-tight">{t(project.titleKey)}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">{t(project.descKey)}</p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {(t(project.tagsKey, { returnObjects: true }) as string[]).map((tag, i) => (
-                        <span key={i} className="px-3 py-1 text-xs text-accent border border-accent/30 rounded-full bg-accent/10">{tag}</span>
-                      ))}
+                <Spotlight key={project.id} color="rgba(192,192,192,0.12)" size={420} className="rounded-lg">
+                  <Card className="p-8 border border-border hover:border-accent/50 transition-base bg-card group relative overflow-hidden hover-lift glass-effect">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-slow" />
+                    <div className="relative z-10">
+                      <h3 className="font-serif text-2xl font-semibold text-primary mb-4 leading-tight">{t(project.titleKey)}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-6">{t(project.descKey)}</p>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {(t(project.tagsKey, { returnObjects: true }) as string[]).map((tag, i) => (
+                          <span key={i} className="px-3 py-1 text-xs text-accent border border-accent/30 rounded-full bg-accent/10">{tag}</span>
+                        ))}
+                      </div>
+                      <PrefetchLink to={`/case-study/${project.id}`} className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-base group/link">
+                        {t('lab.viewCaseStudy')}
+                        <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                      </PrefetchLink>
                     </div>
-                    <PrefetchLink to={`/case-study/${project.id}`} className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-base group/link">
-                      {t('lab.viewCaseStudy')}
-                      <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                    </PrefetchLink>
-                  </div>
-                </Card>
+                  </Card>
+                </Spotlight>
               ))}
             </motion.div>
           )}

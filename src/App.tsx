@@ -12,6 +12,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import GrainOverlay from "./components/GrainOverlay";
 import PageTransition from "./components/PageTransition";
 import BrandLoader from "./components/BrandLoader";
+import CursorFollower from "./components/CursorFollower";
 import ErrorBoundary from "./components/ErrorBoundary";
 import KeyboardShortcuts from "./components/KeyboardShortcuts";
 import { useWebVitals } from "./hooks/useWebVitals";
@@ -96,6 +97,7 @@ const AppShell = () => {
         <AnimatedRoutes />
       </Suspense>
       <GrainOverlay />
+      <CursorFollower />
     </SmoothScroll>
   );
 };

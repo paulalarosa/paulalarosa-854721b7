@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import Spotlight from "@/components/Spotlight";
 
 const partners = [
   { name: "Contented Lead" },
@@ -125,11 +126,17 @@ const Partners = () => {
 
 const PartnerCard = ({ name }: { name: string }) => {
   return (
-    <div className="flex-shrink-0 px-6 md:px-8 py-4 md:py-5 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 cursor-default min-w-[160px] md:min-w-[180px] hover:scale-105 hover:-translate-y-1 hover:border-accent/30 hover:bg-card/80">
-      <span className="text-sm md:text-base font-semibold whitespace-nowrap text-foreground/80">
-        {name}
-      </span>
-    </div>
+    <Spotlight
+      color="rgba(192,192,192,0.14)"
+      size={260}
+      className="flex-shrink-0 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 cursor-default min-w-[160px] md:min-w-[180px] hover:scale-105 hover:-translate-y-1 hover:border-accent/30 hover:bg-card/80"
+    >
+      <div className="px-6 md:px-8 py-4 md:py-5">
+        <span className="text-sm md:text-base font-semibold whitespace-nowrap text-foreground/80">
+          {name}
+        </span>
+      </div>
+    </Spotlight>
   );
 };
 

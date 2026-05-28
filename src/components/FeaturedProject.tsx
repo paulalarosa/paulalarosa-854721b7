@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import PrefetchLink from '@/components/PrefetchLink';
+import MagneticButton from '@/components/MagneticButton';
+import TextReveal from '@/components/TextReveal';
+import MaskImage from '@/components/MaskImage';
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import khaosHomeWebp from '@/assets/khaos_home_real.webp';
@@ -34,9 +37,9 @@ const FeaturedProject = () => {
           <span className="text-sm uppercase tracking-widest text-accent font-medium">
             {t('featuredProject.badge')}
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary mt-4 mb-4">
+          <TextReveal as="h2" className="font-serif text-4xl md:text-5xl font-semibold text-primary mt-4 mb-4 block">
             {t('featuredProject.title')}
-          </h2>
+          </TextReveal>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </motion.div>
 
@@ -74,27 +77,33 @@ const FeaturedProject = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base group"
-                  asChild
-                >
-                  <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
-                    {t('featuredProject.viewLive')}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
+                <MagneticButton strength={0.25}>
+                  <Button
+                    size="lg"
+                    data-magnetic
+                    className="bg-accent hover:bg-primary text-accent-foreground hover:text-primary-foreground transition-base group"
+                    asChild
+                  >
+                    <a href="https://khaoskontrol.com.br" target="_blank" rel="noopener noreferrer">
+                      {t('featuredProject.viewLive')}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </MagneticButton>
 
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/20 hover:bg-primary/5 hover:text-primary transition-base"
-                  asChild
-                >
-                  <PrefetchLink to="/case-study/platform">
-                    {t('featuredProject.viewBehindTheScenes')}
-                  </PrefetchLink>
-                </Button>
+                <MagneticButton strength={0.25}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    data-magnetic
+                    className="border-primary/20 hover:bg-primary/5 hover:text-primary transition-base"
+                    asChild
+                  >
+                    <PrefetchLink to="/case-study/platform">
+                      {t('featuredProject.viewBehindTheScenes')}
+                    </PrefetchLink>
+                  </Button>
+                </MagneticButton>
               </div>
             </div>
 
@@ -108,18 +117,18 @@ const FeaturedProject = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-slow"></div>
               <div className="relative aspect-video bg-card rounded-lg border border-border overflow-hidden shadow-xl group/image">
-                <picture>
-                  <source srcSet={khaosHomeWebp} type="image/webp" />
-                  <img
-                    src={khaosHomeJpg}
-                    alt="Khaos Kontrol Dashboard Preview"
-                    loading="lazy"
-                    decoding="async"
-                    width={1600}
-                    height={900}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-110"
-                  />
-                </picture>
+                <MaskImage
+                  src={khaosHomeWebp}
+                  fallbackSrc={khaosHomeJpg}
+                  alt="Khaos Kontrol Dashboard Preview"
+                  direction="diagonal"
+                  duration={1.2}
+                  loading="lazy"
+                  decoding="async"
+                  width={1600}
+                  height={900}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-110"
+                />
                 <div className="absolute top-0 left-0 right-0 h-8 bg-card/80 backdrop-blur-sm flex items-center px-3 gap-2">
                   <div className="w-3 h-3 rounded-full bg-destructive/60"></div>
                   <div className="w-3 h-3 rounded-full bg-accent/60"></div>
