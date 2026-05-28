@@ -5,18 +5,18 @@
     "portfolio": "Portfolio",
     "qualifications": "Qualifications",
     "contact": "Contact",
-    "contactBtn": "Get in Touch"
+    "contactBtn": "Talk to me"
   },
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "For founders and product teams burning weeks between Figma and deploy — one head, one vocabulary, one repo.",
     "unifiedIntro": "Most digital products die at the border between design and code: the wireframe looks good, the code goes generic, nobody ships what the user felt in the prototype. I close that gap. I design the interface in Figma and ship it in React + TypeScript — passing code review, Lighthouse 95+, and moving from mockup to production with no handoff.",
-    "viewProjects": "View Projects",
+    "viewProjects": "Open the cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
   },
   "hardSkills": {
-    "title": "Expertise & Technology",
+    "title": "What I ship, with which tools",
     "ecosystem": "Ecosystem",
     "aiIntegration": "AI Integration",
     "marquee": {
@@ -43,8 +43,8 @@
     "title": "Main Case",
     "projectName": "Khaos Kontrol - MicroSaaS for Beauty Professionals",
     "description": "Self-employed beauty professionals lose 8 to 12 hours a week juggling Calendly, spreadsheets and WhatsApp. Generic tools don't speak the niche's vocabulary; custom spreadsheets don't scale. Khaos Kontrol is the specialized SaaS: real-time scheduling, PDF contracts via edge function, Pix payments with webhook tracking and an operational AI assistant — all inside an Industrial Noir Design System spanning 60+ production screens.",
-    "viewLive": "View Live Project",
-    "viewBehindTheScenes": "View Behind the Scenes & Code",
+    "viewLive": "Open the product",
+    "viewBehindTheScenes": "See the process behind it",
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
@@ -171,7 +171,7 @@
     }
   },
   "qualifications": {
-    "title": "Technical Skills",
+    "title": "How I ship, from brief to deploy",
     "items": {
       "discovery": {
         "title": "Research & Discovery",
@@ -214,9 +214,9 @@
   "contact": {
     "title": "Got a product to ship?",
     "subtitle": "I reply within 24 hours. First diagnostic call is free, no commitment — and if I'm not the right person for your challenge, I'll point you to who is.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
+    "name": "What's your name?",
+    "email": "Your best email?",
+    "message": "Tell me about your challenge — the more context, the better the diagnostic.",
     "send": "Send via WhatsApp",
     "sendEmail": "Send Email",
     "startChat": "Start Conversation",
@@ -239,7 +239,7 @@
     "rights": "All rights reserved."
   },
   "testimonials": {
-    "title": "What they say about me",
+    "title": "Voices from people I've shipped with",
     "items": [
       {
         "quote": "Paula built our analytics dashboard from scratch with React and TypeScript. The code is clean, well-documented, and the performance is exceptional. Her attention to UI details made all the difference.",
@@ -540,9 +540,15 @@
     "alreadySubscribed": "This email is already subscribed.",
     "errorGeneric": "Something broke on my side. Try again in a few seconds."
   },
+  "notFound": {
+    "title": "404 — this route doesn't exist yet",
+    "subtitle": "Could be a broken link, a project I haven't shipped yet, or a typo. Go back home to see the portfolio, or let me know if you think this is a bug.",
+    "backHome": "Back home",
+    "reportBug": "Report a bug"
+  },
   "partners": {
-    "title": "Companies I've worked with",
-    "subtitle": "I've had the privilege of working with amazing brands across various industries",
+    "title": "Who's trusted the work",
+    "subtitle": "Brands across 6 different sectors — health, beauty, fashion, fintech, education and hospitality — have chosen to work with me over the past years.",
     "badge": "Clients & Partners",
     "companies": "Companies served",
     "sectors": "Different sectors",

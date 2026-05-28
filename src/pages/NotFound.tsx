@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Home } from "lucide-react";
+import { Bug, Home } from "lucide-react";
 import { motion } from "framer-motion";
 
 const NotFound = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-6">
-      <div className="text-center max-w-lg mx-auto">
+      <div className="text-center max-w-xl mx-auto">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -22,11 +25,11 @@ const NotFound = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="absolute inset-0 flex items-center justify-center flex-col"
           >
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
-              Página não encontrada
+            <h1 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">
+              {t("notFound.title")}
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Ops! Parece que você se perdeu no código.
+            <p className="text-base md:text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+              {t("notFound.subtitle")}
             </p>
           </motion.div>
         </motion.div>
@@ -44,13 +47,13 @@ const NotFound = () => {
           >
             <Link to="/">
               <Home className="mr-2 h-4 w-4" />
-              Voltar para Home
+              {t("notFound.backHome")}
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="border-primary/20 hover:bg-muted">
             <Link to="/#contact">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Entrar em Contato
+              <Bug className="mr-2 h-4 w-4" />
+              {t("notFound.reportBug")}
             </Link>
           </Button>
         </motion.div>

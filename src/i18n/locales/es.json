@@ -5,18 +5,18 @@
     "portfolio": "Portafolio",
     "qualifications": "Calificaciones",
     "contact": "Contacto",
-    "contactBtn": "Ponerse en Contacto"
+    "contactBtn": "Háblame"
   },
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "Para founders y equipos de producto que pierden semanas entre el Figma y el deploy — una sola cabeza, un solo vocabulario, un solo repo.",
     "unifiedIntro": "La mayoría de los productos digitales mueren en la frontera entre diseño y código: el wireframe queda lindo, el código sale genérico, nadie entrega lo que el usuario sintió en el prototipo. Yo cierro esa brecha. Diseño la interfaz en Figma e implemento en React + TypeScript — pasa code review, Lighthouse 95+ y sale del mockup a producción sin handoff.",
-    "viewProjects": "Ver Proyectos",
+    "viewProjects": "Abrir los cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
   },
   "hardSkills": {
-    "title": "Expertise y Tecnología",
+    "title": "Lo que entrego, con qué herramientas",
     "ecosystem": "Ecosistema",
     "aiIntegration": "Integración con IA",
     "marquee": {
@@ -43,8 +43,8 @@
     "title": "Caso Principal",
     "projectName": "Khaos Kontrol - MicroSaaS para Beauty Business",
     "description": "Los profesionales autónomos del mercado de belleza pierden de 8 a 12 horas por semana entre Calendly, hojas de cálculo y WhatsApp. Las herramientas genéricas no hablan el vocabulario del nicho; las hojas custom no escalan. Khaos Kontrol es el SaaS especializado: agenda en tiempo real, contratos PDF generados vía edge function, cobro Pix con webhook tracking y un asistente de IA operacional — todo dentro de un Design System Industrial Noir con 60+ pantallas en producción.",
-    "viewLive": "Ver Proyecto en Vivo",
-    "viewBehindTheScenes": "Ver Bastidores y Código",
+    "viewLive": "Abrir el producto",
+    "viewBehindTheScenes": "Ver el proceso por dentro",
     "dashboardPreview": "Vista previa del Dashboard"
   },
   "designBackground": {
@@ -171,7 +171,7 @@
     }
   },
   "qualifications": {
-    "title": "Competencias Técnicas",
+    "title": "Cómo entrego, del briefing al deploy",
     "items": {
       "discovery": {
         "title": "Investigación y Descubrimiento",
@@ -214,9 +214,9 @@
   "contact": {
     "title": "¿Tienes un producto para lanzar?",
     "subtitle": "Respondo en hasta 24 horas. La primera call de diagnóstico es gratis, sin compromiso — y si no soy la persona adecuada para tu desafío, te indico quién sí.",
-    "name": "Nombre",
-    "email": "Email",
-    "message": "Mensaje",
+    "name": "¿Cómo te llamas?",
+    "email": "¿Cuál es tu mejor email?",
+    "message": "Cuéntame tu desafío — cuanto más contexto, mejor el diagnóstico.",
     "send": "Enviar vía WhatsApp",
     "sendEmail": "Enviar Email",
     "startChat": "Iniciar Conversación",
@@ -239,7 +239,7 @@
     "rights": "Todos los derechos reservados."
   },
   "testimonials": {
-    "title": "Lo que dicen de mí",
+    "title": "Voces de quienes trabajaron conmigo",
     "items": [
       {
         "quote": "Paula desarrolló nuestro dashboard de analytics desde cero con React y TypeScript. El código es limpio, bien documentado y el rendimiento es excepcional. Su atención a los detalles de UI marcó la diferencia.",
@@ -540,9 +540,15 @@
     "alreadySubscribed": "Este email ya está suscrito.",
     "errorGeneric": "Algo falló de mi lado. Intenta de nuevo en unos segundos."
   },
+  "notFound": {
+    "title": "404 — esta ruta aún no existe",
+    "subtitle": "Puede ser un link roto, un proyecto que todavía no subí, o un typo. Vuelve a la home para ver el portafolio, o avísame si crees que es un bug.",
+    "backHome": "Volver al inicio",
+    "reportBug": "Reportar un bug"
+  },
   "partners": {
-    "title": "Empresas con las que he trabajado",
-    "subtitle": "He tenido el privilegio de trabajar con marcas increíbles en diversos sectores",
+    "title": "Quién ha confiado en el trabajo",
+    "subtitle": "Marcas en 6 sectores diferentes — salud, belleza, moda, fintech, educación y hospitalidad — eligieron trabajar conmigo en los últimos años.",
     "badge": "Clientes & Socios",
     "companies": "Empresas atendidas",
     "sectors": "Sectores diferentes",

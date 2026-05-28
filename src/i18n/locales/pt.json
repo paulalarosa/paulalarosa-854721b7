@@ -5,18 +5,18 @@
     "portfolio": "Portfólio",
     "qualifications": "Qualificações",
     "contact": "Contato",
-    "contactBtn": "Entrar em Contato"
+    "contactBtn": "Falar comigo"
   },
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "Para founders e times de produto que perdem semanas entre o Figma e o deploy — uma só cabeça, um só vocabulário, um só repositório.",
     "unifiedIntro": "A maioria dos produtos digitais morre na fronteira entre design e código: o wireframe fica bonito, o código fica genérico, ninguém entrega o que o usuário sentiu no protótipo. Eu fecho essa lacuna. Desenho a interface no Figma e implemento em React + TypeScript — passa code review, Lighthouse 95+ e sai do mockup à produção sem handoff.",
-    "viewProjects": "Ver Projetos",
+    "viewProjects": "Abrir os cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
   },
   "hardSkills": {
-    "title": "Expertise & Tecnologia",
+    "title": "O que entrego, com que ferramentas",
     "ecosystem": "Ecossistema",
     "aiIntegration": "Integração com IA",
     "marquee": {
@@ -43,8 +43,8 @@
     "title": "Case Principal",
     "projectName": "Khaos Kontrol - MicroSaaS para Beauty Business",
     "description": "Profissionais autônomos do mercado de beleza perdem 8 a 12 horas por semana entre Calendly, planilhas e WhatsApp. As ferramentas genéricas não falam o vocabulário do nicho; as planilhas custom não escalam. Khaos Kontrol é o SaaS especializado: agenda em tempo real, contratos PDF gerados via edge function, cobrança Pix com webhook tracking e IA operacional — tudo dentro de um Design System Industrial Noir de 60+ telas em produção.",
-    "viewLive": "Ver Projeto ao Vivo",
-    "viewBehindTheScenes": "Ver Bastidores e Código",
+    "viewLive": "Abrir o produto",
+    "viewBehindTheScenes": "Ver o processo por dentro",
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
@@ -171,7 +171,7 @@
     }
   },
   "qualifications": {
-    "title": "Competências Técnicas",
+    "title": "Como entrego, do briefing ao deploy",
     "items": {
       "discovery": {
         "title": "Research & Discovery",
@@ -214,9 +214,9 @@
   "contact": {
     "title": "Tem um produto pra lançar?",
     "subtitle": "Respondo em até 24 horas. Primeira call de diagnóstico gratuita, sem compromisso — se eu não for a pessoa certa pro seu desafio, indico quem é.",
-    "name": "Nome",
-    "email": "Email",
-    "message": "Mensagem",
+    "name": "Como você se chama?",
+    "email": "Qual seu melhor email?",
+    "message": "Me conta seu desafio — quanto mais contexto, melhor o diagnóstico.",
     "send": "Enviar via WhatsApp",
     "sendEmail": "Enviar Email",
     "startChat": "Iniciar Conversa",
@@ -239,7 +239,7 @@
     "rights": "Todos os direitos reservados."
   },
   "testimonials": {
-    "title": "O que dizem sobre mim",
+    "title": "Vozes de quem trabalhou comigo",
     "items": [
       {
         "quote": "Paula desenvolveu nosso dashboard de analytics do zero com React e TypeScript. O código é limpo, bem documentado e a performance é excepcional. Sua atenção aos detalhes de UI fez toda a diferença.",
@@ -540,9 +540,15 @@
     "alreadySubscribed": "Este email já está inscrito.",
     "errorGeneric": "Algo deu errado por aqui. Tenta de novo em alguns segundos."
   },
+  "notFound": {
+    "title": "404 — Essa rota não existe ainda",
+    "subtitle": "Pode ser link quebrado, projeto que ainda vou subir, ou um typo. Volta pra home pra ver o portfólio, ou me avisa se achar que isso é bug.",
+    "backHome": "Voltar pra home",
+    "reportBug": "Reportar bug"
+  },
   "partners": {
-    "title": "Empresas que já atendi",
-    "subtitle": "Tive o privilégio de trabalhar com marcas incríveis em diversos setores",
+    "title": "Quem já confiou no trabalho",
+    "subtitle": "Marcas em 6 setores diferentes — saúde, beleza, moda, fintech, educação e hospitalidade — escolheram trabalhar comigo nos últimos anos.",
     "badge": "Clientes & Parceiros",
     "companies": "Empresas atendidas",
     "sectors": "Setores diferentes",
