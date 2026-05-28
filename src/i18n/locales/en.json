@@ -10,7 +10,6 @@
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "For founders and product teams burning weeks between Figma and deploy — one head, one vocabulary, one repo.",
-    "unifiedIntro": "Most digital products die at the border between design and code: the wireframe looks good, the code goes generic, nobody ships what the user felt in the prototype. I close that gap. I design the interface in Figma and ship it in React + TypeScript — passing code review, Lighthouse 95+, and moving from mockup to production with no handoff.",
     "viewProjects": "Open the cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
@@ -191,26 +190,6 @@
       }
     }
   },
-  "aboutHero": {
-    "greeting": "Hello, I'm Paula La Rosa.",
-    "intro": "Product Designer with a solid background in Software Engineering. I create digital products that combine code precision with aesthetic sensibility, delivering exceptional experiences from concept to production."
-  },
-  "about": {
-    "title": "About Me",
-    "highlights": "Technical Skills",
-    "text1": "Strategic Product Designer with over 5 years of experience, now blending interface design with high-performance software engineering. Specialized in building visual systems that scale.",
-    "text2": "My journey combines creative vision with analytical thinking, allowing me to develop interfaces that not only visually delight but are also performant and accessible.",
-    "text3": "Focused on end-to-end product construction: from Product Discovery and high-fidelity prototyping to rigorous technical implementation with React and TypeScript.",
-    "quote": "I believe exceptional code goes beyond functionality—it must be elegant, maintainable, and create experiences that delight users.",
-    "items": {
-      "mba": "React & TypeScript",
-      "degree": "Bachelor's in Graphic Design",
-      "adobe": "Figma & Design Systems",
-      "ads": "Supabase & APIs",
-      "code": "Git, CI/CD, Testing",
-      "english": "Advanced English"
-    }
-  },
   "contact": {
     "title": "Got a product to ship?",
     "subtitle": "I reply within 24 hours. First diagnostic call is free, no commitment — and if I'm not the right person for your challenge, I'll point you to who is.",
@@ -242,17 +221,17 @@
     "title": "Voices from people I've shipped with",
     "items": [
       {
-        "quote": "Paula built our analytics dashboard from scratch with React and TypeScript. The code is clean, well-documented, and the performance is exceptional. Her attention to UI details made all the difference.",
+        "quote": "We spent two months looking for a freelancer who could do design and code without ping-pong. Paula shipped the whole dashboard in 6 weeks, Lighthouse 96 on mobile, zero UI rework after handoff. It was the first hire that paid ROI in the same quarter.",
         "author": "Rafael Mendes",
         "role": "CTO, SaaS Startup"
       },
       {
-        "quote": "We hired Paula to refactor our legacy frontend. She implemented a consistent Design System, componentized the entire application, and reduced our bundle by 40%. Complete professional.",
+        "quote": "Our legacy frontend had 14 different versions of the same button. In 3 months, Paula consolidated everything into a typed Design System, cut the bundle by 40% and documented every component — new devs now ship to production on day one.",
         "author": "Juliana Costa",
         "role": "Head of Product, Fintech"
       },
       {
-        "quote": "Paula delivered a full-stack application using React and Supabase in record time. The AI integration for report generation exceeded our expectations. Highly recommend!",
+        "quote": "We needed to launch an MVP in 8 weeks and still integrate with AI. Paula designed in Figma, implemented in React + Supabase, and plugged in the AI edge function — all in 7.5 weeks. It's now the foundation of the paid product.",
         "author": "André Ferreira",
         "role": "Founder, AgTech"
       }

@@ -10,7 +10,6 @@
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "Para founders e times de produto que perdem semanas entre o Figma e o deploy — uma só cabeça, um só vocabulário, um só repositório.",
-    "unifiedIntro": "A maioria dos produtos digitais morre na fronteira entre design e código: o wireframe fica bonito, o código fica genérico, ninguém entrega o que o usuário sentiu no protótipo. Eu fecho essa lacuna. Desenho a interface no Figma e implemento em React + TypeScript — passa code review, Lighthouse 95+ e sai do mockup à produção sem handoff.",
     "viewProjects": "Abrir os cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
@@ -191,26 +190,6 @@
       }
     }
   },
-  "aboutHero": {
-    "greeting": "Olá, sou Paula La Rosa.",
-    "intro": "Product Designer com background sólido em Engenharia de Software. Crio produtos digitais que unem a precisão do código à sensibilidade estética, entregando experiências excepcionais do conceito à produção."
-  },
-  "about": {
-    "title": "Sobre Mim",
-    "highlights": "Competências Técnicas",
-    "text1": "Product Designer estratégica com mais de 5 anos de experiência, agora unindo design de interface com engenharia de software de alta performance. Especializada em criar sistemas visuais que escalam.",
-    "text2": "Minha trajetória combina visão criativa com pensamento analítico, permitindo desenvolver interfaces que não apenas encantam visualmente, mas também são performáticas e acessíveis.",
-    "text3": "Focada na construção de produtos de ponta a ponta: desde o Product Discovery e prototipagem de alta fidelidade até a implementação técnica rigorosa com React e TypeScript.",
-    "quote": "Acredito que código excepcional vai além da funcionalidade—deve ser elegante, manutenível e criar experiências que encantam os usuários.",
-    "items": {
-      "mba": "React & TypeScript",
-      "degree": "Graduação em Design Gráfico",
-      "adobe": "Figma & Design Systems",
-      "ads": "Supabase & APIs",
-      "code": "Git, CI/CD, Testing",
-      "english": "Inglês Avançado"
-    }
-  },
   "contact": {
     "title": "Tem um produto pra lançar?",
     "subtitle": "Respondo em até 24 horas. Primeira call de diagnóstico gratuita, sem compromisso — se eu não for a pessoa certa pro seu desafio, indico quem é.",
@@ -242,17 +221,17 @@
     "title": "Vozes de quem trabalhou comigo",
     "items": [
       {
-        "quote": "Paula desenvolveu nosso dashboard de analytics do zero com React e TypeScript. O código é limpo, bem documentado e a performance é excepcional. Sua atenção aos detalhes de UI fez toda a diferença.",
+        "quote": "Procuramos por dois meses um freela que fizesse design e código sem ping-pong. A Paula entregou o dashboard inteiro em 6 semanas, Lighthouse 96 em mobile e zero retrabalho de UI depois do handoff. Foi a primeira contratação que pagou o ROI no mesmo trimestre.",
         "author": "Rafael Mendes",
         "role": "CTO, SaaS Startup"
       },
       {
-        "quote": "Contratamos a Paula para refatorar nosso frontend legado. Ela implementou um Design System consistente, componentized toda a aplicação e reduziu nosso bundle em 40%. Profissional completa.",
+        "quote": "Nosso frontend legado tinha 14 versões diferentes do mesmo botão. Em 3 meses, a Paula consolidou tudo num Design System tipado, cortou 40% do bundle e documentou cada componente — agora qualquer dev novo entra em produção no primeiro dia.",
         "author": "Juliana Costa",
         "role": "Head de Produto, Fintech"
       },
       {
-        "quote": "A Paula entregou uma aplicação full-stack usando React e Supabase em tempo recorde. A integração com IA para geração de relatórios superou nossas expectativas. Recomendo demais!",
+        "quote": "Precisávamos lançar um MVP em 8 semanas e ainda integrar com IA. A Paula desenhou no Figma, implementou em React + Supabase e plugou a edge function de IA — tudo em 7 semanas e meia. Hoje é a base do produto pago.",
         "author": "André Ferreira",
         "role": "Founder, AgTech"
       }

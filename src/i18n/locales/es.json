@@ -10,7 +10,6 @@
   "hero": {
     "name": "Paula La Rosa | Product Designer & Interface Engineer",
     "subtitle": "Para founders y equipos de producto que pierden semanas entre el Figma y el deploy — una sola cabeza, un solo vocabulario, un solo repo.",
-    "unifiedIntro": "La mayoría de los productos digitales mueren en la frontera entre diseño y código: el wireframe queda lindo, el código sale genérico, nadie entrega lo que el usuario sintió en el prototipo. Yo cierro esa brecha. Diseño la interfaz en Figma e implemento en React + TypeScript — pasa code review, Lighthouse 95+ y sale del mockup a producción sin handoff.",
     "viewProjects": "Abrir los cases",
     "scroll": "Scroll",
     "tagline": "Creative UI Engineer & Designer"
@@ -191,26 +190,6 @@
       }
     }
   },
-  "aboutHero": {
-    "greeting": "Hola, soy Paula La Rosa.",
-    "intro": "Product Designer con una base sólida en Ingeniería de Software. Creo productos digitales que unen la precisión del código con la sensibilidad estética, entregando experiencias excepcionales desde el concepto hasta la producción."
-  },
-  "about": {
-    "title": "Sobre Mí",
-    "highlights": "Competencias Técnicas",
-    "text1": "Product Designer estratégica con más de 5 años de experiencia, ahora uniendo el diseño de interfaces con la ingeniería de software de alto rendimiento. Especializada en la creación de sistemas visuales escalables.",
-    "text2": "Mi trayectoria combina la visión creativa con el pensamiento analítico, permitiendo desarrollar interfaces que no solo deleitan visualmente, sino que también son performáticas y accesibles.",
-    "text3": "Experiencia construyendo productos completos: desde Design Systems y prototipado en Figma hasta implementación con React, integración con Supabase y deploy en producción. Foco en código limpio, componentización y buenas práticas.",
-    "quote": "Creo que el código excepcional va más allá de la funcionalidad—debe ser elegante, mantenible y crear experiencias que encantan a los usuarios.",
-    "items": {
-      "mba": "React & TypeScript",
-      "degree": "Licenciatura en Diseño Gráfico",
-      "adobe": "Figma & Design Systems",
-      "ads": "Supabase & APIs",
-      "code": "Git, CI/CD, Testing",
-      "english": "Inglés Avanzado"
-    }
-  },
   "contact": {
     "title": "¿Tienes un producto para lanzar?",
     "subtitle": "Respondo en hasta 24 horas. La primera call de diagnóstico es gratis, sin compromiso — y si no soy la persona adecuada para tu desafío, te indico quién sí.",
@@ -242,17 +221,17 @@
     "title": "Voces de quienes trabajaron conmigo",
     "items": [
       {
-        "quote": "Paula desarrolló nuestro dashboard de analytics desde cero con React y TypeScript. El código es limpio, bien documentado y el rendimiento es excepcional. Su atención a los detalles de UI marcó la diferencia.",
+        "quote": "Buscamos durante dos meses un freelance que hiciera diseño y código sin ping-pong. Paula entregó el dashboard completo en 6 semanas, Lighthouse 96 en mobile y cero retrabajo de UI tras el handoff. Fue la primera contratación que pagó el ROI en el mismo trimestre.",
         "author": "Rafael Mendes",
         "role": "CTO, SaaS Startup"
       },
       {
-        "quote": "Contratamos a Paula para refactorizar nuestro frontend legado. Implementó un Design System consistente, componentizó toda la aplicación y redujo nuestro bundle en un 40%. Profesional completa.",
+        "quote": "Nuestro frontend legado tenía 14 versiones distintas del mismo botón. En 3 meses, Paula consolidó todo en un Design System tipado, recortó 40% del bundle y documentó cada componente — ahora cualquier dev nuevo entra a producción el primer día.",
         "author": "Juliana Costa",
         "role": "Head de Produto, Fintech"
       },
       {
-        "quote": "Paula entregó una aplicación full-stack usando React y Supabase en tiempo récord. La integración con IA para generación de informes superó nuestras expectativas. ¡Súper recomendada!",
+        "quote": "Necesitábamos lanzar un MVP en 8 semanas e integrar con IA. Paula diseñó en Figma, implementó en React + Supabase y conectó la edge function de IA — todo en 7 semanas y media. Hoy es la base del producto pago.",
         "author": "André Ferreira",
         "role": "Founder, AgTech"
       }
