@@ -1,4 +1,5 @@
-import { Mail, Phone, Linkedin, Send, Loader2, type LucideIcon } from "lucide-react";
+import { Mail, Phone, Linkedin, Send, Loader2, CheckCircle, type LucideIcon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -37,7 +38,7 @@ const ContactLink = ({ href, icon: Icon, label, value, ariaLabel, onTrack, exter
 
 const Contact = () => {
   const { t } = useTranslation();
-  const { formData, isSubmitting, handleChange, handleSubmit: originalHandleSubmit } = useContactForm();
+  const { formData, isSubmitting, isSubmitted, handleChange, handleSubmit: originalHandleSubmit } = useContactForm();
 
   const handleSubmit = async (e: React.FormEvent) => {
     trackEvent({
@@ -67,7 +68,35 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
-          <div className="lg:col-span-3 bg-background p-8 rounded-lg border border-border">
+          <div className="lg:col-span-3 bg-background p-8 rounded-lg border border-border relative">
+            <AnimatePresence>
+              {isSubmitted && (
+                <motion.div
+                  key="contact-success"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-8 text-center"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <motion.span
+                    aria-hidden="true"
+                    initial={{ scale: 0.5, rotate: -10 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 16 }}
+                    className="text-accent"
+                  >
+                    <CheckCircle className="h-12 w-12" />
+                  </motion.span>
+                  <h3 className="font-serif text-2xl text-primary">{t("contact.redirecting")}</h3>
+                  <p className="text-sm text-muted-foreground max-w-xs">
+                    {t("contact.redirectingDesc")}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
               <div>
                 <label htmlFor="contact-name" className="sr-only">

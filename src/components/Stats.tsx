@@ -12,31 +12,36 @@ interface StatItemProps {
 const StatItem = ({ value, suffix, label, delay }: StatItemProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: false, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
-      const duration = 2000;
-      const steps = 60;
-      const increment = value / steps;
-      let current = 0;
-
-      const timer = setTimeout(() => {
-        const interval = setInterval(() => {
-          current += increment;
-          if (current >= value) {
-            setCount(value);
-            clearInterval(interval);
-          } else {
-            setCount(Math.floor(current));
-          }
-        }, duration / steps);
-
-        return () => clearInterval(interval);
-      }, delay);
-
-      return () => clearTimeout(timer);
+    if (!isInView) {
+      setCount(0);
+      return;
     }
+
+    const duration = 2000;
+    const steps = 60;
+    const increment = value / steps;
+    let current = 0;
+    let interval: ReturnType<typeof setInterval> | undefined;
+
+    const timer = setTimeout(() => {
+      interval = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          if (interval) clearInterval(interval);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
   }, [isInView, value, delay]);
 
   return (

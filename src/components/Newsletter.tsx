@@ -31,11 +31,18 @@ const Newsletter = () => {
 
           {isSubmitted ? (
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
               className="flex items-center justify-center gap-3 text-accent"
             >
-              <CheckCircle className="w-6 h-6" />
+              <motion.span
+                aria-hidden="true"
+                animate={{ rotate: [0, -8, 8, -4, 4, 0], scale: [1, 1.18, 1] }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
+              >
+                <CheckCircle className="w-6 h-6" />
+              </motion.span>
               <span className="font-medium">{t("newsletter.thankyou")}</span>
             </motion.div>
           ) : (

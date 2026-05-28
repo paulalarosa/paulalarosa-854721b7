@@ -22,6 +22,7 @@ export function useContactForm() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -68,15 +69,21 @@ export function useContactForm() {
       return;
     }
 
-    window.open(buildWhatsAppUrl(validation.data), "_blank");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitted(true);
     toast({ title: t("contact.redirecting"), description: t("contact.redirectingDesc") });
-    setIsSubmitting(false);
+
+    setTimeout(() => {
+      window.open(buildWhatsAppUrl(validation.data), "_blank");
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+      setTimeout(() => setIsSubmitted(false), 4000);
+    }, 900);
   };
 
   return {
     formData,
     isSubmitting,
+    isSubmitted,
     handleChange,
     handleSubmit,
   };
