@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Search, PenTool, Code2, Rocket } from "lucide-react";
+import { Search, PenTool, Code2, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Qualifications = () => {
@@ -50,7 +50,7 @@ const Qualifications = () => {
     },
     {
       number: "04",
-      icon: Rocket,
+      icon: Sparkles,
       title: t("qualifications.items.ship.title"),
       description: t("qualifications.items.ship.desc"),
     },

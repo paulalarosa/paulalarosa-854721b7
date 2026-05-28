@@ -36,8 +36,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Paula La Rosa | Creative UI Engineer & Designer</title>
-        <meta name="description" content="Especialista em interfaces imersivas, animações cinematográficas e engenharia front-end de alta performance." />
+        <title>Paula La Rosa | Product & Service Designer · Design Engineering · AI Strategy</title>
+        <meta name="description" content="Product & Service Designer com 8+ anos de experiência. Design Engineering, Design Systems no Figma e AI Strategy aplicada — do discovery ao deploy, sem handoff." />
       </Helmet>
 
       <Header />

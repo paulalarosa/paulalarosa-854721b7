@@ -8,30 +8,36 @@
     "contactBtn": "Talk to me"
   },
   "hero": {
-    "name": "Paula La Rosa | Product Designer & Interface Engineer",
-    "subtitle": "For founders and product teams burning weeks between Figma and deploy — one head, one vocabulary, one repo.",
+    "name": "Paula La Rosa | Product & Service Designer · Design Engineering · AI Strategy",
+    "subtitle": "For founders and product teams that need to move from the real problem to a shipped product — without losing the thread between strategy, design and code. I map the ecosystem, design the experience and implement it in the same head.",
     "viewProjects": "Open the cases",
     "scroll": "Scroll",
-    "tagline": "Creative UI Engineer & Designer"
+    "tagline": "Product & Service Designer · Design Engineering · AI Strategy"
   },
   "hardSkills": {
     "title": "What I ship, with which tools",
     "ecosystem": "Ecosystem",
     "aiIntegration": "AI Integration",
     "marquee": {
+      "serviceBlueprints": "Service Blueprints",
       "uxResearch": "UX Research",
+      "discovery": "Discovery",
       "uiDesign": "UI Design",
-      "figma": "Figma",
+      "figmaVariables": "Figma Variables",
+      "tokens": "Design Tokens",
       "designSystems": "Design Systems",
+      "designGovernance": "Design Governance",
+      "autoLayout": "Auto Layout",
       "interactionDesign": "Interaction Design",
-      "visualIdentity": "Visual Identity",
-      "wireframing": "Wireframing",
       "prototyping": "Prototyping",
+      "visualIdentity": "Visual Identity",
       "react": "React.js",
       "typescript": "TypeScript",
-      "nextjs": "Next.js",
       "tailwind": "Tailwind CSS",
       "framer": "Framer Motion",
+      "aiStrategy": "AI Strategy",
+      "genAiUx": "GenAI for UX",
+      "aiDiscovery": "AI-Powered Discovery",
       "architecture": "Scalable Architecture",
       "performance": "Performance Optimization",
       "accessibility": "Accessibility (a11y)"
@@ -48,30 +54,7 @@
   },
   "designBackground": {
     "title": "Engineering and Design in the same brain",
-    "subtitle": "No Figma → Dev handoff. No 'that can't be built'. I design what I can ship and ship what I designed — the prototype is the product."
-  },
-  "expertise": {
-    "title": "Areas of Expertise",
-    "strategy": {
-      "title": "Component Architecture",
-      "desc": "Building reusable and scalable components with React and TypeScript. Design patterns, composition, and separation of concerns."
-    },
-    "automation": {
-      "title": "Performance & Optimization",
-      "desc": "Code splitting, lazy loading, memoization, and render optimization. Focus on Core Web Vitals and smooth experience."
-    },
-    "performance": {
-      "title": "Accessibility (a11y)",
-      "desc": "Inclusive interfaces following WCAG. Semantic HTML, keyboard navigation, screen readers, and accessibility testing."
-    },
-    "ux": {
-      "title": "UI/UX & Design Systems",
-      "desc": "User-centered design with Figma. Creating consistent Design Systems, tokens, and component documentation."
-    },
-    "analytics": {
-      "title": "Integration & APIs",
-      "desc": "REST API consumption, authentication, real-time with WebSockets, and integrations with AI and third-party services."
-    }
+    "subtitle": "I design and code the same thing. No handoff, no ping-pong, no final version different from Figma. You approve a prototype, you get the product in production."
   },
   "portfolio": {
     "title": "Featured Work",
@@ -158,13 +141,13 @@
         ]
       },
       "dashboard": {
-        "title": "Performance Dashboard (Doctor Creator Board)",
-        "desc": "Development of an analytical dashboard (under construction) for content creators in the health area. Focus on data visualization and engagement metrics.",
+        "title": "ProductKlini — Validation Platform",
+        "desc": "Microsaas for validating product ideas with a proprietary framework: from brief to delivery. React + Vite + Tailwind, continuous deploy on Lovable, focused on lean flow and direct copy.",
         "tags": [
-          "React/TypeScript",
-          "Dashboard",
-          "DataViz",
-          "Under Construction"
+          "Microsaas",
+          "React/Vite",
+          "Product Validation",
+          "Lovable"
         ]
       }
     }
@@ -173,26 +156,26 @@
     "title": "How I ship, from brief to deploy",
     "items": {
       "discovery": {
-        "title": "Research & Discovery",
-        "desc": "Interviews, competitive analysis, and problem definition with a strong strategic user vision."
+        "title": "Product & Service Design",
+        "desc": "Service Blueprints, Discovery, and usability testing. I map the whole ecosystem before designing a single screen — connecting real user needs (CX) to business outcomes."
       },
       "design": {
-        "title": "UI/UX & Design Systems",
-        "desc": "Solid background in Design. I translate requirements into interactive prototypes and consistent Design Systems in Figma."
+        "title": "Design Engineering & Systems",
+        "desc": "Advanced Figma (Variables, Tokens, Auto Layout) and scalable Design System governance. Dev-grade structure, zero-friction hand-off with engineering."
       },
       "build": {
-        "title": "Frontend Engineering",
-        "desc": "Pixel-perfect implementation in React and TypeScript, focused on clean code, scalable architecture, and performance."
+        "title": "Frontend Implementation",
+        "desc": "Pixel-perfect React + TypeScript. I speak the same language as the engineering team — the approved prototype becomes the product in production, no rework."
       },
       "ship": {
-        "title": "Full-Stack & Integrations",
-        "desc": "Experience connecting frontends with Supabase, REST APIs, and Analytics tools for continuous iteration in production."
+        "title": "Innovation & AI Strategy",
+        "desc": "Generative AI as an efficiency engine: I accelerate Discovery, validate hypotheses, automate UX flows, and scale ideation with structured research."
       }
     }
   },
   "contact": {
     "title": "Got a product to ship?",
-    "subtitle": "I reply within 24 hours. First diagnostic call is free, no commitment — and if I'm not the right person for your challenge, I'll point you to who is.",
+    "subtitle": "I reply within 24 hours. First diagnostic call is free, no strings attached — and if I'm not the right person for your challenge, I'll point you to who is.",
     "name": "What's your name?",
     "email": "Your best email?",
     "message": "Tell me about your challenge — the more context, the better the diagnostic.",
@@ -212,7 +195,7 @@
     "recaptchaApply": "apply."
   },
   "footer": {
-    "description": "Product Designer & Interface Engineer. Building scalable digital products through strategic design and precision engineering.",
+    "description": "Product & Service Designer · Design Engineering · AI Strategy. 8+ years mapping ecosystems and shipping products from discovery to deploy.",
     "navigation": "Navigation",
     "social": "Social Media",
     "rights": "All rights reserved."
@@ -390,48 +373,48 @@
       ]
     },
     "dashboard": {
-      "role": "Product Designer & Frontend Engineer",
-      "timeline": "6 weeks (in build)",
-      "challenge": "Doctors publishing content on Instagram and TikTok face metrics scattered everywhere — reach on one screen, engagement on another, conversion-to-appointment in a spreadsheet. The lost insight is the one that matters: *which content format drives the most appointments*. The challenge was to cross-reference data from multiple networks in one mobile-first view, without falling into the 'airplane cockpit dashboard' trap full of useless gauges.",
-      "solution": "Mobile-first dashboard where every chart answers a clear question: 'which post converted best this week?', 'which hour brings most bookings?'. Built in React + TypeScript + Recharts, with aggressive state isolation to avoid re-renders on long series. Lazy loading per tab, point decimation before render, and colors picked for sunlight readability (high contrast). Card layout, not gauge grid.",
+      "role": "Product Designer & Founder",
+      "timeline": "Launched in 2026 · evolving in public",
+      "challenge": "Founders with an idea skip validation and jump straight to Figma — or worse, straight to code. The result: 3 months later, an MVP is running and nobody uses it. The validation tools out there are either blank spreadsheets asking 'fill it in', or academic 40-question frameworks no one finishes. What was missing was a short, guided, honest path: from real problem to whether it's worth building.",
+      "solution": "ProductKlini is a microsaas that takes a raw idea and returns a structured diagnosis in under 30 minutes. Proprietary 4-step framework (problem → persona → value proposition → validation metric), with direct copy that cuts business-school jargon. No signup to explore, account created only when you want to save the project. Lean stack — React + Vite + Tailwind — continuous deploy on Lovable. Generative AI plays copilot: suggests persona cuts, generates value-prop variations, surfaces hypotheses to test first.",
       "process": [
         {
-          "title": "Information architecture",
+          "title": "Desk research + 6 founder interviews",
           "duration": "1 week",
-          "desc": "Sessions with 4 creator-doctors to rank the real decisions the dashboard must support. 80% of the time they only look at 3 numbers."
+          "desc": "Talked to founders in the idea-to-MVP stage to learn where they get stuck. Clear pattern: they skip validation because existing frameworks feel like homework, not business decisions."
         },
         {
-          "title": "Mobile-first prototyping",
+          "title": "4-step framework + copy rewrite",
           "duration": "2 weeks",
           "highlight": true,
-          "desc": "Charts rethought for 375px width — not desktop miniatures, but visualizations designed for a thumb. Tabs instead of sidebar."
+          "desc": "Cut dozens of templates (Lean Canvas, JTBD, Mom Test) down to essentials: 4 questions that actually change the build-or-not decision. Copy rewritten to sound like conversation, not a lesson."
         },
         {
-          "title": "Recharts integration",
-          "duration": "2 weeks",
-          "desc": "Typed wrappers over Recharts, long-series decimation with the LTTB algorithm, and useDeferredValue for slider interactions."
-        },
-        {
-          "title": "Profiling & memory",
+          "title": "UI in Figma + tokens in code",
           "duration": "1 week",
-          "desc": "React DevTools Profiler to remove unnecessary renders. Surgical memoization and listener cleanup to avoid leaks in long sessions."
+          "desc": "Minimal Design System in Figma (Variables + Auto Layout) translated directly into Tailwind tokens. No hand-off: the approved prototype became the product."
+        },
+        {
+          "title": "Build & continuous deploy on Lovable",
+          "duration": "1 week",
+          "desc": "React + Vite on Lovable for deploy-per-commit. GenAI integration to produce value-prop variations and surface test hypotheses from what the user wrote."
         }
       ],
       "results": [
         {
-          "value": "3 cards",
-          "metric": "metrics above the fold",
-          "description": "instead of 12 widgets — the rest becomes drill-down"
+          "value": "<30 min",
+          "metric": "from brief to diagnosis",
+          "description": "Average time to complete the full framework"
         },
         {
-          "value": "60fps",
-          "metric": "scroll on 1000+ points",
-          "description": "after LTTB decimation and series memoization"
+          "value": "4 steps",
+          "metric": "that replace 40 questions",
+          "description": "Lean cut based on what actually changes a decision"
         },
         {
-          "value": "WIP",
-          "metric": "shipped publicly in stages",
-          "description": "gradual launch with a cohort of creator-doctors"
+          "value": "Lovable",
+          "metric": "continuous deploy, no server",
+          "description": "Every copy or flow iteration ships in minutes"
         }
       ]
     },

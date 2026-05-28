@@ -5,22 +5,28 @@ const HardSkills = () => {
   const { t } = useTranslation();
 
   const designStrategy = [
+    { name: t("hardSkills.marquee.serviceBlueprints"), icon: "🗺️" },
     { name: t("hardSkills.marquee.uxResearch"), icon: "🔍" },
+    { name: t("hardSkills.marquee.discovery"), icon: "🧭" },
     { name: t("hardSkills.marquee.uiDesign"), icon: "🎨" },
-    { name: t("hardSkills.marquee.figma"), icon: "✏️" },
+    { name: t("hardSkills.marquee.figmaVariables"), icon: "✏️" },
+    { name: t("hardSkills.marquee.tokens"), icon: "🎟️" },
     { name: t("hardSkills.marquee.designSystems"), icon: "🧩" },
+    { name: t("hardSkills.marquee.designGovernance"), icon: "🛡️" },
+    { name: t("hardSkills.marquee.autoLayout"), icon: "📐" },
     { name: t("hardSkills.marquee.interactionDesign"), icon: "✨" },
-    { name: t("hardSkills.marquee.visualIdentity"), icon: "💎" },
-    { name: t("hardSkills.marquee.wireframing"), icon: "🖋️" },
     { name: t("hardSkills.marquee.prototyping"), icon: "📱" },
+    { name: t("hardSkills.marquee.visualIdentity"), icon: "💎" },
   ];
 
   const interfaceEngineering = [
     { name: t("hardSkills.marquee.react"), icon: "⚛️" },
     { name: t("hardSkills.marquee.typescript"), icon: "📘" },
-    { name: t("hardSkills.marquee.nextjs"), icon: "▲" },
     { name: t("hardSkills.marquee.tailwind"), icon: "💅" },
     { name: t("hardSkills.marquee.framer"), icon: "🎬" },
+    { name: t("hardSkills.marquee.aiStrategy"), icon: "🧠" },
+    { name: t("hardSkills.marquee.genAiUx"), icon: "🤖" },
+    { name: t("hardSkills.marquee.aiDiscovery"), icon: "💡" },
     { name: t("hardSkills.marquee.architecture"), icon: "🏗️" },
     { name: t("hardSkills.marquee.performance"), icon: "⚡" },
     { name: t("hardSkills.marquee.accessibility"), icon: "♿" },

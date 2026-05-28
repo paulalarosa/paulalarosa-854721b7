@@ -64,7 +64,7 @@ const Stats = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { value: 5, suffix: "+", label: t("stats.experience") },
+    { value: 8, suffix: "+", label: t("stats.experience") },
     { value: 50, suffix: "+", label: t("stats.projects") },
     { value: 150, suffix: "%", label: t("stats.leadGrowth") },
     { value: 100, suffix: "%", label: t("stats.satisfaction") },

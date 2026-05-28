@@ -8,30 +8,36 @@
     "contactBtn": "Falar comigo"
   },
   "hero": {
-    "name": "Paula La Rosa | Product Designer & Interface Engineer",
-    "subtitle": "Para founders e times de produto que perdem semanas entre o Figma e o deploy — uma só cabeça, um só vocabulário, um só repositório.",
+    "name": "Paula La Rosa | Product & Service Designer · Design Engineering · AI Strategy",
+    "subtitle": "Pra founders e times de produto que precisam ir do problema real ao produto em produção — sem perder o fio entre estratégia, design e código. Mapeio o ecossistema, desenho a experiência e implemento na mesma cabeça.",
     "viewProjects": "Abrir os cases",
     "scroll": "Scroll",
-    "tagline": "Creative UI Engineer & Designer"
+    "tagline": "Product & Service Designer · Design Engineering · AI Strategy"
   },
   "hardSkills": {
     "title": "O que entrego, com que ferramentas",
     "ecosystem": "Ecossistema",
     "aiIntegration": "Integração com IA",
     "marquee": {
+      "serviceBlueprints": "Service Blueprints",
       "uxResearch": "UX Research",
+      "discovery": "Discovery",
       "uiDesign": "UI Design",
-      "figma": "Figma",
+      "figmaVariables": "Figma Variables",
+      "tokens": "Design Tokens",
       "designSystems": "Design Systems",
+      "designGovernance": "Design Governance",
+      "autoLayout": "Auto Layout",
       "interactionDesign": "Interaction Design",
-      "visualIdentity": "Identidade Visual",
-      "wireframing": "Wireframing",
       "prototyping": "Prototipagem",
+      "visualIdentity": "Identidade Visual",
       "react": "React.js",
       "typescript": "TypeScript",
-      "nextjs": "Next.js",
       "tailwind": "Tailwind CSS",
       "framer": "Framer Motion",
+      "aiStrategy": "AI Strategy",
+      "genAiUx": "GenAI para UX",
+      "aiDiscovery": "AI-Powered Discovery",
       "architecture": "Arquitetura Escalável",
       "performance": "Otimização de Performance",
       "accessibility": "Acessibilidade (a11y)"
@@ -48,30 +54,7 @@
   },
   "designBackground": {
     "title": "Engineering e Design no mesmo cérebro",
-    "subtitle": "Sem handoff Figma → Dev. Sem 'isso não dá pra fazer'. Eu desenho o que sei implementar e implemento o que desenho — o protótipo é o produto."
-  },
-  "expertise": {
-    "title": "Áreas de Competência",
-    "strategy": {
-      "title": "Arquitetura de Componentes",
-      "desc": "Criação de componentes reutilizáveis e escaláveis com React e TypeScript. Design patterns, composição e separação de responsabilidades."
-    },
-    "automation": {
-      "title": "Performance & Otimização",
-      "desc": "Code splitting, lazy loading, memoização e otimização de renderização. Foco em Core Web Vitals e experiência fluida."
-    },
-    "performance": {
-      "title": "Acessibilidade (a11y)",
-      "desc": "Interfaces inclusivas seguindo WCAG. Semântica HTML, navegação por teclado, screen readers e testes de acessibilidade."
-    },
-    "ux": {
-      "title": "UI/UX & Design Systems",
-      "desc": "Design centrado no usuário com Figma. Criação de Design Systems consistentes, tokens e documentação de componentes."
-    },
-    "analytics": {
-      "title": "Integração & APIs",
-      "desc": "Consumo de REST APIs, autenticação, real-time com WebSockets e integrações com serviços de IA e terceiros."
-    }
+    "subtitle": "Eu desenho e codo a mesma coisa. Sem handoff, sem ping-pong, sem versão final diferente do Figma. Você aprova um protótipo, recebe o produto em produção."
   },
   "portfolio": {
     "title": "Trabalhos em Destaque",
@@ -158,13 +141,13 @@
         ]
       },
       "dashboard": {
-        "title": "Dashboard de Performance (Doctor Creator Board)",
-        "desc": "Desenvolvimento de um dashboard analítico (em construção) para criadores de conteúdo na área da saúde. Foco em visualização de dados e métricas de engajamento.",
+        "title": "ProductKlini — Plataforma de Validação",
+        "desc": "Microsaas para validar ideias de produto com framework próprio: do briefing à entrega. React + Vite + Tailwind, deploy contínuo no Lovable, foco em fluxo enxuto e copys diretos.",
         "tags": [
-          "React/TypeScript",
-          "Dashboard",
-          "DataViz",
-          "Em Construção"
+          "Microsaas",
+          "React/Vite",
+          "Product Validation",
+          "Lovable"
         ]
       }
     }
@@ -173,20 +156,20 @@
     "title": "Como entrego, do briefing ao deploy",
     "items": {
       "discovery": {
-        "title": "Research & Discovery",
-        "desc": "Entrevistas, análise competitiva e definição do problema com uma forte visão estratégica do usuário."
+        "title": "Product & Service Design",
+        "desc": "Service Blueprints, Discovery e testes de usabilidade. Mapeio o ecossistema inteiro antes de desenhar uma tela — conectando necessidade real do usuário (CX) a resultado de negócio."
       },
       "design": {
-        "title": "UI/UX & Design Systems",
-        "desc": "Background sólido em Design. Traduzo requisitos em protótipos interativos e Design Systems consistentes no Figma."
+        "title": "Design Engineering & Systems",
+        "desc": "Figma avançado (Variables, Tokens, Auto Layout) e governança de Design Systems escaláveis. Estrutura tipo dev, hand-off zero atrito com a engenharia."
       },
       "build": {
-        "title": "Frontend Engineering",
-        "desc": "Implementação pixel-perfect em React e TypeScript, focada em código limpo, arquitetura escalável e performance."
+        "title": "Frontend Implementation",
+        "desc": "React + TypeScript pixel-perfect. Falo a mesma língua do time técnico — o protótipo aprovado vira o produto em produção, sem retrabalho."
       },
       "ship": {
-        "title": "Full-Stack & Integrações",
-        "desc": "Experiência conectando frentes com Supabase, APIs REST e ferramentas de Analytics para iteração contínua em produção."
+        "title": "Innovation & AI Strategy",
+        "desc": "IA generativa como motor de eficiência: acelero Discovery, valido hipóteses, automatizo fluxos de UX e escalo ideação com pesquisa estruturada."
       }
     }
   },
@@ -212,7 +195,7 @@
     "recaptchaApply": "do Google se aplicam."
   },
   "footer": {
-    "description": "Product Designer & Interface Engineer. Construindo produtos digitais escaláveis através de design estratégico e engenharia de precisão.",
+    "description": "Product & Service Designer · Design Engineering · AI Strategy. 8+ anos mapeando ecossistemas e entregando produtos do discovery ao deploy.",
     "navigation": "Navegação",
     "social": "Redes Sociais",
     "rights": "Todos os direitos reservados."
@@ -390,48 +373,48 @@
       ]
     },
     "dashboard": {
-      "role": "Product Designer & Frontend Engineer",
-      "timeline": "6 semanas (em construção)",
-      "challenge": "Médicos que produzem conteúdo no Instagram e TikTok ficam expostos a métricas dispersas — alcance numa tela, engagement noutra, conversão pra consulta em planilha. O insight perdido é o que importa: *qual formato de conteúdo gera mais consultas marcadas*. O desafio era cross-referenciar dados de múltiplas redes em uma única visualização mobile-first, sem cair na armadilha do dashboard 'cockpit de avião' cheio de gauges inúteis.",
-      "solution": "Dashboard mobile-first onde cada gráfico responde a uma pergunta clara: 'que post converteu mais essa semana?', 'qual horário traz mais agendamento?'. Construído em React + TypeScript + Recharts, com isolamento agressivo de estado pra evitar re-renders em séries longas. Lazy loading por aba, decimação de pontos antes do render, e cores pensadas pra leitura em luz solar (alto contraste). Layout em cartas, não em grid de gauges.",
+      "role": "Product Designer & Founder",
+      "timeline": "Lançado em 2026 · evoluindo em público",
+      "challenge": "Quem tem ideia de produto na cabeça pula etapa de validação e vai direto pro Figma — ou pior, direto pro código. O resultado: 3 meses depois, MVP rodando, ninguém usando, dinheiro queimado. As ferramentas de validação que existem ou são planilhas vazias pedindo 'preencha aqui', ou frameworks acadêmicos de 40 perguntas que ninguém termina. Faltava um caminho guiado, curto e honesto: do problema real até saber se vale construir.",
+      "solution": "ProductKlini é uma microsaas que pega a ideia bruta e devolve um diagnóstico estruturado em menos de 30 minutos. Framework próprio em 4 etapas (problema → persona → proposta → métrica de validação), com copys diretos que cortam jargão de business school. Sem cadastro pra explorar, conta criada só quando você quer salvar o projeto. Stack enxuta — React + Vite + Tailwind — deploy contínuo no Lovable. A IA generativa entra como copiloto: sugere recortes de persona, gera variações de proposta de valor, aponta hipóteses pra testar primeiro.",
       "process": [
         {
-          "title": "Arquitetura de informação",
+          "title": "Desk research & entrevista com 6 founders",
           "duration": "1 semana",
-          "desc": "Sessões com 4 médicos criadores pra ranquear as decisões reais que o dashboard precisa apoiar. 80% do tempo eles olham só 3 números."
+          "desc": "Conversei com fundadores em estágio idea-to-MVP pra entender onde travam. Padrão claro: pulam validação porque os frameworks atuais parecem dever de casa, não decisão de negócio."
         },
         {
-          "title": "Mobile-first prototyping",
+          "title": "Framework de 4 etapas + redação dos copys",
           "duration": "2 semanas",
           "highlight": true,
-          "desc": "Gráficos repensados pra 375px de largura — não miniaturas dos desktop, mas visualizações pensadas pra um polegar. Tabs ao invés de sidebar."
+          "desc": "Recortei dezenas de templates (Lean Canvas, JTBD, Mom Test) no essencial: 4 perguntas que de fato mudam a decisão de construir ou não. Copys reescritos pra conversar, não pra ensinar."
         },
         {
-          "title": "Integração Recharts",
-          "duration": "2 semanas",
-          "desc": "Wrappers tipados sobre Recharts, decimação de séries longas com algoritmo LTTB, e useDeferredValue pra interações com slider."
-        },
-        {
-          "title": "Profiling & memory",
+          "title": "UI no Figma + tokens no código",
           "duration": "1 semana",
-          "desc": "React DevTools Profiler pra remover renders desnecessários. Memoização cirúrgica e cleanup de event listeners pra evitar leaks em sessões longas."
+          "desc": "Design System mínimo no Figma (Variables + Auto Layout) traduzido direto pra Tailwind tokens. Sem handoff: o protótipo aprovado virou o produto."
+        },
+        {
+          "title": "Build & deploy contínuo no Lovable",
+          "duration": "1 semana",
+          "desc": "React + Vite no Lovable pra deploy a cada commit. Integração de GenAI pra gerar variações de proposta e sugerir hipóteses de teste a partir do que o usuário escreveu."
         }
       ],
       "results": [
         {
-          "value": "3 cards",
-          "metric": "métricas above-the-fold",
-          "description": "no lugar de 12 widgets — o resto vira drill-down"
+          "value": "<30 min",
+          "metric": "do briefing ao diagnóstico",
+          "description": "Tempo médio do usuário pra completar o framework completo"
         },
         {
-          "value": "60fps",
-          "metric": "scroll em 1000+ pontos",
-          "description": "após decimação LTTB e memoização de séries"
+          "value": "4 etapas",
+          "metric": "que substituem 40 perguntas",
+          "description": "Recorte enxuto baseado no que realmente muda decisão"
         },
         {
-          "value": "WIP",
-          "metric": "em construção pública",
-          "description": "lançamento gradual com cohort de médicos criadores"
+          "value": "Lovable",
+          "metric": "deploy contínuo, sem servidor",
+          "description": "Cada iteração de copy ou fluxo entra em produção em minutos"
         }
       ]
     },

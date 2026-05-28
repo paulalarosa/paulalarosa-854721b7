@@ -27,10 +27,11 @@ const cases = [
     link: "https://www.consultorfamiliar.com.br/",
   },
   {
-    name: "Doctor Creator Board",
-    tag: "Mobile-first DataViz · 60fps em 1000+ pontos",
+    name: "ProductKlini",
+    tag: "Microsaas · validação de ideias com framework próprio",
     blurb:
-      "Dashboard para médicos criadores de conteúdo cruzando dados de Instagram/TikTok com conversão para consulta. 3 cards above-the-fold, drill-down progressivo, LTTB decimation.",
+      "Plataforma para validar ideias de produto antes de escalar — do briefing à entrega. Stack enxuta (React + Vite + Tailwind), deploy contínuo no Lovable e fluxo guiado por copys diretos.",
+    link: "https://productklini.lovable.app",
   },
   {
     name: "LMS Gamificado",
@@ -41,7 +42,7 @@ const cases = [
 ];
 
 const metrics = [
-  { value: "5+", label: "anos de experiência" },
+  { value: "8+", label: "anos de experiência" },
   { value: "50+", label: "projetos entregues" },
   { value: "14+", label: "clientes/marcas" },
   { value: "6", label: "setores diferentes" },
@@ -200,14 +201,14 @@ const PressKit = () => (
               <div className="flex items-center gap-2">
                 <Linkedin className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
                 <a href={CONTACT.linkedin} className="link-reveal">
-                  linkedin.com/in/paula-la-rosa
+                  linkedin.com/in/paulalarosa
                 </a>
               </div>
             </dl>
             <p className="text-xs text-muted-foreground mt-6 print:mt-3">
-              Respondo em até 24 horas. Primeira call de diagnóstico gratuita, sem
-              compromisso — se eu não for a pessoa certa pro seu desafio, indico
-              quem é.
+              Respondo em até 24 horas. Primeira call de diagnóstico é gratuita
+              e sem compromisso — você sai dela com clareza do próximo passo,
+              em qualquer cenário.
             </p>
           </section>
         </article>

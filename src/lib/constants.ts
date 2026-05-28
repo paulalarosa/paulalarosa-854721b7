@@ -1,7 +1,7 @@
 export const CONTACT = {
   email: 'prenata@gmail.com',
   whatsappNumber: '5521983604870',
-  linkedin: 'https://www.linkedin.com/in/paula-la-rosa-228889119/',
+  linkedin: 'https://www.linkedin.com/in/paulalarosa/',
   behance: 'https://www.behance.net/paulalarosa',
 } as const;
 

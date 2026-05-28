@@ -11,7 +11,7 @@ const PROJECT_URLS: Record<ProjectKey, string> = {
   website: "https://www.consultorfamiliar.com.br/",
   portfolio: "#",
   microsaas: "#",
-  dashboard: "#",
+  dashboard: "https://productklini.lovable.app",
   platform: "https://khaoskontrol.com.br",
 };
 
@@ -55,10 +55,10 @@ const PROJECT_STACKS: Record<ProjectKey, TechStackItem[]> = {
     { name: "XP system", icon: "🎮", reason: "Postgres triggers calculando progresso em tempo real" },
   ],
   dashboard: [
-    { name: "React + TS", icon: "⚛️", reason: "Isolamento de estado por widget pra evitar re-renders" },
-    { name: "Recharts", icon: "📊", reason: "Composição em SVG com tipagem segura" },
-    { name: "LTTB algorithm", icon: "📉", reason: "Decimação visual de séries longas mantendo a forma" },
-    { name: "useDeferredValue", icon: "⏱️", reason: "Interações com slider não bloqueiam o paint" },
+    { name: "React + Vite", icon: "⚛️", reason: "Stack enxuta pra iterar rápido em microsaas" },
+    { name: "Tailwind", icon: "🎨", reason: "Design tokens consistentes, zero CSS legacy" },
+    { name: "Lovable", icon: "💛", reason: "Deploy contínuo direto do prompt para produção" },
+    { name: "TypeScript", icon: "📘", reason: "Tipagem estrita em formulários e fluxos de validação" },
   ],
   platform: [
     { name: "React + Vite", icon: "⚛️", reason: "Build fast + bundles cirúrgicos pra cada feature" },
