@@ -4,6 +4,7 @@ import HardSkills from "@/components/HardSkills";
 import FeaturedProject from "@/components/FeaturedProject";
 import Stats from "@/components/Stats";
 import LabInnovation from "@/components/LabInnovation";
+import ProjectIndexList from "@/components/ProjectIndexList";
 import Qualifications from "@/components/Qualifications";
 import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
@@ -61,6 +62,10 @@ const Index = () => {
         </ScrollSection>
 
         <SectionDivider label="Selected Work" />
+
+        <ScrollSection>
+          <ProjectIndexList />
+        </ScrollSection>
 
         <ScrollSection>
           <LabInnovation />
