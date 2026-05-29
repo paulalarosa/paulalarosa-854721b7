@@ -12,6 +12,7 @@ import CaseStudyOverview from "@/components/case-study/CaseStudyOverview";
 import CaseStudyStack from "@/components/case-study/CaseStudyStack";
 import CaseStudyProcess from "@/components/case-study/CaseStudyProcess";
 import CaseStudyResults from "@/components/case-study/CaseStudyResults";
+import CaseStudyDecisions from "@/components/CaseStudyDecisions";
 import CaseStudyNextProject from "@/components/case-study/CaseStudyNextProject";
 import { Helmet } from "react-helmet-async";
 
@@ -86,6 +87,7 @@ const CaseStudy = () => {
             <div className="space-y-24">
               <CaseStudyOverview data={projectData} />
               <CaseStudyStack data={projectData} />
+              <CaseStudyDecisions data={projectData} />
               <CaseStudyProcess data={projectData} />
               <CaseStudyResults data={projectData} />
             </div>

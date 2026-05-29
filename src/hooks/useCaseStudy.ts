@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ProjectData, ProcessStep, TechStackItem, ResultMetric } from "@/types";
+import { ProjectData, ProcessStep, TechStackItem, ResultMetric, DecisionItem } from "@/types";
 
 export const PROJECTS = ["website", "portfolio", "microsaas", "dashboard", "platform"] as const;
 export type ProjectKey = (typeof PROJECTS)[number];
@@ -87,6 +87,7 @@ export const useCaseStudy = (projectId: string | undefined) => {
       solution: t(`caseStudy.${key}.solution`),
       stack: PROJECT_STACKS[key],
       results: asArray<ResultMetric>(t(`caseStudy.${key}.results`, { returnObjects: true })),
+      decisions: asArray<DecisionItem>(t(`caseStudy.${key}.decisions`, { returnObjects: true })),
       liveUrl: PROJECT_URLS[key],
       role: t(`caseStudy.${key}.role`),
       timeline: t(`caseStudy.${key}.timeline`),

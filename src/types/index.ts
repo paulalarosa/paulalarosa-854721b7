@@ -56,6 +56,11 @@ export interface ResultMetric {
   description: string;
 }
 
+export interface DecisionItem {
+  title: string;
+  description: string;
+}
+
 export interface ProjectData {
   key: string;
   title: string;
@@ -65,6 +70,7 @@ export interface ProjectData {
   solution: string;
   stack: TechStackItem[];
   results: ResultMetric[];
+  decisions: DecisionItem[];
   liveUrl: string;
   role: string;
   timeline: string;
