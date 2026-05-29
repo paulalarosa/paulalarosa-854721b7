@@ -66,7 +66,7 @@ const Header = () => {
     <header
       data-scrolled={isScrolled}
       data-in-hero={isInHero}
-      className="site-header fixed top-0 w-full z-50"
+      className="site-header fixed top-0 w-full z-[9999]"
     >
       <div className="container mx-auto px-6">
         <div className="site-header__inner flex items-center justify-between">
