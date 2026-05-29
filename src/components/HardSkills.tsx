@@ -5,31 +5,31 @@ const HardSkills = () => {
   const { t } = useTranslation();
 
   const designStrategy = [
-    { name: t("hardSkills.marquee.serviceBlueprints"), icon: "🗺️" },
-    { name: t("hardSkills.marquee.uxResearch"), icon: "🔍" },
-    { name: t("hardSkills.marquee.discovery"), icon: "🧭" },
-    { name: t("hardSkills.marquee.uiDesign"), icon: "🎨" },
-    { name: t("hardSkills.marquee.figmaVariables"), icon: "✏️" },
-    { name: t("hardSkills.marquee.tokens"), icon: "🎟️" },
-    { name: t("hardSkills.marquee.designSystems"), icon: "🧩" },
-    { name: t("hardSkills.marquee.designGovernance"), icon: "🛡️" },
-    { name: t("hardSkills.marquee.autoLayout"), icon: "📐" },
-    { name: t("hardSkills.marquee.interactionDesign"), icon: "✨" },
-    { name: t("hardSkills.marquee.prototyping"), icon: "📱" },
-    { name: t("hardSkills.marquee.visualIdentity"), icon: "💎" },
+    t("hardSkills.marquee.serviceBlueprints"),
+    t("hardSkills.marquee.uxResearch"),
+    t("hardSkills.marquee.discovery"),
+    t("hardSkills.marquee.uiDesign"),
+    t("hardSkills.marquee.figmaVariables"),
+    t("hardSkills.marquee.tokens"),
+    t("hardSkills.marquee.designSystems"),
+    t("hardSkills.marquee.designGovernance"),
+    t("hardSkills.marquee.autoLayout"),
+    t("hardSkills.marquee.interactionDesign"),
+    t("hardSkills.marquee.prototyping"),
+    t("hardSkills.marquee.visualIdentity"),
   ];
 
   const interfaceEngineering = [
-    { name: t("hardSkills.marquee.react"), icon: "⚛️" },
-    { name: t("hardSkills.marquee.typescript"), icon: "📘" },
-    { name: t("hardSkills.marquee.tailwind"), icon: "💅" },
-    { name: t("hardSkills.marquee.framer"), icon: "🎬" },
-    { name: t("hardSkills.marquee.aiStrategy"), icon: "🧠" },
-    { name: t("hardSkills.marquee.genAiUx"), icon: "🤖" },
-    { name: t("hardSkills.marquee.aiDiscovery"), icon: "💡" },
-    { name: t("hardSkills.marquee.architecture"), icon: "🏗️" },
-    { name: t("hardSkills.marquee.performance"), icon: "⚡" },
-    { name: t("hardSkills.marquee.accessibility"), icon: "♿" },
+    t("hardSkills.marquee.react"),
+    t("hardSkills.marquee.typescript"),
+    t("hardSkills.marquee.tailwind"),
+    t("hardSkills.marquee.framer"),
+    t("hardSkills.marquee.aiStrategy"),
+    t("hardSkills.marquee.genAiUx"),
+    t("hardSkills.marquee.aiDiscovery"),
+    t("hardSkills.marquee.architecture"),
+    t("hardSkills.marquee.performance"),
+    t("hardSkills.marquee.accessibility"),
   ];
 
   return (
@@ -60,12 +60,11 @@ const HardSkills = () => {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex animate-marquee" style={{ animationDuration: "40s", width: "max-content" }}>
-          {[...designStrategy, ...designStrategy, ...designStrategy].map((tech, index) => (
+          {[...designStrategy, ...designStrategy, ...designStrategy].map((name, index) => (
             <div key={`front-${index}`} className="flex-shrink-0 mx-3">
-              <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
-                <span className="text-xl">{tech.icon}</span>
+              <div className="flex items-center px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
                 <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
-                  {tech.name}
+                  {name}
                 </span>
               </div>
             </div>
@@ -76,12 +75,11 @@ const HardSkills = () => {
           className="flex animate-marquee"
           style={{ animationDirection: "reverse", animationDuration: "45s", width: "max-content" }}
         >
-          {[...interfaceEngineering, ...interfaceEngineering, ...interfaceEngineering].map((tech, index) => (
+          {[...interfaceEngineering, ...interfaceEngineering, ...interfaceEngineering].map((name, index) => (
             <div key={`back-${index}`} className="flex-shrink-0 mx-3">
-              <div className="flex items-center gap-3 px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
-                <span className="text-xl">{tech.icon}</span>
+              <div className="flex items-center px-6 py-3.5 bg-card/60 backdrop-blur-sm border border-border/60 rounded-full hover:border-accent/40 hover:bg-card/80 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default">
                 <span className="font-medium text-foreground tracking-wide whitespace-nowrap">
-                  {tech.name}
+                  {name}
                 </span>
               </div>
             </div>
