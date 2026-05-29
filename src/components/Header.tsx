@@ -9,6 +9,7 @@ import { useViewTransition } from "@/hooks/useViewTransition";
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,7 +21,12 @@ const Header = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        setIsScrolled(window.scrollY > 20);
+        const y = window.scrollY;
+        setIsScrolled(y > 20);
+        // Keep hero styling until we've scrolled 35% of the viewport height —
+        // this keeps white text visible while still clearly inside the hero,
+        // and makes the reverse-scroll transition feel natural rather than snapping.
+        setIsInHero(y < window.innerHeight * 0.35);
         ticking = false;
       });
     };
@@ -55,7 +61,6 @@ const Header = () => {
     else if (href === "#home") window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const isInHero = !isScrolled;
 
   return (
     <header
