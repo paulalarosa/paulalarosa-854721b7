@@ -174,8 +174,8 @@
     }
   },
   "contact": {
-    "title": "Got a product to ship?",
-    "subtitle": "I reply within 24 hours. First diagnostic call is free, no strings attached — and if I'm not the right person for your challenge, I'll point you to who is.",
+    "title": "Let's take your idea off the page?",
+    "subtitle": "I reply within 24h. First call is free and straight to the point — you walk out clear on the next step. And if I'm not the right person for your challenge, I'll point you to who is.",
     "name": "What's your name?",
     "email": "Your best email?",
     "message": "Tell me about your challenge — the more context, the better the diagnostic.",
@@ -195,7 +195,7 @@
     "recaptchaApply": "apply."
   },
   "footer": {
-    "description": "Product & Service Designer · Design Engineering · AI Strategy. 8+ years mapping ecosystems and shipping products from discovery to deploy.",
+    "description": "I design ecosystems, code what I design, and use AI to accelerate the rest. 8+ years turning problems into products — from discovery to deploy, in the same head.",
     "navigation": "Navigation",
     "social": "Social Media",
     "rights": "All rights reserved."

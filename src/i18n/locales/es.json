@@ -174,8 +174,8 @@
     }
   },
   "contact": {
-    "title": "¿Tienes un producto para lanzar?",
-    "subtitle": "Respondo en hasta 24 horas. La primera call de diagnóstico es gratis y sin compromiso — y si no soy la persona indicada para tu desafío, te indico quién es.",
+    "title": "¿Sacamos tu idea del papel?",
+    "subtitle": "Respondo en 24h. La primera call es gratis y directa al grano — sales con claridad sobre el próximo paso. Y si no soy la persona indicada para tu desafío, te indico quién es.",
     "name": "¿Cómo te llamas?",
     "email": "¿Cuál es tu mejor email?",
     "message": "Cuéntame tu desafío — cuanto más contexto, mejor el diagnóstico.",
@@ -195,7 +195,7 @@
     "recaptchaApply": "de Google se aplican."
   },
   "footer": {
-    "description": "Product & Service Designer · Design Engineering · AI Strategy. 8+ años mapeando ecosistemas y entregando productos del discovery al deploy.",
+    "description": "Diseño ecosistemas, codo lo que diseño y uso AI para acelerar el resto. 8+ años transformando problema en producto — del discovery al deploy, en la misma cabeza.",
     "navigation": "Navegación",
     "social": "Redes Sociales",
     "rights": "Todos los derechos reservados."
