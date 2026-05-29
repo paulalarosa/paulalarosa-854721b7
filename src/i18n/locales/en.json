@@ -246,7 +246,7 @@
           "desc": "Interviews with the client about audience profile, analysis of 6 direct competitors, and mapping of the emotional journey (vulnerability → trust → action)."
         },
         {
-          "title": "Wireframing",
+          "title": "The 8-field form was the problem. We cut it to 3.",
           "duration": "1 week",
           "highlight": true,
           "desc": "Low-fidelity flows tested with 3 users before final design. The key insight: cutting the booking form from 8 to 3 fields removed the biggest drop-off point."
@@ -257,7 +257,7 @@
           "desc": "Vite + React + TypeScript setup, accessible components (WCAG AA), integration with the scheduling API, and lead capture via a Zod-typed form."
         },
         {
-          "title": "Performance & SEO",
+          "title": "LCP 1.1s on 4G. Lighthouse > 95. Because speed is UX too.",
           "duration": "3 days",
           "desc": "Schema.org markup, WebP images, route-level code-splitting, and semantic meta tags. Lighthouse > 95 on mobile."
         }
@@ -333,12 +333,12 @@
       "solution": "LMS built from scratch. Level progression tied to real content milestones (not minutes watched), achievements with their own thematic identity, interactive quizzes over Supabase Realtime, and adaptive streaming. Every module closes with an 'elevation screen' — not just 'congrats, next' — reinforcing why it matters. The architecture is serverless: Supabase Auth + Postgres + Storage + Edge Functions; the frontend is React/TypeScript with a state machine for long flows.",
       "process": [
         {
-          "title": "Qualitative research",
+          "title": "12 students. All dropped at module 3. No visible progress.",
           "duration": "2 weeks",
           "desc": "Interviews with 12 students from similar courses to understand exactly when they drop. The pattern: module 3 of 8, with no visible progress feedback."
         },
         {
-          "title": "Progression system",
+          "title": "Visible progress in under 1 second. That was the golden rule.",
           "duration": "3 weeks",
           "highlight": true,
           "desc": "I designed the level / milestone system in Figma with high-fi prototypes. The rule: progression must be visible in < 1 second on screen and narratively tied to the content."
@@ -425,18 +425,18 @@
       "solution": "I built KONTROL as a finished product — not an MVP. 'Industrial Noir' Design System applied consistently across 60+ screens, real-time drag-and-drop calendar (Supabase Realtime channels), server-side PDF contract generation through edge functions, Pix payment flow with webhook tracking, and an AI assistant for operational questions. The frontend is React/Vite with a state machine for transactional flows; the backend is 100% Supabase (Postgres + Auth + Storage + Edge Functions).",
       "process": [
         {
-          "title": "Real-customer validation",
+          "title": "Every lost hour became a functional requirement.",
           "duration": "4 weeks",
           "desc": "I worked directly with a pilot salon for a month, mapping every hour spent on management. Every minute saved became a functional requirement."
         },
         {
-          "title": "Industrial Noir Design System",
+          "title": "The visual system the product needed before the first component.",
           "duration": "6 weeks",
           "highlight": true,
           "desc": "Color tokens, typography (Inter + Playfair Display + JetBrains Mono for data), spacing grid, motion language with Framer Motion. Internal docs for every component."
         },
         {
-          "title": "Core implementation",
+          "title": "RLS in Supabase, real-time scheduling, server-side PDF — nothing outsourced.",
           "duration": "16 weeks",
           "desc": "Auth + RLS row-level security, real-time calendar, PDF contracts via edge function (pdf-lib), Pix payment with automatic reconciliation, typed financial dashboards."
         },

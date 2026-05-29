@@ -246,7 +246,7 @@
           "desc": "Entrevistas con la clienta sobre el perfil de público, análisis de 6 competidores directos y mapeo del recorrido emocional (vulnerabilidad → confianza → acción)."
         },
         {
-          "title": "Wireframing",
+          "title": "El formulario de 8 campos era el problema. Lo cortamos a 3.",
           "duration": "1 semana",
           "highlight": true,
           "desc": "Flujos de baja fidelidad probados con 3 usuarios antes del diseño final. El insight clave: reducir el formulario de reserva de 8 a 3 campos eliminó el mayor punto de abandono."
@@ -257,7 +257,7 @@
           "desc": "Setup Vite + React + TypeScript, componentes accesibles (WCAG AA), integración con la API de agenda y captura de leads vía formulario tipado con Zod."
         },
         {
-          "title": "Performance & SEO",
+          "title": "LCP 1,1s en 4G. Lighthouse > 95. Porque la velocidad también es UX.",
           "duration": "3 días",
           "desc": "Schema.org markup, imágenes WebP, code-splitting por ruta y meta tags semánticos. Lighthouse > 95 en móvil."
         }
@@ -333,12 +333,12 @@
       "solution": "LMS construido desde cero. Progresión por niveles atada a hitos reales del contenido (no minutos vistos), logros visuales con identidad temática propia, quizzes interactivos sobre Supabase Realtime, y streaming adaptativo. Cada módulo cierra con una 'pantalla de elevación' — no solo 'enhorabuena, siguiente' — reforzando por qué importa. La arquitectura es serverless: Supabase Auth + Postgres + Storage + Edge Functions; el frontend en React/TypeScript con state machine para flujos largos.",
       "process": [
         {
-          "title": "Investigación cualitativa",
+          "title": "12 estudiantes. Todos abandonaron en el módulo 3. Sin progreso visible.",
           "duration": "2 semanas",
           "desc": "Entrevistas con 12 estudiantes de cursos similares para entender exactamente cuándo abandonan. El patrón: módulo 3 de 8, sin feedback visible de progreso."
         },
         {
-          "title": "Sistema de progresión",
+          "title": "Progreso visible en menos de 1 segundo. Esa fue la regla de oro.",
           "duration": "3 semanas",
           "highlight": true,
           "desc": "Diseñé el sistema de niveles y hitos en Figma con prototipos high-fi. La regla: la progresión debe ser visible en < 1 segundo de pantalla y narrativamente conectada al contenido."
@@ -425,18 +425,18 @@
       "solution": "Construí KONTROL como un producto completo — no un MVP. Design System 'Industrial Noir' aplicado consistentemente en 60+ pantallas, agenda con drag-and-drop en tiempo real (Supabase Realtime channels), generación de contratos PDF server-side con edge functions, flujo de cobro Pix con webhook tracking, y un asistente de IA para dudas operacionales. El frontend es React/Vite con state machine para flujos transaccionales; el backend es 100% Supabase (Postgres + Auth + Storage + Edge Functions).",
       "process": [
         {
-          "title": "Validación con cliente real",
+          "title": "Cada hora perdida se volvió requisito funcional.",
           "duration": "4 semanas",
           "desc": "Trabajé directamente con un salón piloto durante 1 mes, mapeando cada hora gastada en gestión. Cada minuto ahorrado se volvió requisito funcional."
         },
         {
-          "title": "Design System Industrial Noir",
+          "title": "El sistema visual que el producto necesitaba antes del primer componente.",
           "duration": "6 semanas",
           "highlight": true,
           "desc": "Tokens de color, tipografía (Inter + Playfair Display + JetBrains Mono para datos), grid de espaciado, motion language con Framer Motion. Documentación interna para cada componente."
         },
         {
-          "title": "Implementación core",
+          "title": "RLS en Supabase, agenda en tiempo real, PDF server-side — sin tercerizar nada.",
           "duration": "16 semanas",
           "desc": "Auth + RLS row-level security, agenda en tiempo real, contratos PDF vía edge function (pdf-lib), pago Pix con reconciliación automática, dashboards financieros tipados."
         },
