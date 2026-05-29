@@ -141,6 +141,22 @@ const Hero = () => {
         >
           {t("hero.tagline")}
         </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.1 }}
+          className="mt-5 text-center font-sans max-w-md mx-auto px-6"
+          style={{
+            fontSize: "clamp(0.7rem, 0.95vw, 0.85rem)",
+            color: "rgba(255,255,255,0.3)",
+            fontWeight: 300,
+            lineHeight: 1.7,
+            letterSpacing: "0.01em",
+          }}
+        >
+          {t("hero.subtitle")}
+        </motion.p>
       </div>
 
       <div
