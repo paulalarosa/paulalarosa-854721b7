@@ -1,8 +1,13 @@
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { User, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { ProjectData } from "@/types";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface CaseStudyHeroProps {
   data: ProjectData;
@@ -10,18 +15,48 @@ interface CaseStudyHeroProps {
 
 const CaseStudyHero = ({ data }: CaseStudyHeroProps) => {
   const { t } = useTranslation();
+  const imageRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    const section = sectionRef.current;
+    if (!image || !section) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        image,
+        { y: "-8%" },
+        {
+          y: "8%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section ref={sectionRef} className="relative overflow-hidden">
+      {/* Subtle gradient background */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10"
         style={{
-          backgroundImage: `radial-gradient(ellipse at top, ${data.accentColor}1a 0%, transparent 55%), linear-gradient(180deg, transparent 0%, hsl(var(--background)) 80%)`,
+          backgroundImage: `radial-gradient(ellipse at top, ${data.accentColor}18 0%, transparent 60%)`,
         }}
       />
 
-      <div className="container mx-auto px-6 pt-12 pb-20">
+      {/* Text content */}
+      <div className="container mx-auto px-6 pt-12 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,7 +98,7 @@ const CaseStudyHero = ({ data }: CaseStudyHeroProps) => {
             <div className="flex flex-col gap-4 p-6 bg-card border border-border rounded-2xl shadow-sm">
               <div className="flex items-center gap-3">
                 <span
-                  className="flex h-10 w-10 items-center justify-center rounded-lg"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg flex-shrink-0"
                   style={{ backgroundColor: `${data.accentColor}1a`, color: data.accentColor }}
                 >
                   <User className="h-4 w-4" />
@@ -80,7 +115,7 @@ const CaseStudyHero = ({ data }: CaseStudyHeroProps) => {
 
               <div className="flex items-center gap-3">
                 <span
-                  className="flex h-10 w-10 items-center justify-center rounded-lg"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg flex-shrink-0"
                   style={{ backgroundColor: `${data.accentColor}1a`, color: data.accentColor }}
                 >
                   <Calendar className="h-4 w-4" />
@@ -129,6 +164,31 @@ const CaseStudyHero = ({ data }: CaseStudyHeroProps) => {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Full-bleed image band with parallax */}
+      <div
+        className="relative overflow-hidden"
+        style={{ height: "clamp(220px, 38vw, 500px)" }}
+      >
+        <div
+          ref={imageRef}
+          className="absolute will-change-transform"
+          style={{ inset: "-12% 0" }}
+        >
+          <img
+            src={data.image}
+            alt={data.title}
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: `${data.accentColor}18` }}
+          />
+        </div>
+        {/* Top + bottom gradient fade */}
+        <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-background to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </div>
     </section>
   );
