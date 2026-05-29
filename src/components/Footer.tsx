@@ -7,16 +7,17 @@ const Footer = () => {
 
   const keywords = [
     "Product Design",
-    "Interface Engineering",
-    "UI/UX Design",
+    "Service Design",
+    "Design Engineering",
+    "AI Strategy",
     "Design Systems",
-    "React & TypeScript",
-    "Clean Code",
-    "Performance",
-    "Scalability",
-    "Web Animation",
-    "Interactive",
-    "Modern Web",
+    "Service Blueprints",
+    "Figma Variables",
+    "Discovery to Deploy",
+    "Gen AI · UX",
+    "No-Handoff Design",
+    "React · TypeScript",
+    "Design Governance",
   ];
 
   const navigation = [
