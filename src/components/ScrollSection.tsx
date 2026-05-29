@@ -12,6 +12,7 @@ interface ScrollSectionProps {
   scaleDown?: boolean;
   speed?: number;
   noEntrance?: boolean;
+  fadeOnExit?: boolean;
 }
 
 const ScrollSection = ({
@@ -22,6 +23,7 @@ const ScrollSection = ({
   scaleDown = false,
   speed,
   noEntrance = false,
+  fadeOnExit = false,
 }: ScrollSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -96,6 +98,26 @@ const ScrollSection = ({
         });
       }
 
+      // Exit-only blur/scale — runs only when the section is leaving the
+      // viewport (bottom of section crossing from 70% to top of viewport),
+      // so the content stays fully readable while in view and only blurs on
+      // the transition out. Matches the visual language of pin scaleDown
+      // sections without breaking long-content readability.
+      if (fadeOnExit) {
+        gsap.to(content, {
+          scale: 0.92,
+          opacity: 0,
+          filter: `blur(${isMobile ? 12 : 24}px)`,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "bottom 70%",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
       if (speed && speed !== 1) {
         const yOffset = (speed - 1) * 200;
         gsap.fromTo(
@@ -135,7 +157,7 @@ const ScrollSection = ({
     }, section);
 
     return () => ctx.revert();
-  }, [pin, scaleDown, speed, noEntrance]);
+  }, [pin, scaleDown, speed, noEntrance, fadeOnExit]);
 
   return (
     <div ref={sectionRef} id={id} className={`relative ${className}`}>

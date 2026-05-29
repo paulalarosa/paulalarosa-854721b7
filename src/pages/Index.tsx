@@ -66,7 +66,7 @@ const Index = () => {
           <LabInnovation />
         </ScrollSection>
 
-        <ScrollSection id="qualifications" noEntrance>
+        <ScrollSection id="qualifications" noEntrance fadeOnExit>
           <Qualifications />
         </ScrollSection>
 
@@ -76,7 +76,7 @@ const Index = () => {
           <Partners />
         </ScrollSection>
 
-        <ScrollSection noEntrance>
+        <ScrollSection noEntrance fadeOnExit>
           <Testimonials />
         </ScrollSection>
 
