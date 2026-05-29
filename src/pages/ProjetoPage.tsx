@@ -216,6 +216,42 @@ export default function ProjetoPage() {
                             </div>
                         </section>
 
+                        {project.id === 'loja-kaos' && (
+                            <section>
+                                <h2
+                                    className="text-xs uppercase tracking-widest font-medium mb-6"
+                                    style={{ color: project.accentColor }}
+                                >
+                                    Editorial
+                                </h2>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {[
+                                        'kaos_hero.webp',
+                                        'kaos_drop_espelho.webp',
+                                        'kaos_hoodie.webp',
+                                        'kaos_drops_dark.webp',
+                                        'kaos_bomber.webp',
+                                        'kaos_techwear.webp',
+                                        'kaos_puffer.webp',
+                                        'kaos_sneaker.webp',
+                                    ].map((filename, i) => (
+                                        <div
+                                            key={filename}
+                                            className={`overflow-hidden rounded-xl bg-secondary ${i === 0 ? 'col-span-2 aspect-[16/7]' : 'aspect-square'}`}
+                                        >
+                                            <img
+                                                src={`/img/kaos/${filename}`}
+                                                alt=""
+                                                aria-hidden="true"
+                                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
                         <section>
                             <h2
                                 className="text-xs uppercase tracking-widest font-medium mb-6"
