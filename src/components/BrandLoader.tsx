@@ -1,31 +1,43 @@
 import { motion } from "framer-motion";
 
-const BrandLoader = () => (
-  <div
-    role="status"
-    aria-live="polite"
-    aria-label="Carregando"
-    className="h-screen w-full grid place-items-center bg-background"
-  >
+const BRAND = "PAULA LA ROSA";
+
+const BrandLoader = () => {
+  const chars = BRAND.split("");
+
+  return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.15 }}
-      className="flex flex-col items-center gap-6"
+      role="status"
+      aria-live="polite"
+      aria-label="Carregando"
+      className="h-screen w-full grid place-items-center"
+      style={{ background: "#0a0a0a" }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <motion.div
-        className="relative w-12 h-12"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
-      >
-        <span className="absolute inset-0 rounded-full border border-foreground/10" />
-        <span className="absolute inset-0 rounded-full border-t border-foreground/80" />
-      </motion.div>
-      <span className="font-serif text-xs uppercase tracking-[0.4em] text-muted-foreground select-none">
-        Paula La Rosa
-      </span>
+      <div className="flex items-center" aria-hidden="true">
+        {chars.map((char, i) =>
+          char === " " ? (
+            <span key={i} className="w-3 md:w-4" />
+          ) : (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: i * 0.04,
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="font-serif text-3xl md:text-4xl font-semibold text-white select-none"
+            >
+              {char}
+            </motion.span>
+          )
+        )}
+      </div>
     </motion.div>
-  </div>
-);
+  );
+};
 
 export default BrandLoader;

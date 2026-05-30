@@ -65,9 +65,9 @@ const Stats = () => {
 
   const stats = [
     { value: 8, suffix: "+", label: t("stats.experience") },
-    { value: 50, suffix: "+", label: t("stats.projects") },
-    { value: 150, suffix: "%", label: t("stats.leadGrowth") },
-    { value: 100, suffix: "%", label: t("stats.satisfaction") },
+    { value: 5, suffix: "",  label: t("stats.projects") },
+    { value: 2, suffix: "+", label: t("stats.healthtech") },
+    { value: 0, suffix: "",  label: t("stats.handoffs") },
   ];
 
   return (

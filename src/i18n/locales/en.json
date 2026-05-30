@@ -12,7 +12,7 @@
     "subtitle": "For founders and product teams that need to move from the real problem to a shipped product — without losing the thread between strategy, design and code. I map the ecosystem, design the experience and implement it in the same head.",
     "viewProjects": "Open the cases",
     "scroll": "Scroll",
-    "tagline": "Product & Service Designer · Design Engineering · AI Strategy"
+    "tagline": "From brief to deploy. One person, no handoff."
   },
   "hardSkills": {
     "title": "What I ship, with which tools",
@@ -44,8 +44,8 @@
     }
   },
   "featuredProject": {
-    "badge": "Featured Project",
-    "title": "Main Case",
+    "badge": "1 designer · 60+ screens · in production",
+    "title": "Khaos Kontrol",
     "projectName": "Khaos Kontrol - MicroSaaS for Beauty Professionals",
     "description": "Self-employed beauty professionals lose 8 to 12 hours a week juggling Calendly, spreadsheets and WhatsApp. Generic tools don't speak the niche's vocabulary; custom spreadsheets don't scale. Khaos Kontrol is the specialized SaaS: real-time scheduling, PDF contracts via edge function, Pix payments with webhook tracking and an operational AI assistant — all inside an Industrial Noir Design System spanning 60+ production screens.",
     "viewLive": "Open the product",
@@ -53,7 +53,7 @@
     "dashboardPreview": "Dashboard Preview"
   },
   "designBackground": {
-    "title": "Engineering and Design in the same brain",
+    "title": "From Figma to deploy, no handoff.",
     "subtitle": "I design and code the same thing. No handoff, no ping-pong, no final version different from Figma. You approve a prototype, you get the product in production."
   },
   "portfolio": {
@@ -156,25 +156,25 @@
     "title": "How I ship, from brief to deploy",
     "items": {
       "discovery": {
-        "title": "Product & Service Design",
+        "title": "Discovery that prevents building the wrong product",
         "desc": "Service Blueprints, Discovery, and usability testing. I map the whole ecosystem before designing a single screen — connecting real user needs (CX) to business outcomes."
       },
       "design": {
-        "title": "Design Engineering & Systems",
+        "title": "Design System that devs understand on day one",
         "desc": "Advanced Figma (Variables, Tokens, Auto Layout) and scalable Design System governance. Dev-grade structure, zero-friction hand-off with engineering."
       },
       "build": {
-        "title": "Frontend Implementation",
+        "title": "Code that is the product, not a prototype",
         "desc": "Pixel-perfect React + TypeScript. I speak the same language as the engineering team — the approved prototype becomes the product in production, no rework."
       },
       "ship": {
-        "title": "Innovation & AI Strategy",
+        "title": "AI that accelerates every phase without adding complexity",
         "desc": "Generative AI as an efficiency engine: I accelerate Discovery, validate hypotheses, automate UX flows, and scale ideation with structured research."
       }
     }
   },
   "contact": {
-    "title": "Let's take your idea off the page?",
+    "title": "30 minutes. You will know if it is worth building and how.",
     "subtitle": "I reply within 24h. First call is free and straight to the point — you walk out clear on the next step.",
     "name": "What's your name?",
     "email": "Your best email?",
@@ -201,22 +201,27 @@
     "rights": "All rights reserved."
   },
   "testimonials": {
-    "title": "Voices from people I've shipped with",
+    "title": "What they say",
     "items": [
       {
-        "quote": "We spent two months looking for a freelancer who could do design and code without ping-pong. Paula shipped the whole dashboard in 6 weeks, Lighthouse 96 on mobile, zero UI rework after handoff. It was the first hire that paid ROI in the same quarter.",
+        "quote": "We spent two months looking for a freelancer who could do design and code without the ping-pong. Paula delivered the entire dashboard in 6 weeks, Lighthouse 96 on mobile, and zero UI rework after handoff. It was the first hire that paid ROI in the same quarter.",
         "author": "Rafael Mendes",
-        "role": "CTO, SaaS Startup"
+        "role": "CTO · SaaS Startup"
       },
       {
-        "quote": "Our legacy frontend had 14 different versions of the same button. In 3 months, Paula consolidated everything into a typed Design System, cut the bundle by 40% and documented every component — new devs now ship to production on day one.",
+        "quote": "Our legacy frontend had 14 different versions of the same button. In 3 months, Paula consolidated everything into a typed Design System, cut 40% of the bundle, and documented every component — now any new dev ships on day one.",
         "author": "Juliana Costa",
-        "role": "Head of Product, Fintech"
+        "role": "Head of Product · Fintech"
       },
       {
-        "quote": "We needed to launch an MVP in 8 weeks and still integrate with AI. Paula designed in Figma, implemented in React + Supabase, and plugged in the AI edge function — all in 7.5 weeks. It's now the foundation of the paid product.",
-        "author": "André Ferreira",
-        "role": "Founder, AgTech"
+        "quote": "Paula arrived at Klini as a brand designer and quickly showed that the line between design and development was artificial for her. In a year and a half, she built the corporate Design System from scratch — tokens, variables, documentation that the front-end team adopted without resistance. More than delivering interfaces: she reduces the product delivery cycle. A new dev joins the codebase knowing exactly what to do. In a healthtech with regulatory complexity, that has real value.",
+        "author": "Carol Cezar",
+        "role": "Product Manager · Klini Saúde"
+      },
+      {
+        "quote": "Paula understood before opening Figma that salon management software is not generic tooling — it is a niche with its own vocabulary and pain. The platform went from brief to production with real-time scheduling, PDF contract generation, Pix payment tracking, and a 60-screen Design System any dev can maintain. Independent professionals use it every day. That is the only metric that matters.",
+        "author": "Nathalia Barbosa",
+        "role": "Founder · Khaos Kontrol"
       }
     ]
   },
@@ -278,6 +283,20 @@
           "metric": "Lighthouse Performance",
           "description": "Best Practices 100, Accessibility 96, SEO 100"
         }
+      ],
+      "decisions": [
+        {
+          "title": "Server-rendered content, not SPA",
+          "description": "Technical SEO requires content in the initial HTML. A SPA delivers empty pages to crawlers, eliminating any chance of organic ranking."
+        },
+        {
+          "title": "Route-specific Schema.org markup",
+          "description": "Each route has its own structured data (LocalBusiness, Service, FAQPage). Generic schema everywhere does not generate rich results; route-specific schema maximizes Google presence."
+        },
+        {
+          "title": "Lead capture via edge function, zero external dependency",
+          "description": "Lead capture runs on a Supabase Edge Function — no third-party service, no per-submission cost, and complete logging of every conversion in the database."
+        }
       ]
     },
     "portfolio": {
@@ -323,6 +342,20 @@
           "value": "100%",
           "metric": "strict TypeScript",
           "description": "no `any`, Zod schemas validating every I/O boundary"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "GSAP for scroll, Framer for route transitions",
+          "description": "GSAP has perfect frame control for scrub-linked animations. Framer has the best API for AnimatePresence and page transitions. Mixing both on the same element causes conflicts — each has its domain."
+        },
+        {
+          "title": "First-party analytics via Edge Function, no cookies",
+          "description": "Pageviews and events hit a Supabase Edge Function and are saved directly to the database. No Google Analytics, no GDPR cookie banner, no data sold to third parties."
+        },
+        {
+          "title": "Portuguese as the primary i18n locale",
+          "description": "Brazilian audience is the main target. Fallback to EN happens automatically if a key is missing — never a blank screen. ES was added later without rewriting any existing string."
         }
       ]
     },
@@ -370,6 +403,20 @@
           "metric": "managed servers",
           "description": "100% serverless — scales to any load without provisioning"
         }
+      ],
+      "decisions": [
+        {
+          "title": "Progression by milestone, not by watch time",
+          "description": "Advancing based on hours watched disconnects progress from actual learning. Milestones tied to content create genuine achievement — the same mechanism that retains users in games."
+        },
+        {
+          "title": "Achievements computed by Postgres triggers, not the frontend",
+          "description": "Gamification logic on the client can be manipulated. Database triggers ensure each achievement was genuinely earned, and the XP history is auditable by design."
+        },
+        {
+          "title": "Supabase Realtime for synchronous quizzes",
+          "description": "Managed WebSocket eliminates the need for a dedicated server for live sessions. Supabase channels synchronize state between multiple students without additional infrastructure."
+        }
       ]
     },
     "dashboard": {
@@ -415,6 +462,20 @@
           "value": "Lovable",
           "metric": "continuous deploy, no server",
           "description": "Every copy or flow iteration ships in minutes"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Four linear steps, not an open canvas",
+          "description": "Canvas tools (Lean Canvas, Miro) have high abandonment rates because a blank screen causes paralysis. A guided 4-step path reduces cognitive friction and brings more users to a complete diagnosis."
+        },
+        {
+          "title": "AI as contextual copilot, not a separate feature",
+          "description": "AI suggestions appear inline, in the context of each step — not in a modal. Users perceive AI as a natural assistant, not a feature they need to learn to use."
+        },
+        {
+          "title": "Continuous deploy on Lovable, no DevOps pipeline",
+          "description": "For a product that iterates copy and UX weekly, owning a CI/CD pipeline would be overhead. Lovable allows copy or flow changes to reach production in minutes."
         }
       ]
     },
@@ -462,14 +523,28 @@
           "metric": "product in production",
           "description": "from mockup to paying MVR, without outsourcing"
         }
+      ],
+      "decisions": [
+        {
+          "title": "Industrial Noir Design System before the first component",
+          "description": "Defining tokens, motion language, and grid before any screen prevented inconsistencies across 60+ screens. The decision cost 6 weeks but eliminated identity rework mid-build."
+        },
+        {
+          "title": "Edge Functions for PDF and Pix — not client-side libraries",
+          "description": "Server-side contract generation and Pix webhooks eliminate key exposure on the client and enable logging of every payment event without frontend dependency."
+        },
+        {
+          "title": "Supabase RLS as the access barrier, not middleware",
+          "description": "Row Level Security in the database ensures each salon only sees its own data without a custom authorization layer. Less code, more auditability."
+        }
       ]
     }
   },
   "stats": {
-    "experience": "Years of Experience",
-    "projects": "Projects Delivered",
-    "leadGrowth": "Lead Growth",
-    "satisfaction": "Satisfaction"
+    "experience": "years in product",
+    "projects": "apps in production",
+    "healthtech": "years in healthtech",
+    "handoffs": "handoffs needed"
   },
   "skills": {
     "title": "Stack & Technologies",

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, Lightbulb } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { useTranslation } from 'react-i18next';
@@ -7,7 +7,6 @@ import PrefetchLink from '@/components/PrefetchLink';
 import Spotlight from '@/components/Spotlight';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '@/data/projects';
-import gsap from 'gsap';
 
 const webProjects = [
   { id: 'website',   titleKey: 'lab.projects.website.title',   descKey: 'lab.projects.website.desc',   tagsKey: 'lab.projects.website.tags'   },
@@ -76,38 +75,6 @@ const LabInnovation = () => {
   const [activeTab, setActiveTab] = useState<'design' | 'web' | 'frameworks'>('design');
   const [hovered, setHovered] = useState<number | null>(null);
   const [selectedFramework, setSelectedFramework] = useState<string | null>(frameworks[0].id);
-  const previewRef = useRef<HTMLDivElement>(null);
-  const mouse = useRef({ x: 0, y: 0 });
-  const lerped = useRef({ x: 0, y: 0 });
-  const raf = useRef<number | null>(null);
-
-  useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
-
-    const onMove = (e: MouseEvent) => {
-      mouse.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener('mousemove', onMove);
-
-    const tick = () => {
-      lerped.current.x += (mouse.current.x - lerped.current.x) * 0.1;
-      lerped.current.y += (mouse.current.y - lerped.current.y) * 0.1;
-      if (previewRef.current) {
-        gsap.set(previewRef.current, {
-          x: lerped.current.x + 28,
-          y: lerped.current.y - 130,
-        });
-      }
-      raf.current = requestAnimationFrame(tick);
-    };
-    raf.current = requestAnimationFrame(tick);
-
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      if (raf.current) cancelAnimationFrame(raf.current);
-    };
-  }, []);
 
   return (
     <section id="lab-innovation" className="py-24 bg-muted/30">
@@ -144,7 +111,7 @@ const LabInnovation = () => {
         </div>
 
         <AnimatePresence mode="wait">
-          {/* ── Product Design — editorial project index ── */}
+          {/* ── Product Design — split layout: editorial list + sticky phone frame ── */}
           {activeTab === 'design' && (
             <motion.div
               key="design"
@@ -153,12 +120,15 @@ const LabInnovation = () => {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 items-start max-w-5xl mx-auto">
+
+                {/* LEFT — editorial list */}
                 <div className="border-t border-border/60">
                   {projects.map((project, i) => (
                     <Link
                       key={project.id}
                       to={`/projeto/${project.id}`}
+                      data-cursor="view"
                       className="group relative flex items-center gap-4 md:gap-8 py-5 md:py-7 border-b border-border/60 overflow-hidden"
                       onMouseEnter={() => setHovered(i)}
                       onMouseLeave={() => setHovered(null)}
@@ -172,39 +142,28 @@ const LabInnovation = () => {
                           transition: 'transform 0.3s ease',
                         }}
                       />
-
                       {/* index */}
                       <span className="font-mono text-xs text-muted-foreground/50 w-7 flex-shrink-0 select-none pl-1">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-
                       {/* name + tagline */}
                       <div className="flex-1 min-w-0">
                         <span
                           className="font-serif text-xl md:text-2xl font-semibold leading-tight block transition-colors duration-200"
-                          style={{
-                            color: hovered === i ? project.accentColor : 'hsl(var(--foreground))',
-                          }}
+                          style={{ color: hovered === i ? project.accentColor : 'hsl(var(--foreground))' }}
                         >
                           {project.name}
                         </span>
-                        <span className="hidden md:block text-sm text-muted-foreground mt-1 truncate max-w-md">
+                        <span className="hidden md:block text-sm text-muted-foreground mt-1 truncate max-w-xs">
                           {project.tagline}
                         </span>
                       </div>
-
-                      {/* sector + year — desktop */}
+                      {/* sector + year */}
                       <div className="hidden md:flex flex-col items-end gap-0.5 flex-shrink-0 text-right">
                         <span className="text-xs font-mono text-muted-foreground/60">{project.sector}</span>
                         <span className="text-xs font-mono text-muted-foreground/40">{project.year}</span>
                       </div>
-
-                      {/* year — mobile */}
-                      <span className="md:hidden text-xs font-mono text-muted-foreground/50 flex-shrink-0">
-                        {project.year}
-                      </span>
-
-                      {/* arrow */}
+                      <span className="md:hidden text-xs font-mono text-muted-foreground/50 flex-shrink-0">{project.year}</span>
                       <ArrowUpRight
                         className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"
                         style={{ color: project.accentColor }}
@@ -212,6 +171,67 @@ const LabInnovation = () => {
                     </Link>
                   ))}
                 </div>
+
+                {/* RIGHT — sticky phone frame (desktop only) */}
+                <div className="hidden lg:block sticky top-28 self-start">
+                  {/* Phone shell */}
+                  <div
+                    className="relative mx-auto rounded-[36px] overflow-hidden border border-foreground/10 bg-background"
+                    style={{
+                      width: 240,
+                      height: 490,
+                      boxShadow: '0 32px 64px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.06)',
+                    }}
+                  >
+                    {/* Notch */}
+                    <div className="absolute top-0 inset-x-0 flex justify-center pt-3 z-10 pointer-events-none">
+                      <div className="w-14 h-4 rounded-full bg-background border border-foreground/10" />
+                    </div>
+
+                    {/* App previews — AnimatePresence for smooth switch */}
+                    <AnimatePresence mode="wait">
+                      {projects.map((project, i) =>
+                        (hovered === i || (hovered === null && i === 0)) && (
+                          <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.22 }}
+                            className="absolute inset-0"
+                          >
+                            <iframe
+                              src={project.appUrl}
+                              title={project.name}
+                              className="w-full h-full border-none"
+                              style={{ pointerEvents: 'none' }}
+                            />
+                          </motion.div>
+                        )
+                      )}
+                    </AnimatePresence>
+
+                    {/* Bottom fade */}
+                    <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Label below frame */}
+                  <div className="mt-4 text-center" style={{ width: 240, margin: '16px auto 0' }}>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={hovered ?? 'default'}
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.18 }}
+                        className="text-[10px] font-mono text-muted-foreground/50 uppercase tracking-widest block"
+                      >
+                        {hovered !== null ? projects[hovered].name : projects[0].name}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
               </div>
             </motion.div>
           )}
@@ -304,30 +324,6 @@ const LabInnovation = () => {
         </AnimatePresence>
       </div>
 
-      {/* Floating image preview — desktop only */}
-      <div
-        ref={previewRef}
-        className="fixed top-0 left-0 pointer-events-none z-50 hidden md:block rounded-xl overflow-hidden"
-        style={{
-          width: 280,
-          height: 180,
-          opacity: hovered !== null && activeTab === 'design' ? 1 : 0,
-          transition: 'opacity 0.18s ease',
-          willChange: 'transform',
-          boxShadow: '0 24px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.08)',
-        }}
-      >
-        {projects.map((project, i) => (
-          <img
-            key={project.id}
-            src={`/og/projeto-${project.id}.jpg`}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: hovered === i ? 1 : 0, transition: 'opacity 0.12s ease' }}
-          />
-        ))}
-      </div>
     </section>
   );
 };

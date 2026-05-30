@@ -8,26 +8,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+interface TestimonialItem {
+  quote: string;
+  author: string;
+  role: string;
+}
+
 const Testimonials = () => {
   const { t } = useTranslation();
 
-  const testimonials = [
-    {
-      quote: t("testimonials.items.0.quote"),
-      author: t("testimonials.items.0.author"),
-      role: t("testimonials.items.0.role"),
-    },
-    {
-      quote: t("testimonials.items.1.quote"),
-      author: t("testimonials.items.1.author"),
-      role: t("testimonials.items.1.role"),
-    },
-    {
-      quote: t("testimonials.items.2.quote"),
-      author: t("testimonials.items.2.author"),
-      role: t("testimonials.items.2.role"),
-    },
-  ];
+  const items = t("testimonials.items", { returnObjects: true }) as TestimonialItem[];
+  const testimonials = Array.isArray(items) ? items : [];
 
   return (
     <section className="py-24 bg-background">
@@ -41,10 +32,7 @@ const Testimonials = () => {
 
         <div className="max-w-5xl mx-auto">
           <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
+            opts={{ align: "start", loop: true }}
             className="w-full"
           >
             <CarouselContent>

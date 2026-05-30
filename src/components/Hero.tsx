@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import GeometricMotion from "./GeometricMotion";
 import MagneticButton from "./MagneticButton";
 import { useTranslation } from "react-i18next";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTextScramble } from "@/hooks/useTextScramble";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,9 @@ const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrambleTrigger, setScrambleTrigger] = useState(false);
+  const { displayText: line1 } = useTextScramble("PAULA", scrambleTrigger);
+  const { displayText: line2 } = useTextScramble("LA ROSA", scrambleTrigger);
 
   const scrollToSection = (selector: string) => {
     const el = document.querySelector(selector);
@@ -79,6 +83,12 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
+  // Trigger scramble once after initial mount animation settles
+  useEffect(() => {
+    const timer = setTimeout(() => setScrambleTrigger(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       id="home"
@@ -121,9 +131,9 @@ const Hero = () => {
             filter: "drop-shadow(0 0 50px rgba(255,255,255,0.1))",
           }}
         >
-          PAULA
+          {line1}
           <br />
-          LA ROSA
+          {line2}
         </motion.h1>
 
         <motion.p

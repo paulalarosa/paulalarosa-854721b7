@@ -22,10 +22,8 @@ const Header = () => {
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        setIsScrolled(y > 20);
-        // Keep hero styling until we've scrolled 35% of the viewport height —
-        // this keeps white text visible while still clearly inside the hero,
-        // and makes the reverse-scroll transition feel natural rather than snapping.
+        // Hysteresis: trigger at 80px scroll-down, release at 60px scroll-up
+        setIsScrolled(prev => (prev ? y > 60 : y > 80));
         setIsInHero(y < window.innerHeight * 0.35);
         ticking = false;
       });
